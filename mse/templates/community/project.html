@@ -1,0 +1,32 @@
+{% extends "resource_three_col.html" %}
+{% load staticfiles %}
+
+{% block title %}Classroom Project: {{ resource_object.title|safe }}{% endblock %}
+{% block body_class %}community{% endblock %}
+
+{# block content_by default inherited from resource_sidebar.html #}
+
+{% block section_class %}community{% endblock %}
+
+
+{% block breadcrumbs %}
+<li><a href="/community/">Community</a></li>
+<li class="current_item">{{ resource_object.title|safe }}</li>
+{% endblock %}
+{% block page_title %}{{ resource_object.title|safe }}{% endblock %}
+
+{% block content %} {# left col declared in resource_three_col.html #}
+	<img src="{% static 'community/projects/fullpics/' %}{{ resource_object.short_name }}_f.jpg" width="315"  alt="image of {{ resource_object.title}}" />
+
+{% endblock content %}
+
+{% block middle_col %} 
+	<h2>About the Project</h2>
+	{{ resource_object.narrative|safe}}
+
+{% endblock middle_col %}
+
+
+{% block attributes %}{# supress artifact-type attribute list #}
+{% endblock attributes %}
+

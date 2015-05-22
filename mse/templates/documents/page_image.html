@@ -1,0 +1,10 @@
+{% extends "documents/page_base.html" %}
+{# page_base includes page_controls.html #}
+{% load static %}
+
+{% block doc_view %}
+
+<img src="{% static 'documents/fullpics/' %}{{ resource_object.filename }}_{{ page_suffix}}_f.jpg" alt="image: {{ resource_object.title }}"  />
+
+{% endblock doc_view %}
+

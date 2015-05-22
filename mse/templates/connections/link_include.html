@@ -1,0 +1,5 @@
+{% load staticfiles %}
+
+{% if link.link_type == "pdf" %}	
+	<li><a href="{% static 'connections/' %}{{ link.link_heading }}_pdfs/{{ link.to_short_name }}.pdf" target="pdf">{{ link.link_text|safe }} (PDF)</a></li>
+{% endif %}

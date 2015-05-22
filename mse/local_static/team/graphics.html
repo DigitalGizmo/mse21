@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>OLC Team Site</title>
+<link href="/static/team/common/team_styles.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+<header>
+    <h1>OLC Team Site - Graphics Production</h1>
+	<nav>
+    <ul class="horiz">
+        <li>|| <a href="/static/team/index.html">OLC Team Site Home</a></li>
+        <li>|| Graphics Production</li>
+        <li>|| <a href="/static/team/pdfs.html">PDFs</a></li>
+        <li>|| <a href="/static/team/markup.html">HTML Markup for Text Entry</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section>
+<h2>Artifact and Document Images</h2>
+
+<h4>General Info</h4>
+<p>--Our project uses images of artifacts (objects) and documents. These two types of items get put into their own directories to keep them sorted.</p>
+<p>--All finished <strong>artifact files</strong> will get saved with a project "short name" as the file name. Krystal will provide you with a list that correlates collection accession numbers with the short names.</p>
+<p>--All finished <strong>document (library) file</strong>s will get saved with a "BibID" number as the file name. Krystal will provide you with a list that correlates library location names with these BibID numbers.</p>
+<p>--All the finished files will get saved to the "django" server (django.mysticseaport.org), into the specific directories listed below. Krystal and Mike Lehnertz will have to help you with access to this server if you need help.</p>
+<p>--If an item has more than one image of it (such as detail views or pages of a longer document), we've developed the following naming convention:</p>
+
+<ul>
+	<li>for artifacts the default, main image is called just the short name (ex: "1812_seabag.jpg") any other view or detail of the item is called the same short name plus the extension: _01, _02, etc. (ex: "1812_seabag_01.jpg")</li>
+	<li>for documents the system is based on the library's BibID number--the default, main image is called the BibID number plus the page suffix (ex: "12345_001.jpg") Subsequent pages are called "bibid_002" (ex: "12345_002.jpg"). Even a single page document needs the page suffix. In multipage document, use the actual page number for the suffix; for example, if we're using pages 4, 5, and 6 of a book with a BibID of 345556, the files would be called: "345556_004", "345556_005" and "345556_006".</li>
+</ul>
+
+<h4>Raw Files</h4>
+<p>These are the original image files that are high res and uncompressed. We don't need a copy of these so I'm only including them in my list so we're starting from the same understanding.</p>
+
+<h4>Master Files</h4>
+<p>These are the high res, uncompressed files that are the raw file after it's had any necessary image corrections (color corrected, sharpened, rotated and cropped). After correcting, this should be saved as a TIFF with the OLC short name (ex: "1812_seabag.tif").</p>
+
+<p>These files get saved to the "django" server, in the following directories:</p>
+<ul>
+	<li>C:\photolab\olc_masters\artifacts</li>
+	<li>C:\photolab\olc_masters\documents</li>
+</ul>
+
+<h4>Page Views (aka: Full Pics)</h4>
+<p>These are jpg files created from the master files at high quality (70-80%) at 72 dpi. They need to be 640 pixels wide if the image is horizontal in orientation and 315 pixels wide if vertical. (see examples attached) Something that could be shown either horizontally or vertically (such as a harpoon) should be horizontal if possible.</p> 
+
+<p>Okay, here's some rough road: for any artifact that has additional views such as details, we need the additional views to match the default view in certain dimensions. So, if the default view is a horizontal image and is 640 pixels wide and say, 200 pixels high, the additional views need to match the height of 200 pixels but can be any width as the image will be centered in the 640 pixel space. If the default view is vertical and so is 315 pixels wide, the additional views also need to be 315 pixels wide but can be any height.</p>
+
+<p>These files get saved to the "django" server, in the following directories:</p>
+<ul>
+	<li>C:\sites\olc\artifacts\static\artifacts\fullpics</li>
+	<li>C:\sites\olc\documents\static\documents\fullpics</li>
+</ul>
+
+<h4>Menu Views</h4>
+<p>These are jpg files at high quality, at 72 dpi that are 150 pixels square. We only need Menu views of the default images--not any additional views or pages.  Please crop so that the image is appealing and recognizable--it's a judgement call! You can see examples here: http://olc.digitalgizmo.com/static/artifacts/index.html.</p>
+
+<p>These files get saved to the "django" server, in the following directories:</p>
+<ul>
+	<li>C:\sites\olc\artifacts\static\artifacts\menupics</li>
+	<li>C:\sites\olc\documents\static\documents\menupics</li>
+</ul>
+
+<h4>Thumbnails</h4>
+<p>These are jpg files at high quality, at 72 dpi that are 70 pixels square. We only need thumbnail views of the default images--not any additional views or pages. You can use the same crop as on the Menu view files. You can see examples here under the heading "Related Items from the Collection": http://olc.digitalgizmo.com/static/artifacts/index.html.</p> 
+
+<p>These files get saved to the "django" server, in the following directories:</p>
+<ul>
+	<li>C:\sites\olc\artifacts\static\artifacts\thumbpics</li>
+	<li>C:\sites\olc\documents\static\documents\thumbpics</li>
+</ul>
+
+
+</section>
+
+</body>
+</html>

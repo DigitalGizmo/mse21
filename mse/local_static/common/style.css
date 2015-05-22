@@ -1,0 +1,1701 @@
+/*! WordPress theme for Mystic Seaport by 10up LLC 2013-05-14 */
+@import url(http://fonts.googleapis.com/css?family=Tienne:400,700);
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #fff;
+	font: 14px/20px Helvetica, Arial, sans-serif;
+	color: #323232;
+}
+
+/**
+ * Typography
+ */
+
+p {
+	margin: 10px 0 20px;
+}
+
+h1,
+#slider h2 {
+	font: bold 22px/30px Tienne, Georgia, "Times New Roman", Times, serif;
+	text-transform: uppercase;
+	color: #002b60;
+}
+
+h2 {
+	font: bold 18px/25px Tienne, Georgia, "Times New Roman", Times, serif;
+	text-transform: uppercase;
+	color: #4d6a7b;
+}
+
+h3 {
+	font: bold 18px/25px Tienne, Georgia, "Times New Roman", Times, serif;
+	color: #4d6a7b;
+}
+
+h4 {
+	font: bold 14px/20px Tienne, Georgia, "Times New Roman", Times, serif;
+	color: #587485;
+}
+
+.page #content h2, .single-mystic_locations #content h2, .page #content h3, .single-mystic_locations #content h3, .single-mystic_locations #content h4, .page #content h4 {
+	clear: left;
+}
+
+h5 {
+	font: bold 12px/18px Tienne, Georgia, "Times New Roman", Times, serif;
+	color: #002b60;
+}
+
+h6 {
+	font: bold 10px/16px Tienne, Georgia, "Times New Roman", Times, serif;
+	color: #587485;
+	text-transform: uppercase;
+}
+
+#content h3 {
+	text-transform: none;
+}
+
+body.single-mystic_locations #content h1 {
+	text-transform: none;
+}
+
+.entry-content h2,
+.entry-content h3 {
+	margin: 30px 0 10px;
+}
+
+.entry-content > h2:first-child,
+.entry-content > h3:first-child {
+	margin: 0 0 10px;
+}
+
+#page #content ul, #page #content ol {
+	list-style: inside;
+}
+
+#page #content ul li {
+	padding-bottom: 10px;
+}
+
+#page #content ul li ul {
+	list-style: circle;
+	padding: 0 0 0 30px;
+}
+
+#page #content ol {
+	list-style: decimal inside;
+}
+
+#page #content ol ol {
+	list-style: lower-alpha;
+	margin-left: 30px;
+}
+
+#page #content dl dt {
+	font-weight: bold;
+}
+
+#page #content dl dd {
+	border-left: 3px #ededed solid;
+	padding-left: 5px;
+}
+
+#page #content ol, #page #content dl, #page #content ul, #page #content table {
+	margin-bottom: 15px;
+}
+
+#page #content table {
+	border-bottom: 1px solid #ededed;
+	color: #757575;
+	font-size: 12px;
+	font-size: 0.857142857rem;
+	line-height: 2;
+	margin: 24px 0;
+	width: 100%;
+	border: 1px solid #ededed;
+}
+
+.artist-gallery table {
+	width: 417px !important;
+}
+
+#page #content table caption {
+	font-size: 16px;
+	font-size: 1.142857143rem;
+	margin: 24px 0;
+	margin: 1.714285714rem 0;
+}
+
+#page #content td {
+	border-top: 1px solid #ededed;
+	padding: 6px 10px 6px 10px;
+}
+
+#page #content table tr {
+	height: 40px;
+}
+
+#page #content table tr th {
+	border-right: 1px solid #ffffff;
+	background: #002a5f;
+	color: #fff;
+	font: bold 12px/18px Tienne, Georgia, "Times New Roman", Times, serif;
+}
+
+#page #content table tr td {
+	border-right: 1px solid #ededed;
+}
+
+#page #content table tr th:last-child, #page #content table tr td:last-child {
+	border-right: 0;
+}
+
+/* Text meant only for screen readers */
+.assistive-text {
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+
+hr {
+	clear: both;
+	width: 100%;
+	height: 1px;
+	border: none;
+	color: #a3b3bc;
+	background-color: #a3b3bc;
+	margin: 30px auto;
+}
+
+blockquote {
+	margin: 20px;
+}
+
+blockquote cite {
+	font-style: italic;
+	font-size: 11px;
+	display: block;
+	margin: 5px 0 0;
+	text-align: right;
+	border: none;
+}
+
+blockquote cite:before {
+	content: "\2014 \0020";
+}
+
+.entry-content ul,
+.entry-content ol {
+	margin: 20px 40px;
+}
+
+.entry-content ul ul,
+.entry-content ol ol,
+.entry-content ul ol,
+.entry-content ol ul {
+	margin: 0 20px 0;
+}
+
+.entry-content li {
+	padding: 2px 0 3px;
+}
+
+/**
+ * Links
+ */
+a {
+	text-decoration: none;
+	color: #587485;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 a, h2 a, h3 a {
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, #sitename:hover {
+	text-decoration: none;
+}
+
+.tribe-events-widget-link a {
+	display: block;
+	text-align: right;
+	margin: 10px 0;
+	clear: both;
+}
+
+.readmore, .tribe-events-widget-link a {
+	font-weight: bold;
+	line-height: 15px;
+	font-size: 12px;
+	color: #002b60;
+}
+
+.readmore:after, .tribe-events-widget-link a:after {
+	content: " ";
+	display: inline-block;
+	background: url('css_images/sprite.png') no-repeat -570px -60px;
+	width: 8px;
+	height: 8px;
+	margin-left: 5px;
+	vertical-align: 1px;
+}
+
+.readmore:hover:after, .tribe-events-widget-link a:hover:after {
+	margin-right: -5px;
+	margin-left: 10px;
+}
+
+/**
+ * Helper Classes
+ */
+.clear {
+	clear: both !important;
+	height: 0 !important;
+	width: 100% !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	float: none !important;
+	background: none !important;
+	line-height: 0 !important;
+	font-size: 1px !important;
+}
+
+.group:before, .group:after {
+	content: "";
+	display: table;
+}
+
+.group:after {
+	clear: both;
+}
+
+.group {
+	*zoom: 1;
+}
+
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+}
+
+.aligncenter,
+div.aligncenter,
+img.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/**
+ * Images
+ */
+img {
+	border: none;
+	max-width: 100%;
+	height: auto;
+}
+
+img.alignleft,
+.wp-caption.alignleft {
+	margin: 10px 20px 10px 0;
+}
+
+img.alignright,
+.wp-caption.alignright {
+	margin: 10px 0 10px 20px;
+}
+
+.wp-caption,
+.entry-attachment .attachment {
+	margin: 10px 0 20px;
+}
+
+.wp-caption img,
+.entry-attachment .attachment img {
+	display: block;
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+
+.wp-caption p.wp-caption-text,
+.wp-caption-dd {
+	font-size: 13px;
+	padding: 5px 0;
+	margin: 0;
+	border-bottom: 1px solid #a3b3bc;
+	color: #666;
+}
+
+.entry-attachment .attachment {
+	margin: 15px 0;
+}
+
+.attachment, .caption {
+	text-align: center;
+}
+
+/**
+ * Structure
+ */
+.container {
+	width: 1005px;
+	margin: 0 auto;
+}
+
+.col-full {
+	clear: both;
+	padding: 30px 0;
+	width: auto;
+}
+
+.col-onethird {
+	padding: 30px 10px;
+	width: 315px;
+	float: left;
+}
+
+.col-twothirds {
+	width: 640px;
+	float: left;
+	padding: 30px 30px 30px 0;
+}
+
+/**
+ * Header
+ */
+#header {
+	background: #002b60;
+	height: 130px;
+	min-width: 1010px;
+	-webkit-box-shadow: 0 3px 10px 1px rgba(0, 0, 0, .44);
+	-moz-box-shadow: 0 3px 10px 1px rgba(0, 0, 0, .44);
+	box-shadow: 0 3px 10px 1px rgba(0, 0, 0, .44);
+	position: relative;
+	z-index: 100;
+}
+
+#header div.container {
+	height: 88px;
+}
+
+#site-name {
+	float: left;
+	margin: 17px 0 0 10px;
+}
+
+#site-name a {
+	display: block;
+	text-indent: -9999px;
+	width: 576px;
+	height: 49px;
+	background: url(css_images/sprite.png) 0 0;
+	-webkit-box-shadow: -1px 3px 10px 1px rgba(0, 0, 0, .3);
+	-moz-box-shadow: -1px 3px 10px 1px rgba(0, 0, 0, .3);
+	box-shadow: -1px 3px 10px 1px rgba(0, 0, 0, .3);
+}
+
+#header #searchform {
+	float: right;
+	margin: 35px 10px 0 0;
+}
+
+#searchform {
+	width: 200px;
+	height: 23px;
+	position: relative;
+}
+
+#searchform label {
+	font: 12px/23px Helvetica, Arial, sans-serif;
+	color: #bfbfbf;
+	position: absolute;
+	top: 0;
+	left: 30px;
+	cursor: text;
+}
+
+#s {
+	height: 18px;
+	padding: 3px 10px 2px 30px;
+	background: #fff url(css_images/sprite.png) no-repeat -582px 5px;
+	font: 12px/18px Helvetica, Arial, sans-serif;
+	-webkit-border-radius: 11px;
+	-moz-border-radius: 11px;
+	border-radius: 11px;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .4);
+	-moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .4);
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, .4);
+	border: none;
+	outline: none;
+}
+
+#site-about {
+	float: right;
+	margin-top: 35px;
+}
+
+#site-about a {
+	display: inline-block;
+	font: 11px/23px Tienne, Georgia, "Times New Roman", Times, serif;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 0 20px;
+}
+
+/**
+ * Navigation
+ */
+#nav {
+	background: #587485;
+	height: 42px;
+	text-align: center;
+}
+
+#nav > ul {
+	display: table;
+}
+
+#nav > ul > li {
+	display: block;
+    float: left;
+    list-style: none outside none;
+    padding: 0 10px;
+    position: relative;
+}
+	#nav > ul > li.last {
+		padding-right: 0;
+	}
+	#nav > ul > li.support ul {
+		width: 600px;
+	}
+
+#nav > ul > li > a {
+	font: bold 16px/42px Tienne, Georgia, "Times New Roman", Times, serif;
+	text-transform: uppercase;
+	color: #fff;
+	display: block;
+	padding: 0 20px;
+}
+
+#nav > ul > li:hover > a,
+#nav > ul > li > a:hover {
+	background: #5f798a;
+	-webkit-box-shadow: -1px 5px 10px 1px rgba(0, 0, 0, .5);
+	-moz-box-shadow: -1px 5px 10px 1px rgba(0, 0, 0, .5);
+	box-shadow: -1px 5px 10px 1px rgba(0, 0, 0, .5);
+	text-decoration: none;
+}
+
+#nav > ul > li > ul {
+	position: absolute;
+	top: 42px;
+	display: none;
+	width: 680px;
+	padding: 10px 0;
+	background: #5f798a;
+	-webkit-box-shadow: -1px 5px 10px 1px rgba(0, 0, 0, .5);
+	-moz-box-shadow: -1px 5px 10px 1px rgba(0, 0, 0, .5);
+	box-shadow: -1px 5px 10px 1px rgba(0, 0, 0, .5);
+}
+
+#nav > ul > li > ul.right-side {
+	right: 0 !important;
+}
+
+#nav > ul > li:hover > ul {
+	display: block;
+}
+
+#nav > ul > li > ul > li {
+	padding: 5px 10px;
+	/* min-width: 160px; */
+	width: 205px;
+	float: left;
+	text-align: left;
+	list-style: none;
+}
+
+#nav > ul > li > ul > li a {
+	font: bold 13px/18px Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	padding: 2px 10px;
+	color: #fff;
+	display: inline-block;
+	letter-spacing: 1px;
+}
+
+#nav > ul > li > ul > li ul {
+	padding: 0 10px;
+}
+
+#nav > ul > li > ul > li li {
+	list-style: none;
+}
+
+#nav > ul > li > ul > li li a {
+	font-size: 12px;
+	text-transform: none;
+}
+
+/**
+ * Emergencies
+ */
+#emergency {
+	background: #e8d609;
+	position: relative;
+}
+
+#emergency strong {
+	font: bold 14px/16px Tienne, Georgia, "Times New Roman", Times, serif;
+	text-transform: uppercase;
+}
+
+#emergency p {
+	margin: 0 !important;
+	padding: 0 !important;
+	display: inline;
+}
+
+#emergency > div {
+	width: 986px;
+	margin: 0 auto;
+	line-height: 40px;
+}
+
+#emergency a {
+	color: #000;
+	text-decoration: underline;
+}
+
+#close-emergency {
+	font: bold 14px/16px Tienne, Georgia, "Times New Roman", Times, serif;
+	text-align: right;
+	cursor: pointer;
+	float: right;
+	line-height: 40px;
+}
+
+/**
+ * Intro
+ */
+#intro {
+	height: 618px;
+	min-width: 1010px;
+	background: url(../../img/texture.jpg) repeat-x 50% 0;
+	-webkit-box-shadow: inset 0 3px 15px -5px rgba(0, 0, 0, .54);
+	-moz-box-shadow: inset 0 -3px 15px -5px rgba(0, 0, 0, .54);
+	box-shadow: inset 0 -3px 15px -5px rgba(0, 0, 0, .54);
+}
+
+#slider {
+	width: 986px;
+	margin: 0 auto;
+	height: 488px;
+	box-shadow: 0 5px 10px 1px rgba(0, 0, 0, .25);
+	position: relative;
+}
+
+.slider-slides {
+	width: 100%;
+	height: 100%;
+	margin-bottom: 16px;
+	background:#002b60;
+}
+
+.slider-slides li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	list-style: none;
+	width: 986px;
+}
+
+.slider-slides img {
+	display: block;
+	position: relative;
+	z-index: 1;
+}
+
+.slider-slides .slideinfo {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 10;
+	background: #fff;
+	background: rgba(255, 255, 255, .8);
+	padding: 15px 25px;
+	width: 936px;
+}
+
+.slider-slides .slideinfo h2,
+.slider-slides .slideinfo p {
+	display: inline;
+	margin: 0;
+}
+
+.slider-slides .slideinfo p.readmore {
+	font-weight: normal;
+	font-size: 16px;
+	color: #252525;
+	padding-left: 5px;
+}
+
+.slider-slides .slideinfo p.readmore:after {
+	background: url('css_images/sprite.png') no-repeat -490px -60px;
+	width: 12px;
+	height: 12px;
+	vertical-align: 0
+}
+
+.slider-thumbs {
+	float: left;
+}
+
+.slider-thumbs li {
+	list-style: none;
+	float: left;
+	margin-right: 6px;
+	width: 160px;
+}
+
+.slider-thumbs li img {
+	display:block;
+}
+
+.slider-thumbs li.active img {
+	outline:4px solid #587485;
+}
+
+#plan {
+	float: right;
+	width: 295px;
+}
+
+#plan li {
+	list-style: none;
+}
+
+#plan a {
+	display: block;
+	font: bold 12px/26px Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	color: #012f65;
+	padding-left: 35px;
+	background: url('css_images/sprite.png') no-repeat -590px -29px;
+}
+
+#plan .plan-directions a {
+	background-position: -590px -61px;
+}
+
+#plan .plan-schedule a {
+	background-position: -591px -95px;
+}
+
+/**
+ * Accordion
+ */
+.accordion {
+	margin: 20px 0;
+}
+
+.accordion li {
+	list-style: none;
+	border-bottom: 1px solid #a3b3bc;
+	overflow: hidden;
+}
+
+.accordion h4 {
+	cursor: pointer;
+	line-height: 42px;
+	outline: none;
+}
+
+.accordion h4:after {
+	content: " ";
+	display: inline-block;
+	background: url('css_images/sprite.png') no-repeat -530px -60px;
+	width: 12px;
+	height: 12px;
+	margin-left: 5px;
+	vertical-align: -1px;
+}
+
+.accordion h4.ui-state-active:after {
+	background-position: -510px -60px;
+}
+
+.accordion p {
+	margin: 0;
+	padding: 0 20px 30px;
+}
+
+/**
+ * itineraries
+ */
+#itineraries {
+	margin: 10px 0 10px;
+	border-top: 1px solid #a3b3bc;
+}
+
+#itineraries article {
+	border-bottom: 1px solid #a3b3bc;
+	padding: 10px 0;
+}
+
+#itineraries img {
+	float: left;
+}
+
+
+#itineraries ul {
+	margin: 10px 0;
+}
+
+#itineraries li {
+	width: 280px;
+	float: left;
+	list-style: none;
+	font-size: 12px;
+}
+
+#itineraries li:nth-child(even) {
+	width: 245px;
+}
+
+#itineraries .save {
+	margin: 0;
+	clear: left;
+	padding: 10px 0 0;
+	font-size: 12px;
+}
+
+/**
+ * Entries
+ */
+.entry-item {
+	margin: 20px 0 30px;
+	min-height: 100px;
+	clear: both;
+	overflow: hidden;
+}
+
+.entry-item img {
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 15px;
+}
+
+.entry-item h2 {
+	text-transform: none;
+}
+
+.entry-meta {
+	font-size: 12px;
+	margin: 5px 0;
+}
+
+/**
+ * Sidebar and asides
+ */
+#sidebar {
+	margin-top: 40px;
+}
+
+#sidebar aside {
+	margin-bottom: 30px;
+}
+
+.widget_support_list li {
+	list-style: none;
+}
+
+.widget_support_list a {
+	text-transform: uppercase;
+}
+
+.tribe-events-adv-list-widget p {
+	display: inline;
+}
+
+.mystic-category-posts h3,
+.tribe-events-adv-list-widget h3,
+.widget_video_image h3, .mystic_Video_Widget h3, .widget_tag_cloud h3,
+.location-widget h3, #sidebar .admission h3{
+	background: #587485;
+	color: #fff;
+	padding-left: 20px;
+	line-height: 42px;
+	position: relative;
+}
+
+.tribe-events-adv-list-widget h3 {
+	background: #002b60;
+}
+
+.mystic-category-posts h3:after,
+.tribe-events-adv-list-widget h3:after,
+.mystic_Video_Widget h3:after, .widget_tag_cloud h3:after,
+.location-widget h3:after, .admission h3:after {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 42px;
+	right: 20px;
+	background: url('css_images/sprite.png') no-repeat -430px -60px;
+	width: 14px;
+	height: 7px;
+}
+
+.tribe-events-adv-list-widget h3:after {
+	background-position: -460px -60px;
+}
+
+.widget_tag_cloud h3 {
+	margin-bottom: 20px;
+}
+
+.widget_tag_cloud a {
+	color: #002b60;
+}
+
+.tribe-events-adv-list-widget,
+.mystic-category-posts {
+	padding-bottom: 0;
+}
+
+.tribe-events-adv-list-widget li,
+.mystic-category-posts li {
+	padding-top: 10px;
+	list-style: none;
+	clear: both;
+}
+
+.tribe-events-adv-list-widget img,
+.mystic-category-posts img {
+	float: left;
+	margin-right: 13px;
+}
+
+.tribe-events-adv-list-widget img {
+	width: 57px;
+	height: 57px;
+}
+
+.home .tribe-events-adv-list-widget img {
+	width: 80px;
+	height: 80px;
+}
+
+.mystic-category-posts img {
+	width: 80px;
+	height: 80px;
+	display: block;
+}
+
+.tribe-events-adv-list-widget li p,
+.mystic-category-posts li p {
+	margin: 0;
+	font-size: 11px;
+	line-height: 17px;
+}
+
+.event_widget_date {
+	text-transform: uppercase;
+}
+
+.tribe-events-adv-list-widget > p:last-child,
+.mystic-category-posts > p:last-child {
+	clear: both;
+}
+
+.widget_text p {
+	margin-top: 0;
+}
+
+.mystic_Video_Widget,
+.widget_video_image {
+	width: 315px;
+}
+
+.mystic_Video_Widget iframe {
+	width: 315px;
+	height: 178px;
+}
+
+.readmore, .tribe-events-widget-link a, .widget_nav_menu a, .widget_categories a, .widget_archive a {
+	font-weight: bold;
+	line-height: 15px;
+	font-size: 12px;
+	color: #002b60;
+}
+
+.readmore:after, .tribe-events-widget-link a:after, .widget_nav_menu a:after, .widget_categories a:after, .widget_archive a:after {
+	content: " ";
+	display: inline-block;
+	background: url('css_images/sprite.png') no-repeat -570px -60px;
+	width: 8px;
+	height: 8px;
+	margin-left: 5px;
+	vertical-align: 1px;
+}
+
+.readmore:hover:after, .tribe-events-widget-link a:hover:after, .widget_nav_menu a:hover:after, .widget_categories a:hover:after, .widget_archive a:hover:after {
+	margin-right: -5px;
+	margin-left: 10px;
+}
+
+.widget_nav_menu ul, .widget_categories ul, .widget_archive ul, #page #content .widget_nav_menu ul {
+	list-style: none;
+}
+
+#page #content .widget_nav_menu li {
+	padding-bottom: 0;
+}
+
+.action {
+	display: inline-block;
+	font: bold 17px/38px Tienne, Georgia, "Times New Roman", Times, serif;
+	text-transform: uppercase;
+	color: #fff;
+	background: #a61a32;
+	padding: 0 5px;
+	min-width: 197px;
+	max-width: 284px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	height: 35px;
+	box-shadow: 2px 3px 5px rgba(50,50,50,1);
+	text-align: center;
+	position: relative;
+}
+
+.action:after {
+	content: " ";
+	position: absolute;
+	background: rgba(255,255,255,.6) url('css_images/sprite.png') no-repeat -201px -61px;
+	width: 22px;
+	height: 40px;
+	z-index: 5;
+	right: -22px;
+}
+
+.action:hover:after {
+	background: rgba(255,255,255,.6) url('css_images/sprite.png') no-repeat -201px -106px;
+}
+
+.action:hover {
+	background: #890e1e;
+	text-decoration: none;
+}
+
+.sponsor-item {
+	text-align:center;
+	padding: 0;
+	line-height: 17px;
+	margin: 10px 0;
+}
+
+.sponsor-item img {
+	display: block;
+	margin: 0 auto;
+}
+
+.sponsor-item span {
+	font-size: 11px;
+}
+
+/**
+ * Footer
+ */
+#footer {
+	background: #002b60;
+	color: #fff;
+	font-size: 11px;
+	line-height: 18px;
+	height: 133px;
+	min-width: 1010px;
+	-webkit-box-shadow: -1px -2px 10px 1px rgba(0, 0, 0, .22);
+	-moz-box-shadow: -1px -2px 10px 1px rgba(0, 0, 0, .22);
+	box-shadow: -1px -2px 10px 1px rgba(0, 0, 0, .22);
+}
+
+#footer a {
+	color: #fff;
+}
+
+.footer-nav {
+	font: bold 12px/30px Tienne, Georgia, "Times New Roman", Times, serif;
+	padding: 15px 0;
+	height: 30px;
+}
+
+.footer-nav li {
+	list-style: none;
+	float: left;
+}
+
+.footer-nav li:before {
+	content: '|';
+	color: #fff;
+}
+
+.footer-nav li:first-child:before {
+	content: '';
+}
+
+.footer-nav li a {
+	padding: 0 8px;
+}
+
+.footer-contact,
+.footer-social,
+.footer-copyright {
+	width: 33.33%;
+	float: left;
+}
+
+.footer-social {
+	text-align: center;
+	padding: 10px 0;
+}
+
+.footer-social li {
+	list-style: none;
+	display: inline;
+	margin: 0 5px;
+}
+
+.footer-social a {
+	display: inline-block;
+	width: 30px;
+	height: 32px;
+	text-indent: -9999px;
+	background: url(css_images/sprite.png) no-repeat -230px -60px;
+}
+
+.footer-social .twitter a {
+	background-position: -270px -60px;
+}
+
+.footer-social .youtube a {
+	background-position: -310px -60px;
+}
+
+.footer-social .flickr a {
+	background-position: -350px -60px;
+}
+
+.footer-social .pinterest a {
+	background-position: -390px -60px;
+}
+
+.footer-social .google a {
+	background-position: -350px -60px;
+}
+
+.footer-copyright {
+	padding-top: 18px;
+	text-align: right;
+}
+
+.mystic-event-save.spinner {
+	background: url( ../../img/spinner.gif) no-repeat;
+	padding-left: 20px;
+}
+
+.mystic-event-save.success {
+	color: #00c000;
+}
+
+.mystic-event-save.error {
+	color: #d20000;
+}
+
+.mystic-event-button .success {
+	color: #00FF00;
+}
+
+.mystic-event-button .error {
+	color: #ff0000;
+}
+
+
+/**
+ * gallery archive buckets
+ */
+.post-type-archive-mystic_artists .gallery-list li {
+	list-style-type: none;
+}
+
+/**
+ * Intra-gallery navigation
+ */
+.mystic-gallery-navigation {
+	margin-bottom: 1em;
+	border-bottom: 1px solid #a3b3bc;
+}
+
+.mystic-gallery-navigation .label {
+	float: left;
+	font-style: italic;
+	color: #ccc;
+	padding-right: .5em;
+}
+
+.mystic-gallery-navigation li {
+	display: inline-block;
+	padding: 0 .5em 10px .5em !important;
+	position: relative;
+}
+
+.mystic-gallery-navigation li .arrow {
+	display: inline-block;
+	width: 15px;
+	height: 1em;
+	background: url('css_images/sprite.png') no-repeat -525px -57px
+}
+
+.mystic-gallery-navigation a {
+	display: inline-block;
+}
+
+.mystic-gallery-navigation ul {
+	margin-bottom: 0 !important;
+}
+
+.mystic-gallery-navigation ul li ul {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.mystic-gallery-navigation li ul {
+	margin-top: 1em;
+	background-color: #fff;
+	border: 1px solid #a3b3bc;
+	border-top: none;
+	padding: 10px 0 0 0;
+	display: none;
+}
+
+.mystic-gallery-navigation li ul li {
+	display: block;
+	white-space: nowrap;
+	background-image: none;
+	padding-bottom: 10px !important;
+}
+
+.mystic-gallery-navigation li:hover ul {
+	display: block;
+	position: absolute;
+	top: 30px;
+}
+
+.mystic-gallery-navigation li:hover .arrow {
+	background: url('css_images/sprite.png') no-repeat -507px -55px
+}
+
+#pagination {
+	text-align: center;
+}
+
+/**
+ * Single Events
+ */
+
+.inter-content-cols.side-col {
+	width: 26%;
+	float: left;
+	padding-right: 2%;
+}
+
+.inter-content-cols.main-col {
+	width: 70%;
+	padding-left: 2%;
+	float: right;
+}
+
+.inter-content-cols.half-col {
+	width: 48%;
+}
+
+.inter-content-cols.right {
+	float: right;
+	padding-left: 2%;
+}
+
+.inter-content-cols.left {
+	float: left;
+	padding-right: 2%;
+}
+
+.mystic-event-button {
+	display: block;
+	background-color: #a3b3bc ;
+	text-align: center;
+	padding: .25em;
+	margin: .25em auto;
+	border-radius: 2px;
+	color: #fff;
+}
+
+.mystic-event-button a {
+	color: #fff;
+}
+
+a.mystic-event-button:hover,
+.mystic-event-button:hover {
+	background-color: #71a2bd;
+}
+
+.single-tribe_events .date-time, .events-list .date-time, .events-archive .date-time {
+	border-radius: 2px;
+	background-color: #f2f8fa;
+	padding: .5em;
+	margin-bottom: 1.5em;
+}
+
+.tribe-events-loop .tribe-events-content {
+	float: none;
+	}
+
+
+.single-tribe_events .sponsor {
+	text-align: center;
+}
+
+.single-tribe_events .event-series {
+	margin:.5em 0 0 0 !important; /* override tribe stylesheets */
+}
+
+/**
+ * Single gallery object
+ */
+
+/* Big table */
+.gallery-meta {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.gallery-meta tr {
+	vertical-align: top;
+	border-bottom: 1px solid #f2f8fa;
+}
+
+.gallery-meta td {
+	padding: .5em 0 .5em 0;
+}
+
+.entry-meta-single {
+	border-top: #587485 1px solid;
+	margin-top: 10px;
+	padding: 10px 0;
+}
+
+.breadcrumbs {
+	color: #888;
+	padding-top: 5px;
+}
+
+.breadcrumbs li {
+	list-style: none;
+	display: inline;
+}
+
+.breadcrumbs li:after {
+	content: ' ';
+	background: url('css_images/sprite.png') no-repeat -564px -54px;
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+}
+
+.breadcrumbs li.current_item:after {
+	background: none;
+}
+
+.artist-gallery .gallery-item {
+	float: left;
+	margin-right: 10px;
+}
+
+.archive .gallery-meta {
+	width: auto !important;
+}
+
+.left-img {
+	width: 200px;
+	float: left;
+	margin-right: 10px;
+}
+
+.left-img img {
+	display: block;
+	margin: 0 auto;
+}
+
+#sidebar .location {
+	margin-bottom: 1.5em;
+}
+
+#tribe-events .tribe-events-read-more, .recurringinfo, .tribe-events-user-recurrence-toggle {
+	display: none !important;
+}
+
+.location-name {
+	display: block;
+	margin: 5px 0;
+}
+
+.eventwidgetinfo {
+	list-style: none;
+	margin: 5px;
+	clear: both;
+}
+
+.eventwidgetinfo li {
+	padding: 3px 0;
+	margin: 0;
+	border-bottom: 1px solid #f2f8fa;
+	font-size: 11px;
+	list-style: none;
+}
+
+.calview {
+	margin: 0;
+	padding: 10px 0;
+}
+
+.mystic-accordion {
+	margin-bottom:30px;
+}
+
+.mystic-accordion h4 {
+	cursor:pointer;
+	line-height:42px;
+}
+
+.mystic-accordion h4:hover {
+	text-decoration:underline;
+}
+
+.mystic-accordion h4:after {
+	content:" ";
+	display:inline-block;
+	background: url('/wp-content/themes/mystic-seaport/img/sprite.png') no-repeat -530px -60px;
+	width: 12px;
+	height: 12px;
+	margin-left:5px;
+	vertical-align:-1px;
+}
+
+.mystic-accordion h4.open:after {
+	background-position:-510px -60px;
+}
+
+.mystic-accordion .divider {
+	border-bottom:1px solid #a3b3bc;
+}
+
+/**
+ * Responsive
+ */
+
+#nav-toggle {
+	display: none;
+}
+
+#site-navigation #site-about,
+#site-navigation #searchform {
+	display: none;
+}
+
+#nav-toggle {
+	font: 700 16px/42px Tienne,Georgia,"Times New Roman",Times,serif;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 0 5%;
+	text-align: center;
+	text-decoration: none;
+}
+
+@media only screen and (max-width: 780px) {
+
+	#header,
+	#intro,
+	#footer {
+		min-width: 0;
+	}
+
+	#nav-toggle {
+		display: block;
+		font: 700 16px/42px Tienne,Georgia,"Times New Roman",Times,serif;
+		text-transform: uppercase;
+		color: #fff;
+		display: block;
+		padding: 0 5%;
+		text-align: center;
+		text-decoration: none;
+	}
+
+		#nav-toggle:after {
+			color: #fff;
+			text-align: center;
+			position: relative;
+				top: 0;
+			width: 10%;
+			padding: .2em 2%;
+			content: ' â–¼ ';
+			display: inline;
+			-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+		}
+
+		#nav-toggle.is-active:after {
+			content: ' â–² ';
+		}
+
+		header #site-about,
+		header #searchform {
+			display: none;
+		}
+		#site-navigation #site-about.is-active,
+		#site-navigation #searchform.is-active {
+			display: block;
+		}
+
+		#site-navigation #searchform {
+			width: 90%;
+			float: none;
+			margin: 0 5%;
+		}
+		#site-navigation #searchform input {
+			width: 90%;
+		}
+		#site-about {
+			margin-top: 15px;
+			width: auto;
+			text-align: center;
+			float: none;
+		}
+
+	.container:after,
+	#nav:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
+
+	#header,
+	.container,
+	#slider,
+	#footer,
+	#intro {
+		height: auto;
+		width: 100%;
+		overflow: hidden;
+	}
+	.col-twothirds,
+	.col-onethird,
+	.footer-nav,
+	.footer-contact,
+	.footer-social,
+	.footer-copyright {
+		display: block;
+		float: none;
+		width: auto;
+		margin: 0 auto;
+	}
+
+	#header div.container {
+		height: auto;
+	}
+	#site-name {
+		width: auto;
+		margin-right: 12px;
+	}
+	#site-name a {
+		background: url(../../img/mystic-seaport-logo.png) 0 0 no-repeat;
+		background-size: contain;
+		width: auto;
+		box-shadow: none;
+	}
+
+
+	.col-twothirds {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.breadcrumbs {
+		padding-top: 15px;
+		padding-left: 15px;
+	}
+	.slider-slides .slideinfo,
+	#emergency>div {
+		width: auto;
+	}
+	.slider-slides {
+		position: relative;
+		height: 0;
+		margin-top: 1em;
+		padding-bottom: 56.25%;
+		overflow: hidden;
+	}
+	.slider-slides li {
+		width: auto;
+	}
+
+	#site-name {
+		float: none;
+	}
+	#nav {
+		height: auto;
+		display: block;
+		clear: both;
+	}
+	#nav>ul,
+	#nav>ul>li {
+		display: block;
+	}
+	#nav>ul>li {
+		float: none;
+	}
+	#nav .sub-menu {
+		display: none !important;
+	}
+	#emergency>div {
+		padding: 0 10px;
+	}
+
+	#emergency p {
+		display: block;
+		line-height: 1.5;
+		padding-bottom: 15px !Important;
+	}
+
+	#close-emergency {
+		position: absolute;
+		top: 0px;
+		right: 10px;
+	}
+
+	#slider {
+		box-shadow: none;
+	}
+
+	.slider-thumbs {
+		float: none;
+		text-align: center;
+	}
+		.slider-thumbs li {
+			float: none;
+			display: inline-block;
+			margin: 5px;
+		}
+			.slider-thumbs li img {
+				display: inline;
+				float: none;
+			}
+	#plan {
+		float: none;
+		width: auto;
+		padding: 15px;
+	}
+
+	#sidebar {
+		margin-left: auto;
+		margin-right: auto;
+		width: 315px;
+	}
+	#footer,
+	.footer-copyright {
+		text-align: center;
+	}
+	#footer {
+		margin-top: 25px;
+	}
+
+	.footer-nav {
+		height: auto;
+	}
+		.footer-nav li {
+			display: inline-block;
+			float: none;
+		}
+	.footer-contact {
+		clear: both;
+	}
+	.footer-copyright {
+		padding-bottom: 10px;
+	}
+
+
+	/* Flexin' */
+	#page {
+	    display: -webkit-box;
+		display: -webkit-flex;
+		display:         flex;
+		-webkit-box-orient: vertical;
+		-webkit-flex-flow: column;
+		        flex-flow: column;
+	}
+
+	.breadcrumbs,
+	.faux-page-title {
+		-webkit-box-ordinal-group: 1;
+		            -webkit-order: 1;
+				            order: 1;
+	}
+	#content {
+		padding-bottom: 0;
+		-webkit-box-ordinal-group: 3;
+		            -webkit-order: 3;
+				            order: 3;
+	}
+
+		/* Cause #content is now below sidebar, and contains the title */
+		.faux-page-title:after {
+			content: attr(data-ptitle);
+			display: block;
+			font: 700 22px/30px Tienne,Georgia,"Times New Roman",Times,serif;
+			text-transform: uppercase;
+			color: #002b60;
+			margin: 20px 15px 0;
+			padding-top: 20px;
+		}
+
+		#content h1 {
+			display: none;
+		}
+
+	#sidebar {
+		margin-top: 0;
+		padding-bottom: 0;
+		-webkit-box-ordinal-group: 2;
+		            -webkit-order: 2;
+				            order: 2;
+	}
+}
+
+@media only screen and ( max-width: 340px ) {
+	.mystic_Video_Widget iframe,
+	.mystic_Video_Widget,
+	.widget_video_image {
+		width: 300px;
+	}
+}

@@ -1,0 +1,35 @@
+{% extends "pq/maps/base_map_full.html" %}
+{% load static %}
+
+{% block breadcrumbs %}
+		<li><a href="/maps/{{ resource_object.short_name }}">About This Voyage Map</a></li>
+		<li class="current_item">{{ resource_object.title|safe }}</li>
+{% endblock %}
+
+{% block under_title %}
+	<p>Use the controls below to explore this interactive voyage map. You can also review the <a href="javascript:popBox('maps','about','{{ resource_object.short_name }}')">"About This Map"</a> introductory info.</p>
+{% endblock %}
+{% block map_nav %}
+<form name="map_controls" action="not_submitted" method="POST">
+	<h2>Logbook Events</h2>
+<!--event handlers defined in olcmap.js-->
+	<input type="radio" name="logbook_event_type" id="showall" 	value="showall" checked="checked"><label for="showall">Show All</label><br/>
+	<input type="radio" name="logbook_event_type" id="caught"  	value="caught"><label for="caught"><img src="{% static 'maps/images/list/kill.png' %}" height="15" width="15" alt="caught icon">&nbsp;Whales Caught</label><br/>
+	<input type="radio" name="logbook_event_type" id="spotted"  value="spotted"><label for="spotted"><img src="{% static 'maps/images/list/spot.png' %}" height="15" width="15" alt="spotted icon">&nbsp;Whales Spotted</label><br/>
+	<input type="radio" name="logbook_event_type" id="gam"  	value="gam"><label for="gam"><img src="{% static 'maps/images/list/gam.png' %}" height="15" width="15" alt="gam icon">&nbsp;Gam with Another Ship</label><br/>
+	<input type="radio" name="logbook_event_type" id="weather"  value="weather"><label for="weather"><img src="{% static 'maps/images/list/weather.png' %}" height="15" width="15" alt="weather icon">&nbsp;Foul Weather</label><br/>
+	<input type="radio" name="logbook_event_type" id="landing"  value="landing"><label for="landing"><img src="{% static 'maps/images/list/land.png' %}" height="15" width="15" alt="landing icon">&nbsp;Ship in Port</label><br/>
+		
+	<h2>Voyage Years</h2>
+	<div class="years">    
+	{% for item in resource_object.logyear_set.all %}
+		<input type="checkbox" name="year_chosen" id="{{item.year}}" value="{{item.year}}"><label for="{{item.year}}">{{item.year}}</label><br/>
+	{% endfor %}						
+	</div><!-- /years  -->
+</form>
+<!-- ENTRIES LIST SIDEBAR  -->
+	<div id="side_bar"></div><!--end side_bar-->
+{% endblock %}
+
+{% block sidebar_include %}{% include "pq/maps/resource_side_voyage.html" %}{% endblock %}
+

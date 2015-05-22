@@ -1,0 +1,37 @@
+{% extends "resource_two_col.html" %}
+{% load static %}
+
+{% block title %}Map: {{ resource_object.title|safe }}{% endblock %}
+{% block body_class %}maps{% endblock %}
+
+{# block content_by default inherited from resource_sidebar.html #}
+
+{% block section_class %}maps{% endblock %}
+
+
+{% block breadcrumbs %}
+<li><a href="/maps/">Active Maps</a></li>
+<li class="current_item">About This Map</li> <!--resource_object.title|safe-->
+{% endblock %}
+{% block page_title %}{{ resource_object.title|safe }}{% endblock %}
+
+{% block content %}
+	<h2>About This Map</h2>
+	<!--
+		<a href="#" onclick="javascript:map('cwm'); return false">
+		<a href="javascript:map('logbook', '{{ resource_object.short_name }}')">Launch the Interactive Map</a>
+	-->
+    <h4><a href="/maps/{{ resource_object.map_type|lower }}/{{ resource_object.short_name }}">Go to this {{ resource_object.map_type }} Map</a></h4>
+	<div class="img_caption">
+	<a href="/maps/{{ resource_object.map_type|lower }}/{{ resource_object.short_name }}"><img class="alignleft" src="{% static 'maps/fullpics/' %}{{ resource_object.short_name }}.jpg" alt="image: {{ resource_object.short_name }}"  /></a>
+	  <p>{% if resource_object.caption %}{{ resource_object.caption|safe }}{% endif %}
+		{% if resource_object.credit %}{{ resource_object.credit|safe }}{% endif %}</p>
+	</div>
+	
+	{{ resource_object.narrative|safe }}
+
+{% endblock content %}
+
+{% block attributes %}
+{% endblock attributes %}
+

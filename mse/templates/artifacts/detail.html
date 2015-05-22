@@ -1,0 +1,33 @@
+{% extends "artifacts/artifact_base.html" %}
+{# includes view_controls #}
+{% load static %}
+
+{% block two_or_three %}two-col{% endblock %}
+
+
+{% block columns %} {# columns declared in base.html #}
+<!-- two-thirds  column -->
+<article id="content" class="col-twothirds">
+	<div id="view_wrapper">
+		<img src="{% static 'artifacts/fullpics/' %}{{ resource_object.filename }}_A_f.jpg" alt="image: {{ resource_object.title }}"  />
+		{% include "artifacts/view_controls.html" %}
+	</div> <!--/view wrapper-->
+	
+	<h2>About This Artifact</h2>
+
+	{{ resource_object.narrative|safe }}
+
+	<h2>Questions for Deeper Thought</h2>
+	<ol class="olc_questions">
+	{% for question in resource_object.question_set.all %}					
+		<li>{{question.question_text|safe}}</li>
+	{% endfor %}						
+	</ol>
+	<!--end populated by detail.html-->
+	<!-- end content block was here-->
+</article>
+
+{% endblock columns %}
+
+
+

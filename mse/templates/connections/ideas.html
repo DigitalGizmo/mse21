@@ -1,0 +1,11 @@
+{% extends "connections/base_connection.html" %}
+
+{% block heading %}Ideas for Classroom Use{% endblock %}
+{% block connection_title %}{{ title|safe }}{% endblock %}
+
+{% block slim_content%}
+{% for idea in idea_list %}
+    <h4>{{ idea.name|safe }}</h4>
+	{{ idea.idea_text|safe }}
+{% endfor %}
+{% endblock slim_content %}

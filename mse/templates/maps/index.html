@@ -1,0 +1,55 @@
+{% extends "base_menu.html" %}
+{% load static %}
+
+{% block title %}Map Menu{% endblock %}
+{% block body_class %}maps{% endblock %}
+{% block section_class %}maps{% endblock %}
+
+{% block breadcrumbs %}
+<li class="current_item">Active Maps</li>
+{% endblock %}
+{% block page_title %}Active Maps{% endblock %}
+
+{% block content %}
+
+	<h2>Voyage Maps</h2>
+    <p>These maps present the routes of actual voyages taken from the ship's logbook.<br/>
+    <a href="/maps/compare/compare" class="subhead_link">Compare Voyages:</a> Plot multiple voyages plotted together on a single map</p>
+	{% if item_list %}
+	   <ul class="menu">
+	   {% for geomap in item_list %}
+		<li>
+	       <a href="/maps/{{ geomap.short_name }}/" class="title">
+	       <img src="{% static 'maps/menupics/' %}{{ geomap.short_name }}_m.jpg" height="150" width="150" alt="image: {{ geomap.filename }}"/><br/>
+	       {{ geomap.title|safe }}</a><!-- br/>
+	       by <a href="#">[profile]</a -->
+	
+		</li>
+	   {% endfor %}
+	   </ul>
+	{% endif %}
+	
+	{% if story_list %}
+		<h2>Story maps</h2>
+	   <ul class="menu">
+	   {% for geomap in story_list %}
+		<li>
+	       <a href="/maps/{{ geomap.short_name }}/" class="title">
+	       <img src="{% static 'maps/menupics/' %}{{ geomap.short_name }}_m.jpg" height="150" width="150" alt="image: {{ geomap.filename }}"/><br/>
+	       {{ geomap.title|safe }}</a>
+	
+		</li>
+	   {% endfor %}
+	   </ul>
+	{% endif %}
+		
+
+{% endblock content %}
+
+{% block menu_side_content %}
+	<h2>About Maps</h2>
+    <p>The "Active Maps" feature creates geospatial representations of objects and manuscripts from our collection.  Created by <a href="javascript:popBox('connections','moreinfo','mse_fellows')">MSE Fellows</a> and Mystic Seaport staff, Active Maps contain teacher-friendly components such as Related Items from the Collection, Related Resources, In the Classroom ideas and Related Websites. Check back often as we add new content regularly.</p>
+
+<!--<p>See the <a href="/maps/raw/">full list of unprocessed maps.</a></p>-->
+    
+{% endblock menu_side_content %}

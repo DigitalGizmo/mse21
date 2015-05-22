@@ -1,0 +1,44 @@
+{% extends "resource_two_col.html" %}
+{% load static %}
+
+{% block title %}Living Document {{ resource_object.title }}{% endblock %}
+{% block body_class %}documents{% endblock %}
+
+{# block content_by default inherited from resource_sidebar.html #}
+
+{% block section_class %}documents{% endblock %}
+
+{% block breadcrumbs %}
+<li><a href="/documents/">Living Documents</a></li>
+<li class="current_item">{{ resource_object.title|safe }}</li>
+{% endblock %}
+{% block page_title %}{{ resource_object.title|safe }}{% endblock %}
+
+{% block content %}
+	<div id="doc_wrapper">{# Ajax replaces doc_wrapper with page_text.htm or page_image#}
+		{# the following is an include because it's used by detail_raw.html as well #}
+		{% include "documents/page_controls.html" %}
+	
+		<img src="{% static 'documents/fullpics/' %}{{ resource_object.filename }}_{{ page_suffix }}_f.jpg" alt="image: {{ resource_object.title }}" />
+
+	</div><!--/doc_wrapper-->
+
+	<h2>Questions for Deeper Thought</h2>
+	<ol class="olc_questions">
+	{% for question in resource_object.question_set.all %}
+		<li>{{question.question_text|safe}}</li>
+	{% endfor %}						
+	</ol>
+{% endblock content %}
+
+{% block col3content %}
+	<h2>About This Document</h2>
+	{{ resource_object.narrative|safe }}
+	<h2>Historical Context</h2>
+	{{ resource_object.hist_context|safe }}
+{% endblock %}
+
+{% block attributes %}
+	{% include "documents/item_attributes.html" %}
+{% endblock attributes %}
+

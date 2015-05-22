@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block two_or_three %}three-col{% endblock %}
+
+{% block columns %}
+<!-- two one third columns -->
+<article id="content" class="col-onethird">
+	{% block leftcol %} 
+		content goes here
+	{% endblock content %}
+</article>
+
+<article class="col-onethird">
+	{% block middlecol %} 
+		content goes here
+	{% endblock content %}
+</article>
+
+<!--take out this third col - already in base as sidebar-->
+<article class="col-onethird">
+	{% block rightcol %} 
+		content goes here
+	{% endblock content %}
+</article>
+
+{% endblock columns %}

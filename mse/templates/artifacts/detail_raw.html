@@ -1,0 +1,25 @@
+{% extends "artifacts/artifact_raw_base.html" %}
+{# includes view_controls #}
+{% load static %}
+
+{% block two_or_three %}two-col{% endblock %}
+
+
+{% block columns %} {# columns declared in base.html #}
+<!-- two-thirds  column -->
+<article id="content" class="col-twothirds">
+	<div id="view_wrapper">
+		<img src="{% static 'artifacts/fullpics/' %}{{ resource_object.filename }}_A_f.jpg" alt="image: {{ resource_object.title }}"  />
+		{% include "artifacts/view_controls.html" %}
+	</div> <!--/view wrapper-->
+	
+	<h2>Description</h2>
+
+	{{ resource_object.description|safe }}
+
+</article>
+
+{% endblock columns %}
+
+
+

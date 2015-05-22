@@ -1,0 +1,36 @@
+{% extends "pq/base.html" %}
+{% load static %}
+
+{% block additional_js %}<script src="{% static 'common/exhibit_timeout.js' %}"type="text/javascript"></script>{% endblock %}
+{% block title %}Map: {{ resource_object.title|safe }}{% endblock %}
+{% block body_class %}{% endblock %}
+
+{% block two_or_three %}col-full{% endblock %}
+
+{% block section_class %}maps{% endblock %}
+
+
+{% block breadcrumbs %}
+		<li class="current_item">About This Map</li> <!--resource_object.title|safe-->
+{% endblock %}
+{% block page_title %}{{ resource_object.title|safe }}{% endblock %}
+{% block under_title %}<h4 class="go_button"><a href="/maps/{{ resource_object.map_type|lower }}/{{ resource_object.short_name }}">Go to this {{ resource_object.map_type }} Map &rarr;</a></h4>
+{% endblock %}
+
+{% block columns %}
+<!-- two-thirds  column -->
+		<article class="col-onethird">
+			<h2>About This {{ resource_object.map_type }} Map</h2>
+			{{ resource_object.narrative|safe }}
+		</article>
+
+		<article class="col-twothirds_right">
+			  <img src="{% static 'maps/fullpicspq/' %}{{ resource_object.short_name }}.jpg" alt="image: {{ resource_object.short_name }}"  />
+			  <p class="credit">{% if resource_object.caption %}{{ resource_object.caption|safe }}{% endif %}
+				{% if resource_object.credit %}{{ resource_object.credit|safe }}{% endif %}</p>
+		</article>
+		
+		{% include "pq/resource_side_regular.html" %}
+		
+{% endblock columns %}
+

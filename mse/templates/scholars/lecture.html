@@ -1,0 +1,66 @@
+{% extends "resource_sidebar.html" %}
+{% load static %}
+
+{% block title %}Lecture: {{ resource_object.title|safe }}{% endblock %}
+{% block body_class %}lectures{% endblock %}
+
+{# override resource_sidebar.html which shows profile name #}
+{% block content_by %}
+	<h5>by  <a href="javascript:popBox('connections','moreinfo','{{ resource_object.scholar_short_name }}')">{{ resource_object.scholar|safe }}</a></h5>
+{% endblock %}
+
+{% block section_class %}lectures{% endblock %}
+
+
+{% block breadcrumbs %}
+<li><a href="/scholars/">Lectures &amp; Scholars</a></li>
+<li class="current_item">{{ resource_object.title|safe }}</li>
+{% endblock %}
+{% block page_title %}{{ resource_object.title|safe }}{% endblock %}
+
+{% block two_or_three %}col-twothirds{% endblock %}
+
+{% block columns %}
+{# Replace block content with block columns and extended straight from resource_sidebar.html (rather than from resource_two_col). Block columns inside of div article id="content" class="col-twothirds"  #}
+	<!-- left column -->
+	<article class="col-onethird">
+		<h2>About This Lecture</h2>	
+		{{ resource_object.narrative|safe }}
+	</article>
+
+    <!-- middle column -->
+	<article class="middle-col">
+		<h2>Lecture Topics</h2>
+		<ol class="lecture_menu">
+		{% for topic in resource_object.topic_set.all %}					
+			<li>{{topic.topic_num}}. <a href="#clip{{topic.topic_num}}">{{topic.title|safe}}</a></li>
+		{% endfor %}
+		</ol>
+		<p>Play the <a href="#clip_full">complete audio lecture</a> or download it as an <a href="{% static 'scholars/lectures/media/' %}{{ resource_object.short_name}}_0.mp3" target="_blank">MP3 file</a> <!--(xx minutes)--></p>	
+	</article>
+	<br clear="left"/>
+	<!--audio preload metadata chokes in Chrome, so we're using none-->
+	{% for topic in resource_object.topic_set.all %}
+		{# each iteration was enclosed in article class="col-twothirds" #}					
+		<article>
+		<h3 id="clip{{topic.topic_num}}">{{topic.topic_num}}. {{topic.title|safe}}</h3>
+		<audio controls="controls"  preload="none">
+			<source src="{% static 'scholars/lectures/media/' %}{{ resource_object.short_name}}_{{ topic.topic_num}}.mp3" type="audio/mpeg">
+			<source src="{% static 'scholars/lectures/media/' %}{{ resource_object.short_name}}_{{ topic.topic_num}}.ogg" type="audio/ogg">
+			<!-- fallback - must be IE -->
+				<p>Your browser does not seem to support HTML5 audio; instead you can <a href="{% static 'scholars/lectures/media/' %}{{ resource_object.short_name}}_{{ topic.topic_num}}.mp3">download
+				this audio file.</a></p>
+		</audio>
+		<h5>Transcription</h5>
+		<div class="transcription">
+			{{topic.transcript|safe}}
+		</div>
+		</article>
+	{% endfor %}
+{% endblock columns %}
+
+{% block opt_side_class %} col-onethird-right{% endblock %}
+
+{% block attributes %}
+{% endblock attributes %}
+

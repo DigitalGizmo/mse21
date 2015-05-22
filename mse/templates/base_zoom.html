@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>OLC Zoom - {{ resource_object.title }}</title>
+	<link rel="stylesheet" href="{% static "common/olc_style.css" %}" type="text/css" />
+	<!-- for slimbox -->
+	<link rel="stylesheet" href="{% static 'common/slimpop.css' %}" type="text/css" />
+	<script src="{% static 'common/scripts.js' %}" type="text/javascript"></script>
+	<script type="text/javascript" src="//use.typekit.net/wkp1ody.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<!--for zoom-->
+	<script type="text/javascript" src="{% static 'common/ZoomifyImageViewer.js' %}"></script>
+	<style type="text/css"> #myContainer { width: 500px; height: 400px } </style>
+	<script type="text/javascript"> Z.showImage("myContainer", "{% block zoom_filepath %}resource_dir{% endblock %}_{{ page_suffix }}_z", "zSkinPath={% static 'common/ZoomAssets/Skins/Default' %}"); </script>
+	<!--resource_object.filename-->
+	<!-- JavaScript -->
+	<!--[if IE]><![endif]-->
+	<!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+
+<body>
+	<div id="popwrap">
+		<p class="close"><a href='javascript:window.close();'>close</a></p>
+		<h3>{% block resource_type_title %}resource_type_title{% endblock %}: Zoom</h3>
+		<h1>{{ resource_object.title|safe }}</h1>
+		
+		<!-- html5 zoom  -->				
+		<div id="myContainer">zoom to go here</div>
+
+	    <p>Use the icons above to move &amp; zoom in the picture</p>
+
+		<!-- page links -->
+		{% block page_nav %}
+		{% endblock %}
+	
+	    <p class="credit">&copy; 2013 Mystic Seaport Museum</p>
+	</div><!-- end popwrap -->
+
+</body>
+</html>

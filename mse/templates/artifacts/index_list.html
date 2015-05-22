@@ -1,0 +1,40 @@
+{% extends "base_team.html" %}
+{% load static %}
+
+{% block title %}Artifact List{% endblock %}
+
+{% block other_list %}
+	<li><a href="/documents/list/">Document List</a></li>
+{% endblock  %}
+
+{% block page_title %}Artifacts List{% endblock %}
+
+{% block content %}
+	<!--menu populated in index_raw-->
+{% if resource_object_list %}
+	<table class="list">
+		<tr>
+			<th>&nbsp;</th>
+			<th>Filename</th>
+			<th>Accession #</th>
+			<th>Short Name</th>
+			<th>Title</th>
+			<th>Description</th>	
+		</tr>
+	{% for resource_object in resource_object_list %}
+		<tr class="{% cycle 'row0' 'row1' %}">
+			<td><a href="/artifacts/{{ resource_object.short_name }}/" target="_blank"><img src="{% static 'artifacts/thumbpics/' %}{{ resource_object.filename }}_t.jpg" height="70" width="70" alt="tumbnail of: {{ resource_object.title }}"/></a></td>
+			<td>{{ resource_object.filename }}</td>
+			<td>{{ resource_object.id_number }}</td>
+			<td><a href="/artifacts/{{ resource_object.short_name }}/"  target="_blank">{{ resource_object.short_name|safe }}</a></td>
+			<td>{{ resource_object.title|safe }}</td>
+			<td >{{ resource_object.description|safe }}</td>	
+		</tr>
+	{% endfor %}
+	</table>
+{% else %}
+   <p>No artifacts are available.</p>
+{% endif %}
+
+{% endblock content %}
+

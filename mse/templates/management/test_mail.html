@@ -1,0 +1,11 @@
+{% extends "management/base_management.html" %}
+{% load staticfiles %}
+
+{% block heading %}Test Mail{% endblock %}
+{% block connection_title %}Message:{% endblock %}
+
+{% block slim_content%}
+
+	<p>Msg: {{ msg }}</p>
+
+{% endblock slim_content %}

@@ -1,0 +1,40 @@
+/* CSS Document */
+body {
+	padding: 5%;
+	background-color: #F0F2F9;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #333333;
+}
+section {clear: both; margin-top: 5em;}
+
+/*style for heads and subheads*/
+h1, h2, h3 {	color: #333366; font-weight: bold;	}
+h1 {	font-size: 150%;	}
+h2 {	font-size: 120%;	}
+h3	{	font-size: 100%;	}
+
+ul.horiz li	{float: left; margin-right: 2em;}
+
+/*style for basic text elements*/
+p, li, blockquote {	font-size: 1em; line-height: 1.75em;	}
+table, th, td {	font-size: .9em; line-height: 1.75em;	}
+.small	{	font-size: .75em; }
+
+/*style for links*/
+a:link		{	color: #333399; text-decoration: none;	}
+a:visited	{	color: #666699; text-decoration: none;	}
+a:hover		{	text-decoration: underline;	}
+nav ul	{
+	list-style-type: none;
+	font-size: 85%;
+	font-weight: normal;
+}
+/*styles for Tracker Lists*/
+/* Alternating row colors for team/glossary/list.jsp, etc. Even row */
+table.list th {text-align: left}
+table.list tr	{vertical-align: top; }
+table.list td {padding-right: 2em; padding-top: 4px;}
+table.list tr.row0 { background-color: #FFFFFF; }
+/* Odd row */
+table.list tr.row1 { background-color: #DDDDDD; }

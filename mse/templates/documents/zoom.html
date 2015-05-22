@@ -1,0 +1,23 @@
+{% extends "base_zoom.html" %}
+
+{% load staticfiles %}
+
+{% block zoom_filepath %}{% static 'documents/zooms/' %}{{ resource_object.filename }}{% endblock %}
+
+
+{% block resource_type_title %}Document{% endblock %}
+
+{% block page_nav %}
+	{% if resource_object.page_set.all %}
+		<h4>Pages:
+		{% for page in resource_object.page_set.all %}
+			{% if page.page_suffix == page_suffix %}
+				<span class="selected">&nbsp;{{ page.page_label }}</span>
+			{% else %}
+				<a href="javascript:zoom_view('documents', '{{ resource_object.short_name }}', '{{ page.page_suffix }}')">&nbsp;{{ page.page_label }}</a>
+			{% endif %}
+		{% endfor %}
+		</h4>
+	{% endif %}
+						
+{% endblock %}

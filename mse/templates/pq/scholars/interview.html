@@ -1,0 +1,51 @@
+{% extends "pq/base_two_col.html" %}
+{% load staticfiles %}
+
+{% block title %}Interview: {{ resource_object.scholar|safe }}{% endblock %}
+{% block body_class %}lectures{% endblock %}
+
+{# block content_by default inherited from resource_sidebar.html #}
+
+{% block section_class %}lectures{% endblock %}
+
+
+{% block breadcrumbs %}
+<li class="current_item">{{ resource_object.scholar|safe }} Interview</li>
+{% endblock %}
+{% block page_title %}Interview of {{ resource_object.scholar|safe }}{% endblock %}
+
+{% block under_title %}
+	<h5>
+	{% for profile in resource_object.profiles.all %}
+		{{ profile.profile_name|safe }}
+	{% endfor %}, Interviewer
+	</h5>
+{% endblock %}
+
+{% block content %}
+	<h2>About This Interview</h2>
+	{{ resource_object.narrative|safe }}
+	
+	<div id="inter_view_wrapper">
+		{% include "scholars/inter_view.html" %}
+		
+	</div> <!--/ inter_view_wrapper-->
+{% endblock content %}
+
+{% block interview_sidebar %}{# div id="sidebar" defined in resource_sidebar.html #}
+<div id="sidebar" class="col-onethird">
+	<div class="resource_sidebar">
+
+	<h2 class="pq-pad">Interview Questions</h2>
+	<p>Tap a question below to play that segment of the video.</p>
+	<p><a href="javascript:interView('{{ resource_object.short_name }}', '0')">Or click here to play the complete video.</a> ({{ resource_object.full_length }})</p>
+		
+	{% for question in resource_object.question_set.all %}
+		<h4 class="question-menu"><a href="javascript:interView('{{ resource_object.short_name }}', '{{ question.question_num}}')">{{question.question_num}}. {{question.title|safe}}</a></h4> 
+		<p>{{question.question_text|safe}} ({{question.length}})</p>
+	{% endfor %}
+
+	</div><!-- /resource_sidebar --> 
+</div><!-- /div sidebar -->
+{% endblock interview_sidebar %}
+

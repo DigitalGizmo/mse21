@@ -1,0 +1,13 @@
+{% extends "base_collection.html" %}
+{% load staticfiles %}
+
+{# title in base_collection #}
+
+{% block collection_image%}
+	<img src="{% static 'documents/fullpics/' %}{{ resource_object.filename }}_{{ page_suffix }}_f.jpg" alt="image: {{ resource_object.title }}" />
+	<!--width="320"-->
+{% endblock collection_image %}
+
+{% block attributes%}
+	{% include "documents/item_attributes.html" %}
+{% endblock attributes %}

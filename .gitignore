@@ -1,0 +1,19 @@
+*.pyc
+*.log
+*.db
+*.jpg
+*.gif
+*.lnk
+.DS_Store
+.com.apple.timemachine.supported
+
+# directories
+.svn/
+migrations/
+static/
+tinymce/
+fonts/
+ZoomAssets/
+templates/robots.txt
+local_static/images/
+local_static/common/css_images/

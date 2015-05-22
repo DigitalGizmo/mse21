@@ -1,0 +1,11 @@
+{% extends "connections/base_connection.html" %}
+{% load staticfiles %}
+
+{% block heading %}About This Map{% endblock %}
+{% block connection_title %}{{ resource_object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+	
+	{{ resource_object.narrative|safe }}
+
+{% endblock slim_content %}

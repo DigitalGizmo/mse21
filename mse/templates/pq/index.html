@@ -1,0 +1,24 @@
+{% extends "pq/base.html" %}
+{% load static %}
+
+{% block additional_js %}<script src="{% static 'common/exhibit_loop.js' %}"type="text/javascript"></script>{% endblock %}
+
+{% block fullpage %}
+<section id="page" class="container">
+  <div class="col-full">	
+	<div class="loop">
+    	<p><a href="/maps/">Touch the screen to begin...</a></p>
+		<div id="cycler">
+			<a href="/maps/"><img class="active" src="{% static 'images/' %}slide1.jpg" height="1000" width="1000" ></a>
+			<a href="/maps/"><img src="{% static 'images/' %}slide2.jpg" height="1000" width="1000"></a>
+			<a href="/maps/"><img src="{% static 'images/' %}slide3.jpg" height="1000" width="1000"></a>
+			<a href="/maps/"><img src="{% static 'images/' %}slide4.jpg" height="1000" width="1000"></a>
+			<a href="/maps/"><img src="{% static 'images/' %}slide5.jpg" height="1000" width="1000"></a>
+			<a href="/maps/"><img src="{% static 'images/' %}slide6.jpg" height="1000" width="1000"></a>
+		</div>
+	</div>
+  </div><!-- /col-full -->
+</section>
+
+{% endblock fullpage %}
+

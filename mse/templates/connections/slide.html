@@ -1,0 +1,23 @@
+{% extends "connections/base_connection.html" %}
+{% load staticfiles %}
+
+{% block heading %}{{ connection_object.media_type }}{% endblock %}
+{% block connection_title %}{{ connection_object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+	<img src="{% static 'connections/audiovisuals/slides/' %}{{ connection_object.short_name }}_{{slide_num}}.jpg" class="view" height="400" alt="image: {{ connection_object.title }}"/>
+	<p class="credit">&copy; {{ curr_slide.credit_line }}</p>
+	<p class="slidenav">
+		{% if slide_num > 1 %}
+		<a href="javascript:slideView('{{ connection_object.short_name }}', {{slide_num}} - 1)">&lsaquo; previous </a>
+		{% endif %}
+		{% if slide_num > 1 and slide_num < num_slides %} | {% endif %}
+		{% if slide_num < num_slides %}
+		<a href="javascript:slideView('{{ connection_object.short_name }}', {{slide_num}} + 1)">next &rsaquo;</a>
+		{% endif %}
+	</p>
+
+{{ curr_slide.narrative|safe }}
+
+{% endblock slim_content %}

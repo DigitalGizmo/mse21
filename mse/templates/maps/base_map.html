@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>MSE Map - {{ resource_object.title }}</title>
+	<!-- must not link olc_style.css" -->
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" media="all" href="{% static "map_assets/map_styles.css" %}"/>
+	<script type="text/javascript" src="//use.typekit.net/wkp1ody.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<!--for map-->
+	<script type="text/javascript" 
+		src="http://maps.google.com/maps/api/js?sensor=false">
+	</script>
+	<!-- from https://developers.google.com/fusiontables/docs/samples/custom_markers -->
+	<!-- only needed for sidelined google visualization (fusion tables) script type="text/javascript" src="http://www.google.com/jsapi"></script -->
+	<!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script -->
+	<script src="{% static 'common/jquery-1.11.1.min.js' %}"></script>
+	
+	<script type="text/javascript">
+	var map_params = {
+		fusionTableId: '{{ resource_object.fusion_table_id }}',
+		map_type: 'logbook',
+		// layerYears: ['1841', '1842']
+		layerYears: [
+		{% for item in resource_object.logyear_set.all %}
+			'{{item.year}}'{% if not forloop.last %}, {% endif %}		    
+		{% endfor %}						
+		]
+	}
+	</script>
+	
+	<script type="text/javascript" src="{% static 'map_assets/olcmap.js' %}"></script>
+	<!-- JavaScript -->
+	<!--[if IE]><![endif]-->
+	<!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<!-- doc ready in js instead of body onload -->
+<body class="map">
+	<span class="close"><a href='javascript:window.close();'>close</a> | <a href="javascript:window.print()">print</a></span>
+    <h1>{{ resource_object.title|safe }}</h1>
+ 
+
+    <div id="left_col">
+
+		<form name="map_controls" action="not_submitted" method="POST">
+			<h3>Logbook Events</h3>
+		<!--event handlers defined in olcmap.js-->
+			<input type="radio" name="logbook_event_type" id="showall" 	value="showall" checked="checked"><label for="showall">Show All</label><br/>
+			<input type="radio" name="logbook_event_type" id="caught"  	value="caught"><label for="caught"><img src="{% static 'maps/images/list/kill.png' %}" height="15" width="15" alt="caught icon">&nbsp;Whales Caught</label><br/>
+			<input type="radio" name="logbook_event_type" id="spotted"  value="spotted"><label for="spotted"><img src="{% static 'maps/images/list/spot.png' %}" height="15" width="15" alt="spotted icon">&nbsp;Whales Spotted</label><br/>
+			<input type="radio" name="logbook_event_type" id="gam"  	value="gam"><label for="gam"><img src="{% static 'maps/images/list/gam.png' %}" height="15" width="15" alt="gam icon">&nbsp;Gam with Another Ship</label><br/>
+			<input type="radio" name="logbook_event_type" id="weather"  value="weather"><label for="weather"><img src="{% static 'maps/images/list/weather.png' %}" height="15" width="15" alt="weather icon">&nbsp;Foul Weather</label><br/>
+			<input type="radio" name="logbook_event_type" id="landing"  value="landing"><label for="landing"><img src="{% static 'maps/images/list/land.png' %}" height="15" width="15" alt="landing icon">&nbsp;Ship in Port</label><br/>
+				
+			<h3>Show Years</h3>
+			<div class="years">    
+			{% for item in resource_object.logyear_set.all %}
+				<input type="checkbox" name="year_chosen" id="{{item.year}}" value="{{item.year}}"><label for="{{item.year}}">{{item.year}}</label><br/>
+			{% endfor %}						
+			</div><!-- /years  -->
+
+		</form>
+
+	   <!-- ENTRIES LIST SIDEBAR  -->
+		<div id="side_bar"></div>
+		<!-- /MAP  -->
+
+	</div><!-- /left_col  -->
+	
+    <div id="map_wrapper">
+	    <div id="map_canvas"></div>
+	</div>
+	
+</body>
+</html>

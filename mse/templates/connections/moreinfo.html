@@ -1,0 +1,17 @@
+{% extends "connections/base_connection.html" %}
+{% load staticfiles %}
+
+{% block heading %}More Info{% endblock %}
+{% block connection_title %}{{ connection_object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+	{% if connection_object.has_image %}
+		<img src="{% static 'connections/moreinfos/images/' %}{{ connection_object.short_name }}.jpg" alt="image: {{ connection_object.title }}" />
+		<!--width="320"-->
+		<p class="credit">{{ connection_object.credit_line|safe }}</p>
+	{% endif %}
+	
+	{{ connection_object.narrative|safe }}
+
+{% endblock slim_content %}

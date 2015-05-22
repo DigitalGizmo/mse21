@@ -1,0 +1,61 @@
+/* Print Stylesheet for Slimbox Content */
+
+body.documents, body.community, body.artifacts, body.maps, body.lectures, body.olc_bkgnd	{background: none}
+header#header	{display: none}
+section#page	{display: none}
+footer#footer	{display: none}
+#popwrap	{
+	font-size: 1em;
+	line-height: 150%;
+	padding: 2em;
+	background-color: #FFF;
+	color: #555555;
+}
+#popwrap .cardtext	{
+	width: 350px;
+	padding: 0;
+}
+#popwrap p	{
+	/*padding: 0 .5em 0 .5em;*/
+}
+#popwrap h3, #popwrap h1, #popwrap h4	{
+	font-family: "museo-sans-condensed", "Arial Narrow", Arial, sans-serif;
+	margin: 0 0 .5em 0;
+	text-transform: none;
+	color:#B23F05; 
+}
+#popwrap h4	{ margin-top: 1em; line-height: 120%;}
+
+#popwrap a	{
+	color:#4D5E90;
+}
+#popwrap p.close	{ /* for the close link */
+	float: right;
+}
+#popwrap p.credit	{ /* for credits */
+	font-size: 75%;
+	margin: 0;
+	padding: 0;
+	color: #777;
+}
+
+/* for footnotes */
+#popwrap ol { border-top: thin solid #777; color: #777;}
+#popwrap ol li {padding: .5em 0 .25em 0; margin-left: 1em;}
+#popwrap sup {
+	font-size: 75%;
+	vertical-align: super;
+	margin-left: .25em;	
+	line-height: 0;
+}
+#popwrap ul	{list-style-position: outside;}
+#popwrap ul li	{padding-bottom: .75em; margin-left: 20px;}
+
+#popwrap dl dt {font-weight:bold; color: #B23F05; margin-top: 1em;}
+/* from pop auxiliry */
+
+#popwrap video	{
+	max-width: 100% !important;
+	height: auto;
+	margin-top: 1em;
+}

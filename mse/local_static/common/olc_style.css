@@ -1,0 +1,720 @@
+@import "style.css";
+
+/*
+Mystic Seaport for Educators
+Author: Juliet Jacobson, DigitalGizmo
+URI: http://digitalgizmo.com/
+Builds on 10Up's Mystic Seaport styles
+*/
+body {
+	font-family:"museo-sans-condensed","Arial Narrow",Arial,sans-serif;
+}
+
+/*
+BACKGROUNDS
+*/
+body.community {
+	background:url(css_images/bkgnd_community.jpg) no-repeat fixed;
+}
+
+body.artifacts {
+	background:url(css_images/bkgnd_artifacts.jpg) no-repeat fixed;
+}
+
+body.documents {
+	background:url(css_images/bkgnd_documents.jpg) no-repeat fixed;
+}
+
+body.maps {
+	background:url(css_images/bkgnd_maps.jpg) no-repeat fixed;
+}
+
+body.lectures {
+	background:url(css_images/bkgnd_lectures.jpg) no-repeat fixed;
+}
+
+body.sets {
+	background:url(css_images/bkgnd_sets.jpg) no-repeat fixed;
+}
+
+body.olc_bkgnd {
+	-webkit-background-size:100%;
+/* Safari 3.0 */
+	-moz-background-size:100%;
+/* Gecko 1.9.2 (Firefox 3.6) */
+	-o-background-size:100%;
+/* Opera 9.5 */
+	-moz-border-image:url(css_images/bkgnd_artifacts.jpg) 0;
+/* Gecko 1.9.1 (Firefox 3.5) */
+	background-size:cover;
+/* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+}
+
+section.olc {
+	background:#fff;
+	-webkit-box-shadow:0 3px 10px 1px rgba(0,0,0,.44);
+	-moz-box-shadow:0 3px 10px 1px rgba(0,0,0,.44);
+	box-shadow:0 3px 10px 1px rgba(0,0,0,.44);
+	background-repeat:no-repeat;
+	background-position:710px 10px;
+}
+
+section.artifacts {
+	background-image:url(css_images/logo_artifacts.gif);
+}
+
+section.documents {
+	background-image:url(css_images/logo_documents.gif);
+}
+
+section.maps {
+	background-image:url(css_images/logo_maps.gif);
+}
+
+section.sets {
+	background-image:url(css_images/logo_sets.gif);
+}
+
+section.lectures {
+	background-image:url(css_images/logo_lectures.gif);
+}
+
+section.community {
+	background-image:url(css_images/logo_genl.gif);
+}
+
+/*
+TYPOGRAPHY
+*/
+section.olc h1 {
+	font-family:"museo-sans-condensed","Arial Narrow",Arial,sans-serif;
+	text-transform:none;
+	font-weight:700;
+	font-size:40px;
+	color:#B23F05;
+	text-shadow:.05em .05em .2em #999;
+	line-height:120%;
+	width:640px;
+}
+
+section.olc h1 title {
+	font-style:italic;
+}
+
+section.olc h2 {
+	font-family:"museo-sans-condensed","Arial Narrow",Arial,sans-serif;
+	text-transform:none;
+	font-weight:100;
+	font-size:30px;
+	color:#B23F05;
+	margin-bottom:.25em;
+	line-height:120%;
+}
+
+section.olc h3 {
+	font-family:"museo-sans-condensed","Arial Narrow",Arial,sans-serif;
+	text-transform:none;
+	font-weight:700;
+	font-size:24px;
+	color:#4D5E90;
+	margin:.75em 0;
+}
+
+section.olc h4 {
+	font-family:"museo-sans-condensed","Arial Narrow",Arial,sans-serif;
+	text-transform:none;
+	font-weight:700;
+	font-size:18px;
+	color:#4D5E90;
+	margin:.75em 0;
+}
+section.olc a.subhead_link { /*for links that are inline but need the beefiness of a subhead (see maps menu for example */
+	font-weight: 700;
+	font-size: 1.25em;
+	}
+
+section.olc h5 {
+	font:bold 14px/20px "Arial Narrow",Arial,sans-serif;
+	color:#4D5E90;
+	text-transform:none;
+	margin-bottom:.5em;
+}
+
+section.olc p,section.olc ul,section.olc ol,section.olc dl {
+	font-size:100%;
+	line-height:150%;
+	color:#555;
+}
+
+section.olc sup {
+	font-size:75%;
+	vertical-align:super;
+	margin-left:.25em;
+	line-height:0;
+}
+
+ul.temp_bullets {
+	list-style-type:disc;
+}
+
+/*
+TOP NAVIGATION
+*/
+#nav {
+	background:#4D5E90;
+}
+
+#nav > ul > li > a {
+	font:14px/42px museo-sans-condensed,"Arial Narrow",Arial,sans-serif;
+	letter-spacing:.05em;
+	color:#E9EBDD;
+	padding:0 12px;
+}
+
+#nav > ul > li:hover > a,#nav > ul > li > a:hover {
+	background:#51649A;
+}
+
+/*
+MAIN PAGE CONTENT
+*/
+section.olc a {
+	color:#2E55B3;
+	/*previous link color:#4D5E90;*/
+}
+section.olc article#content a {/*this doesn't seem to be working on django*/
+	font-weight: 700;
+}
+
+#page #content ul {
+	list-style:none;
+}
+
+#page #content h2 {
+	clear:left;
+}
+section.olc a.link_external {
+	background: url(css_images/link_ext.gif) no-repeat right;
+	padding-right: 14px;
+}
+section.olc a.link_pop {
+	background: url(css_images/link_pop.gif) no-repeat right;
+	padding-right: 14px;
+}
+section.olc a.link_newpage {
+	background: url(css_images/link_newpage.gif) no-repeat right;
+	padding-right: 14px;
+}
+
+/*
+to add side margins for the white page
+*/
+.container {
+	width:1065px;
+	margin:0 auto;
+}
+
+.col-twothirds {
+	margin-left:30px;
+}
+
+.col-onethird {
+	margin-right:20px;
+}
+
+.col-full {
+	margin:0 30px;
+}
+
+div.two-col {/*this is only to correspond with the three-col div in the markup*/
+	margin-top:20px;
+}
+
+div.three-col {
+	margin-left:20px;
+	margin-right:-10px;
+	margin-top:20px;
+}
+
+div.three-col > .col-onethird {
+	margin-right:10px;
+}
+.col-onethird-right {/*used only on lecture pages*/
+	float:right;
+	padding-top: 60px;
+}
+.middle-col	{/*used only on lecture pages*/
+	margin-top: 30px;
+	margin-left: 355px;
+}
+p.olc_credit {
+	color:#999;
+	font-size:.75em;
+	font-weight:500;
+}
+
+ol.olc_crumbs {
+	font-size:85%;
+	padding-top:0;
+}
+
+ol.olc_crumbs li {
+	margin-right:.75em;
+}
+
+ol.olc_crumbs li:after {
+	background:url(css_images/olc_sprite.png) no-repeat -564px -54px;
+}
+
+/*
+ARTIFACT/LIVING DOCUMENT PAGES
+*/
+ol.olc_questions {
+	list-style-type:decimal;
+	list-style-position:inside;
+}
+
+ol.olc_questions li {
+	margin-bottom:1em;
+}
+
+/*
+typography for sidebar 
+*/
+div.resource_sidebar {
+	margin-top:-40px;
+}
+
+/*
+to counteract 10up's sidebar top margin 
+*/
+div.resource_sidebar h3 {
+	font-weight:100;
+	font-size:20px;
+	margin-bottom:.5em;
+	margin-top:0;
+	background-color:#EDEFFB;
+	width:100%;
+	clear:left;
+}
+
+div.resource_sidebar ul,div.resource_sidebar ol,div.resource_sidebar dl {
+	margin-bottom:2em;
+}
+
+div.resource_sidebar li,div.resource_sidebar dt,div.resource_sidebar dd {
+	font-size:90%;
+	line-height:150%;
+}
+
+section.olc .col-onethird ul {
+	list-style-type:none;
+}
+
+section.olc .col-onethird ul li {
+	margin-bottom:.5em;
+}
+
+/* 
+artifact/document facts
+*/
+section.olc dl {
+}
+
+section.olc dl dt {
+	float:left;
+	margin-right:.5em;
+}
+
+/*
+image functionality 
+*/
+ul.img_details {
+	float:right;
+}
+
+ul.img_details li,ul.img_tools li {
+	float:left;
+	margin-right:1px;
+}
+
+ul.img_tools {
+	float:left;
+}
+
+ul.img_details li.selected img {
+	opacity:.5;
+}
+
+/* 
+living manuscript transcription 
+*/
+#doc_wrapper {
+	padding:1px;
+}
+
+div#doc_wrapper div.olc_lms_text {
+	background-color:#F3E6D7;
+	border:thin solid #D2C9BB;
+	padding:2em;
+	margin:70px 0 10px;
+	color:#666;
+}
+
+div#doc_wrapper div.olc_lms_text p {/* living manuscript transcription - standard text size */
+	font-size:115%;
+	line-height:150%;
+	font-weight: normal;
+}
+div#doc_wrapper div.olc_lms_text p.smalltext {/* large text size */
+	font-size:100%;
+}
+div#doc_wrapper div.olc_lms_text p.largetext {/* large text size */
+	font-size:130%;
+}
+div#doc_wrapper div.olc_lms_text p.italics {/* italic text */
+	font-style: italic;
+}
+div#doc_wrapper div.olc_lms_text p.doublespaced {/* double spaced lines */
+	line-height:200%;
+}
+
+/* 
+living manuscript functionality 
+*/
+#doc_wrapper ul.lms_controls {
+}
+
+#doc_wrapper ul.lms_controls li {
+	float:left;
+	margin-right:1px;
+}
+
+#doc_wrapper ul.lms_controls li.selected {
+	color:#B23F05;
+	font-weight:700;
+}
+
+#doc_wrapper ul.lms_controls li.space {
+	font-weight:700;
+	margin:0 .25em 0 1em;
+}
+
+#doc_wrapper audio {
+	vertical-align:text-top;
+}
+
+/* 
+related items grid of thumbnails 
+*/
+ul.olc_related_items li {
+	float:left;
+	margin:2px 4px 0 0;
+}
+
+ul.olc_related_items li img {
+	border:1px solid #999;
+	max-width:none;
+}
+
+/* 
+drop-down menu for horizontal section navigation 
+*/
+div.section_submenu	ul#dropdown li {
+	position:relative;
+	font-weight:100;
+	font-size:20px;
+	margin-bottom:.5em;
+	margin-top:0;
+	background-color:#EDEFFB;
+	width:100%;
+}
+
+div.section_submenu ul#dropdown li ul {
+	display:none;
+	position:absolute;
+	width:315px;
+}
+
+div.section_submenu ul#dropdown li:hover ul {
+	display:block;
+	-webkit-box-shadow:0 3px 10px 1px rgba(0,0,0,.44);
+	-moz-box-shadow:0 3px 10px 1px rgba(0,0,0,.44);
+	box-shadow:0 3px 10px 1px rgba(0,0,0,.44);
+}
+
+div.section_submenu ul#dropdown li ul li {
+	margin-bottom:0;
+	border-bottom:1px solid #CCC;
+}
+
+div.section_submenu ul#dropdown li ul li a {
+	font-size:80%;
+}
+
+div.section_submenu ul#dropdown li ul li a img {
+	margin:3px 8px 3px 3px;
+	vertical-align:middle;
+	border:1px solid #CCC;
+}
+div.img_caption	{/* captions for one colume wide images (used on map launch pages) */
+	float: left;
+	width: 315px;
+	margin: 0 20px 6px 0;
+}
+div.img_caption	p {	
+	color:#999;
+	font-size:.9em;
+	margin-top: 0;
+}
+/*
+HOME PAGE
+*/
+section.olc ul.slider-thumbs {
+	padding-top:60px;
+}
+
+section.olc .slider-thumbs a {
+	font-family:"museo-sans-condensed","Arial Narrow",Arial,sans-serif;
+	font-weight:100;
+	font-size:30px;
+	color:#B23F05;
+}
+
+section.olc .slider-thumbs li {
+	width:160px;
+	margin:-20px 10px 0 0;
+}
+
+section.olc div.special {
+	background:url(css_images/indian_hm_banner.jpg) no-repeat;
+	width: 960px;
+	height:175px;
+	margin-top: 2em;
+	border: 1px solid #dcdcdc;
+}
+
+section.olc div.special h4 {
+	color:#B23F05;
+	margin: 6px 0 0 16px;
+}
+section.olc div.special h2 a {
+	color:#B23F05;
+	margin-left: 16px;
+}
+section.olc div.special h4 a	{
+	color:#B23F05;
+	margin-left: 0px;
+}
+ul.community {
+	list-style-type:none;
+}
+
+ul.community li {
+	float:left;
+	margin:0 8px 8px 0;
+}
+
+ul.community li	a span {
+	float:left;
+	margin:0 8px 8px 0;
+}
+
+.col-onethird-home {
+	margin:50px 0 0;
+}
+
+/*
+TOOL TIPS
+*/
+a.tooltip span.tiptext {
+	font-size:1em;
+	z-index:10;
+	display:none;
+	padding:6px 8px;
+	width:180px;
+	line-height:18px;
+	-moz-box-shadow:5px 5px 8px #666;
+	-webkit-box-shadow:5px 5px 8px #666;
+	box-shadow:5px 5px 8px #666;
+}
+
+a.tooltip:hover span.tiptext {
+	display:inline;
+	position:absolute;
+	color:#111;
+	border:1px solid #DCA;
+	background:#fff;
+}
+
+a.tooltip:hover img {
+	opacity:.5;
+}
+
+/*
+MENU PAGES
+*/
+ul.menu {
+	list-style-type:none;
+}
+
+ul.menu	li {
+	float:left;
+	width:150px;
+	height:230px;
+	margin-right:10px;
+}
+
+ul.menu li.disabled {
+	color:#C2C2C2;
+}
+
+ul.menu li.disabled img {
+	opacity:.5;
+}
+
+ul.plus li {
+	height:260px;
+}
+
+ul.menu li a.title {
+	font-size:100%;
+}
+
+ul.menu	li img,ul.community li img {
+	-webkit-box-shadow:0 3px 10px 1px rgba(0,0,0,.44);
+	-moz-box-shadow:0 3px 10px 1px rgba(0,0,0,.44);
+	box-shadow:0 3px 10px 1px rgba(0,0,0,.44);
+}
+
+ul.menu li img.typeicon {
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+	float:left;
+	margin:0 4px 40px 0;
+}
+
+/*-- for thumbnail menus --*/
+ul.menu_thumb li {
+	overflow:auto;
+	padding:10px;
+}
+
+ul.menu_thumb li h4 {
+	margin:0 0 -8px;
+	padding:0;
+}
+
+ul.menu_thumb li img {
+	float:left;
+	margin-right:1em;
+	border:thin solid #CCC;
+}
+
+ul.menu_thumb li:hover {
+	background:#EDEFFB;
+	cursor:pointer;
+}
+
+p.menu_thumb_id {
+	margin-bottom:-10px;
+}
+
+/*
+LECTURES & INTERVIEW PAGES
+*/
+.transcription {
+	overflow:auto;
+	height:200px;
+	width:600px;
+/*-- leave 16px for the vertical scroll widget --*/
+	border:thin solid #CCC;
+	background-color:#EDEFFB;
+	padding:0 15px 10px;
+	margin-bottom:20px;
+}
+
+ol.lecture_menu {
+	font-size:125%;
+	list-style-type:none;
+	font-weight:700;
+}
+
+ol.lecture_menu li {
+	margin-bottom:.75em;
+}
+
+div.resource_sidebar h4.question-menu {
+	font-size:110%;
+	margin-bottom:-.5em;
+}
+
+.olc_image {
+	border:thin solid #CCC;
+}
+
+div#sidebar .olc_caption {
+	color:#999;
+	font-size:90%;
+	font-weight:500;
+}
+
+video {
+	width:100%;
+	height:auto;
+}
+
+hr {
+	width:800px;
+	color:#999;
+	margin-top:0;
+	margin-bottom:0;
+}
+
+/*
+SLIMBOX CONTENT
+*/
+ul.olc_further_study li {
+	margin-bottom:.5em;
+	list-style-type:circle;
+	list-style-position:inside;
+}
+
+p.close {
+	float:right;
+}
+
+/* Tablets (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+	#header,#intro,#footer {
+		min-width:0;
+	}
+	
+	#header,.container,#slider,#footer,#intro {
+		height:auto;
+		width:100%;
+		overflow:hidden;
+	}
+	
+	#header div.container {
+		height:auto;
+	}
+	
+	#nav > ul > li > a {
+		font:11px/40px;
+		padding:0 6px;
+	}
+	
+	#footer {
+		font-size:80%;
+	}
+	
+	#footer p.footer-contact {
+		margin-left:1em;
+	}
+	
+	#footer p.footer-copyright {
+		padding:0 1em -1em 0;
+	}
+}

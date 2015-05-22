@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{# extended by artifact_base, resource_two_col, resource_three_col #}
+{% load static %}
+
+{% block content_by %}
+	<h5>Content by: 	
+	{% for profile in resource_object.profiles.all %}
+		<a href="/community/profiles/{{ profile.short_name }}/" class="title">
+		{{ profile.profile_name|safe }}</a>
+	{% endfor %}{% if resource_object.edited_by %},
+		Edited by: {{ resource_object.edited_by }}
+	{% endif %}
+	</h5>
+{% endblock %}
+
+{% block sidebar %}
+<div class="resource_sidebar">
+	{% block col3content %}
+	{% endblock %}
+	{% block attributes %}
+		resource specific fields
+	{% endblock attributes %}
+	
+	{% block connections %}
+		{% block items %}
+		{% if has_items %}
+			<h3>Related Items from the Collection</h3>
+			<ul class="olc_related_items">
+			    {% for arti in related_artifacts %}
+			        <li><a class="tooltip" href="/artifacts/{{ arti.short_name }}/"><img src="{% static 'artifacts/thumbpics/' %}{{ arti.filename }}_t.jpg" height="50" width="50" alt="{{ arti.short_name }} - {{ arti.filename }}"><span class="tiptext">{{ arti.title|safe }}</span></a></li>
+			    {% endfor %}		
+			    {% for doc in related_docs %}
+			        <li><a class="tooltip" href="/documents/{{ doc.short_name }}/"><img src="{% static 'documents/thumbpics/' %}{{ doc.filename }}_t.jpg" height="50" width="50" alt="{{ doc.short_name }} - {{ doc.filename }}"><span class="tiptext">{{ doc.title|safe }}</span></a></li>
+			    {% endfor %}
+			</ul>
+		{% endif %}
+		{% endblock items %}
+
+		{% block related_classroom %}{# so that raw resources can override and omit #}
+		<h3>Related Resources</h3>
+		<ul>
+			{% block biblio %}
+				{% if has_further %}
+				<li><a href="javascript:popBox('{{ resource_type }}s','biblio','{{ resource_object.short_name }}')">For Further Study</a></li>
+				{% endif %}
+			{% endblock %}
+
+		    {% for essay in essays %}
+	        	<li><a href="javascript:popBox('connections','essays','{{ essay.short_name }}')">Background Info: {{ essay.title|safe }}</a></li>
+		    {% endfor %}
+	
+		    {% for audiovisual in audiovisuals %}
+	        	<li><a href="javascript:popBox('connections','{{ audiovisual.media_type|lower }}','{{ audiovisual.short_name }}')">{{ audiovisual.media_type }}: {{ audiovisual.title|safe }}</a></li>
+		    {% endfor %}
+	
+		    {% for map in maps %}
+	        	<li><a href="/maps/{{ map.short_name }}/" class="link_newpage">Map: {{ map.title|safe }}</a></li>
+		    {% endfor %}
+	
+		    {% for lecture in lectures %}
+	        	<li><a href="/scholars/lectures/{{ lecture.short_name }}/"  class="link_newpage">Lecture: {{ lecture.title|safe }}</a></li>
+		    {% endfor %}
+	
+		    {% for interview in interviews %}
+	        	<li><a href="/scholars/interviews/{{ interview.short_name }}/"  class="link_newpage">Interview: {{ interview.scholar|safe }}</a></li>
+		    {% endfor %}
+	
+		    {% for link in related_pdfs %}
+				{% include "connections/link_include.html" %}
+		    {% endfor %}
+		</ul>
+
+		<h3>In the Classroom</h3>
+		<ul>
+			{% block classroom_ideas %}
+				{% if resource_object.idea_set.all %}	
+					<li><a href="javascript:popBox('{{ resource_type }}s','ideas','{{ resource_object.short_name }}')">Ideas for Classroom Use</a></li>
+				{% endif %}	
+			{% endblock classroom_ideas %}
+		
+		    {% for link in classroom_pdfs %}
+				{% include "connections/link_include.html" %}
+		    {% endfor %}
+		</ul>
+		{% endblock related_classroom %}
+	
+	{% if resource_object.weblinks.all %}
+		<h3>Related Websites</h3>
+		<ul>
+		    {% for weblink in resource_object.weblinks.all %}
+		        <li><a href="{{ weblink.link_url }}" target="external"  class="link_external">{{ weblink.link_text|safe }}</a></li>
+		    {% endfor %}
+		</ul>    
+	{% endif %}
+	
+	{% endblock connections %}
+</div><!-- /resource_sidebar -->
+{% endblock sidebar %}

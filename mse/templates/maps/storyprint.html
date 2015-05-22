@@ -1,0 +1,16 @@
+{% extends "connections/base_connection.html" %}
+{% load staticfiles %}
+
+{% block heading %}Story Chapters{% endblock %}
+{% block connection_title %}{{ resource_object.title|safe }}{% endblock %}
+
+{% block slim_content%}
+	
+{% for chapter in resource_object.chapter_set.all %}
+    <h4>Chapter {{ chapter.chap_num }}</h4>
+    <h3>{{ chapter.title|safe }}</h3>
+	<p class="subhead">{{ chapter.date }}; {{ chapter.location|safe }}</p>
+	{{ chapter.narrative|safe }}
+{% endfor %}
+
+{% endblock slim_content %}

@@ -1,0 +1,42 @@
+{% load static %}
+
+<div id="sidebar" class="col-onethird {% block opt_side_class %}col-onethird-right{% endblock %}">
+	<div class="resource_sidebar">
+{% block col3content %}{% endblock %}
+{% block connections %}
+	{% block items %}{% if has_items %}
+		<h2>Related to This {% block res_type %}Map{% endblock %}</h2>
+		<ul class="olc_related_items">
+		    {% for arti in related_artifacts %}
+		        <li><a class="tooltip" href="javascript:popBox('artifacts','slim','{{ arti.short_name }}')"><img src="{% static 'artifacts/thumbpics/' %}{{ arti.filename }}_t.jpg" height="50" width="50" alt="{{ arti.short_name }} - {{ arti.filename }}"><span class="tiptext">{{ arti.title|safe }}</span></a></li>
+		    {% endfor %}		
+		    {% for doc in related_docs %}
+		        <li><a class="tooltip" href="javascript:popBox('documents','slim','{{ doc.short_name }}')"><img src="{% static 'documents/thumbpics/' %}{{ doc.filename }}_t.jpg" height="50" width="50" alt="{{ doc.short_name }} - {{ doc.filename }}"><span class="tiptext">{{ doc.title|safe }}</span></a></li>
+		    {% endfor %}
+		</ul>
+	{% endif %}{% endblock items %}
+
+	{% block related_classroom %}{# so that raw resources can override and omit #}
+		<ul class="related_menu">
+	    {% for essay in essays %}
+        	<li><a href="javascript:popBox('connections','essays','{{ essay.short_name }}')">Background Info: {{ essay.title|safe }}</a></li>
+	    {% endfor %}	
+	    {% for audiovisual in audiovisuals %}
+        	<li><a href="javascript:popBox('connections','{{ audiovisual.media_type|lower }}','{{ audiovisual.short_name }}')">{{ audiovisual.media_type }}: {{ audiovisual.title|safe }}</a></li>
+	    {% endfor %}	
+	    {% for map in maps %}
+        	<li><a href="/maps/{{ map.short_name }}/" class="link_newpage">Map: {{ map.title|safe }}</a></li>
+	    {% endfor %}	
+	    {% for lecture in lectures %}
+        	<li><a href="/scholars/lectures/{{ lecture.short_name }}/"  class="link_newpage">Lecture: {{ lecture.title|safe }}</a></li>
+	    {% endfor %}	
+	    {% for interview in interviews %}
+        	<li><a href="/scholars/interviews/{{ interview.short_name }}/"  class="link_newpage">Interview: {{ interview.scholar|safe }}</a></li>
+	    {% endfor %}
+		{% block added_resource %}{% endblock %}
+		</ul>
+	{% endblock related_classroom %}
+	
+{% endblock connections %}
+	</div><!-- /resource_sidebar -->
+</div><!-- /div sidebar -->

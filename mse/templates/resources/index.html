@@ -1,0 +1,35 @@
+{% extends "base_menu.html" %}
+{% load static %}
+
+{% block title %}Resource Set Menu{% endblock %}
+{% block body_class %}sets{% endblock %}
+{% block section_class %}sets{% endblock %}
+
+{% block breadcrumbs %}
+<li class="current_item">Resource Sets</li>
+{% endblock %}
+{% block page_title %}Resource Sets{% endblock %}
+
+{% block content %}
+
+	{% if resourceset_list %}
+	<ul class="menu plus">
+	   {% for resourceset in resourceset_list %}
+			
+		<li>
+			<a href="/sets/{{ resourceset.short_name }}/" class="title">
+			<img src="{% static 'resources/menupics/' %}{{ resourceset.short_name }}.jpg" height="150" width="150" alt="image: {{ resourceset.title }}"/><br/>{{ resourceset.title|safe }}</a>
+		</li>
+	   {% endfor %}
+	</ul>
+	{% else %}
+	   <p>No resourcesets are available.</p>
+	{% endif %}
+
+{% endblock content %}
+
+{% block menu_side_content %}
+	<h2>About Resource Sets</h2>
+    <p>The "Resource Sets" Feature contains collections of all MSE website features (Artifact Articles, Living Manuscripts, Active Maps, and Lectures &amp; Scholars) tied together under a central theme.  Created by <a href="javascript:popBox('connections','moreinfo','mse_fellows')">MSE Fellows</a> and Mystic Seaport staff, Resource Sets contain teacher-friendly components such as <em>Related Resources, In the Classroom ideas</em> and <em>Related Websites</em>. Check back often as we add new content regularly.</p>
+    
+{% endblock menu_side_content %}

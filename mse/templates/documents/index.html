@@ -1,0 +1,38 @@
+{% extends "base_menu.html" %}
+{% load static %}
+
+{% block title %}Living Document Menu{% endblock %}
+{% block body_class %}documents{% endblock %}
+{% block section_class %}documents{% endblock %}
+
+{% block breadcrumbs %}
+<li class="current_item">Living Documents</li>
+{% endblock %}
+{% block page_title %}Living Documents{% endblock %}
+
+{% block content %}
+
+	{% if resource_object_list %}
+	    <ul class="menu plus">
+	    {% for resource_object in resource_object_list %}
+		<li>
+	       <a href="/documents/{{ resource_object.short_name }}/" class="title">
+	       <img src="{% static 'documents/menupics/' %}{{ resource_object.filename }}_m.jpg" height="150" width="150" alt="Image of {{ resource_object.title }}"/><br/>
+	       {{ resource_object.title|safe }}</a><br/>
+	       {{ resource_object.identifier }}
+		</li>
+	    {% endfor %}
+	    </ul>
+	{% else %}
+	    <p>No documents are available.</p>
+	{% endif %}
+
+{% endblock content %}
+
+{% block menu_side_content %}
+	<h2>About Living Documents</h2>
+    <p>The "Living Documents" feature makes documents of the past to come to life with sound, transcripts, and informational pop-ups.  Created by <a href="javascript:popBox('connections','moreinfo','mse_fellows')">MSE Fellows</a> and Mystic Seaport staff, Living Documents contain teacher-friendly components such as <em>Questions for Deeper Thought, Artifact Facts, Related Items from the Collection, Related Resources, In the Classroom ideas</em> and <em>Related Websites</em>. Check back often as we add new content regularly.</p>
+
+<h4><a href="/documents/raw/">Browse All Document Records</a></h4>
+
+{% endblock menu_side_content %}
