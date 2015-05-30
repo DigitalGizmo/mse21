@@ -15,7 +15,7 @@
 var compare_params = {
 	init_location: ["{{ resource_object.init_lat }}", "{{ resource_object.init_long }}", {{ resource_object.init_zoom }} ],
 	// layerYears: ['1841', '1842']
-	layerIDs: [{% for item in voyage_list %}{{item.voyageID}}{% if not forloop.last %}, {% endif %}{% endfor %}],
+	layerIDs: [{% for item in voyage_list %}{{item.voyage_id}}{% if not forloop.last %}, {% endif %}{% endfor %}],
 	// could use json and combine w/ layerIDs, but layerID code works and is parallel to
 	// layerYears
 	layerColors: [{% for item in voyage_list %}'{{item.color}}'{% if not forloop.last %}, {% endif %}{% endfor %}],
@@ -29,7 +29,7 @@ var compare_params = {
 	<ul class="compare_list">
 	{% for item in voyage_list %}
 		<li style="border-top: 2px solid #{{item.color}};">
-			<input type="checkbox" name="item_chosen" id="{{item.voyageID}}" value="{{item.voyageID}}"><label for="{{item.voyageID}}">{{item.title|safe}}</label><br/>
+			<input type="checkbox" name="item_chosen" id="{{item.voyage_id}}" value="{{item.voyage_id}}"><label for="{{item.voyage_id}}">{{item.title|safe}}</label><br/>
 			{{item.date_range}}, {{item.description}}<br/>
 			<a href="/maps/voyage/{{ item.short_name }}">see voyage map</a>
 		</li>

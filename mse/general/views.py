@@ -17,7 +17,8 @@ def index(request):
         artifact_list = Artifact.objects.filter(augmented=True, status_num__gte=settings.STATUS_LEVEL)
         document_list = Document.objects.filter(augmented=True, status_num__gte=settings.STATUS_LEVEL)
         map_list = Geomap.objects.all().filter(augmented=True, status_num__gte=settings.STATUS_LEVEL)
-        return render_to_response('index.html', {'item_list': item_list, 'project_list': project_list, 'artifact_list': artifact_list, 'document_list': document_list, 'map_list': map_list})
+        return render_to_response('index.html', {'item_list': item_list, 'project_list': project_list, 
+            'artifact_list': artifact_list, 'document_list': document_list, 'map_list': map_list})
 
 # temp dupliate for the coming soon page
 def index_coming(request):

@@ -60,6 +60,7 @@ class Question(models.Model):
     artifact = models.ForeignKey('artifacts.Artifact')
     question_text = models.CharField(max_length=255)
     question_num = models.IntegerField()
+    
     def __str__(self):
         return self.question_text
 
@@ -68,6 +69,7 @@ class Idea(models.Model):
     name = models.CharField('Label', max_length=64, blank=True, default='')
     idea_text = models.TextField(blank=True, default='')
     idea_num = models.IntegerField(default=0)
+
     def __str__(self):
         return self.name
 
@@ -77,6 +79,7 @@ class Page(models.Model):
     page_suffix = models.CharField('filename suffix', max_length=64, blank=True, default='')
     page_label = models.CharField('view label', max_length=64, blank=True, default='')
     page_num = models.IntegerField('view order')
+
     class Meta:
          verbose_name = "View"
     def __str__(self):

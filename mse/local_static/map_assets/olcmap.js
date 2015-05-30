@@ -449,7 +449,7 @@ function addCompareLayer(layerIndex) {
 /* helper for where clause
 */
 function getCompareClause(layerIndex) {
-	var whereClause = " WHERE 'voyageID' = " + layerIDs[layerIndex] ; // + "'"
+	var whereClause = " WHERE 'voyage_id' = " + layerIDs[layerIndex] ; // + "'"
 	return whereClause;
 }
 

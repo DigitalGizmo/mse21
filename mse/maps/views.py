@@ -4,22 +4,32 @@ from django.http import Http404
 from django.conf import settings
 #from django.utils import simplejson
 import json
-# from django.contrib.sites.models import Site
+from django.contrib.sites.models import Site
 from maps.models import Geomap
 from scholars.models import Lecture, Interview
 
 from django.core import serializers
 
 def index(request):
+    """
+    Unlike the other menus which draw directly on tables, this one is filter via the
+    maps_geomaps_sites association table.
+    """
     # handle multiple sites. Use raw ID which will work on devel as well as public
-    item_list = Geomap.objects.filter(map_type='Voyage', status_num__gte=settings.STATUS_LEVEL, sites__id__exact=settings.SITE_ID).order_by('ordinal')
-    story_list = Geomap.objects.filter(map_type='Story', status_num__gte=settings.STATUS_LEVEL, sites__id__exact=settings.SITE_ID).order_by('ordinal')    
+    item_list = Geomap.objects.filter(map_type='Voyage', status_num__gte=settings.STATUS_LEVEL, 
+        sites__id__exact=settings.SITE_ID).order_by('ordinal')
+        # , sites__id=settings.SITE_ID
+    story_list = Geomap.objects.filter(map_type='Story', status_num__gte=settings.STATUS_LEVEL, 
+        sites__id__exact=settings.SITE_ID).order_by('ordinal')    
     # handle multiple sites. Use raw ID which will work on devel as well as public
     # this map menu is the main menu for Pequot
     if settings.SITE_ID == 2:
-        lecture_list = Lecture.objects.filter(status_num__gte=settings.STATUS_LEVEL, sites__id__exact=settings.SITE_ID).order_by('ordinal')
-        interview_list = Interview.objects.filter(status_num__gte=settings.STATUS_LEVEL, sites__id__exact=settings.SITE_ID).order_by('ordinal')
-        return render_to_response('pq/maps/index.html', {'item_list': item_list, 'story_list': story_list, 'lecture_list': lecture_list, 'interview_list': interview_list})
+        lecture_list = Lecture.objects.filter(status_num__gte=settings.STATUS_LEVEL, 
+            sites__id__exact=settings.SITE_ID).order_by('ordinal')
+        interview_list = Interview.objects.filter(status_num__gte=settings.STATUS_LEVEL, 
+            sites__id__exact=settings.SITE_ID).order_by('ordinal')
+        return render_to_response('pq/maps/index.html', {'item_list': item_list, 'story_list': story_list, 
+            'lecture_list': lecture_list, 'interview_list': interview_list})
     else:
         return render_to_response('maps/index.html', {'item_list': item_list, 'story_list': story_list})
 
@@ -101,7 +111,7 @@ def compare_this(request, short_name, map_id):
         m_id = -3
     map_index = -1
     for idx, entry in enumerate(voyage_list):
-        if entry['voyageID'] == m_id:
+        if entry['voyage_id'] == m_id:
             map_index = idx
     if settings.SITE_ID == 2:
         template_path = 'pq/maps/compare.html'
@@ -115,7 +125,7 @@ def get_voyage_list(o):
     # prep list of voyages. Use pk to get map titles
     voyage_list = []
     for voyage in o.comparevoyage_set.all():
-        vo = Geomap.objects.get(pk=voyage.voyageID)
+        vo = Geomap.objects.get(pk=voyage.voyage_id)
         #if (settings.SITE_ID == vo.sites__id__exact):
         #if (vo.sites__id == settings.SITE_ID):
         #a = Article.objects.get(id=article_id, sites__id=get_current_site(request).id)  
@@ -130,7 +140,7 @@ def get_voyage_list(o):
                 belongs = True       
         if (belongs):
         # how do I filter per current site?
-            voyage_list.append({'voyageID': voyage.voyageID, 'color': voyage.color, 'title': vo.title, 'short_name': vo.short_name, 'date_range': vo.date_range, 'description': vo.description})
+            voyage_list.append({'voyage_id': voyage.voyage_id, 'color': voyage.color, 'title': vo.title, 'short_name': vo.short_name, 'date_range': vo.date_range, 'description': vo.description})
     return voyage_list
 
 def about(request, short_name):

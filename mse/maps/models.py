@@ -104,7 +104,7 @@ class Logyear(models.Model):
 class Comparevoyage(models.Model):
     geomap = models.ForeignKey('maps.Geomap')
     label = models.CharField('nickname for this voyage', max_length=32, unique=True)
-    voyageID = models.IntegerField('voyage map ID', default=0,
+    voyage_id = models.IntegerField('voyage map ID', default=0,
             help_text="look for number in admin edit link for map in question")    
     ordinal = models.IntegerField('Order in Menu', default=999)    
     color = models.CharField('Line Color', max_length=16, blank=True, default='')

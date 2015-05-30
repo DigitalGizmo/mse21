@@ -80,7 +80,7 @@ Done
 	* maps uses Sites
 	* scholars has two many blocks
 
-Convert from Char null=True to default=''
+Convert from Char null=True to default='' in models.
 ::
 
 	, null=True)
@@ -89,6 +89,7 @@ Convert from Char null=True to default=''
 Remove ,null=True from manys
 
 Import tables
+~~~~~~~~~~~~~
 (see Documents/Projects/MSE20/DataMigration/msedb_commands.rst for full collection)
 ::
 
@@ -99,29 +100,42 @@ Import tables
 
 	COPY community_profile (id,short_name,profile_name,institution,location,narrative,is_institution,notes,edited_by,edit_date,status_num,ordinal) FROM '/Users/don/Documents/Projects/MSE20/DataMigration/exports/profiles.csv' (FORMAT csv, FORCE_NOT_NULL(institution,location,narrative,notes,edited_by));
 
+Characters to replace
+::
+
+	Ð	-	0xd0 0x20
+	Õ	'	0xd5 0x73
+	Ò	""	0xd2 0x57?
+	Ó	""
+	©	&copy;	0xa9
+
 Use auto created Django command to reset sequence::
 
 	./manage.py sqlsequencereset community
 
 	SELECT setval(pg_get_serial_sequence('"community_profile"','id'), coalesce(max("id"), 1), max("id") IS NOT null) FROM "community_profile";
 
-SQL Server sql output. Lose [ and ]. Add INTO, and ;
+SQL Server sql output -- just for the associations --  this process doesn't catch bad characters.
+[sql server - How to export all data from table to an insertable sql format? - Stack Overflow](http://stackoverflow.com/questions/20542819/how-to-export-all-data-from-table-to-an-insertable-sql-format)
+Lose [ and ]. Add INTO, and ;
 Run the sql
 ::
 
 	cd ~/Documents/Projects/MSE20/DataMigration/SQL
 
-	$ psql msedb -f connections_audiovisual.sql
+	$ psql msedb -f many_maps_seq.sql
 
-Back to CSV
-SQL doesn't catch bad characters
-Characters to replace
+Turns out the id numbers for the manys are whacky and high, I'll renumber them. Within psql.
 ::
 
-	Ð	-	0xd0 0x20
-	Õ	'	0xd5 0x73
-	Ò	""
-	Ó	""
+	ALTER SEQUENCE maps_geomap_artifacts_id_seq RESTART WITH 1;
+	UPDATE maps_geomap_artifacts SET id = DEFAULT;
+
+Didn't work. Leave ids out of import in the first place. Regualar expresson for getting rid of id:
+::
+
+	VALUES \((\d+), 
+	VALUES (
 
 
 remove secret key
