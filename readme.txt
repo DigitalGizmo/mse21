@@ -22,3 +22,6 @@ Multiple Site configuration directories
 			The static directory here is a symbolic link to the one in educators/educators
 			This settings.py file points to the url.py in educators/educators
 	
+	Maps
+		Currently handled through Google Fusion Tables
+		Keys managed in Don's digitalgizmo account via: https://console.developers.google.com/project

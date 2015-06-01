@@ -10,20 +10,26 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-# -----import os
-# -------BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from unipath import Path
+import json
+from django.core.exceptions import ImproperlyConfigured
 
 # 3-tier approach Using Unipath per Two Scoops
-from unipath import Path
-
 BASE_DIR = Path(__file__).ancestor(3)
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
+# JSON-based secrets module
+with open(BASE_DIR.child('mse', 'settings', 'secrets.json')) as f:
+    secrets = json.loads(f.read())
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qj6*j=0m73q9!%(ta#&^m0&fr^g9tke9s%phq(6+y+k0ivk=#p'
+def get_secret(setting, secrets=secrets):
+    """ Get the secret variable or return explicit exception. """
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = "Set the {0} environment variable".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -104,7 +110,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
 STATIC_URL = '/static/'
 
 # Static files (CSS, JavaScript, Images)
@@ -115,7 +120,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     BASE_DIR.child("local_static"),
 )
-
 
 SITE_ID = 1
 

@@ -447,9 +447,10 @@ function addCompareLayer(layerIndex) {
 }
 
 /* helper for where clause
+* The column that's called voyage_id in Django is called voyageID in the Fusion table
 */
 function getCompareClause(layerIndex) {
-	var whereClause = " WHERE 'voyage_id' = " + layerIDs[layerIndex] ; // + "'"
+	var whereClause = " WHERE 'voyageID' = " + layerIDs[layerIndex] ; // + "'"
 	return whereClause;
 }
 

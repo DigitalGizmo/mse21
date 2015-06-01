@@ -40,12 +40,19 @@ This installed postgresql (9.4.1) as a dependency.
 Tech support had to straighten this out.
 
 
+Within virtenv
+Tried installing yum install python-psycopg2 but that didn't show up in the virt env per lssitepackages
+
+pip Worked
+::
+
+    pip install psycopg2
+
+
 Create Database
 ----------------
 In ISP as root: Tools > Databases
     new - owner mseadmin, new user per settings
-
-
 
 Backup local
 ::
@@ -55,25 +62,26 @@ Backup local
     or compact
     pg_dump -OFc --verbose msedb > mse_2015_05_29.backup
 
-Resore on eApps. For data copy, log in to shell as mseadmin -- that's the database owner.
+Resore on eApps. For data copy, Had problems, but eApps support edited /var/lib/pgsql/data/pg_hba.conf to add this:
 ::
 
-    cd /var/www/dino_user/data/FTP_transfer
-    (/var/www/mseadmin/data/www/msedev.mysticseaport.org/scripts)
-    pg_restore -O --dbname=msedb --verbose mse_2015_05_29.backup
+    local msedb msedb_user md5
 
-    psql: FATAL:  no pg_hba.conf entry for host "[local]", user "mseadmin", database "postgres", SSL off
+Which allows this:
+::
 
-Here's the answer-- log in as root, then:
+    su - postgres
+    cd /var/www/mseadmin/data/FTP_transfer
+    pg_restore -O --dbname=msedb --user=msedb_user --verbose mse_2015_05_29.backup
+
+Error on migrations table because it already existed.
+Export local, then delete and copy remote.
 ::
     
     su postgres
 
-
-within virtenv
-::
-
-    yum install python-psycopg2
-
+log Locations
+--------------
+/var/www/httpd-logs/
 
 

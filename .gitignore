@@ -1,13 +1,17 @@
+# Extensions
 *.pyc
 *.log
 *.db
 *.jpg
 *.gif
 *.lnk
+
+# Files
 .DS_Store
 .com.apple.timemachine.supported
+secrets.json
 
-# directories
+# Directories
 .svn/
 migrations/
 static/
