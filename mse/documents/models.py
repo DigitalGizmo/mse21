@@ -23,6 +23,7 @@ class Document(models.Model):
     ordinal = models.IntegerField('Order in Menu', default=999)
     notes = models.TextField('Production Notes', blank=True, default='')
     edited_by = models.CharField(max_length=64, blank=True, default='')
+    read_by = models.CharField(max_length=64, blank=True, default='')
     edit_date = models.DateTimeField('date edited', default=datetime.datetime.now)
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
     resourcesets = models.ManyToManyField('resources.Resourceset', 

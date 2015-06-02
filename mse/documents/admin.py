@@ -17,20 +17,28 @@ class IdeaInline(admin.TabularInline):
 
 class DocumentAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,            {'fields': ['title', 'short_name','filename',  'bibid', 'identifier', 'object_name', 'date_made', 'author', 'description', 'narrative', 'hist_context']}),
-        ('Content Creator(s)',   {'fields': ['profiles'], 'classes': ['collapse']}),
+        (None,            {'fields': ['title', 'short_name','filename',  'bibid', 
+            'identifier', 'object_name', 'date_made', 'author', 'description', 
+            'narrative', 'hist_context']}),
+        ('Content Creator(s)',   {'fields': ['profiles', 'read_by'], 'classes': ['collapse']}),
         ('Resource Sets',   {'fields': ['resourcesets'], 'classes': ['collapse']}),
-        ('Related Items from Collection',   {'fields': ['artifacts', 'documents'], 'classes': ['collapse']}),
-        ('Related Resources',   {'fields': ['biblio','essays', 'audiovisuals', 'lectures', 'maps'], 'classes': ['collapse']}),
-        ('Related Resources or Classroom',   {'fields': ['connections'], 'classes': ['collapse']}),
+        ('Related Items from Collection',   {'fields': ['artifacts', 'documents'], 
+            'classes': ['collapse']}),
+        ('Related Resources',   {'fields': ['biblio','essays', 'audiovisuals', 'lectures', 
+            'maps'], 'classes': ['collapse']}),
+        ('Related Resources or Classroom',   {'fields': ['connections'], 
+            'classes': ['collapse']}),
         ('Weblinks',   {'fields': ['weblinks'], 'classes': ['collapse']}),
-        ('Behind the scenes',   {'fields': ['augmented', 'ordinal', 'edit_date', 'status_num', 'edited_by', 'notes'], 'classes': ['collapse']}),
+        ('Behind the scenes',   {'fields': ['augmented', 'ordinal', 'edit_date', 'status_num', 
+            'edited_by', 'notes'], 'classes': ['collapse']}),
     ]
     inlines = [QuestionInline, IdeaInline, PageInline]
-    list_display = ('title', 'short_name', 'filename', 'identifier', 'bibid', 'status_num', 'description') # 'filename', 
+    list_display = ('title', 'short_name', 'filename', 'identifier', 'bibid', 'status_num', 
+        'description') # 'filename', 
     list_filter	 = ['augmented']
     search_fields = ['identifier', 'title', 'short_name']
-    filter_horizontal = ['resourcesets','artifacts', 'documents', 'connections','weblinks','biblio', 'essays', 'audiovisuals', 'lectures', 'maps','profiles']
+    filter_horizontal = ['resourcesets','artifacts', 'documents', 'connections','weblinks',
+        'biblio', 'essays', 'audiovisuals', 'lectures', 'maps','profiles']
 
 admin.site.register(Document, DocumentAdmin)
 
