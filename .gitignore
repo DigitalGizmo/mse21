@@ -13,7 +13,6 @@ secrets.json
 
 # Directories
 .svn/
-migrations/
 static/
 tinymce/
 fonts/
