@@ -18,5 +18,5 @@ tinymce/
 fonts/
 ZoomAssets/
 templates/robots.txt
-local_static/images/
-local_static/common/css_images/
+mse/local_static/images/
+mse/local_static/common/css_images/

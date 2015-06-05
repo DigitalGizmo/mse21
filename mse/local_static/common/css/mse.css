@@ -1,0 +1,87 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+header h1	{
+	font-size: 5em;
+	font-weight: 100;
+	margin-top: 0;
+}
+header h1 a {
+	color: #597485;
+}
+.mysticlogo	{
+	position: absolute;
+	z-index: 5;
+}
+nav.navbar 	{
+	background-color: #597485;
+	margin-bottom: 0;
+	margin-top: 8px;
+}
+div.collapse	{
+	margin-left: 80px;
+}
+nav.navbar a:link	{color: white;}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  color: #597485;
+  background-color: #dee3e7;
+}
+.page-title	{
+	background-color: #dee3e7;
+	color: #597485;
+	padding-bottom: 20px;
+	overflow: auto;
+}
+div.main-content	{
+	padding-top: 2em;
+}
+ul.menu li {
+	margin-bottom: 2em;
+}
+ul.menu li span.title {
+	position: absolute;
+	background-color: rgb(91,118,135);opacity:0.65;
+	height: 66px;
+	padding-right: 15px;
+}
+ul.menu h4, ul.menu p	{
+	color: white; 
+	padding: 5px;
+	margin: 0;
+}
+ul.menu p 	{
+	padding-top: 0;
+}
+ul.menu p a:link	{
+	color: white;
+}
+.paging p	{
+	color: #597485;
+}
+.paging a:link	{
+	color: #597485;
+}
+.paging a:visited	{
+	color: #597485;
+}
+.paging a:hover	{
+	text-decoration: underline;
+	color: #597485;
+}
+.paging a.selected	{
+	font-weight: bold;
+	text-decoration: none;
+}
+
+
+footer	{
+	background-color: #022b61;
+	color: white;
+	font-size: .8em;
+	padding-top: 20px;
+	margin-top: 3em;
+}
+footer .glyphicon	{
+	font-size: 2em;
+	vertical-align: -30%;
+}
