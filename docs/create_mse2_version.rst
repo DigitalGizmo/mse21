@@ -52,5 +52,35 @@ Soon enough they will be merged.
 eApps
 ----------
 
+
+Create sandbox
+~~~~~~~~~~~~~
+
+Clone
+Delete msesand.mysticseaport.org
 Clone. This will create the Master files. Switch right away to the mse2 branch.
+Run the clone command from ../data/www
+::
+
+    ssh root@68.169.52.41
+    cd /var/www/mseadmin/data/www/
+    git clone https://github.com/knowyourider/mse20 msesand.mysticseaport.org
+
+Clone db, pretty much as above
+
+Resore on eApps. For data copy, need to edit /var/lib/pgsql/data/pg_hba.conf to add this:
+::
+
+    local mse2db msedb_user md5
+
+
+::
+
+	su - postgres
+	cd /var/www/mseadmin/data/FTP_transfer
+	pg_restore --dbname=mse2db --verbose mse_2015_06_02_noo.backup
+
+	psql postgres
+	\connect mse2db
+	ALTER SCHEMA public OWNER to msedb_user;
 

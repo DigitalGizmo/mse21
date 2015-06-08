@@ -84,4 +84,3 @@ log Locations
 --------------
 /var/www/httpd-logs/
 
-
