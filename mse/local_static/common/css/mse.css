@@ -19,12 +19,30 @@ nav.navbar 	{
 	margin-top: 8px;
 }
 div.collapse	{
-	margin-left: 80px;
+	margin-left: 100px;
 }
-nav.navbar a:link	{color: white;}
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+nav.navbar a:link	{
+	color: white;
+}
+nav.navbar a:visited	{
+	color: #dee3e7;
+}
+nav.navbar a:hover	{
+	color: white;
+	text-decoration: underline;
+}
+nav.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
   color: #597485;
   background-color: #dee3e7;
+}
+nav.navbar ul li ul li {
+  background-color: #dee3e7;
+}
+nav.navbar ul li ul li a:link	{
+  color: #597485;
+}
+nav.navbar ul li ul li a:visited	{
+  color: #597485;
 }
 .page-title	{
 	background-color: #dee3e7;
@@ -52,6 +70,13 @@ ul.menu h4, ul.menu p	{
 ul.menu p 	{
 	padding-top: 0;
 }
+ul.menu img.img-responsive	{
+	box-shadow: 5px 5px 0px #cbcbcb;
+}
+ul.menu img.img-responsive:hover	{
+	opacity:0.65;
+}
+
 ul.menu p a:link	{
 	color: white;
 }
@@ -72,7 +97,6 @@ ul.menu p a:link	{
 	font-weight: bold;
 	text-decoration: none;
 }
-
 
 footer	{
 	background-color: #022b61;
