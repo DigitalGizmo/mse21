@@ -8,6 +8,8 @@ Tools
 ~~~~~~~~~
 phpPgAdmin
 http://68.169.52.41/phppgadmin/
+user: postgres
+Pass: in 1pass, keychain
 
 Process for database changes
 ~~~~~~~~~~~~~~~~~~~~~
