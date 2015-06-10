@@ -49,6 +49,11 @@ Setting.base will have db pointing to mse2.
 We don't need to have staging, staging2 etc. because having two devels is a temporary situation.
 Soon enough they will be merged.
 
+Let's try Invoke for automating collect static etc.
+::
+
+	pip install invoke==dev --allow-unverified invoke
+
 eApps
 ----------
 
@@ -66,21 +71,26 @@ Run the clone command from ../data/www
     cd /var/www/mseadmin/data/www/
     git clone https://github.com/knowyourider/mse20 msesand.mysticseaport.org
 
-Clone db, pretty much as above
-
-Resore on eApps. For data copy, need to edit /var/lib/pgsql/data/pg_hba.conf to add this:
+Resore db on eApps. For data copy, need to edit /var/lib/pgsql/data/pg_hba.conf to add this:
 ::
 
     local mse2db msedb_user md5
 
-
+Copy data
 ::
 
 	su - postgres
 	cd /var/www/mseadmin/data/FTP_transfer
-	pg_restore --dbname=mse2db --verbose mse_2015_06_02_noo.backup
+	pg_restore --dbname=mse2db --user=msedb_user --verbose mse_2015_06_02_noo.backup
 
 	psql postgres
 	\connect mse2db
 	ALTER SCHEMA public OWNER to msedb_user;
 
+Create Virtual env
+------------------
+::
+
+	mkvirtualenv -a /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse --python=/usr/local/bin/python3.4 mse2
+
+Pip installs as above for local
