@@ -14,3 +14,4 @@ SITE_ID = 1
 STATUS_LEVEL = 3
 # for devel vs. produciton diffes: google analytics in base.html
 IS_PRODUCTION = False
+

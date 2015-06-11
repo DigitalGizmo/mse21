@@ -1,11 +1,15 @@
-{% extends "management/base_management.html" %}
+{% extends "management/base.html" %}
 {% load staticfiles %}
 
-{% block heading %}Collect Static{% endblock %}
-{% block connection_title %}Message:{% endblock %}
+{% block head_title %}MSE Site Management - Collect Static{% endblock %}
 
-{% block slim_content%}
+{% block page_title %}MSE Site Management - Collect Static{% endblock %}
+
+{% block content %}
 
 	<p>Feedback: {{ feedback }}</p>
+	<p>If Collectstatic has started, the process can take 10 minutes or so. After that, check to see that new images, 
+	etc. are in place</p>
 
-{% endblock slim_content %}
+{% endblock content %}
+

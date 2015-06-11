@@ -1,5 +1,10 @@
 Django Notes
 
+Version differences
+-------------------
+
+* Development
+	* "management" app is included -- supports internal link to collect static.
 
 Legacy Windows setup
 --------------------

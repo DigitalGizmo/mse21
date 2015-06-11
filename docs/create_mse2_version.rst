@@ -94,3 +94,5 @@ Create Virtual env
 	mkvirtualenv -a /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse --python=/usr/local/bin/python3.4 mse2
 
 Pip installs as above for local
+
+only diffs are what's checked out, what's in static, which settings you call which only changes database.
