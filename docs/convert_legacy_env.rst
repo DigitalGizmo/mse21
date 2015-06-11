@@ -137,6 +137,14 @@ Didn't work. Leave ids out of import in the first place. Regualar expresson for 
 	VALUES \((\d+), 
 	VALUES (
 
+Mistakenly ran mse2db update against msedb -- I think it messed up the sequence numbers. 
+Rerun the sequence setting scripts - starting with documents.
+On eApps as root
+:: 
 
+	cd /var/www/mseadmin/data/FTP_transfer/scripts
+	./ many_documents_seq.sh
+
+Hmm, did I import the sites tables? 
 remove secret key
 ~~~~~~~~~~~~~~~~~
