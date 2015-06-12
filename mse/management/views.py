@@ -13,6 +13,8 @@ def collect(request):
 	if settings.IS_PRODUCTION:
 		feedback = 'No collect possible in producion environment.'
 	else:
-		run(settings.BASE_DIR.child('manage.py collectstatic -v0 --noinput'))
-		feedback = 'Collectstatic has started.'
+		#run(settings.BASE_DIR.child('manage.py collectstatic -v0 --noinput'))
+		#run(settings.BASE_DIR.child('./manage.py collectstatic -v0 --noinput --pythonpath=settings.VIRTUALENV_PATH'))
+		#feedback = 'Collectstatic has started.'
+		feedback = 'Collectstatic not yet functional on msedev.'
 	return render_to_response('management/collect.html', {'feedback': feedback})
