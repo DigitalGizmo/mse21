@@ -378,7 +378,10 @@ div#doc_wrapper div.olc_lms_text p.italics {/* italic text */
 div#doc_wrapper div.olc_lms_text p.doublespaced {/* double spaced lines */
 	line-height:200%;
 }
-
+div#doc_wrapper div.olc_lms_text table.trans td {/* for transcriptions in tables */
+	padding: 1px;
+	margin: 1px;
+}
 /* 
 living manuscript functionality 
 */
