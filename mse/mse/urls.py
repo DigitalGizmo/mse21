@@ -1,13 +1,13 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-# from django.views.generic.simple import direct_to_template
+from django.views.generic import TemplateView
 
 urlpatterns = [
     # Examples:
     # url(r'^$', 'mse.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    #url(r'^robots\.txt$', direct_to_template, {'template': 'robots.txt', 'mimetype':'text/plain'}),  
+    url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),  
     url(r'^$', 'general.views.index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^artifacts/', include('artifacts.urls')),
