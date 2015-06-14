@@ -34,8 +34,11 @@ cd /etc/httpd/conf.d
 create wsgi.conf
 LoadModule wsgi_module modules/mod_wsgi.so
 
-## virt env
-pip3.4 install virtualenvwrapper
+virt env
+-----------
+::
+
+        pip3.4 install virtualenvwrapper
 
 - in .bash_profile
 export WORKON_HOME=/var/www/mseadmin/data/.envs
@@ -54,9 +57,9 @@ If Python could not import the module virtualenvwrapper.hook_loader,
 check that virtualenvwrapper has been installed for
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python and that PATH is
 set properly.
+::
 
-
-mkproject --python=/usr/local/bin/python3.4 msedev.mysticseaport.org
+        mkproject --python=/usr/local/bin/python3.4 msedev.mysticseaport.org
 
 [root@msedev ~]# mkproject --python=/usr/local/bin/python3.4 msedev.mysticseaport.org
 Already using interpreter /usr/local/bin/python3.4
