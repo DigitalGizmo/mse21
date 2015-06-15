@@ -96,3 +96,12 @@ Create Virtual env
 Pip installs as above for local
 
 only diffs are what's checked out, what's in static, which settings you call which only changes database.
+
+Move static out of project
+---------------------------
+
+as root
+::
+
+	cd /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse
+	mv static ../../mse1_static
