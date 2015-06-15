@@ -169,8 +169,10 @@ for row in rows:
 
 Set up Django-pyodbc
 ~~~~~~~~~~~~~~~~~~~
+:: 
 
-$ pip install https://github.com/avidal/django-pyodbc/archive/django-1.4.zip
+    $ pip install https://github.com/avidal/django-pyodbc/archive/django-1.4.zip
+
 The winning reference is buried on this page:
 http://stackoverflow.com/questions/10851237/use-django-pyodbc-sqlserver-issue
 
@@ -181,15 +183,16 @@ This is moving beyond the land of installation and into application development,
 https://docs.djangoproject.com/en/1.4/intro/tutorial01/  
 Follow Database Setup
 Settings.py:
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sql_server.pyodbc', 
-        'NAME': 'django_db',          
-        'USER': 'django_user',                      
-        'PASSWORD': 'azorean$1965',                  
-        'HOST': 'DJANGO\SQLEXPRESS',                      
-        'PORT': '',   # Set to empty string for default.
-    }
+::
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sql_server.pyodbc', 
+            'NAME': 'django_db',          
+            'USER': 'django_user',                      
+            'PASSWORD': 'azorean$1965',                  
+            'HOST': 'DJANGO\SQLEXPRESS',                      
+            'PORT': '',   # Set to empty string for default.
+        }
 
 command line from c:\sites\olc > python manage.py syncdb
 Now we're definitely in the land of app development!
@@ -201,8 +204,13 @@ South
 TinyMCE
 Fabric
 see Fabric_Install.pages (doc)
+
 Outtakes
+-----------
+
 IIS
+~~~~~~~~~~
+
 Thought this was going to be the way to go, but it didn't work:
 This page contains a script that automates setting up the connection to IIS. It runs after the Django admin is all up and running. Even after that’s set up I may not be able to run it because of permissions—it changes IIS settings—but maybe you will be able to.
 http://django-windows-tools.readthedocs.org/en/latest/ 

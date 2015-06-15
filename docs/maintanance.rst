@@ -45,4 +45,7 @@ Line to fix the owner of public:
 	\connect msedb
 	ALTER SCHEMA public OWNER to msedb_user;
 
-M
+Collect static
+Batch file is at /usr/local/bin
+Executed by msedev.mysticseaport.org/management/collect
+Since Apache is executing this, the ownership of mse/static is apache:apache
