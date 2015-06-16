@@ -105,3 +105,18 @@ as root
 
 	cd /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse
 	mv static ../../mse1_static
+
+Symbolic Links to make model work online
+local
+::
+	
+	cd ~/Sites/mse2_project/mse/model
+	ln -s ~/Sites/mse2_project/mse/local_static ~/Sites/mse2_project/mse/model/model_local_static
+	ln -s ~/Sites/mse2_project/mse/artifacts/static/artifacts ~/Sites/mse2_project/mse/model/artifact_static
+
+eapps
+::
+	
+	cd /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/model
+	ln -s /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/local_static /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/model/model_local_static
+	ln -s /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/artifacts/static/artifacts /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/model/artifact_static

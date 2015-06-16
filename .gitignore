@@ -21,3 +21,5 @@ ZoomAssets/
 templates/robots.txt
 mse/local_static/images/
 mse/local_static/common/css_images/
+mse/model/artifact_static
+mse/model/model_local_static
