@@ -107,6 +107,10 @@ as root
 	mv static ../../mse1_static
 
 Symbolic Links to make model work online
+For eApps/online, the path to any static model asset has to start with /model/ (or /static/ but that would 
+require the designer to be able to collectstatic)
+These the sym directories are excluded in .gitignore. The need to be created separately on local and staging 
+environments.
 local
 ::
 	
@@ -119,4 +123,4 @@ eapps
 	
 	cd /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/model
 	ln -s /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/local_static /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/model/model_local_static
-	ln -s /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/artifacts/static/artifacts /var/www/mseadmin/data/www/msesdev.mysticseaport.org/mse/model/artifact_static
+	ln -s /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/artifacts/static/artifacts /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/model/artifact_static
