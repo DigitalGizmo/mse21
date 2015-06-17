@@ -107,6 +107,8 @@ as root
 	mv static ../../mse1_static
 
 Symbolic Links to make model work online
+---------------------------------------
+
 For eApps/online, the path to any static model asset has to start with /model/ (or /static/ but that would 
 require the designer to be able to collectstatic)
 These the sym directories are excluded in .gitignore. The need to be created separately on local and staging 

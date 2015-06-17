@@ -14,6 +14,3 @@ SITE_ID = 1
 STATUS_LEVEL = 3
 # for devel vs. produciton diffes: google analytics in base.html
 IS_PRODUCTION = False
-
-# for managment, invoke, collect
-#VIRTUALENV_PATH = BASE_DIR.ancestor(3).child('virtualenvs','mse','bin')

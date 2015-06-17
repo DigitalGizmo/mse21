@@ -7,7 +7,6 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
 DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
@@ -21,6 +20,8 @@ DATABASES = {
     }
 }
 
+# Static files (CSS, JavaScript, Images)
+STATIC_ROOT = BASE_DIR.ancestor(2).child("mse2_static")
 
 SITE_ID = 1
 

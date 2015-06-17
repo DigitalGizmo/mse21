@@ -20,6 +20,9 @@ DATABASES = {
     }
 }
 
+# Static files (CSS, JavaScript, Images)
+STATIC_ROOT = BASE_DIR.ancestor(2).child("mse2_static")
+
 SITE_ID = 1
 
 # 3 for devel, 4 for public
