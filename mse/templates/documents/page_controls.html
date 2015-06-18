@@ -1,10 +1,17 @@
 {% load staticfiles %}
 
 <ul class="lms_controls">
-	<li><a href="javascript:docPage('{{ resource_object.short_name }}', '{{ page_suffix }}', 'img')"><img src="{% static 'documents/images/image_' %}{{ doc_mode }}.jpg" width="29" height="33" alt="view image"/></a></li>
-	<li><a href="javascript:docPage('{{ resource_object.short_name }}', '{{ page_suffix }}', 'txt')"><img src="{% static 'documents/images/text_' %}{{ doc_mode }}.jpg" width="29" height="33" alt="view text"/></a></li>
-	<li><a href="javascript:zoom_view('documents', '{{ resource_object.short_name }}', '{{ page_suffix }}')"><img src="{% static 'images/zoom.gif' %}" width="23" height="33" alt="zoom"/></a></li>
-	<li><a href="javascript:window.print()"><img src="{% static 'images/print.gif' %}" width="23" height="33" alt="print"/></a></li>
+	<li><a href="javascript:docPage('{{ resource_object.short_name }}', '{{ page_suffix }}', 
+		'img')"><img src="{% static 'documents/images/image_' %}{{ doc_mode }}.jpg" width="29" height="33" 
+		alt="view image"/></a></li>
+	<li><a href="javascript:docPage('{{ resource_object.short_name }}', '{{ page_suffix }}', 
+		'txt')"><img src="{% static 'documents/images/text_' %}{{ doc_mode }}.jpg" width="29" height="33" 
+		alt="view text"/></a></li>
+	<li><a href="javascript:zoom_view('documents', '{{ resource_object.short_name }}', 
+		'{{ page_suffix }}')"><img src="{% static 'images/zoom.gif' %}" width="23" 
+		height="33" alt="zoom"/></a></li>
+	<li><a href="javascript:window.print()"><img src="{% static 'images/print.gif' %}" 
+		width="23" height="33" alt="print"/></a></li>
 
 	<!-- li><img src="{% static 'images/pdf.gif' %}" width="23" height="33" alt="pdf"/></li -->
 

@@ -106,6 +106,19 @@ as root
 	cd /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse
 	mv static ../../mse1_static
 
+Shell script for collect static
+-----------------------
+
+Location: /var/www/mseadmin/data/msesand_collect.sh
+Run by logging into ISP Manager as mseadmin
+::
+
+	#!/bin/sh
+
+	# pythonpath path/python module.py command options
+	PYTHONPATH=/var/www/mseadmin/data/www/msesand.mysticseaport.org/mse:/var/www/mseadmin/data/.envs/mse/lib/python3.4/site-packages/ /usr/local/bin/python3.4 /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/manage.py collectstatic -v0 --noinput --settings=mse.settings.staging_2
+
+
 Symbolic Links to make model work online
 ---------------------------------------
 
@@ -124,5 +137,56 @@ eapps
 ::
 	
 	cd /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/model
-	ln -s /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/local_static /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/model/model_local_static
-	ln -s /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/artifacts/static/artifacts /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/model/artifact_static
+	ln -s /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/local_static /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/model/model_local_static
+	ln -s /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/artifacts/static/artifacts /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/model/artifact_static
+
+WSGI for mse2
+---------------
+
+in /etc/httpd/conf/vhosts/mseadmin
+::
+	
+	vim msesand.mysticseaport.org
+
+	#user 'mseadmin' virtual host 'msesand.mysticseaport.org' configuration file
+	<VirtualHost 68.169.52.41:80>
+        ServerName msesand.mysticseaport.org
+        AddDefaultCharset off
+        DirectoryIndex index.html index.php
+        DocumentRoot /var/www/mseadmin/data/www/msesand.mysticseaport.org
+        ServerAdmin donpublic@digitalgizmo.com
+        SuexecUserGroup mseadmin mseadmin
+        ServerAlias www.msesand.mysticseaport.org
+        <FilesMatch "\.ph(p[3-5]?|tml)$">
+                SetHandler application/x-httpd-php
+        </FilesMatch>
+        <FilesMatch "\.phps$">
+                SetHandler application/x-httpd-php-source
+        </FilesMatch>
+        php_admin_value sendmail_path "/usr/sbin/sendmail -t -i -f donpublic@digitalgizmo.com"
+        php_admin_value upload_tmp_dir "/var/www/mseadmin/data/mod-tmp"
+        php_admin_value session.save_path "/var/www/mseadmin/data/mod-tmp"
+        php_admin_value open_basedir "/var/www/mseadmin/data:."
+        CustomLog /var/www/httpd-logs/msesand.mysticseaport.org.access.log combined
+        ErrorLog /var/www/httpd-logs/msesand.mysticseaport.org.error.log
+
+        Alias /static/ /var/www/mseadmin/data/www/mse2_static/
+        Alias /model/ /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/model/
+
+        WSGIDaemonProcess staging_2 python-path=/var/www/mseadmin/data/www/msesand.mysticseaport.org/mse:/var/www/mseadmin/data/.envs/mse/lib/python3.4/site-packages
+        WSGIProcessGroup staging_2
+        WSGIScriptAlias / /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/mse/wsgi.py
+
+        <Directory /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/mse>
+        <Files wsgi.py>
+        Order deny,allow
+        Allow from all
+        </Files>
+        </Directory>
+
+	</VirtualHost>
+	<Directory /var/www/mseadmin/data/www/msesand.mysticseaport.org>
+        php_admin_flag engine on
+        Options +Includes -ExecCGI
+	</Directory>
+

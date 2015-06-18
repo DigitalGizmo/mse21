@@ -9,10 +9,8 @@ DEBUG = False
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mse2db',
+        'NAME': 'msedb_ed',
         'USER': 'msedb_user',
         'PASSWORD': 'cwmorgan$1814',
         'HOST': '127.0.0.1',

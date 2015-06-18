@@ -5,11 +5,13 @@ from django.conf import settings
 from documents.models import Document
 
 def index(request):
-    resource_object_list = Document.objects.filter(augmented=True, status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
+    resource_object_list = Document.objects.filter(augmented=True, 
+        status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
     return render_to_response('documents/index.html', {'resource_object_list': resource_object_list})
  
 def index_raw(request):
-    resource_object_list = Document.objects.filter(augmented=False, status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
+    resource_object_list = Document.objects.filter(augmented=False, 
+        status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
     return render_to_response('documents/index_raw.html', {'resource_object_list': resource_object_list})
 
 def index_list(request):
@@ -50,7 +52,9 @@ def detail(request, doc_short_name):
             has_items = True
         else:
             has_items = False
-        return render_to_response('documents/detail_raw.html', {'resource_object': o, 'page_suffix': page_suffix, 'doc_mode': 'img', 'related_artifacts': related_artifacts, 'related_docs': related_docs, 'has_items': has_items})
+        return render_to_response('documents/detail_raw.html', {'resource_object': o, 
+            'page_suffix': page_suffix, 'doc_mode': 'img', 'related_artifacts': related_artifacts, 
+            'related_docs': related_docs, 'has_items': has_items})
 
 """ raw view is determined by data field (not separte view) """
 
@@ -63,7 +67,8 @@ def slim(request, short_name):
     else:
         page_suffix = "01"        
     # Pequot version needs siteID in order to supress "go to full page"
-    return render_to_response('documents/slim.html', {'resource_object': o, 'page_suffix': page_suffix, 'resource_type': 'document', 'siteid': settings.SITE_ID})
+    return render_to_response('documents/slim.html', {'resource_object': o, 
+        'page_suffix': page_suffix, 'resource_type': 'document', 'siteid': settings.SITE_ID})
 
 def doc_page(request, doc_short_name, page_suffix, doc_mode):
     """
@@ -77,11 +82,13 @@ def doc_page(request, doc_short_name, page_suffix, doc_mode):
             transcript = curr_page.transcript
         else:
             transcript = "No transcription entered for this page."
-        return render_to_response('documents/page_text.html', {'resource_object': d, 'page_suffix': page_suffix, 'doc_mode': doc_mode,'transcript': transcript})
+        return render_to_response('documents/page_text.html', {'resource_object': d, 
+            'page_suffix': page_suffix, 'doc_mode': doc_mode,'transcript': transcript})
 
     else: # image
         filename = d.filename + "_" + page_suffix
-        return render_to_response('documents/page_image.html', {'resource_object': d, 'page_suffix': page_suffix, 'doc_mode': doc_mode,'filename': filename})
+        return render_to_response('documents/page_image.html', {'resource_object': d, 
+            'page_suffix': page_suffix, 'doc_mode': doc_mode,'filename': filename})
 
 def zoom(request, short_name, page_suffix):
     """
@@ -101,4 +108,5 @@ def biblio(request, short_name):
     source_list = d.biblio.filter(biblio_type="source")
     arts_list = d.biblio.filter(biblio_type="related_arts")
     item_title = d.title
-    return render_to_response('connections/biblio.html', {'source_list': source_list, 'arts_list': arts_list, 'item_title': item_title})
+    return render_to_response('connections/biblio.html', {'source_list': source_list, 
+        'arts_list': arts_list, 'item_title': item_title})
