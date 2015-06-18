@@ -4,6 +4,8 @@ Local Django settings for mse project.
 
 from .base import *
 
+ALLOWED_HOSTS = ['temp.educators.mysticseaport.org', 'temp.educators.mysticseaport.org']
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
