@@ -68,17 +68,17 @@ WSGI for mse_ed
 in /etc/httpd/conf/vhosts/mseadmin
 ::
 	
-	vim msesand.mysticseaport.org
+	vim educators.mysticseaport.org
 
-	#user 'mseadmin' virtual host 'msesand.mysticseaport.org' configuration file
+	#user 'mseadmin' virtual host 'educators.mysticseaport.org' configuration file
 	<VirtualHost 68.169.52.41:80>
-        ServerName msesand.mysticseaport.org
+        ServerName educators.mysticseaport.org
         AddDefaultCharset off
         DirectoryIndex index.html index.php
-        DocumentRoot /var/www/mseadmin/data/www/msesand.mysticseaport.org
+        DocumentRoot /var/www/mseadmin/data/www/educators.mysticseaport.org
         ServerAdmin donpublic@digitalgizmo.com
         SuexecUserGroup mseadmin mseadmin
-        ServerAlias www.msesand.mysticseaport.org
+        ServerAlias temp.educators.mysticseaport.org
         <FilesMatch "\.ph(p[3-5]?|tml)$">
                 SetHandler application/x-httpd-php
         </FilesMatch>
@@ -89,25 +89,28 @@ in /etc/httpd/conf/vhosts/mseadmin
         php_admin_value upload_tmp_dir "/var/www/mseadmin/data/mod-tmp"
         php_admin_value session.save_path "/var/www/mseadmin/data/mod-tmp"
         php_admin_value open_basedir "/var/www/mseadmin/data:."
-        CustomLog /var/www/httpd-logs/msesand.mysticseaport.org.access.log combined
-        ErrorLog /var/www/httpd-logs/msesand.mysticseaport.org.error.log
+        CustomLog /var/www/httpd-logs/educators.mysticseaport.org.access.log combined
+        ErrorLog /var/www/httpd-logs/educators.mysticseaport.org.error.log
 
-        Alias /static/ /var/www/mseadmin/data/www/mse2_static/
-        Alias /model/ /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/model/
 
-        WSGIDaemonProcess staging_2 python-path=/var/www/mseadmin/data/www/msesand.mysticseaport.org/mse:/var/www/mseadmin/data/.envs/mse/lib/python3.4/site-packages
-        WSGIProcessGroup staging_2
-        WSGIScriptAlias / /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/mse/wsgi.py
 
-        <Directory /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/mse>
+        Alias /static/ /var/www/mseadmin/data/www/mse1_static/
+
+        WSGIDaemonProcess production python-path=/var/www/mseadmin/data/www/educators.mysticseaport.org/mse:/var/www/mseadmin/data/.envs/mse_ed/lib/python3.4/site-packages
+        WSGIProcessGroup production
+        WSGIScriptAlias / /var/www/mseadmin/data/www/educators.mysticseaport.org/mse/mse/wsgi.py
+
+        <Directory /var/www/mseadmin/data/www/educators.mysticseaport.org/mse/mse>
         <Files wsgi.py>
         Order deny,allow
         Allow from all
         </Files>
         </Directory>
 
+
+
 	</VirtualHost>
-	<Directory /var/www/mseadmin/data/www/msesand.mysticseaport.org>
+	<Directory /var/www/mseadmin/data/www/educators.mysticseaport.org>
         php_admin_flag engine on
         Options +Includes -ExecCGI
 	</Directory>

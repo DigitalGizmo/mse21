@@ -173,7 +173,7 @@ in /etc/httpd/conf/vhosts/mseadmin
         Alias /static/ /var/www/mseadmin/data/www/mse2_static/
         Alias /model/ /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/model/
 
-        WSGIDaemonProcess staging_2 python-path=/var/www/mseadmin/data/www/msesand.mysticseaport.org/mse:/var/www/mseadmin/data/.envs/mse/lib/python3.4/site-packages
+        WSGIDaemonProcess staging_2 python-path=/var/www/mseadmin/data/www/msesand.mysticseaport.org/mse:/var/www/mseadmin/data/.envs/mse2/lib/python3.4/site-packages
         WSGIProcessGroup staging_2
         WSGIScriptAlias / /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/mse/wsgi.py
 
