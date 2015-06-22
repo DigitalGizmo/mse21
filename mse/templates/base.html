@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+{% load settings_extras %}
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -126,7 +127,7 @@
 
 </footer><!-- #footer -->
 
-<!-- is_production "" as show_production -->
+{% is_production "" as show_production %}
 {% if show_production %}
 	{% include "google_analytics.html" %}
 {% endif %}

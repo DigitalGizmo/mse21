@@ -46,6 +46,13 @@ Line to fix the owner of public:
 	ALTER SCHEMA public OWNER to msedb_user;
 
 Collect static
+~~~~~~~~~~~~~~~~
 Batch file is at /usr/local/bin
 Executed by msedev.mysticseaport.org/management/collect
 Since Apache is executing this, the ownership of mse/static is apache:apache
+
+Renew WSGI for code change
+~~~~~~~~~~~~~~~~~~~~~~~
+::
+
+	touch /var/www/mseadmin/data/www/educators.mysticseaport.org/mse/mse/wsgi.py

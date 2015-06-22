@@ -22,6 +22,8 @@ DATABASES = {
 
 SITE_ID = 1
 
+ADMIN_ENABLED = False
+
 # 3 for devel, 4 for public
 STATUS_LEVEL = 4
 # for devel vs. produciton diffes: google analytics in base.html
