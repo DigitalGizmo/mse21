@@ -1,5 +1,5 @@
 """
-Production Django settings for mse project.
+Producion Django settings for Indian Mariners project.
 """
 
 from .base import *

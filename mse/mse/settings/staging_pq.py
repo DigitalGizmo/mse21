@@ -1,5 +1,5 @@
 """
-Staging Django settings for mse project.
+Staging Django settings for Indian Mariners project.
 """
 
 from .base import *
@@ -8,7 +8,7 @@ from .base import *
 DEBUG = True
 
 
-SITE_ID = 1
+SITE_ID = 2
 
 # 3 for devel, 4 for public
 STATUS_LEVEL = 3

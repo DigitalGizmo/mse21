@@ -1,5 +1,5 @@
 """
-Local Django settings for mse project.
+Staging Django settings for mse2 project.
 """
 
 from .base import *
