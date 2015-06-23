@@ -1,10 +1,12 @@
 """
 Producion Django settings for Indian Mariners project.
+
+mpmrc uses mse .env, mse1_static, msedb_ed
 """
 
 from .base import *
 
-ALLOWED_HOSTS = ['temp.educators.mysticseaport.org', 'educators.mysticseaport.org']
+ALLOWED_HOSTS = ['mpmrc.mysticseaport.org']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -20,7 +22,7 @@ DATABASES = {
     }
 }
 
-SITE_ID = 1
+SITE_ID = 2
 
 ADMIN_ENABLED = False
 

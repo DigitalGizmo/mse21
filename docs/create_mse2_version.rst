@@ -200,17 +200,17 @@ in cd /etc/httpd/conf/vhosts/mseadmin
 	vim pqdev.mysticseaport.org
 
 	...
-    Alias /static/ /var/www/mseadmin/data/www/mse1_static/
+	Alias /static/ /var/www/mseadmin/data/www/mse1_static/
 
-    WSGIDaemonProcess staging_pq python-path=/var/www/mseadmin/data/www/pqdev.mysticseaport.org/mse:/var/www/mseadmin/data/.envs/mse2/lib/python3.4/site-packages
-    WSGIProcessGroup staging_pq
-    WSGIScriptAlias / /var/www/mseadmin/data/www/pqdev.mysticseaport.org/mse/mse/wsgi.py
+	WSGIDaemonProcess staging_pq python-path=/var/www/mseadmin/data/www/msedev.mysticseaport.org/mse:/var/www/mseadmin/data/.envs/mse/lib/python3.4/site-packages
+	WSGIProcessGroup staging_pq
+	WSGIScriptAlias / /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/mse/wsgi.py
 
-    <Directory /var/www/mseadmin/data/www/pqdev.mysticseaport.org/mse/mse>
-    <Files wsgi.py>
-    Order deny,allow
-    Allow from all
-    </Files>
-    </Directory>
+	<Directory /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/mse>
+	<Files wsgi.py>
+	Order deny,allow
+	Allow from all
+	</Files>
+	</Directory>
 
     ...

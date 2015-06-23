@@ -1,5 +1,7 @@
 """
 Staging Django settings for Indian Mariners project.
+
+As of the initial launch of ms1 on eApps, pqdev uses these settings and uses msedev code and mse1_static.
 """
 
 from .base import *
