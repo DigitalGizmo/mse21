@@ -115,3 +115,26 @@ in /etc/httpd/conf/vhosts/mseadmin
         Options +Includes -ExecCGI
 	</Directory>
 
+WSGI for mpmrc
+---------------
+
+in cd /etc/httpd/conf/vhosts/mseadmin
+::
+    
+    vim mpmrc.mysticseaport.org
+
+    ...
+    Alias /static/ /var/www/mseadmin/data/www/mse1_static/
+
+    WSGIDaemonProcess production_pq python-path=/var/www/mseadmin/data/www/educators.mysticseaport.org/mse:/var/www/mseadmin/data/.envs/mse_ed/lib/python3.4/site-packages
+    WSGIProcessGroup production_pq
+    WSGIScriptAlias / /var/www/mseadmin/data/www/educators.mysticseaport.org/mse/mse/wsgi.py
+
+    <Directory /var/www/mseadmin/data/www/educators.mysticseaport.org/mse/mse>
+    <Files wsgi.py>
+    Order deny,allow
+    Allow from all
+    </Files>
+    </Directory>
+
+    ...
