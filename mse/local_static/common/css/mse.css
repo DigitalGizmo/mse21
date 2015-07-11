@@ -1,6 +1,9 @@
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+/* HEADER */
+
 header h1	{
 	font-size: 5em;
 	font-weight: 100;
@@ -18,6 +21,9 @@ nav.navbar 	{
 	margin-bottom: 0;
 	margin-top: 8px;
 }
+
+/* NAV */
+
 div.collapse	{
 	margin-left: 80px;
 }
@@ -44,41 +50,51 @@ nav.navbar ul li ul li a:link	{
 nav.navbar ul li ul li a:visited	{
   color: #597485;
 }
+
+/* PAGE TITLE AREA */
+
 .page-title	{
 	background-color: #dee3e7;
 	color: #597485;
 	padding-bottom: 20px;
 	overflow: auto;
 }
+
+/* MAIN CONTENT AREA */
+
 div.main-content	{
 	padding-top: 2em;
 }
+div.sidebox	{
+	background-color: #dee3e7;
+	padding: 0 1.25em 1em 1.25em;
+	border-radius: 25px;
+}	
+div.sidebox h2, div.sidebox h4, div.sidebox p, div.sidebox a {
+	color: #597485;
+}
 ul.menu li {
 	margin-bottom: 2em;
+	margin-right: 1em;
+	padding: 1em;
+	height: 225px;
+	background-color: #899ba7;
 }
-ul.menu li span.title {
-	position: absolute;
-	background-color: rgb(91,118,135);opacity:0.65;
-	height: 66px;
-	padding-right: 15px;
-}
-ul.menu h4, ul.menu p	{
+ul.menu li h4	{
+	font-size: 1.25em;
+	font-weight: 100;
+	letter-spacing: 1px;
 	color: white; 
-	padding: 5px;
-	margin: 0;
-}
-ul.menu p 	{
-	padding-top: 0;
+	padding: 0 5px 5px 5px;
+	margin-top: -10px;
 }
 ul.menu img.img-responsive	{
-	box-shadow: 5px 5px 0px #cbcbcb;
+	/*box-shadow: 5px 5px 0px #cbcbcb;*/
+}
+ul.menu li a:link	{
 }
 ul.menu img.img-responsive:hover	{
 	opacity:0.65;
-}
-
-ul.menu p a:link	{
-	color: white;
 }
 .paging p	{
 	color: #597485;
