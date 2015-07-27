@@ -34,8 +34,8 @@
   </div><!-- container --> 
 </header>
 
-<nav class="navbar navbar-default">
-  <div id="row">
+<nav class="yamm navbar navbar-default">
+  <div id="container">
     <!-- Nav toggle for mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -51,14 +51,30 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="active"><a href="/model/index.html">MSE Home <span class="sr-only">(current)</span></a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Museum Resources <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="index.html">Artifact Articles</a></li>
-              <li><a href="#">Living Documents</a></li>
-              <li><a href="#">Active Maps</a></li>
-              <li><a href="#">Scholar Lectures</a></li>
-              <li><a href="#">Scholar Interviews</a></li>
+          <li class="dropdown yamm-fw">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Museum Resources <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="yamm-content">
+                  <div class="row">
+                    <a href="index.html">
+                      <img src="/model/model_local_static/images/icon_artifact.png" alt="artifact articles"  class="menuicon">
+                      Artifact Articles</a>
+                    <a href="index.html">
+                      <img src="/model/model_local_static/images/icon_document.png" alt="living documents" class="menuicon">
+                      Living Documents</a>
+                    <a href="index.html">
+                      <img src="/model/model_local_static/images/icon_map.png" alt="active maps" class="menuicon">
+                      Active Maps</a>
+                    <a href="index.html">
+                      <img src="/model/model_local_static/images/icon_lecture.png" alt="scholar lectures" class="menuicon">
+                      Scholar Lectures</a>
+                    <a href="index.html">
+                      <img src="/model/model_local_static/images/icon_interview.png" alt="scholar interviews" class="menuicon">
+                      Scholar Interviews</a>
+                  </div>
+                </div>
+              </li>
             </ul>
           </li>
           <li><a href="#">Search Resources</a></li>
@@ -70,7 +86,7 @@
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /col-lg-10 col-lg-offset-2 -->
-  </div><!-- /row -->
+  </div><!-- /container -->
 </nav>
   
 <!-- page title area -->
