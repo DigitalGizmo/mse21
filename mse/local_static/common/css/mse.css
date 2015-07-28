@@ -37,20 +37,30 @@ nav.navbar a:hover	{
 	color: white;
 	text-decoration: underline;
 }
-nav.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+ul.dropdown-menu li div.yamm-content	{/* submenu background color */
+  background-color: #dee3e7;
+}
+nav.navbar ul.dropdown-menu li div.yamm-content a:link	{/* submenu link colors */
+  color: #597485;
+}
+nav.navbar ul.dropdown-menu li div.yamm-content a:visited	{/* submenu link colors */
+  color: #597485;
+}
+nav.navbar ul.dropdown-menu li div.yamm-content a:hover	{/* submenu link colors */
+  color: #597485;
+}
+nav img.menuicon	{
+	display: block;
+}
+div.yamm-content a	{/*so the submenu img/text blocks stack*/
+	float: left;
+	padding-right: 4em;
+}
+nav.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover 
+{/*the selected menu item: lite teal bkgnd, dark teal text */
   color: #597485;
   background-color: #dee3e7;
 }
-nav.navbar ul li ul li {
-  background-color: #dee3e7;
-}
-nav.navbar ul li ul li a:link	{
-  color: #597485;
-}
-nav.navbar ul li ul li a:visited	{
-  color: #597485;
-}
-
 /* PAGE TITLE AREA */
 
 .page-title	{
