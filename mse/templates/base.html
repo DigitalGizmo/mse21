@@ -3,7 +3,11 @@
 {% load settings_extras %}
 <html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
     <title>{% block title %}Mystic Seaport Museum for Educators{% endblock %}</title>
 	<link rel="shortcut icon" href="http://www.mysticseaport.org/wp-content/themes/mystic-seaport/favicon.ico" />
 	<meta http-equiv="content" content=" Mystic Seaport for Educators is the Museum's education website which provides primary source materials and educator-created content for teachers, families and students.  The site has features which include Artifact Articles, Living Documents, Active Maps, Resource Sets, Lectures, Scholar Interviews and Community Profiles.  Mystic Seaport is the nation's leading maritime history museum. Home to many historic wooden vessels and tall ships, including the Charles W. Morgan. Located on the Connecticut coast, Mystic Seaport features a re-created 19th-century coastal village, a working preservation shipyard, exhibits, a planetarium and an extensive collection of maritime artifacts, art, books and photographs."> 
@@ -11,9 +15,14 @@
 	<meta http-equiv="keywords" content="educators mystic seaport, education, teachers, homeschool, school, students, primary sources, artifacts, manuscripts, documents, resource sets, history, maps, lectures, scholars, interviews, community, partnership, common core state standards, classroom history, history museum mystic, charles w morgan, mystic tall ships, maritime history, whaling history mystic">
 	
 	{% block stylesheets %}
-		<link rel="stylesheet" href="{% static 'common/olc_style.css' %}" type="text/css"  media="all"/>
-		<!-- for slimbox -->
-		<link rel="stylesheet" href="{% static 'common/slimpop.css' %}" type="text/css" media="screen"/>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="{% static 'common/css/bootstrap.min.css' %}" type="text/css"/>
+		<link rel="stylesheet" href="{% static 'common/css/yamm.css' %}" type="text/css"/>
+		<link rel="stylesheet" href="{% static 'common/css/mse.css' %}" type="text/css"/>
+
+		<!-- for slimbox 
+		<link rel="stylesheet" href="{% static 'common/slimpop.css' %}" type="text/css" media="screen"/> -->
+
 		<!-- link rel="stylesheet" href="{% static 'common/slim_print.css' %}" type="text/css" media="print"/ -->
 		{% block additional_css %}{% endblock %}
     {% endblock %}
@@ -34,66 +43,101 @@
     {% endblock %}
 </head>
 
-<body class="olc_bkgnd {% block body_class %}artifacts{% endblock %}">
+<body "{% block body_class %}{% endblock %}"> <!-- class= -->
+
 <!-- #Mystic header and main nav -->
-<header id="header">
+<header>
   <div class="container">
-    <h1 id="site-name"><a href="http://www.mysticseaport.org/">Mystic Seaport - The Museum of America and the Sea</a></h1>
+    <div id="row">
+      <div class="col-lg-2">
+       <a href="http://www.mysticseaport.org"><img src="{% static 'images/logo_mystic.jpg' %}" alt="Mystic Seaport Museum Home" class="mysticlogo"></a>
+      </div>
+      <div class="col-lg-10">
+        <h1><a href="#">Mystic Seaport for Educators</a></h1>
+      </div>
+    </div><!-- /row --> 
+  </div><!-- container --> 
+</header>
 
-    <p id="site-about"><a href="http://www.mysticseaport.org/about/">About Mystic Seaport</a></p>
-  </div><!-- container -->
+<nav class="yamm navbar navbar-default">
+  <div id="row">
+    <!-- Nav toggle for mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div><!-- #navbar-header -->
 
-  <nav id="nav">
-    <ul class="container">
-        <li><a href="http://www.mysticseaport.org">Mystic Seaport Home</a></li>
-        <li><a href="/">MSE Home</a></li>
-        <li><a href="/artifacts/">Artifacts</a></li>
-        <li><a href="/documents/">Documents</a></li>
-        <li><a href="/maps/">Maps</a></li>
-        <li><a href="/sets/">Resource Sets</a></li>
-        <li><a href="/scholars/">Lectures &amp; Scholars</a></li>
-        <li><a href="/community/">Community</a></li>
-    </ul>
-  </nav>
-</header><!-- #header -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="col-lg-10 col-lg-offset-2">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">MSE Home <span class="sr-only">(current)</span></a></li>
+          <li class="dropdown yamm-fw">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Museum Resources <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="yamm-content">
+                  <div class="row">
+                    <a href="index.html">
+                      <img src="{% static 'images/icon_artifact.png' %}" alt="artifact articles"  class="menuicon">
+                      Artifact Articles</a>
+                    <a href="index.html">
+                      <img src="{% static 'images/icon_document.png' %}" alt="living documents" class="menuicon">
+                      Living Documents</a>
+                    <a href="index.html">
+                      <img src="{% static 'images/icon_map.png' %}" alt="active maps" class="menuicon">
+                      Active Maps</a>
+                    <a href="index.html">
+                      <img src="{% static 'images/icon_lecture.png' %}" alt="scholar lectures" class="menuicon">
+                      Scholar Lectures</a>
+                    <a href="index.html">
+                      <img src="{% static 'images/icon_interview.png' %}" alt="scholar interviews" class="menuicon">
+                      Scholar Interviews</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">Search Resources</a></li>
+          <li><a href="#">Resource Sets</a></li>
+          <li><a href="#">Lessons</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /col-lg-10 col-lg-offset-2 -->
+  </div><!-- /container -->
+</nav>
 
-<section id="page" class="container group olc {% block section_class %}community{% endblock %}">
-	{% block fullpage %}
+
+{% block fullpage %}
+<!-- page title area -->
+<div class="page-title">
+  <div class="container">
+    <div id="row"> 
+      <div class="col-lg-4 col-sm-2">
+        <img src="{% static 'images/icon_artifact.png' %}" alt="artifact articles" height="87" width="95">
+      </div>
+
+      <div class="col-lg-8 col-sm-10">
+        <h1>Artifact Articles</h1>
+        <p>"Artifact Articles" are an MSE original web feature that includes brief information and context about an artifact in the collection, written by an MSE Fellow or Mystic Seaport staff. Articles contain teacher-friendly components such as Questions for Deeper Thought, Artifact Facts, Related Items from the Collection, In the Classroom ideas, Related Resources and Related Websites. Check back often as we add new content regularly.</p>
+      </div>
+    </div><!-- /row -->
+  </div><!-- container --> 
+</div><!-- page-title --> 
+
+	{% block main-content %}
+		
+
+	{% endblock main-content %}
 	
-	<!-- page title area -->
-	<div class="col-full">
-		<ol class="breadcrumbs olc_crumbs">
-			<li class="home"><a title="Go to Learn." href="http://www.mysticseaport.org/learn/">Learn</a></li>
-			<li><a href="/">MSE Home</a></li>
-			{% block breadcrumbs %}
-			<li class="current_item">current crumbs</li>
-			{% endblock %}
-		</ol>
-		<h1>{% block page_title %}page title{% endblock %}</h1>
-		{% block content_by %}{% endblock %}
-	</div><!--end col-full - title area-->
-	
-	{# possible classes"" "two-col","three-col" or "col-twothirds" (latter for Lecture) #}
-	<!-- main content-->
-	<div class="{% block two_or_three %}two-col{% endblock %}">
-		{% block columns %}
-		<!-- starting with two-thirds or one-third column -->
-		{% endblock columns %}
-		{# this end div two-or-three was after sidebar. Moved it here for Lecture, but fine for all ele as well. #}
-	</div><!-- /div two or three col -->
-		{# opt_side_class is for lecture.html #}
-		<!-- #sidebar content, right column --> 
-		<div id="sidebar" class="col-onethird{% block opt_side_class %}{% endblock %}">
-
-			{% block sidebar %}
-
-			{% endblock sidebar %}
-		</div><!-- /div sidebar -->
-	{% block altcols %}
-	<!-- optional columns below three col for lecture -->
-	{% endblock altcols %}
-	{% endblock fullpage %}
-</section>
+{% endblock fullpage %}
 
 <footer id="footer">
   <div class="container">
