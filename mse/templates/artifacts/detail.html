@@ -1,3 +1,7 @@
 {% extends "item_detail.html" %}
 {% load staticfiles %}
 
+{% block crumbs-title %}
+    <p class="breadcrumbs"><a href="/artifacts/">Artifact Articles</a></p>
+    <h1>Artifact: {{ resource_object.title|safe }}</h1>
+{% endblock crumbs-title %}
