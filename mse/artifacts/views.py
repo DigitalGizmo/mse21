@@ -39,10 +39,10 @@ def detail(request, short_name):
         audiovisuals = o.audiovisuals.all()  
         maps = o.maps.all()  
         lectures = o.lectures.all()  
-        if o.is_vertical == True:       
-            template_name = "detail_vertical"
-        else:
-            template_name = "detail"
+        # if o.is_vertical == True:       
+        #    template_name = "detail_vertical"
+        # else:
+        template_name = "detail"
         return render_to_response('artifacts/' + template_name + '.html', {'resource_object': o, 
             'related_artifacts': related_artifacts, 'related_docs': related_docs, 
             'classroom_pdfs': classroom_pdfs, 'related_pdfs': related_pdfs, 'essays': essays, 
@@ -51,10 +51,10 @@ def detail(request, short_name):
             'has_items': has_items})
     else:
         # raw: vertical or horizontal
-        if o.is_vertical == True:       
-            template_name = "detail_raw_vertical"
-        else:
-            template_name = "detail_raw"
+        # if o.is_vertical == True:       
+        #    template_name = "detail_raw_vertical"
+        # else:
+        template_name = "detail_raw"
         # raw: show Items from the Collection header or not
         if related_artifacts or related_docs:
             has_items = True

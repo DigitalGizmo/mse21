@@ -19,99 +19,115 @@
 {% block main-content %}
 <!-- main content -->
 	
-	<!-- big image -->  
-	<div id="row"> 
-		<div class="item-image">
-		
-			<div id="myContainer">zoom to go here</div>
+  <!-- big image -->  
+  <div id="row"> 
+    <div class="item-image">
+
+      <div id="myContainer">zoom to go here</div>
  
-			<h4>Other Views:</h4>
-			<ul class="other_views">  
-				<li><span class="selected"><img src="/static/artifacts/viewpics/1939_1385_A_t.jpg" width="40" height="40" alt="detail"/></span></li>        
-			
-				<li><a href="javascript:zoom_view('artifacts', 'temple_toggle_iron', 'B')"><img src="/static/artifacts/viewpics/1939_1385_B_t.jpg" width="40" height="40" alt="detail"/></a></li>        
-			
-				<li><a href="javascript:zoom_view('artifacts', 'temple_toggle_iron', 'C')"><img src="/static/artifacts/viewpics/1939_1385_C_t.jpg" width="40" height="40" alt="detail"/></a></li>
-			</ul>
-		
-		</div><!-- /item-image -->
-	</div><!-- /row -->
-		
+      <h4>Other Views:</h4>
+      <ul class="list-inline thumbs">  
+        <li><span class="selected"><img src="/model/artifact_static/viewpics/1939_1385_A_t.jpg" width="40" height="40" alt="detail"/></span></li>        
+      
+        <li><a href="javascript:zoom_view('artifacts', 'temple_toggle_iron', 'B')"><img src="/model/artifact_static/viewpics/1939_1385_B_t.jpg" width="40" height="40" alt="detail"/></a></li>        
+      
+        <li><a href="javascript:zoom_view('artifacts', 'temple_toggle_iron', 'C')"><img src="/model/artifact_static/viewpics/1939_1385_C_t.jpg" width="40" height="40" alt="detail"/></a></li>
+      </ul>
+    
+    </div><!-- /cols -->
+  </div><!-- /row -->
+
 <div class="container main-content">
+    
+  <div id="row"> 
+<!-- Search Box -->
+        <div class="col-lg-4 col-sm-4">
+        
+        <div class="sidebox">
+        <h2>Search</h2>
+          </form><h4>121 Artifact Articles</h4>
+        <p>Sort by: <a href="#">Title</a> | <a href="#">Item's Date</a></p>
+        <form id="item-search" class="item-search" data-action="/search" action="" method="GET">
+            <input type="hidden" name="itemsearch" value="educators.mysticseaport.org/" />
+            <label for="search-keywords"><input id="search-keywords" type="search" data-name="keywords" name="q" placeholder="Search" aria-label="Search" value="" required="required"></label>
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span></form>
+        
+        <h4>Tags:</h4>
+        <p><a href="#">whales</a>, <a href="#">artwork</a>, <a href="#">tools</a>, <a href="#">logbooks</a>, <a href="#">native people</a>, <a href="#">history</a>, <a href="#">culture/lifeways</a>, <a href="#">navigation/travel</a>, <a href="#">mariners</a>, <a href="#">colonialism</a></p>
 
-	<div id="row"> 
-		<div class="col-lg-4">
-			<div class="sidebox"><!-- Search Box -->
-				<h2>Search</h2>
-					</form><h4>121 Artifact Articles</h4>
-				<p>Sort by: <a href="#">Title</a> | <a href="#">Item's Date</a></p>
-				<form id="item-search" class="item-search" data-action="/search" action="" method="GET">
-						<input type="hidden" name="itemsearch" value="educators.mysticseaport.org/" />
-						<label for="search-keywords"><input id="search-keywords" type="search" data-name="keywords" name="q" placeholder="Search" aria-label="Search" value="" required="required"></label>
-						<span class="glyphicon glyphicon-search" aria-hidden="true"></span></form>
-				
-				<h4>Tags:</h4>
-				<p><a href="#">whales</a>, <a href="#">artwork</a>, <a href="#">tools</a>, <a href="#">logbooks</a>, <a href="#">native people</a>, <a href="#">history</a>, <a href="#">culture/lifeways</a>, <a href="#">navigation/travel</a>, <a href="#">mariners</a>, <a href="#">colonialism</a></p>
+        <ul class="thumbs list-unstyled list-inline">
+          <li>
+            <button type="button" class="btn btn-default" aria-label="Menu Left">
+              <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+            </button>
+          </li>
+          <li><img src="/model/artifact_static/thumbpics/1934_56_t.jpg"></li>
+          <li><img src="/model/artifact_static/thumbpics/1939_1256_t.jpg"></li>
+          <li><img src="/model/artifact_static/thumbpics/1939_907_t.jpg"></li>
+          <li>
+            <button type="button" class="btn btn-default" aria-label="Menu Right">
+              <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+            </button>
+          </li>
+        </ul>
+    </div><!-- /sidebox -->
+    
+    <div class="sidebox"><!-- Facts Box -->
+      <h2>Artifact Facts</h2>
+      <dl class="dl-horizontal">
+        <dt>Accession Number</dt>
+        <dd>1939.1385</dd>
+        <dt>Creator</dt>
+        <dd>Lewis Temple</dd>
+        <dt>Date</dt>
+        <dd>1845</dd>
+      </dl>
+    </div>
 
-				<ul class="horiz_nav">
-					<li>left_arrow</li>
-					<li>thumb1</li>
-					<li>thumb2</li>
-					<li>thumb3</li>
-					<li>right_arrow</li>
-				</ul>
-		</div>
-		
-		<div class="sidebox"><!-- Facts Box -->
-			<h2>Artifact Facts</h2>
-			<dl>
-				<dt>fact title</dt>
-				<dd>fact data</dd>
-				<dt>fact title</dt>
-				<dd>fact data</dd>
-				<dt>fact title</dt>
-				<dd>fact data</dd>
-			</dl>
-		</div>
+    <div class="sidebox"><!-- Related Resources Box -->
+      <h2>Related Resources</h2>
+      <ul class="list-unstyled">
+        <li><span class="glyphicon glyphicon-education" aria-hidden="true"></span> For Further Study</li>
+        <li><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Revival of Whaling</li>
+        <li><span class="glyphicon glyphicon-apple" aria-hidden="true"></span> Ideas for Classroom Use</li>
+        <li><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> The Wreck of the "Finback"</li>
+      </ul>
+    </div>
 
-		<div class="sidebox"><!-- Related Resources Box -->
-			<h2>Related Resources</h2>
-			<ul>
-				<li>item 1</li>
-				<li>item 2</li>
-				<li>item 3</li>
-				<li>item 4</li>
-			</ul>
-		</div>
+    <h2>Related Items</h2>
+        <ul class="thumbs list-unstyled list-inline">
+          <li><img src="/model/artifact_static/thumbpics/1934_56_t.jpg"></li>
+          <li><img src="/model/artifact_static/thumbpics/1939_1256_t.jpg"></li>
+          <li><img src="/model/artifact_static/thumbpics/1939_907_t.jpg"></li>
+          <li><img src="/model/artifact_static/thumbpics/1934_56_t.jpg"></li>
+          <li><img src="/model/artifact_static/thumbpics/1939_1256_t.jpg"></li>
+          <li><img src="/model/artifact_static/thumbpics/1939_907_t.jpg"></li>
+          <li><img src="/model/artifact_static/thumbpics/1934_56_t.jpg"></li>
+          <li><img src="/model/artifact_static/thumbpics/1939_1256_t.jpg"></li>
+          <li><img src="/model/artifact_static/thumbpics/1939_907_t.jpg"></li>
+        </ul>
 
-		<h2>Related Items</h2>
-			<ul>
-				<li>item 1</li>
-				<li>item 2</li>
-				<li>item 3</li>
-				<li>item 4</li>
-			</ul>
-		</div>
+    </div><!--cols -->
 
-		</div><!--cols -->
+    <div class="col-lg-8">
+      <h2>About This Artifact</h2>
+      <p>This example of what is called a "Temple Toggle" harpoon is the innovation of African American blacksmith Lewis Temple.  Designed in 1845, the Temple Toggle employed the use of a pivoting iron head at the tip of the harpoon, which allowed the iron to swivel and lock in place upon penetrating the body of a whale, minimizing any risk of the harpoon pulling out.  This simple, yet ground-breaking innovation revolutionized the whaling industry unlike any invention before.  Having a harpoon head that was able to lock in place within the body of the whale meant that more whales could be successfully harpooned and minimized the risk of losing a whale.  Author and maritime historian Clifford Ashley sums up Temple's Toggle Iron stating in 1926, "It is safe to say that the 'Temple Toggle' was the most important single invention in the whole history of whaling.  It resulted in the capture of a far greater proportion of the whales that were struck than had before been possible."</p>
+      
+      <h2>Questions for Further Thought</h2>
+      <ul class="questions_deeper">
+        <li>question1</li>
+        <li>question2</li>
+        <li>question3</li>
+      </ul>
+      <ul class="questions_compelling">
+        <li>question1</li>
+        <li>question2</li>
+        <li>question3</li>
+      </ul>
 
-		<div class="col-lg-8">
-			<h2>About This Arifact</h2>
-			<p>This example of what is called a "Temple Toggle" harpoon is the innovation of African American blacksmith Lewis Temple.  Designed in 1845, the Temple Toggle employed the use of a pivoting iron head at the tip of the harpoon, which allowed the iron to swivel and lock in place upon penetrating the body of a whale, minimizing any risk of the harpoon pulling out.  This simple, yet ground-breaking innovation revolutionized the whaling industry unlike any invention before.  Having a harpoon head that was able to lock in place within the body of the whale meant that more whales could be successfully harpooned and minimized the risk of losing a whale.  Author and maritime historian Clifford Ashley sums up Temple's Toggle Iron stating in 1926, "It is safe to say that the 'Temple Toggle' was the most important single invention in the whole history of whaling.  It resulted in the capture of a far greater proportion of the whales that were struck than had before been possible."</p>
-			
-			<h2>Questions for Further Thought</h2>
-			<ul class="questions_deeper">
-				<li>question1</li>
-				<li>question2</li>
-				<li>question3</li>
-			</ul>
-			<ul class="questions_compelling">
-				<li>question1</li>
-				<li>question2</li>
-				<li>question3</li>
-			</ul>
+    </div><!--cols -->
+  </div><!--/row-->
 
-		</div><!--cols -->
-	</div><!--/row-->
+</div><!-- container main-content-->
 
 {% endblock main-content %}
