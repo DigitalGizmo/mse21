@@ -79,9 +79,9 @@ nav.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:
 p.breadcrumbs	{
 	margin: .5em 0 0 0;
 }
-
+/* ----------------- */
 /* MAIN CONTENT AREA */
-
+/* ----------------- */
 div.main-content	{
 	padding-top: 2em;
 }
@@ -93,8 +93,16 @@ div.sidebox	{
 div.sidebox h2, div.sidebox h4, div.sidebox p, div.sidebox a {
 	color: #597485;
 }
+div.sidebox h2	{
+	padding-top: .25em;
+}
+div.main-content h2	{
+	font-weight: 200;
+	letter-spacing: 1px;
+	color: #597485;
 
-/* menu pages */
+}
+/* MENU PAGES */
 ul.menu li {
 	margin-bottom: 2em;
 	margin-right: 1em;
@@ -118,22 +126,6 @@ ul.menu li a:link	{
 ul.menu img.img-responsive:hover	{
 	opacity:0.65;
 }
-/* big images on item pages */
-div.item-image	{
-	border: 1px solid red;
-	margin: 0;
-	padding: 0;
-	text-align: right;
-}
-div.item-image ul {
-	list-style: none;
-}
-div.item-image ul li {
-	float: right;
-}
-div.item-image h4 	{
-	font-weight: 100;
-}
 /* paging */
 .paging p	{
 	color: #597485;
@@ -152,6 +144,37 @@ div.item-image h4 	{
 	font-weight: bold;
 	text-decoration: none;
 }
+
+/* ITEM PAGES */
+/* big images on item pages */
+div.item-image	{
+	border: 1px solid #ccc;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+}
+div.item-image ul {
+	list-style: none;
+}
+div.item-image ul li {
+	float: right;
+}
+div.item-image h4 	{
+	font-weight: 200;
+	font-size: 1em;
+}
+ul.thumbs > li {/* for horizontal nav of items */
+	padding-right: 0;
+	padding-left: 0;
+	margin-bottom: 3px;
+	border: 1px solid #ccc;
+}
+div.sidebox .dl-horizontal dt {
+	text-align: left;
+}
+div.sidebox dl.dl-horizontal {/* for artifact/document facts */
+ }
+
 
 footer	{
 	background-color: #022b61;
