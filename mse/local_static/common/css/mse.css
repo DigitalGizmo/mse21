@@ -4,7 +4,7 @@ body {
 
 /* HEADER */
 
-header h1	{
+header h1	{/* Mystic Seaport for Educators */
 	font-size: 5em;
 	font-weight: 100;
 	margin-top: 0;
@@ -68,6 +68,17 @@ nav.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:
 	padding-bottom: 20px;
 	overflow: auto;
 }
+.page-title h1	{
+	margin: 0;
+}
+.page-title h3	{
+	font-style: italic;
+	font-weight: 100;
+	margin: 4px 0 10px 0;
+}
+p.breadcrumbs	{
+	margin: .5em 0 0 0;
+}
 
 /* MAIN CONTENT AREA */
 
@@ -82,6 +93,8 @@ div.sidebox	{
 div.sidebox h2, div.sidebox h4, div.sidebox p, div.sidebox a {
 	color: #597485;
 }
+
+/* menu pages */
 ul.menu li {
 	margin-bottom: 2em;
 	margin-right: 1em;
@@ -105,16 +118,33 @@ ul.menu li a:link	{
 ul.menu img.img-responsive:hover	{
 	opacity:0.65;
 }
+/* big images on item pages */
+div.item-image	{
+	border: 1px solid red;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+}
+div.item-image ul {
+	list-style: none;
+}
+div.item-image ul li {
+	float: right;
+}
+div.item-image h4 	{
+	font-weight: 100;
+}
+/* paging */
 .paging p	{
 	color: #597485;
 }
-.paging a:link	{
+.paging a:link, div.page-title a:link	{
 	color: #597485;
 }
-.paging a:visited	{
+.paging a:visited, div.page-title a:visited	{
 	color: #597485;
 }
-.paging a:hover	{
+.paging a:hover, div.page-title a:hover	{
 	text-decoration: underline;
 	color: #597485;
 }
