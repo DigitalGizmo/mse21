@@ -57,6 +57,7 @@ Renew WSGI for code change
 
 	touch /var/www/mseadmin/data/www/educators.mysticseaport.org/mse/mse/wsgi.py
 	touch /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/mse/wsgi.py
+	touch /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/mse/wsgi.py
 
 
 Update Educators Database
