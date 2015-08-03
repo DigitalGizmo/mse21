@@ -82,19 +82,19 @@
               <li>
                 <div class="yamm-content">
                   <div class="row">
-                    <a href="index.html">
+                    <a href="/artifacts/">
                       <img src="{% static 'images/icon_artifact.png' %}" alt="artifact articles"  class="menuicon">
                       Artifact Articles</a>
-                    <a href="index.html">
+                    <a href="/documents/">
                       <img src="{% static 'images/icon_document.png' %}" alt="living documents" class="menuicon">
                       Living Documents</a>
-                    <a href="index.html">
+                    <a href="/maps/">
                       <img src="{% static 'images/icon_map.png' %}" alt="active maps" class="menuicon">
                       Active Maps</a>
-                    <a href="index.html">
+                    <a href="/lectures/">
                       <img src="{% static 'images/icon_lecture.png' %}" alt="scholar lectures" class="menuicon">
                       Scholar Lectures</a>
-                    <a href="index.html">
+                    <a href="/interviews/">
                       <img src="{% static 'images/icon_interview.png' %}" alt="scholar interviews" class="menuicon">
                       Scholar Interviews</a>
                   </div>
@@ -103,7 +103,7 @@
             </ul>
           </li>
           <li><a href="#">Search Resources</a></li>
-          <li><a href="#">Resource Sets</a></li>
+          <li><a href="/sets/">Resource Sets</a></li>
           <li><a href="#">Lessons</a></li>
           <li><a href="#">Community</a></li>
           <li><a href="#">Events</a></li>
@@ -116,20 +116,21 @@
 
 
 {% block fullpage %}
+
 <!-- page title area -->
 <div class="page-title">
-  <div class="container">
-    <div id="row"> 
-      <div class="col-lg-4 col-sm-2">
-        <img src="{% static 'images/icon_artifact.png' %}" alt="artifact articles" height="87" width="95">
-      </div>
-
-      <div class="col-lg-8 col-sm-10">
-        <h1>Artifact Articles</h1>
-        <p>"Artifact Articles" are an MSE original web feature that includes brief information and context about an artifact in the collection, written by an MSE Fellow or Mystic Seaport staff. Articles contain teacher-friendly components such as Questions for Deeper Thought, Artifact Facts, Related Items from the Collection, In the Classroom ideas, Related Resources and Related Websites. Check back often as we add new content regularly.</p>
-      </div>
-    </div><!-- /row -->
-  </div><!-- container --> 
+	<div class="container">
+		<div id="row"> 
+			<div class="col-lg-4 col-sm-2">
+				<img src="{% static 'images/' %}icon_{{ resource_type }}.png" alt="{{ resource_type }} icon" 
+				height="87" width="95">
+			</div>
+			<div class="col-lg-8 col-sm-10">
+			{% block title-area %}
+			{% endblock title-area %}
+			</div>
+		</div><!-- /row -->
+	</div><!-- container --> 
 </div><!-- page-title --> 
 
 	{% block main-content %}
@@ -139,42 +140,45 @@
 	
 {% endblock fullpage %}
 
-<footer id="footer">
-  <div class="container">
-    <ul class="footer-nav">
-      <li><a href="http://www.mysticseaport.org/">Home</a></li>
-      <li><a href="http://www.mysticseaport.org/visit/">Visit</a></li>
-      <li><a href="http://www.mysticseaport.org/learn/">Learn</a></li>
-      <li><a href="http://www.mysticseaport.org/research/">Collections</a></li>
-      <li><a href="http://www.mysticseaport.org/support/">Support</a></li>
-      <li><a href="http://www.mysticseaport.org/join/">Join</a></li>
-      <li><a href="http://www.mysticseaport.org/shop/">Shop</a></li>
-      <li><a href="http://www.mysticseaport.org/connect/">Connect</a></li>
-      <li><a href="http://www.mysticseaport.org/rentals/">Rentals</a></li>
-      <li><a href="http://www.mysticseaport.org/about/">About</a></li>
-      <li><a href="http://www.mysticseaport.org/connect/press/">Press Room</a></li>
-      <li><a href="http://www.mysticseaport.org/my-trip/">MY TRIP</a></li>
-      <li><a href="http://www.mysticseaport.org/org-type/sponsors/">Sponsors</a></li>
-    </ul>
-    <p class="footer-contact">Mystic Seaport 75 Greenmanville Ave. Mystic, CT 06355<br />
+<!-- footer -->
+<footer>
+<div class="container"> 
+<div id="row"> 
+
+  <div class="col-lg-8 col-sm-6">
+
+    <p>Mystic Seaport 75 Greenmanville Ave. Mystic, CT 06355<br />
       860.572.0711 | 888.973.2767 | <a href="mailto:info@mysticseaport.org">info@mysticseaport.org</a></p>
-    <ul class="footer-social">
-      <li class="facebook"><a href="https://www.facebook.com/mysticseaport" target="_blank">Facebook</a></li>
-      <li class="twitter"><a href="https://twitter.com/mysticseaport" target="_blank">Twitter</a></li>
-      <li class="youtube"><a href="http://www.youtube.com/user/MysticSeaportVideos" target="_blank">YouTube</a></li>
-      <li class="pinterest"><a href="http://www.pinterest.com/mysticseaport/" target="_blank">Pinterest</a></li>
-      <li class="google"><a href="https://plus.google.com/+mysticseaport" target="_blank">Google</a></li>
-
+    
+    <ul class="footer-social list-unstyled list-inline">
+      <li class="facebook"><a href="http://www.facebook.com/mystic4educators" target="_blank"><img src="{% static 'images/icon_fb.png' %}"></a></li>
+      <li class="twitter"><a href="https://twitter.com/mystic4educators" target="_blank"><img 
+        src="{% static 'images/icon_twitter.png' %}"></a></li>
+      <li class="youtube"><a href="#"><img src="{% static 'images/icon_youtube.png' %}"></a></li>
+      <li class="flickr"><a href="#"><img src="{% static 'images/icon_flickr.png' %}"></a></li>
+      <li class="googleplus"><a href="#"><img src="{% static 'images/icon_google.png' %}"></a></li>
     </ul>
-    <p class="footer-copyright">Copyright © 2012 Mystic Seaport. All Rights Reserved</p>
-  </div><!-- container --> 
+    <p class="footer-copyright">Copyright &copy; 2015 Mystic Seaport. All Rights Reserved</p>
+  </div><!-- cols -->
 
+  <div class="col-lg-4 col-sm-6">
+  <h4>Search Mystic Seaport for Educators:</h4>
+        <form id="mse-search" class="mse-search" data-action="/search" action="http://www.google.com/search" method="GET">
+          <input type="hidden" name="sitesearch" value="educators.mysticseaport.org/" />
+          <label for="search-keywords"><input id="search-keywords" type="search" data-name="keywords" name="q" placeholder="Search" aria-label="Search" value="" required="required"></label>
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </form>
+  </div><!-- cols -->
+
+</div><!-- row --> 
+
+</div><!-- container --> 
 </footer><!-- #footer -->
 
-{% is_production "" as show_production %}
-{% if show_production %}
-	{% include "google_analytics.html" %}
-{% endif %}
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{% static 'common/js/bootstrap.min.js' %}"></script>
 
 <!-- for slimbox -->
 <div id="lbOverlay" class="hidden" onclick="javascript:hideOverlay(event);"></div>

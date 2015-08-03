@@ -7,12 +7,14 @@ from documents.models import Document
 def index(request):
     resource_object_list = Document.objects.filter(augmented=True, 
         status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
-    return render_to_response('documents/index.html', {'resource_object_list': resource_object_list})
+    return render_to_response('documents/index.html', {'resource_object_list': resource_object_list, 
+        'resource_type': 'document'})
  
 def index_raw(request):
     resource_object_list = Document.objects.filter(augmented=False, 
         status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
-    return render_to_response('documents/index_raw.html', {'resource_object_list': resource_object_list})
+    return render_to_response('documents/index_raw.html', {'resource_object_list': resource_object_list, 
+        'resource_type': 'document'})
 
 def index_list(request):
     resource_object_list = Document.objects.all().order_by('identifier')

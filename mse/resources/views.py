@@ -8,7 +8,8 @@ from resources.models import Resourceset
 
 def index(request):
     resourceset_list = Resourceset.objects.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
-    return render_to_response('resources/index.html', {'resourceset_list': resourceset_list})
+    return render_to_response('resources/index.html', {'resourceset_list': resourceset_list, 
+        'resource_type': 'set'})
 
 def index_list(request):
     resource_object_list = Resourceset.objects.all().order_by('ordinal')
@@ -31,7 +32,11 @@ def detail(request, short_name):
         has_further = True
     else:
         has_further = False
-    return render_to_response('resources/detail.html', {'resource_object': o, 'artifact_list': artifact_list, 'document_list': document_list, 'map_list': map_list, 'lecture_list': lecture_list, 'classroom_pdfs': classroom_pdfs, 'related_pdfs': related_pdfs, 'essays': essays, 'audiovisuals': audiovisuals, 'maps': maps, 'lectures': lectures, 'resource_type': 'set', 'has_further': has_further})
+    return render_to_response('resources/detail.html', {'resource_object': o, 'artifact_list': artifact_list, 
+        'document_list': document_list, 'map_list': map_list, 'lecture_list': lecture_list, 
+        'classroom_pdfs': classroom_pdfs, 'related_pdfs': related_pdfs, 'essays': essays, 
+        'audiovisuals': audiovisuals, 'maps': maps, 'lectures': lectures, 'resource_type': 'set', 
+        'has_further': has_further})
 
 def ideas(request, short_name):
     o = get_object_or_404(Resourceset, short_name=short_name)

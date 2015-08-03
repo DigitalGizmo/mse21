@@ -1,38 +1,58 @@
-{% extends "base_menu.html" %}
-{% load static %}
+{% extends "base.html" %}
+{% load staticfiles %}
 
-{% block title %}Living Document Menu{% endblock %}
-{% block body_class %}documents{% endblock %}
-{% block section_class %}documents{% endblock %}
+{% block title-area %}
+  <h1>Living Documents</h1>
+  <p>The "Living Documents" feature makes documents of the past to come to life with sound, transcripts, and informational pop-ups.  Created by <a href="javascript:popBox('connections','moreinfo','mse_fellows')">MSE Fellows</a> and Mystic Seaport staff, Living Documents contain teacher-friendly components such as <em>Questions for Deeper Thought, Artifact Facts, Related Items from the Collection, Related Resources, In the Classroom ideas</em> and <em>Related Websites</em>. Check back often as we add new content regularly.</p>
+{% endblock title-area %}
 
-{% block breadcrumbs %}
-<li class="current_item">Living Documents</li>
-{% endblock %}
-{% block page_title %}Living Documents{% endblock %}
+{% block main-content %}
+<!-- main content -->
+<div class="container main-content">
+  <div id="row"> 
+    <!-- search box -->  
+    <div class="col-lg-4 col-sm-4 sidebox">
+      <h2>Search</h2>
+        </form><h4>121 Living Documents</h4>
+      <p>Sort by: <a href="#">Title</a> | <a href="#">Item's Date</a></p>
+      <form id="item-search" class="item-search" data-action="/search" action="" method="GET">
+          <input type="hidden" name="itemsearch" value="educators.mysticseaport.org/" />
+          <label for="search-keywords"><input id="search-keywords" type="search" data-name="keywords" name="q" placeholder="Search" aria-label="Search" value="" required="required"></label>
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      <h4>Tags:</h4>
+      <p><a href="#">whales</a>, <a href="#">artwork</a>, <a href="#">tools</a>, <a href="#">logbooks</a>, <a href="#">native people</a>, <a href="#">history</a>, <a href="#">culture/lifeways</a>, <a href="#">navigation/travel</a>, <a href="#">mariners</a>, <a href="#">colonialism</a></p>
+    </div><!--cols -->
 
-{% block content %}
+    <div class="col-lg-8">
+      <ul class="list-unstyled menu">
+	   {% for resource_object in resource_object_list %}
+    		<li class="col-lg-3">
+    			<a href="/documents/{{ resource_object.short_name }}/"><img 
+    			src="{% static 'documents/menupics/' %}{{ resource_object.filename }}_m.jpg" alt="image: {{ resource_object.short_name }}" class="img-responsive"><br/>
+    			<h4>{{ resource_object.title|safe }}</h4></a>
+    		</li>
+	   {% endfor %}
+      </ul>
+      
+    </div><!--cols -->
+  </div><!--/row-->
 
-	{% if resource_object_list %}
-	    <ul class="menu plus">
-	    {% for resource_object in resource_object_list %}
-		<li>
-	       <a href="/documents/{{ resource_object.short_name }}/" class="title">
-	       <img src="{% static 'documents/menupics/' %}{{ resource_object.filename }}_m.jpg" height="150" width="150" alt="Image of {{ resource_object.title }}"/><br/>
-	       {{ resource_object.title|safe }}</a><br/>
-	       {{ resource_object.identifier }}
-		</li>
-	    {% endfor %}
-	    </ul>
-	{% else %}
-	    <p>No documents are available.</p>
-	{% endif %}
+  <!-- paging -->
+  <div id="row" class="paging">
+    <div class="col-lg-4 col-sm-3">
+      <p><a href="#">first</a> | <a href="#">prev</a></p>
+    </div><!--cols -->
 
-{% endblock content %}
+    <div class="col-lg-4 col-sm-6 text-center">
+      <p><a href="#" class="selected">1</a> | <a href="#">2</a> | <a href="#">3</a> | <a href="#">4</a></p>
+    </div><!--cols -->
 
-{% block menu_side_content %}
-	<h2>About Living Documents</h2>
-    <p>The "Living Documents" feature makes documents of the past to come to life with sound, transcripts, and informational pop-ups.  Created by <a href="javascript:popBox('connections','moreinfo','mse_fellows')">MSE Fellows</a> and Mystic Seaport staff, Living Documents contain teacher-friendly components such as <em>Questions for Deeper Thought, Artifact Facts, Related Items from the Collection, Related Resources, In the Classroom ideas</em> and <em>Related Websites</em>. Check back often as we add new content regularly.</p>
+    <div class="col-lg-4  col-sm-3 text-right">
+       <p><a href="#">next</a> | <a href="#">last</a></p>
+   </div><!--cols -->
 
-<h4><a href="/documents/raw/">Browse All Document Records</a></h4>
+  </div><!--/row-->
+</div><!-- container main-content-->
 
-{% endblock menu_side_content %}
+
+{% endblock main-content %}
