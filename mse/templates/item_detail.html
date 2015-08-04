@@ -27,11 +27,12 @@
  
       <h4>Other Views:</h4>
       <ul class="list-inline thumbs">  
-        <li><span class="selected"><img src="/model/artifact_static/viewpics/1939_1385_A_t.jpg" width="40" height="40" alt="detail"/></span></li>        
-      
-        <li><a href="javascript:zoom_view('artifacts', 'temple_toggle_iron', 'B')"><img src="/model/artifact_static/viewpics/1939_1385_B_t.jpg" width="40" height="40" alt="detail"/></a></li>        
-      
-        <li><a href="javascript:zoom_view('artifacts', 'temple_toggle_iron', 'C')"><img src="/model/artifact_static/viewpics/1939_1385_C_t.jpg" width="40" height="40" alt="detail"/></a></li>
+			<li><span class="selected"><img src="/model/artifact_static/viewpics/1939_1385_A_t.jpg" 
+				width="40" height="40" alt="detail"/></span></li>        
+			<li><a href="javascript:zoom_view('artifacts', 'temple_toggle_iron', 'B')"><img 
+				src="/model/artifact_static/viewpics/1939_1385_B_t.jpg" width="40" height="40" alt="detail"/></a></li>        
+			<li><a href="javascript:zoom_view('artifacts', 'temple_toggle_iron', 'C')"><img 
+				src="/model/artifact_static/viewpics/1939_1385_C_t.jpg" width="40" height="40" alt="detail"/></a></li>
       </ul>
     
     </div><!-- /cols -->
@@ -49,7 +50,8 @@
         <p>Sort by: <a href="#">Title</a> | <a href="#">Item's Date</a></p>
         <form id="item-search" class="item-search" data-action="/search" action="" method="GET">
             <input type="hidden" name="itemsearch" value="educators.mysticseaport.org/" />
-            <label for="search-keywords"><input id="search-keywords" type="search" data-name="keywords" name="q" placeholder="Search" aria-label="Search" value="" required="required"></label>
+            <label for="search-keywords"><input id="search-keywords" type="search" data-name="keywords" 
+            	name="q" placeholder="Search" aria-label="Search" value="" required="required"></label>
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span></form>
         
         <h4>Tags:</h4>
@@ -110,14 +112,14 @@
     </div><!--cols -->
 
     <div class="col-lg-8">
-      <h2>About This Artifact</h2>
-      <p>This example of what is called a "Temple Toggle" harpoon is the innovation of African American blacksmith Lewis Temple.  Designed in 1845, the Temple Toggle employed the use of a pivoting iron head at the tip of the harpoon, which allowed the iron to swivel and lock in place upon penetrating the body of a whale, minimizing any risk of the harpoon pulling out.  This simple, yet ground-breaking innovation revolutionized the whaling industry unlike any invention before.  Having a harpoon head that was able to lock in place within the body of the whale meant that more whales could be successfully harpooned and minimized the risk of losing a whale.  Author and maritime historian Clifford Ashley sums up Temple's Toggle Iron stating in 1926, "It is safe to say that the 'Temple Toggle' was the most important single invention in the whole history of whaling.  It resulted in the capture of a far greater proportion of the whales that were struck than had before been possible."</p>
+      <h2>{% block about-title %}About This ...{% endblock %}</h2>
+      <p>{{ resource_object.narrative|safe }}</p>
       
       <h2>Questions for Further Thought</h2>
       <ul class="questions_deeper">
-        <li>question1</li>
-        <li>question2</li>
-        <li>question3</li>
+		{% for question in resource_object.question_set.all %}					
+			<li>{{question.question_text|safe}}</li>
+		{% endfor %}						
       </ul>
       <ul class="questions_compelling">
         <li>question1</li>
