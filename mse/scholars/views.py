@@ -4,10 +4,15 @@ from django.http import Http404
 from django.conf import settings
 from scholars.models import Lecture, Interview
 
-def index(request):
+def lecture_index(request):
     item_list = Lecture.objects.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
+    return render_to_response('scholars/lecture_index.html', {'item_list': item_list, 
+        'resource_type': 'lecture'})
+
+def interview_index(request):
     interview_list = Interview.objects.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
-    return render_to_response('scholars/index.html', {'item_list': item_list, 'interview_list': interview_list})
+    return render_to_response('scholars/interview_index.html', {'interview_list': interview_list, 
+        'resource_type': 'interview'})
 
 def lecture(request, short_name):
     o = get_object_or_404(Lecture, short_name=short_name)

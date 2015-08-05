@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title-area %}
+	<h1>Audio Lectures by Munson Institute Scholars</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+{% endblock title-area %}
+
+
+{% block main-content %}
+<!-- main content -->
+<div class="container main-content">
+	<div id="row"> 
+		<!-- search box -->  
+		<div class="col-lg-4 col-sm-4">
+			<div class="sidebox">
+				<h2>Thanks</h2>
+				<p>The video interviews, etc.</p>
+				<p>followed by logos.</p>
+			</div><!--sidebox -->
+		</div><!--cols -->
+
+		<div class="col-lg-8">
+			<ul class="list-unstyled menu">
+			{% for item in item_list %}
+				<li class="col-lg-3">
+					<a href="/scholars/lectures/{{ item.short_name }}/"><img 
+					src="{% static 'scholars/lectures/menupics/' %}{{ item.short_name }}_m.jpg" alt="image: {{ item.short_name }}" class="img-responsive"><br/>
+					<h4>Interview of {{ item.title|safe }}</h4></a>
+					by <a href="javascript:popBox('connections','moreinfo','{{ item.scholar_short_name }}')">{{ item.scholar }}</a>
+				</li>
+			{% endfor %}
+			</ul>
+			
+		</div><!--cols -->
+	</div><!--/row-->
+
+	<!-- paging -->
+	<div id="row" class="paging">
+		<div class="col-lg-4 col-sm-3">
+			<p><a href="#">first</a> | <a href="#">prev</a></p>
+		</div><!--cols -->
+
+		<div class="col-lg-4 col-sm-6 text-center">
+			<p><a href="#" class="selected">1</a> | <a href="#">2</a> | <a href="#">3</a> | <a href="#">4</a></p>
+		</div><!--cols -->
+
+		<div class="col-lg-4  col-sm-3 text-right">
+			 <p><a href="#">next</a> | <a href="#">last</a></p>
+	 </div><!--cols -->
+
+	</div><!--/row-->
+</div><!-- container main-content-->
+
+
+{% endblock main-content %}
