@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block additional_js %}
+  <script type="text/javascript" src="{% static 'common/ZoomifyImageViewer.js' %}"></script>
+  <style type="text/css"> #myContainer { width: 100%; height: 400px } </style>
+  <script type="text/javascript"> Z.showImage("myContainer", "{% static 'artifacts/zooms/' %}{{ resource_object.filename }}_{{ page_suffix }}_z", "zSkinPath={% static 'common/ZoomAssets/Skins/Default' %}"); </script>
+{% endblock additional_js %}
+
 {% block title-area %}
 	{% block crumbs-title %}
 	<!-- Filled in by artifact/detail.html or document/detail.html -->
@@ -23,7 +29,7 @@
   <div id="row"> 
     <div class="item-image">
 
-      <div id="myContainer">zoom to go here</div>
+      <div id="myContainer">zoom should appear here</div>
  
       <h4>Other Views:</h4>
       <ul class="list-inline thumbs">  
