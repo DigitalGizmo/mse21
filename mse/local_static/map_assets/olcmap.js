@@ -726,16 +726,19 @@ function prepVoyageMarkers(layerIndex, whereClause, doAllActive) {
 	// row[5] = Long_logbk, row[6] = E_or_W, row[7] = logEntry, row[8] = locEventIndex, row[9] = weather_notes
 	// row[10] = Whales_sptd_code, row[11] = Species, row[12] = quantity_caught, row[13] = Whales_cght_species, row[14] = Tot_Barrels_Sperm,
 	// row[15] = run_oil, row[16] = run_days, row[17] = gam_descript, row[18] = squally_wther, row[19] = gam_code
-	// row[20] = anchor_code, row[21] = log_page
+	// row[20] = anchor_code, row[21] = log_page, (row[22] = bib_id)
 	
 	var query = "SELECT 'Latitude', 'Longitude', 'Date', 'Lat_logbook', North_or_South, " +
 	"Long_logbook, East_or_West, Complete_Entries, Code_totals, weather_conditions, " +
 	"Whales_sptd_code, Species, quantity_caught, Whales_cght_species, Total_Barrels_Sperm, " +
 	"Running_Total, Days_at_sea, gam_description, squally_wthr_code, gam_code, " +
-	"anchor_code, log_page " +
-	//"FROM 1wvPnBi_dmkEtKXZ1onPjW3Y5n0MhSWyMWe2ChGY "  + whereClause; no log entry
-	//"FROM 126iRdCefQcPOdBg_nLXcAvxTnkyPMNBsLDMdheI "  + whereClause;
-	"FROM " + fusionTableId + " " + whereClause;
+	"anchor_code, log_page";
+	// need lobgook bib_id to be conditional, only the designated Fusion tables have that column
+	if (log_link_type==1) { 
+			query += ", bib_id";
+	}
+
+	query += " FROM " + fusionTableId + " " + whereClause;
 		
 	var encodedQuery = encodeURIComponent(query);
 	// Construct the URL
@@ -891,9 +894,11 @@ function createVoyageMarker(layerIndex, row) {
 		
 		iwHtml.push('<br clear="left"><h4>Logbook Entry For This Day</h4>');
 		if (log_link_type==1) { 
-			iwHtml.push('<a href="http://library.mysticseaport.org/initiative/PageImage.cfm?PageNum=' + row[21] + '&BibID=30777" target="reference">Link to Logbook</a>'); 
+			iwHtml.push('<a href="http://library.mysticseaport.org/initiative/PageImage.cfm?PageNum=' + 
+				row[21] + '&BibID=' + row[22] + '" target="reference">Link to Logbook</a>'); 
 		} else if (log_link_type==2) {
-			iwHtml.push('<a href="javascript:popBox(&apos;maps&apos; ,&apos;journal&apos; ,&apos;' + short_name + '&apos; ,&apos;' + row[21] + '&apos;)">Link to Journal</a>');
+			iwHtml.push('<a href="javascript:popBox(&apos;maps&apos; ,&apos;journal&apos; ,&apos;' + 
+				short_name + '&apos; ,&apos;' + row[21] + '&apos;)">Link to Journal</a>');
 			
 		}
 		iwHtml.push('<div class="log_entry"><p>' + row[7] + '</p></div> ');
