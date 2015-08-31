@@ -1,0 +1,53 @@
+@import "bourbon/bourbon.scss";
+@import "neat/neat.scss";
+
+// juliet will tell me about reset.scss
+
+#main{
+    @inlcude outer-container(1920px);
+    background-color: #333;
+}
+
+#top-row{
+    @include span-columns(12);
+}
+#red{
+    background-color: red;
+    @include span-columns(4 of 12);
+}
+#orange{
+    background-color: orange;
+    @include span-columns(4 of 12);
+}
+#yellow{
+    background-color: yellow;
+    @include span-columns(4 of 12);
+}
+
+#middle-row{
+    @include span-columns(12);
+}
+#green{
+    background-color: green;
+    @include span-columns(4 of 12);
+}
+#blue{
+    background-color: blue;
+    @include span-columns(8 of 12);
+}
+
+#bottom-row{
+    @include span-columns(12);
+}
+#indigo{
+    background-color: indigo;
+    @include span-columns(4 of 12);
+    @include shift(8 of 12);
+}
+
+#red, #orange, #yellow, #green, #blue, #indigo {
+    @media screen and (max-width: 768px){
+        @include span-columns(12 of 12);
+        @include shift(0 of 12);
+    }
+}

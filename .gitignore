@@ -5,6 +5,7 @@
 *.jpg
 *.gif
 *.lnk
+*.css.map
 
 # Files
 .DS_Store
