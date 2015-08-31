@@ -1,0 +1,94 @@
+@import "normalize.scss";
+@import "bourbon/bourbon";
+@import "neat/neat.scss";
+
+$font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$paleblue: #dee3e7;
+$teal: #597485;
+$darkblue: #022b61;
+
+body    {
+    font: 100% $font-stack;
+}
+
+#main{
+    @include outer-container(1200px);
+}
+
+#top-row{
+    background-color: $paleblue;
+    @include span-columns(12);
+}
+
+#banner{
+    @include span-columns(12 of 12);
+}
+
+#banner h1 a {
+    font-size: 2.5em;
+    font-weight: 100;
+    margin-top: 0;
+    color: $teal;
+    text-decoration: none;
+}
+#main-content{
+    @include span-columns(12);
+    padding-top: 20px;
+}
+
+#side-box   {
+    @include span-columns(4 of 12);
+    background-color: $paleblue;
+    padding: 0 1.25em 1em 1.25em;
+    border-radius: 25px;
+}
+
+#page-area  {
+    @include span-columns(8 of 12);
+}
+
+#bottom-row {
+    @include span-columns(12);
+    background-color: $darkblue;
+    color: white;
+}
+
+#indigo {
+    @include span-columns(4 of 12);
+    @include shift(8 of 12);
+}
+#red, #orange, #yellow, #green, #blue, #indigo  {
+    @media screen and (max-width: 768px){
+        @include span-columns(12 of 12);
+        @include shift(0 of 12);
+    }
+}
+ul.menu {
+    list-style-type: none;
+    margin-top: 0;
+}
+ul.menu li {
+    @include span-columns(3);
+    margin-bottom: 2em;
+    margin-right: 1em;
+    padding: 1em;
+    height: 225px;
+    background-color: #899ba7;
+}
+ul.menu li h4   {
+    font-size: 1.25em;
+    font-weight: 100;
+    letter-spacing: 1px;
+    color: white; 
+    padding: 0 5px 5px 5px;
+    margin-top: -10px;
+}
+ul.menu img.img-responsive  {
+    /*box-shadow: 5px 5px 0px #cbcbcb;*/
+}
+ul.menu li a:link   {
+}
+ul.menu img.img-responsive:hover    {
+    opacity:0.65;
+}
