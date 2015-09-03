@@ -1,6 +1,6 @@
-@import "../css/normalize.css";
-@import "lib/bourbon/bourbon";
-@import "lib/neat/neat.scss";
+@import "_normalize.scss";
+@import "bourbon/bourbon";
+@import "neat/neat.scss";
 
 $font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
 

@@ -1,0 +1,27 @@
+.logo {
+  @include outer-container;
+  position: relative;
+}
+
+.logo--image {
+  @include position(absolute, 0 null null 0);
+  @include size(140px 146px);
+  background-color: #01254F;
+}
+
+.logo--text {
+  @include shift(2);
+  font-weight: 200;
+  font-size: em(48);
+  color: $primary-color;
+}
+
+.main-navigation {
+  background-color: $primary-color;
+}
+
+.main-navigation--items {
+  @include outer-container;
+}
+
+
