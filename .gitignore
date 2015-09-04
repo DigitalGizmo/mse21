@@ -14,7 +14,8 @@ secrets.json
 robots.txt
 
 # Directories
-.sass-cache/
+**/.sass-cache
+**/.sass-cache/*
 .svn/
 static/
 tinymce/
