@@ -12,8 +12,11 @@ $heading-line-height: 1.2;
 // Other Sizes
 $base-border-radius: 3px;
 $base-spacing: $base-line-height * 1em;
+$large-spacing: $base-spacing * 2;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
+
+// Breakpoints 
 
 // Colors
 $blue: #477dca;

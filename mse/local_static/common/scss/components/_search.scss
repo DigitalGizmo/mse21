@@ -1,0 +1,8 @@
+.search {
+  background-color: #DEE3E7;
+  padding: $base-spacing;
+
+  @include media(580px) {
+    @include span-columns(4);
+  }
+}

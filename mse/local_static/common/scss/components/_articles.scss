@@ -1,0 +1,26 @@
+.articles-wrapper {
+  @include media(580px) {
+    @include span-columns(8);
+  }
+}
+
+.article {
+  @include span-columns(4 8);
+  background-color: red;
+  margin-bottom: $large-spacing;
+  padding: $small-spacing;
+
+  @include media(max-width 579px) {
+    @include omega(2n);
+  }
+
+  @include media(min-width 800px max-width 910px) {
+    @include span-columns(2.6666 8);
+    @include omega(3n);
+  }
+
+  @include media(910px) {
+    @include span-columns(2 8);
+    @include omega(4n);
+  }
+}
