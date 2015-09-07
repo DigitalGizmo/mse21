@@ -19,4 +19,4 @@ var map_params = {
 }
 </script>
 
-<script type="text/javascript" src="{% static 'map_assets/olcmap.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/olcmap.js' %}"></script>

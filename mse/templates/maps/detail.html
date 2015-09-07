@@ -1,21 +1,9 @@
-{% extends "resource_two_col.html" %}
-{% load static %}
-
-{% block title %}Map: {{ resource_object.title|safe }}{% endblock %}
-{% block body_class %}maps{% endblock %}
-
-{# block content_by default inherited from resource_sidebar.html #}
-
-{% block section_class %}maps{% endblock %}
+{% extends "item_detail.html" %}
+{% load staticfiles %}
 
 
-{% block breadcrumbs %}
-<li><a href="/maps/">Active Maps</a></li>
-<li class="current_item">About This Map</li> <!--resource_object.title|safe-->
-{% endblock %}
-{% block page_title %}{{ resource_object.title|safe }}{% endblock %}
+{% block main-content %}
 
-{% block content %}
 	<h2>About This Map</h2>
 	<!--
 		<a href="#" onclick="javascript:map('cwm'); return false">
@@ -30,8 +18,6 @@
 	
 	{{ resource_object.narrative|safe }}
 
-{% endblock content %}
+{% endblock main-content %}
 
-{% block attributes %}
-{% endblock attributes %}
 

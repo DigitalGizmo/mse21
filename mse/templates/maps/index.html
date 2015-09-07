@@ -18,8 +18,8 @@
       <ul class="list-unstyled menu">
 	   {% for geomap in item_list %}
   		<li class="col-lg-3">
-  			<a href="/maps/{{ resource_object.short_name }}/"><img 
-  			src="{% static 'maps/menupics/' %}{{ resource_object.filename }}_m.jpg" alt="image: {{ resource_object.short_name }}" class="img-responsive"><br/>
+  			<a href="/maps/{{ geomap.short_name }}/"><img 
+  			src="{% static 'maps/menupics/' %}{{ geomap.short_name }}_m.jpg" alt="image: {{ geomap.short_name }}" class="img-responsive"><br/>
   			<h4>{{ geomap.title|safe }}</h4></a>
   		</li>
 	   {% endfor %}
@@ -32,8 +32,8 @@
       <ul class="list-unstyled menu">
 	   {% for geomap in story_list %}
   		<li class="col-lg-3">
-  			<a href="/maps/{{ resource_object.short_name }}/"><img 
-  			src="{% static 'maps/menupics/' %}{{ resource_object.filename }}_m.jpg" alt="image: {{ resource_object.short_name }}" class="img-responsive"><br/>
+  			<a href="/maps/{{ geomap.short_name }}/"><img 
+  			src="{% static 'maps/menupics/' %}{{ geomap.short_name }}_m.jpg" alt="image: {{ geomap.short_name }}" class="img-responsive"><br/>
   			<h4>{{ geomap.title|safe }}</h4></a>
   		</li>
 	   {% endfor %}

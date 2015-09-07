@@ -3,7 +3,7 @@ from django.conf import settings
 
 # Lectures and interviews urls are pre-pended with "scholars" for reasons of a) legacy, b) pequot version of site.
 urlpatterns = patterns('scholars.views',
-    url(r'^$', 'index'),
+    # url(r'^$', 'index'),
     url(r'^lectures/$', 'lecture_index'),
     url(r'^interviews/$', 'interview_index'),
     url(r'^lectures/biblio/(?P<short_name>\S+)/$', 'biblio'),
