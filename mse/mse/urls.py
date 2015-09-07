@@ -18,6 +18,4 @@ urlpatterns = [
     url(r'^sets/', include('resources.urls')),
     url(r'^scholars/', include('scholars.urls')),
     #url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^management/', include('management.urls')),
-
 ]

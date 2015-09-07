@@ -65,7 +65,6 @@ INSTALLED_APPS = (
     'connections',
     'documents',
     'general',
-    #'management',
     'maps',
     'resources',
     'scholars',
