@@ -1,0 +1,41 @@
+.dropdown {
+  $large-screen: em(640) !default;
+  $dropdown-distance-from-menu: 50px;
+
+  .dropdown-button {
+    cursor: pointer;
+    float: right;
+  }
+
+  .dropdown-menu {
+    @include position(absolute, 48px 0 null 0);
+    @include transition (all 0.2s ease-in-out);
+    background-color: green;
+    display: none;
+    overflow: show;
+    text-align: left;
+  }
+
+  .dropdown-list {
+    @include outer-container;
+    padding-left: $logo-width-with-padding;
+  }
+
+  .dropdown-list--item {
+    @include span-columns(12/5);
+
+    a {
+      display: block;
+      padding: $base-spacing;
+      text-align: center;
+
+      &:hover {
+        background-color: darken(green, 15%);
+      }
+    }
+  }
+
+  .show-menu {
+    display: block;
+  }
+}

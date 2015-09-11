@@ -1,0 +1,10 @@
+.title-area {
+ 	background-color: lighten($toned-blue, 40%);
+		header	{
+			@include outer-container;
+
+	  		@include media(max-width $max-width) {
+	    	padding: $base-spacing;
+	  		}
+	  	}
+}

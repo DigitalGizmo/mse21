@@ -10,11 +10,16 @@ $base-line-height: 1.5;
 $heading-line-height: 1.2;
 
 // Other Sizes
-$base-border-radius: 3px;
+$base-border-radius: 10px;
 $base-spacing: $base-line-height * 1em;
 $large-spacing: $base-spacing * 2;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
+$logo-z-index: $base-z-index + 1;
+
+$logo-width: em(140);
+$logo-width-with-padding: $logo-width + $base-spacing;
+
 
 // Breakpoints 
 

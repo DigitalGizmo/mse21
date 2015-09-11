@@ -1,27 +1,48 @@
 .logo {
   @include outer-container;
+  padding-left: $logo-width-with-padding;
   position: relative;
 }
 
 .logo--image {
   @include position(absolute, 0 null null 0);
-  @include size(140px 146px);
+  @include size($logo-width 146px);
   background-color: #01254F;
+  z-index: $logo-z-index;
 }
 
 .logo--text {
-  @include shift(2);
-  font-weight: 200;
-  font-size: em(48);
   color: $primary-color;
+  font-size: em(68);
+  font-weight: 200;
+  margin-bottom: 0;
 }
 
 .main-navigation {
   background-color: $primary-color;
+  position: relative;
 }
 
 .main-navigation--items {
   @include outer-container;
+  padding-left: $logo-width-with-padding;
 }
 
+.main-navigation--item {
+  display: inline-block;
+  vertical-align: top;
 
+  &:first-child {
+    margin-left: -$base-spacing;
+  }
+
+  a {
+    color: white;
+    display: block;
+    padding: $small-spacing $base-spacing;
+
+    &:hover {
+      background-color: darken(red, 30%);
+    }
+  }
+}

@@ -6,7 +6,10 @@
 
 @import "layouts/navigation";
 @import "layouts/main-content";
+@import "layouts/main-aside";
+@import "layouts/title-area";
 
-@import "components/search";
 @import "components/articles";
+@import "components/call-out";
+@import "components/dropdown";
 

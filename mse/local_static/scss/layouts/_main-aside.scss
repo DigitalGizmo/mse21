@@ -1,0 +1,5 @@
+.main-aside {
+  @include media(580px) {
+    @include span-columns(4);
+  }
+}
