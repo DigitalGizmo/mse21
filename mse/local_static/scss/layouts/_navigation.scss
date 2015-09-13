@@ -7,14 +7,14 @@
 .logo--image {
   @include position(absolute, 0 null null 0);
   @include size($logo-width 146px);
-  background-color: #01254F;
+  background-color: $dark-blue;
   z-index: $logo-z-index;
 }
 
 .logo--text {
   color: $primary-color;
   font-size: em(68);
-  font-weight: 200;
+  font-weight: 100;
   margin-bottom: 0;
 
   @include media(max-width $mobile-navigation-breakpoint) {
@@ -23,7 +23,7 @@
 }
 
 .main-navigation {
-  background-color: $primary-color;
+  background-color: $teal;
   position: relative;
 }
 
@@ -66,7 +66,7 @@
     }
 
     &:hover {
-      background-color: darken(red, 30%);
+      background-color: darken($teal, 15%);
     }
   }
 }

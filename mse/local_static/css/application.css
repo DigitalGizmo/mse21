@@ -242,7 +242,7 @@ html {
 
 button, input[type="button"], input[type="reset"], input[type="submit"] {
   appearance: none;
-  background-color: #477dca;
+  background-color: #022b61;
   border: 0;
   border-radius: 10px;
   color: #fff;
@@ -261,7 +261,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   white-space: nowrap;
 }
 button:hover, button:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus {
-  background-color: #3964a2;
+  background-color: #02224e;
   color: #fff;
 }
 button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled {
@@ -269,7 +269,7 @@ button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, in
   opacity: 0.5;
 }
 button:disabled:hover, input[type="button"]:disabled:hover, input[type="reset"]:disabled:hover, input[type="submit"]:disabled:hover {
-  background-color: #477dca;
+  background-color: #022b61;
 }
 
 ul,
@@ -290,7 +290,7 @@ dl dd {
 }
 
 body {
-  color: #333;
+  color: #222;
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-feature-settings: "kern", "liga", "pnum";
   font-size: 1em;
@@ -314,12 +314,12 @@ p {
 }
 
 a {
-  color: #477dca;
+  color: #022b61;
   text-decoration: none;
   transition: color 150ms ease;
 }
 a:active, a:focus, a:hover {
-  color: #355e98;
+  color: #022049;
 }
 
 hr {
@@ -355,14 +355,14 @@ picture {
   left: 0;
   height: 146px;
   width: 8.75em;
-  background-color: #01254F;
+  background-color: #022b61;
   z-index: 1;
 }
 
 .logo--text {
-  color: #990000;
+  color: #5b7687;
   font-size: 4.25em;
-  font-weight: 200;
+  font-weight: 100;
   margin-bottom: 0;
 }
 @media screen and (max-width: 43.125em) {
@@ -372,7 +372,7 @@ picture {
 }
 
 .main-navigation {
-  background-color: #990000;
+  background-color: #5b7687;
   position: relative;
 }
 
@@ -424,7 +424,7 @@ picture {
   }
 }
 .main-navigation--item a:hover {
-  background-color: #660000;
+  background-color: #3c4e59;
 }
 
 @media screen and (min-width: 43.125em) {
@@ -462,7 +462,8 @@ picture {
 }
 
 .title-area {
-  background-color: #d3dce1;
+  margin-bottom: 1.5em;
+  background-color: #dee3e7;
 }
 .title-area header {
   max-width: 68em;
@@ -478,6 +479,49 @@ picture {
   .title-area header {
     padding: 1.5em;
   }
+}
+
+footer {
+  background-color: #022b61;
+  color: white;
+  padding: 1.5em;
+}
+footer section.main-content {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+footer section.main-content::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.footer-social {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+}
+.footer-social:last-child {
+  margin-right: 0;
+}
+.footer-social .footer-social--items {
+  list-style-type: none;
+}
+.footer-social .footer-social--items .footer-social--item {
+  display: inline-block;
+  margin-right: 0.75em;
+}
+
+.footer-search {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+}
+.footer-search:last-child {
+  margin-right: 0;
 }
 
 @media screen and (min-width: 580px) {
@@ -497,7 +541,7 @@ picture {
   display: block;
   margin-right: 3.57866%;
   width: 48.21067%;
-  background-color: #5F7A89;
+  background-color: rgba(91, 118, 135, 0.6);
   margin-bottom: 3em;
   padding: 0.75em;
 }
@@ -548,7 +592,7 @@ picture {
 }
 
 .call-out {
-  background-color: #DEE3E7;
+  background-color: #dee3e7;
   border-radius: 10px;
   padding: 1.5em;
   margin-bottom: 1.5em;
@@ -561,7 +605,7 @@ picture {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  background-color: green;
+  background-color: #dee3e7;
   overflow: show;
   text-align: left;
 }
@@ -599,6 +643,7 @@ picture {
   }
 }
 .dropdown .dropdown-list--item a {
+  color: #5b7687;
   display: block;
   padding: 1.5em;
 }
@@ -608,7 +653,8 @@ picture {
   }
 }
 .dropdown .dropdown-list--item a:hover {
-  background-color: #003400;
+  color: white;
+  background-color: #b2bdc7;
 }
 
 /*# sourceMappingURL=application.css.map */

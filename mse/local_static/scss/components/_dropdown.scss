@@ -8,7 +8,7 @@
 
   .dropdown-menu {
     @include transition (all 0.2s ease-in-out);
-    background-color: green;
+    background-color: $toned-blue;
     overflow: show;
     text-align: left;
 
@@ -31,6 +31,7 @@
     }
 
     a {
+      color: $teal;
       display: block;
       padding: $base-spacing;
 
@@ -39,7 +40,8 @@
       }
 
       &:hover {
-        background-color: darken(green, 15%);
+        color: white;
+        background-color: darken($toned-blue, 15%);
       }
     }
   }

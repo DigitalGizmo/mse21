@@ -1,0 +1,27 @@
+footer {
+  background-color: $dark-blue;
+  color: white;
+  padding: $base-spacing;
+
+    section.main-content  {
+      @include outer-container;
+
+      @include media(max-width $max-width) {
+      }
+    }
+}
+
+.footer-social  {
+  @include span-columns(4);
+    .footer-social--items  {
+      list-style-type: none;
+        .footer-social--item {
+          display: inline-block;
+          margin-right: $small-spacing;
+        }
+    }
+}
+
+.footer-search  {
+  @include span-columns(8);
+}

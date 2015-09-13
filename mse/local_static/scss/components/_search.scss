@@ -1,5 +1,5 @@
 .search {
-  background-color: #DEE3E7;
+  background-color: $toned-blue;
   padding: $base-spacing;
 
   @include media(580px) {

@@ -4,6 +4,7 @@ $heading-font-family: $base-font-family;
 
 // Font Sizes
 $base-font-size: 1em;
+$small-font-size: $base-font-size * .8;
 
 // Line height
 $base-line-height: 1.5;
@@ -26,17 +27,17 @@ $logo-width-with-padding: $logo-width + $base-spacing;
 // Breakpoints 
 
 // Colors
-$blue: #477dca;
-$toned-blue: #5F7A89;
-$red: red;
-$dark-gray: #333;
+$dark-blue: #022b61;
+$toned-blue: #dee3e7;
+$teal: #5b7687;
+$dark-gray: #222;
 $medium-gray: #999;
 $light-gray: #ddd;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$primary-color: darken($red, 20%);
-$action-color: $blue;
+$primary-color: $teal;
+$action-color: $dark-blue;
 
 // Border
 $base-border-color: $light-gray;
