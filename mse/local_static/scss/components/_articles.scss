@@ -6,7 +6,7 @@
 
 .article {
   @include span-columns(4 8);
-  background-color: rgba($teal, .6);
+  background-color: rgba($primary-color, 0.6);
   margin-bottom: $large-spacing;
   padding: $small-spacing;
 
