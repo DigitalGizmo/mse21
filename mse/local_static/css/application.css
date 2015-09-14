@@ -486,16 +486,6 @@ footer {
   color: white;
   padding: 1.5em;
 }
-footer section.main-content {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-}
-footer section.main-content::after {
-  clear: both;
-  content: "";
-  display: table;
-}
 
 .footer-social {
   float: left;
@@ -506,10 +496,12 @@ footer section.main-content::after {
 .footer-social:last-child {
   margin-right: 0;
 }
-.footer-social .footer-social--items {
+
+.footer-social--items {
   list-style-type: none;
 }
-.footer-social .footer-social--items .footer-social--item {
+
+.footer-social--item {
   display: inline-block;
   margin-right: 0.75em;
 }
