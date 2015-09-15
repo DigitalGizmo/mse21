@@ -6,8 +6,6 @@
 
 .logo--image {
   @include position(absolute, 0 null null 0);
-  @include size($logo-width 146px);
-  background-color: $dark-blue;
   z-index: $logo-z-index;
 }
 

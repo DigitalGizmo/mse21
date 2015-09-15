@@ -7,6 +7,11 @@
     
     @include media(max-width $max-width) {
     padding: $base-spacing;
+    font-size: $base-font-size * 0.85;
+    }
+
+    @include media(max-width $mobile-navigation-breakpoint) {
+    font-size: rem(12);
     }
   }
 }

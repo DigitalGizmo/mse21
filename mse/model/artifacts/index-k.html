@@ -98,7 +98,6 @@
           <h1>Artifact Article</h1>
           <p>"Artifact Articles" are an MSE original web feature that includes brief information and context about an artifact in the collection, written by an MSE Fellow or Mystic Seaport staff. Articles contain teacher-friendly components such as Questions for Deeper Thought, Artifact Facts, Related Items from the Collection, In the Classroom ideas, Related Resources and Related Websites. Check back often as we add new content regularly.          
           </p>
-          <div id="dimensions"><p>Demensions will go here.</p></div>
         </section>
       </header>
     </section>
@@ -117,6 +116,8 @@
             </ul>
             <input type="search" name="" id="" value="" />
           </nav>
+          <div id="dimensions"><p>Dimensions will go here.</p></div>
+
         </section>
 
         <section class="call-out">
@@ -213,7 +214,7 @@
 
       <script type="text/javascript">
         $(document).ready(function(){
-
+          $('#logo--image-img').css('height', $('#banner').height()); // "$('#banner').height()"  .logo--image
           $(window).on('resize', function(){
             var win = $(this); //this = window
             //alert("window width: " + win.width() + "  header height: " + $('#banner').height());
