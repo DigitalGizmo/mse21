@@ -9,9 +9,9 @@
     <script src="/model/model_local_static/js/jquery.fittext.js"></script>
   </head>
 
-    <header>
+    <header id="banner">
       <div class="logo">
-        <h2 class="logo--image"><img src="/model/model_local_static/images/logo_mystic.jpg"></h2>
+        <h2 class="logo--image"><img id="logo--image-img" src="/model/model_local_static/images/logo_mystic.jpg"></h2>
         <h1 class="logo--text">Mystic Seaport for Educators</h1>
       </div>
       <nav class="main-navigation">
@@ -96,7 +96,9 @@
 
         <section class="title-area--text">
           <h1>Artifact Article</h1>
-          <p>"Artifact Articles" are an MSE original web feature that includes brief information and context about an artifact in the collection, written by an MSE Fellow or Mystic Seaport staff. Articles contain teacher-friendly components such as Questions for Deeper Thought, Artifact Facts, Related Items from the Collection, In the Classroom ideas, Related Resources and Related Websites. Check back often as we add new content regularly.</p>
+          <p>"Artifact Articles" are an MSE original web feature that includes brief information and context about an artifact in the collection, written by an MSE Fellow or Mystic Seaport staff. Articles contain teacher-friendly components such as Questions for Deeper Thought, Artifact Facts, Related Items from the Collection, In the Classroom ideas, Related Resources and Related Websites. Check back often as we add new content regularly.          
+          </p>
+          <div id="dimensions"><p>Demensions will go here.</p></div>
         </section>
       </header>
     </section>
@@ -208,6 +210,22 @@
     <script type="text/javascript">
       $(".logo--text").fitText(1.4, { minFontSize: '20px', maxFontSize: '68px' });
     </script>
+
+      <script type="text/javascript">
+        $(document).ready(function(){
+
+          $(window).on('resize', function(){
+            var win = $(this); //this = window
+            //alert("window width: " + win.width() + "  header height: " + $('#banner').height());
+            //if (win.height() >= 820) { /* ... */ }
+            //if (win.width() >= 1280) { /* ... */ }
+            $('#dimensions').text("window width: " + win.width() + "  header height: " + $('#banner').height() );
+            $('#logo--image-img').css('height', $('#banner').height()); // "$('#banner').height()"  .logo--image
+          });
+        });
+
+      </script>
+
 
   </body>
 </html>
