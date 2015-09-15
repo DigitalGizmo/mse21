@@ -9,6 +9,7 @@
   .dropdown-menu {
     @include transition (all 0.2s ease-in-out);
     background-color: $toned-blue;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
     overflow: show;
     text-align: left;
 
@@ -33,7 +34,7 @@
     a {
       color: $primary-color;
       display: block;
-      padding: $base-spacing;
+      line-height: $base-spacing * 0.75;
 
       @include media($mobile-navigation-breakpoint) {
         text-align: center;

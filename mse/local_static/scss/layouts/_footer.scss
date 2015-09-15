@@ -1,7 +1,12 @@
 footer {
   background-color: $dark-blue;
-  color: white;
+  color: darken(white, 20%);
+  font-weight: 200;
   padding: $base-spacing;
+
+  @include media(max-width $mobile-navigation-breakpoint) {
+    font-size: rem(12);
+  }
 }
 
 .footer-social  {
@@ -19,4 +24,9 @@ footer {
 
 .footer-search  {
   @include span-columns(8);
+
+  	a {
+  	color: white;
+  	text-decoration: underline;
+  	}
 }

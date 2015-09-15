@@ -23,4 +23,10 @@
     @include span-columns(2 8);
     @include omega(4n);
   }
+
+  a h4 {
+    color: white;
+    font-weight: 200;
+    padding-top: .5em;
+  }
 }

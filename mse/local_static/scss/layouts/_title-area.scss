@@ -1,12 +1,27 @@
 .title-area {
-  margin-bottom: $base-spacing;
   background-color: $toned-blue;
+  margin-bottom: $base-spacing;
     
-    header  {
-        @include outer-container;
+  header  {
+    @include outer-container;
+    
+    @include media(max-width $max-width) {
+    padding: $base-spacing;
+    }
+  }
+}
 
-        @include media(max-width $max-width) {
-        padding: $base-spacing;
-        }
+.title-area--logo {
+  @include span-columns(4);
+}
+
+.title-area--text {
+  color: $primary-color;
+  @include span-columns(8);
+
+    h1 {
+      font-size: $large-font-size;
+      font-weight: 400;
+      margin-bottom: 0;
     }
 }
