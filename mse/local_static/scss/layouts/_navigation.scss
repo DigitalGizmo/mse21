@@ -48,21 +48,21 @@
 
   @include media(max-width 975px) {
     font-size: rem(14);
-}
+  }
   
   @include media(max-width 875px) {
     font-size: rem(12);
   }
 
-//when viewport is mobile or smaller, display the menu vertically
+  //when viewport is mobile or smaller, display the menu vertically
   @include media(max-width $mobile-navigation-breakpoint) {
     border-bottom: thin dotted $toned-blue;
     display: block;
   }
 
-//when viewport is mobile or smaller, remove left margin from links
+  //when viewport is mobile or smaller, remove left margin from links
   &:first-child {
-    @include media($mobile-navigation-breakpoint) {
+    @include media($mobile-navigation-breakpoint + em(1)) {
       margin-left: -$base-spacing;
     }
   }
@@ -88,7 +88,7 @@
     font-weight: 500;
   }
 
-//when screen is larger than mobile, don't show the menu toggle
+  //when screen is larger than mobile, don't show the menu toggle
   @include media($mobile-navigation-breakpoint + em(1)) {
     display: none;
   }

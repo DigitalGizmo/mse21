@@ -12,14 +12,14 @@
     overflow: show;
     text-align: left;
 
-    @include media($mobile-navigation-breakpoint) {
+    @include media($mobile-navigation-breakpoint + em(1)) {
       @include position(absolute, 48px 0 null 0);
       display: none;
     }
   }
 
   .dropdown-list {
-    @include media($mobile-navigation-breakpoint) {
+    @include media($mobile-navigation-breakpoint + em(1)) {
       
       @include outer-container;
       padding-left: $logo-width-with-padding;
@@ -27,15 +27,9 @@
  }
 
   .dropdown-list--item { 
-    @include media($mobile-navigation-breakpoint) {
+    @include media($mobile-navigation-breakpoint + em(1)) {
       @include span-columns(12/5);
     }
-
-//when viewport is mobile or smaller, display the menu vertically
-    @include media(max-width $mobile-navigation-breakpoint)  {
-      background-color: red;
-      float: none;    
-    }   
 
     a {
       color: $primary-color;
@@ -50,7 +44,7 @@
         }
       }
 
-      @include media($mobile-navigation-breakpoint) {
+      @include media($mobile-navigation-breakpoint + em(1)) {
         text-align: center;
       }
 
