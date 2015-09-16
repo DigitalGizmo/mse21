@@ -220,6 +220,8 @@
             $('#dimensions').text("window width: " + win.width() + "  header height: " + $('#banner').height() );
             if (win.width() >= 690) {  
               $('#logo--image-img').css('height', $('#banner').height()); // "$('#banner').height()"  .logo--image
+            } else {
+              $('#logo--image-img').css('height', 81); 
             }
           });
         });
