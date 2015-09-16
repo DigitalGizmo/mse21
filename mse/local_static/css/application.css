@@ -678,12 +678,6 @@ footer {
     display: none;
   }
 }
-@media screen and (max-width: 43.1875em) {
-  .dropdown .dropdown-menu {
-    box-shadow: none;
-    display: block;
-  }
-}
 @media screen and (min-width: 43.125em) {
   .dropdown .dropdown-list {
     max-width: 68em;
@@ -706,6 +700,12 @@ footer {
   }
   .dropdown .dropdown-list--item:last-child {
     margin-right: 0;
+  }
+}
+@media screen and (max-width: 43.125em) {
+  .dropdown .dropdown-list--item {
+    background-color: red;
+    float: none;
   }
 }
 .dropdown .dropdown-list--item a {

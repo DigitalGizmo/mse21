@@ -16,25 +16,26 @@
       @include position(absolute, 48px 0 null 0);
       display: none;
     }
-
-    // when viewport is mobile or smaller, display submenu vertically
-    @include media(max-width $mobile-navigation-breakpoint + em(1)) {
-      box-shadow: none;
-      display: block;
-    }
   }
 
   .dropdown-list {
     @include media($mobile-navigation-breakpoint) {
+      
       @include outer-container;
       padding-left: $logo-width-with-padding;
     }
-  }
+ }
 
-  .dropdown-list--item {
+  .dropdown-list--item { 
     @include media($mobile-navigation-breakpoint) {
       @include span-columns(12/5);
     }
+
+//when viewport is mobile or smaller, display the menu vertically
+    @include media(max-width $mobile-navigation-breakpoint)  {
+      background-color: red;
+      float: none;    
+    }   
 
     a {
       color: $primary-color;

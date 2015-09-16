@@ -212,6 +212,22 @@
       $(".logo--text").fitText(1.4, { minFontSize: '20px', maxFontSize: '68px' });
     </script>
 
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $('#logo--image-img').css('height', $('#banner').height()); // "$('#banner').height()"  .logo--image
+          $(window).on('resize', function(){
+            var win = $(this); //this = window
+            $('#dimensions').text("window width: " + win.width() + "  header height: " + $('#banner').height() );
+            if (win.width() >= 690) {  
+              $('#logo--image-img').css('height', $('#banner').height()); // "$('#banner').height()"  .logo--image
+            } else {
+              $('#logo--image-img').css('height', 81); 
+            }
+          });
+        });
+
+      </script>
+
 
   </body>
 </html>
