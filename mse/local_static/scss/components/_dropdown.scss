@@ -36,6 +36,10 @@
       display: block;
       line-height: $base-spacing * 0.75;
 
+      img {
+        display: none;
+      }
+
       @include media($mobile-navigation-breakpoint) {
         text-align: center;
       }

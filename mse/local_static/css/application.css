@@ -700,6 +700,9 @@ footer {
   display: block;
   line-height: 1.125em;
 }
+.dropdown .dropdown-list--item a img {
+  display: none;
+}
 @media screen and (min-width: 43.125em) {
   .dropdown .dropdown-list--item a {
     text-align: center;

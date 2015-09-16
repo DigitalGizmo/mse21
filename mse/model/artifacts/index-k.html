@@ -217,11 +217,10 @@
           $('#logo--image-img').css('height', $('#banner').height()); // "$('#banner').height()"  .logo--image
           $(window).on('resize', function(){
             var win = $(this); //this = window
-            //alert("window width: " + win.width() + "  header height: " + $('#banner').height());
-            //if (win.height() >= 820) { /* ... */ }
-            //if (win.width() >= 1280) { /* ... */ }
             $('#dimensions').text("window width: " + win.width() + "  header height: " + $('#banner').height() );
-            $('#logo--image-img').css('height', $('#banner').height()); // "$('#banner').height()"  .logo--image
+            if (win.width() >= 690) {  
+              $('#logo--image-img').css('height', $('#banner').height()); // "$('#banner').height()"  .logo--image
+            }
           });
         });
 
