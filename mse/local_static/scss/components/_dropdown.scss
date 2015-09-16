@@ -17,7 +17,8 @@
       display: none;
     }
 
-    @include media(max-width $mobile-navigation-breakpoint) {
+    // when viewport is mobile or smaller, display submenu vertically
+    @include media(max-width $mobile-navigation-breakpoint + em(1)) {
       box-shadow: none;
       display: block;
     }

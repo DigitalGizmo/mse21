@@ -412,7 +412,7 @@ picture {
     font-size: 0.75rem;
   }
 }
-@media screen and (max-width: 43.1875em) {
+@media screen and (max-width: 43.125em) {
   .main-navigation--item {
     border-bottom: thin dotted #dee3e7;
     display: block;
@@ -678,7 +678,7 @@ footer {
     display: none;
   }
 }
-@media screen and (max-width: 43.125em) {
+@media screen and (max-width: 43.1875em) {
   .dropdown .dropdown-menu {
     box-shadow: none;
     display: block;

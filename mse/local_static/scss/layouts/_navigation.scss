@@ -55,7 +55,7 @@
   }
 
 //when viewport is mobile or smaller, display the menu vertically
-  @include media(max-width $mobile-navigation-breakpoint + em(1)) {
+  @include media(max-width $mobile-navigation-breakpoint) {
     border-bottom: thin dotted $toned-blue;
     display: block;
   }
