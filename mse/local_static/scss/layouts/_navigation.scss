@@ -7,6 +7,10 @@
 .logo--image {
   @include position(absolute, 0 null null 0);
   z-index: $logo-z-index;
+
+  @include media(max-width $mobile-navigation-breakpoint) {
+    display: none;
+  }   
 }
 
 .logo--text {
@@ -17,6 +21,7 @@
 
   @include media(max-width $mobile-navigation-breakpoint) {
     font-size: 20px;
+    font-weight: 200;
   }
 }
 
@@ -30,6 +35,7 @@
   padding-left: $logo-width-with-padding;
 }
 
+//when viewport is mobile or smaller, horizontal main menu disappears 
 .main-navigation--items {
   @include media(max-width $mobile-navigation-breakpoint) {
     display: none;
@@ -48,10 +54,13 @@
     font-size: rem(12);
   }
 
-  @include media(max-width $mobile-navigation-breakpoint) {
+//when viewport is mobile or smaller, display the menu vertically
+  @include media(max-width $mobile-navigation-breakpoint + em(1)) {
+    border-bottom: thin dotted $toned-blue;
     display: block;
   }
 
+//when viewport is mobile or smaller, remove left margin from links
   &:first-child {
     @include media($mobile-navigation-breakpoint) {
       margin-left: -$base-spacing;
@@ -79,7 +88,8 @@
     font-weight: 500;
   }
 
-  @include media($mobile-navigation-breakpoint) {
+//when screen is larger than mobile, don't show the menu toggle
+  @include media($mobile-navigation-breakpoint + em(1)) {
     display: none;
   }
 }

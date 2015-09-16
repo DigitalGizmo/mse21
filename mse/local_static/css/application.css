@@ -356,6 +356,11 @@ picture {
   left: 0;
   z-index: 1;
 }
+@media screen and (max-width: 43.125em) {
+  .logo--image {
+    display: none;
+  }
+}
 
 .logo--text {
   color: #5b7687;
@@ -366,6 +371,7 @@ picture {
 @media screen and (max-width: 43.125em) {
   .logo--text {
     font-size: 20px;
+    font-weight: 200;
   }
 }
 
@@ -406,8 +412,9 @@ picture {
     font-size: 0.75rem;
   }
 }
-@media screen and (max-width: 43.125em) {
+@media screen and (max-width: 43.1875em) {
   .main-navigation--item {
+    border-bottom: thin dotted #dee3e7;
     display: block;
   }
 }
@@ -434,7 +441,7 @@ picture {
   color: white;
   font-weight: 500;
 }
-@media screen and (min-width: 43.125em) {
+@media screen and (min-width: 43.1875em) {
   .menu-toggle {
     display: none;
   }
@@ -671,6 +678,12 @@ footer {
     display: none;
   }
 }
+@media screen and (max-width: 43.125em) {
+  .dropdown .dropdown-menu {
+    box-shadow: none;
+    display: block;
+  }
+}
 @media screen and (min-width: 43.125em) {
   .dropdown .dropdown-list {
     max-width: 68em;
@@ -701,6 +714,10 @@ footer {
   line-height: 1.125em;
 }
 @media screen and (max-width: 43.125em) {
+  .dropdown .dropdown-list--item a {
+    border-bottom: thin dotted #5b7687;
+    line-height: 0.75em;
+  }
   .dropdown .dropdown-list--item a img {
     display: none;
   }

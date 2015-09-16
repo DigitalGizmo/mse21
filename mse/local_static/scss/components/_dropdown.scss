@@ -1,6 +1,5 @@
 .dropdown {
   $large-screen: em(640) !default;
-  $dropdown-distance-from-menu: 50px;
 
   .dropdown-button {
     cursor: pointer;
@@ -16,6 +15,11 @@
     @include media($mobile-navigation-breakpoint) {
       @include position(absolute, 48px 0 null 0);
       display: none;
+    }
+
+    @include media(max-width $mobile-navigation-breakpoint) {
+      box-shadow: none;
+      display: block;
     }
   }
 
@@ -37,6 +41,8 @@
       line-height: $base-spacing * 0.75;
 
       @include media(max-width $mobile-navigation-breakpoint) {
+        border-bottom: thin dotted $primary-color;
+        line-height: $small-spacing;
         img {
           display: none;
         }
