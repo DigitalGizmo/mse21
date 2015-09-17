@@ -35,9 +35,11 @@
   padding-left: $logo-width-with-padding;
 }
 
-//when viewport is mobile or smaller, horizontal main menu disappears 
+//when viewport is mobile or smaller, horizontal main menu disappears,
+//if viewport is less than or equal to 691 - 1, this disappears
+//works in conjunction with .menu-toggle
 .main-navigation--items {
-  @include media(max-width $mobile-navigation-breakpoint) {
+  @include media(max-width $mobile-navigation-breakpoint - em(1)) {
     display: none;
   }
 }
@@ -54,15 +56,15 @@
     font-size: rem(12);
   }
 
-  //when viewport is mobile or smaller, display the menu vertically
-  @include media(max-width $mobile-navigation-breakpoint) {
+  //when viewport is less than or equal to 691 - 1, display the menu vertically
+  @include media(max-width $mobile-navigation-breakpoint - em(1)) {
     border-bottom: thin dotted $toned-blue;
     display: block;
   }
 
-  //when viewport is mobile or smaller, remove left margin from links
+  //when viewport is greater than or equal to 691, remove left margin from links
   &:first-child {
-    @include media($mobile-navigation-breakpoint + em(1)) {
+    @include media($mobile-navigation-breakpoint) {
       margin-left: -$base-spacing;
     }
   }
@@ -88,8 +90,11 @@
     font-weight: 500;
   }
 
-  //when screen is larger than mobile, don't show the menu toggle
-  @include media($mobile-navigation-breakpoint + em(1)) {
+  //when screen is larger than or equal to mobile, disappear the menu toggle
+  //works in conjunction with .main-navigation--items
+  //if screen is equal to or greater than 691 then this disappears, 
+  //media command default is “min-width” 
+  @include media($mobile-navigation-breakpoint) {
     display: none;
   }
 }
