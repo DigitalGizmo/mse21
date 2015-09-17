@@ -18,6 +18,7 @@
       @include position(absolute, 48px 0 null 0);
       display: none;
     }
+    
     // when viewport is less than or equal to breakpoint, remove dropdown drop shadow
     @include media(max-width $mobile-navigation-breakpoint) {
       box-shadow: none;
@@ -25,6 +26,7 @@
   }
 
   .dropdown-list {
+
     // when viewport is greater than the breakpoint, make the dropdowns span entire viewport
     @include media($mobile-navigation-breakpoint + em(1)) {
       @include outer-container;
@@ -43,6 +45,7 @@
       color: $primary-color;
       display: block;
       line-height: $base-spacing * 0.75;
+
       // when viewport is less than or equal to breakpoint, style dropdowns
       @include media(max-width $mobile-navigation-breakpoint) {
         background-color: $primary-color;
