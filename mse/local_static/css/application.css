@@ -414,7 +414,7 @@ picture {
 }
 @media screen and (max-width: 43.125em) {
   .main-navigation--item {
-    border-bottom: thin dotted #dee3e7;
+    border-bottom: thin solid #92a8b6;
     display: block;
   }
 }
@@ -678,6 +678,11 @@ footer {
     display: none;
   }
 }
+@media screen and (max-width: 43.125em) {
+  .dropdown .dropdown-menu {
+    box-shadow: none;
+  }
+}
 @media screen and (min-width: 43.1875em) {
   .dropdown .dropdown-list {
     max-width: 68em;
@@ -709,8 +714,10 @@ footer {
 }
 @media screen and (max-width: 43.125em) {
   .dropdown .dropdown-list--item a {
-    border-bottom: thin dotted #5b7687;
+    background-color: #5b7687;
+    color: white;
     line-height: 0.75em;
+    padding-left: 2.5em;
   }
   .dropdown .dropdown-list--item a img {
     display: none;
