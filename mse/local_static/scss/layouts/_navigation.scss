@@ -35,11 +35,11 @@
   padding-left: $logo-width-with-padding;
 }
 
-//when viewport is mobile or smaller, horizontal main menu disappears,
-//if viewport is less than or equal to 691 - 1, this disappears
-//works in conjunction with .menu-toggle
+// when viewport is at breakpoint or smaller, horizontal main menu disappears,
+// (if viewport is less than or equal to 690, this disappears)
+// works in conjunction with .menu-toggle
 .main-navigation--items {
-  @include media(max-width $mobile-navigation-breakpoint - em(1)) {
+  @include media(max-width $mobile-navigation-breakpoint) {
     display: none;
   }
 }
@@ -56,15 +56,17 @@
     font-size: rem(12);
   }
 
-  //when viewport is less than or equal to 691 - 1, display the menu vertically
-  @include media(max-width $mobile-navigation-breakpoint - em(1)) {
+  // when viewport is less than or equal to breakpoint, display the menu vertically
+  // (less than or equal to 690, display vertically)
+  @include media(max-width $mobile-navigation-breakpoint) {
     border-bottom: thin dotted $toned-blue;
     display: block;
   }
 
-  //when viewport is greater than or equal to 691, remove left margin from links
+  // when viewport is greater than the breakpoint, remove left margin from links
+  // if greater than or equal to 691 (690 + 1)
   &:first-child {
-    @include media($mobile-navigation-breakpoint) {
+    @include media($mobile-navigation-breakpoint + em(1)) {
       margin-left: -$base-spacing;
     }
   }
@@ -90,11 +92,11 @@
     font-weight: 500;
   }
 
-  //when screen is larger than or equal to mobile, disappear the menu toggle
-  //works in conjunction with .main-navigation--items
-  //if screen is equal to or greater than 691 then this disappears, 
-  //media command default is “min-width” 
-  @include media($mobile-navigation-breakpoint) {
+  // if viewport is larger than the breakpoint, disappear this element
+  // min-width implied -- it's the default
+  // (if screen is greater than or equal to 691 (190+1) then  disappear)
+  // works in conjunction with .main-navigation--items
+  @include media($mobile-navigation-breakpoint + em(1)) {
     display: none;
   }
 }
