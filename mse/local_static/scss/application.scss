@@ -4,12 +4,13 @@
 
 @import "base/base";
 
-@import "layouts/navigation";
-@import "layouts/main-content";
-@import "layouts/main-aside";
-@import "layouts/title-area";
+@import "layouts/content-aside";
+@import "layouts/content-main";
+@import "layouts/content-wrapper";
 @import "layouts/footer";
+@import "layouts/navigation";
+@import "layouts/title-area";
 
-@import "components/articles";
-@import "components/call-out";
+@import "components/menus";
+@import "components/content-aside--box";
 @import "components/dropdown";

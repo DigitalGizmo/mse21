@@ -1,0 +1,5 @@
+.content-main {
+  @include media(580px) {
+    @include span-columns(8);
+  }
+}

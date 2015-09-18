@@ -1,10 +1,6 @@
-.articles-wrapper {
-  @include media(580px) {
-    @include span-columns(8);
-  }
-}
+.item-menu--grid {}
 
-.article {
+.item-menu--item {
   @include span-columns(4 8);
   background-color: rgba($primary-color, 0.6);
   margin-bottom: $large-spacing;

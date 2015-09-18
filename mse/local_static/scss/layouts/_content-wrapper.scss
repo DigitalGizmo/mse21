@@ -1,4 +1,4 @@
-.main-content {
+.content-wrapper {
   @include outer-container;
 
   @include media(max-width $max-width) {

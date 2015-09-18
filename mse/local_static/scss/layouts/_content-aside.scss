@@ -1,4 +1,4 @@
-.main-aside {
+.content-aside {
   @include media(580px) {
     @include span-columns(4);
   }
