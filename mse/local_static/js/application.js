@@ -2,60 +2,76 @@
 
 $(document).ready(function(){
 
-  // for determining whether to hover menu items or not
-  var isFullMenu = true;
-
+  // DROPDOWN HOVER
   // dropdown on hover on large screen only
-  // on doc ready, find whether toggle is visible
-  // isFullMenu will be updated on resize -- not working yet though
-  //alert("menu-toggle display is? = " + $('.menu-toggle').css('display'));
-  if ( $('.menu-toggle').css('display') == 'none' ) { 
-    // the alternative mini menu is not showing
-    isFullMenu = true;
-  } else {
-    // the mini menu is showing, so the full one isn't 
-    isFullMenu = false;
-  }
+  // rather than test size directly, find whether toggle is visible
+  if ( $('.menu-toggle').css('display') == 'none' ) {  // toggle menu hidden - we have full menu
+    enableHover();
+  } // else - don't need to disable, we haven't enabled yet
 
-  $('.dropdown').hover(
-    function () {
-      if (isFullMenu) {
-        $('div', this).stop().slideDown(500);        
-      }
-    },
-    function () {
-      if (isFullMenu) {
-        $('div', this).stop().slideUp(500);        
-      }
-    }
-  );    
-
+  // TOGGLE MENU
+  // set click handler for the small screen menu button
+  // set once and for all, doesn't matter whether it's visible or not
   $(".menu-toggle a").click(function() {
     $(".main-navigation--items").slideToggle();
   });
 
+  // LOGO RESIZE
+  // set initial size of logo to fit header (a.k.a. banner) height
+  $('#logo--image-img').css('height', $('#banner').height()); 
+
+}); // end doc ready
+
+// resize logo as long as viewport is larger than mobile
+$(window).on('resize', function(){
+
+  // HOVER
+  if ( $('.menu-toggle').css('display') == 'none' ) { // we're on full menu
+    enableHover();
+  } else { // we're now on mini menu
+    disableHover();
+  }
+
+  // TOGGLE MENU
+  // 
+  if ( $('.menu-toggle').css('display') == 'none' ) {  // we're on full menu
+    $(".main-navigation--items").show();
+  } else { // menu-toggle is showing
+    $(".main-navigation--items").hide();
+  }
+
+  // RESIZE LOGO
+  // set win var and resize logo
+  var win = $(this); //this = window
+  $('#dimensions').text("window width: " + win.width() + 
+    "  header height: " + $('#banner').height() );
+  if (win.width() >= 690) {  
+    $('#logo--image-img').css('height', $('#banner').height());
+  } else {
+    $('#logo--image-img').css('height', 81); 
+  }
 });
 
-  // resize logo as long as viewport is larger than mobile
-  $('#logo--image-img').css('height', $('#banner').height()); 
-  $(window).on('resize', function(){
-    // set isFullMenu before proceeding with logo sizing.
-    // this isn't working -- new values aren't accessible by the hover funcions.
-    if ( $('.menu-toggle').css('display') == 'none' ) { 
-      isFullMenu = true;
-    } else {
-      isFullMenu = false;
+function enableHover() {
+  // first, make sure dropdowns are up -- might have come from expaded mini menu
+  // not using hide() because it remembers states and adds styles to mini menu
+  $('.dropdown div').css('display', 'none');
+  // bind hover event
+  $('.dropdown').hover(
+    function () {
+        $('div', this).stop().slideDown(500);        
+    },
+    function () {
+        $('div', this).stop().slideUp(500);        
     }
+  );    
+}
 
-    // set win var and resize logo
-    var win = $(this); //this = window
-    $('#dimensions').text("window width: " + win.width() + 
-      "  header height: " + $('#banner').height() );
-    if (win.width() >= 690) {  
-      $('#logo--image-img').css('height', $('#banner').height());
-    } else {
-      $('#logo--image-img').css('height', 81); 
-    }
-  });
-
+function disableHover() {
+  // unbind events
+  $('.dropdown').unbind('mouseenter mouseleave');
+  // make sure the dropdowns are showing
+  // not using show() because it remembers states and adds styles to mini menu
+  $('.dropdown div').css('display', 'block');
+}
 
