@@ -44,7 +44,6 @@ class Geomap(models.Model):
     edited_by = models.CharField(max_length=64, blank=True, default='')
     edit_date = models.DateTimeField('edit date', default=datetime.datetime.now)
     status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
-    augmented = models.BooleanField()
     log_link_type = models.IntegerField(default=0, choices=LOG_LINK_TYPES)
     ordinal = models.IntegerField('Order in Menu', default=999)
     profiles = models.ManyToManyField('community.Profile', 
