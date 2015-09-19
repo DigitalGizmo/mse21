@@ -4,4 +4,14 @@
   @include media(max-width $max-width) {
     padding: $base-spacing;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: $large-font-size;
+    font-weight: 200;
+  }
 }

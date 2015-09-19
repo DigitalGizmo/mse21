@@ -26,7 +26,22 @@
 
     h1 {
       font-size: $large-font-size;
-      font-weight: 400;
-      margin-bottom: 0;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    h3 {
+      font-size: $large-font-size;
+      font-weight: 100;
+      font-style: italic;
+      margin: 0;
+    }
+
+    a {
+      color: $primary-color;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 }

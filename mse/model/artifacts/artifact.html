@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Artifact Articles Menu</title>
+    <title>Artifact Article</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="/model/model_local_static/css/application.css">
     <script src="/model/model_local_static/js/jquery-1.11.3.min.js"></script>
@@ -86,9 +86,10 @@
             </li>
           </ul>
         </div>
-      </nav>
+      </nav>  
     </header>
 
+    <!-- title area --> 
     <section class="title-area">
       <header>
         <aside class="title-area--logo">
@@ -96,13 +97,32 @@
         </aside>
 
         <section class="title-area--text">
-          <h1>Artifact Article</h1>
-          <p>"Artifact Articles" are an MSE original web feature that includes brief information and context about an artifact in the collection, written by an MSE Fellow or Mystic Seaport staff. Articles contain teacher-friendly components such as Questions for Deeper Thought, Artifact Facts, Related Items from the Collection, In the Classroom ideas, Related Resources and Related Websites. Check back often as we add new content regularly.          
-          </p>
+          <p class="breadcrumbs"><a href="artifact_menu.html">Artifact Articles</a></p>
+          <h1>Artifact: Temple Toggle Iron</h1>
+          <h3>A Deadly Invention</h3>
+          <p>Original content by: <a href="">Dean Hantzopoulos</a>, <a href="">Dayne Rugh</a></p>
         </section>
       </header>
     </section>
 
+    <!-- big image -->  
+    <section class="item-image">
+
+      <div id="myContainer">zoom image to go here</div>
+ 
+      <div class="other-views">
+        <ul class="other-views--list">  
+         <li>Other Views:&nbsp;</li>
+         <li class="selected"><img src="/model/artifact_static/viewpics/1939_1385_A_t.jpg" width="40" height="40" alt="detail"/></li>        
+        
+          <li><a href="javascript:zoom_view('artifacts', 'temple_toggle_iron', 'B')"><img src="/model/artifact_static/viewpics/1939_1385_B_t.jpg" width="40" height="40" alt="detail"/></a></li>        
+        
+          <li><a href="javascript:zoom_view('artifacts', 'temple_toggle_iron', 'C')"><img src="/model/artifact_static/viewpics/1939_1385_C_t.jpg" width="40" height="40" alt="detail"/></a></li>
+        </ul>
+      </div>
+    </section><!-- /item-image -->
+
+    <!-- page content --> 
     <section class="content-wrapper">
       <aside class="content-aside">
         <section class="content-aside--box search">
@@ -118,7 +138,6 @@
             <input type="search" name="" id="" value="" />
           </nav>
           <div id="dimensions"><p>Dimensions will go here.</p></div>
-
         </section>
 
         <section class="content-aside--box facts">
@@ -137,48 +156,16 @@
       </aside>
 
       <section class="content-main">
-        <ul class="item-menu--grid">
-          <li class="item-menu--item">
-            <a href="artifact.html" class="item-menu--link">
-              <img src="http://fillmurray.com/150/150" alt="Bill" />
-              Temple Toggle Iron
-            </a>
-          </li>
-          <li class="item-menu--item">
-            <a href="" class="item-menu--link">
-              <img src="http://fillmurray.com/150/150" alt="Bill" />
-              Temple Toggle Long Title Iron
-            </a>
-          </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
-          </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
-          </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
-          </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
-          </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
-          </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
-          </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
-          </li>
+        <h2>About This Artifact</h2>
+        <p>This example of what is called a "Temple Toggle" harpoon is the innovation of African American blacksmith Lewis Temple.  Designed in 1845, the Temple Toggle employed the use of a pivoting iron head at the tip of the harpoon, which allowed the iron to swivel and lock in place upon penetrating the body of a whale, minimizing any risk of the harpoon pulling out.  This simple, yet ground-breaking innovation revolutionized the whaling industry unlike any invention before.  Having a harpoon head that was able to lock in place within the body of the whale meant that more whales could be successfully harpooned and minimized the risk of losing a whale.  Author and maritime historian Clifford Ashley sums up Temple's Toggle Iron stating in 1926, "It is safe to say that the 'Temple Toggle' was the most important single invention in the whole history of whaling.  It resulted in the capture of a far greater proportion of the whales that were struck than had before been possible."</p>
+
+        <h2>Questions for Further Thought</h2>
+        <ul class="questions">
+          <li>question1</li>
+          <li>question2</li>
+          <li>question3</li>
         </ul>
+
       </section>
     </section><!-- /content-wrapper -->
 
