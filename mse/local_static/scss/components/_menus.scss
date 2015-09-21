@@ -3,6 +3,7 @@
 .item-menu--item {
   @include span-columns(4 8);
   background-color: rgba($primary-color, 0.6);
+  height: 200px;
   margin-bottom: $large-spacing;
   padding: $small-spacing;
 
@@ -19,10 +20,15 @@
     @include span-columns(2 8);
     @include omega(4n);
   }
+}
 
-  a h4 {
-    color: white;
-    font-weight: 200;
-    padding-top: .5em;
+.item-menu--link {
+  color: white;
+  font-weight: 200;
+  line-height: $base-line-height / 1.25;
+
+  img {
+    border: thin solid #BFBFBF;
+    margin-bottom: .25em;
   }
 }

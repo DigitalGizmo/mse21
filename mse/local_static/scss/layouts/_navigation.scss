@@ -20,7 +20,6 @@
   margin-bottom: 0;
 
   @include media(max-width $mobile-navigation-breakpoint) {
-    font-size: 20px;
     font-weight: 200;
   }
 }
@@ -54,7 +53,7 @@
   
   @include media(max-width 875px) {
     font-size: rem(12);
-  }
+}
 
   // when viewport is less than or equal to breakpoint, display the menu vertically
   // (less than or equal to 690, display vertically)

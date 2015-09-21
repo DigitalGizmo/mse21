@@ -1,0 +1,34 @@
+#myContainer {
+  background-color: $toned-blue;
+  border: 1px solid $primary-color;
+  margin-top: -$base-spacing;
+  margin-bottom: $base-spacing;
+  // temp styles till image is there
+  text-align: center;
+  height: em(300);
+}
+
+.other-views  {
+  text-align: right;
+  @include outer-container;
+  
+  @include media(max-width $max-width) {
+    padding: $base-spacing;
+    font-size: $base-font-size * 0.85;
+  } 
+}
+
+.other-views--list {
+  vertical-align: top;
+  font-weight: bold;
+  font-size: $small-font-size;
+  margin-top: -$base-spacing - em(7);
+}
+
+.other-views--list li {
+  display: inline;
+  margin: -3px;
+  & img  {
+    border: 1px solid $medium-gray;
+  }
+}

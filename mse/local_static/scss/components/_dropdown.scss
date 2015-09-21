@@ -8,7 +8,6 @@
   .dropdown-menu {
     @include transition (all 0.2s ease-in-out);
     background-color: $toned-blue;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
     overflow: show;
     text-align: left;
 
@@ -19,9 +18,9 @@
       display: none;
     }
     
-    // when viewport is less than or equal to breakpoint, remove dropdown drop shadow
-    @include media(max-width $mobile-navigation-breakpoint) {
-      box-shadow: none;
+    // when viewport is greater than the breakpoint, add shadow to dropdowns
+    @include media($mobile-navigation-breakpoint + em(1)) {
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
     }
   }
 
@@ -45,7 +44,6 @@
       color: $primary-color;
       display: block;
       line-height: $base-spacing * 0.75;
-
       // when viewport is less than or equal to breakpoint, style dropdowns
       @include media(max-width $mobile-navigation-breakpoint) {
         background-color: $primary-color;

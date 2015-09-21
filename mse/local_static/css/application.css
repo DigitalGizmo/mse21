@@ -376,6 +376,15 @@ picture {
     padding: 1.5em;
   }
 }
+.content-wrapper h1,
+.content-wrapper h2,
+.content-wrapper h3,
+.content-wrapper h4,
+.content-wrapper h5,
+.content-wrapper h6 {
+  font-size: 2em;
+  font-weight: 200;
+}
 
 footer {
   background-color: #022b61;
@@ -461,7 +470,6 @@ footer {
 }
 @media screen and (max-width: 43.125em) {
   .logo--text {
-    font-size: 20px;
     font-weight: 200;
   }
 }
@@ -586,8 +594,24 @@ footer {
 }
 .title-area--text h1 {
   font-size: 2em;
-  font-weight: 400;
-  margin-bottom: 0;
+  font-weight: 600;
+  margin: 0;
+}
+.title-area--text h3 {
+  font-size: 2em;
+  font-weight: 100;
+  font-style: italic;
+  margin: 0;
+}
+.title-area--text a {
+  color: #5b7687;
+}
+.title-area--text a:hover {
+  text-decoration: underline;
+}
+
+.no-logo {
+  margin-left: 34.11922%;
 }
 
 .item-menu--item {
@@ -596,6 +620,7 @@ footer {
   margin-right: 3.57866%;
   width: 48.21067%;
   background-color: rgba(91, 118, 135, 0.6);
+  height: 200px;
   margin-bottom: 3em;
   padding: 0.75em;
 }
@@ -644,10 +669,15 @@ footer {
     clear: left;
   }
 }
-.item-menu--item a h4 {
+
+.item-menu--link {
   color: white;
   font-weight: 200;
-  padding-top: .5em;
+  line-height: 1.2;
+}
+.item-menu--link img {
+  border: thin solid #BFBFBF;
+  margin-bottom: .25em;
 }
 
 .content-aside--box {
@@ -665,7 +695,6 @@ footer {
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   background-color: #dee3e7;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
   overflow: show;
   text-align: left;
 }
@@ -678,9 +707,9 @@ footer {
     display: none;
   }
 }
-@media screen and (max-width: 43.125em) {
+@media screen and (min-width: 43.1875em) {
   .dropdown .dropdown-menu {
-    box-shadow: none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
   }
 }
 @media screen and (min-width: 43.1875em) {
@@ -731,6 +760,48 @@ footer {
 .dropdown .dropdown-list--item a:hover {
   color: white;
   background-color: #b2bdc7;
+}
+
+#myContainer {
+  background-color: #dee3e7;
+  border: 1px solid #5b7687;
+  margin-top: -1.5em;
+  margin-bottom: 1.5em;
+  text-align: center;
+  height: 18.75em;
+}
+
+.other-views {
+  text-align: right;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.other-views::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+@media screen and (max-width: 68em) {
+  .other-views {
+    padding: 1.5em;
+    font-size: 0.85em;
+  }
+}
+
+.other-views--list {
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 0.8em;
+  margin-top: -1.9375em;
+}
+
+.other-views--list li {
+  display: inline;
+  margin: -3px;
+}
+.other-views--list li img {
+  border: 1px solid #999;
 }
 
 /*# sourceMappingURL=application.css.map */

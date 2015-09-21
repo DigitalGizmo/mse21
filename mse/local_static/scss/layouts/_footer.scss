@@ -5,8 +5,8 @@ footer {
   padding: $base-spacing;
 
   @include media(max-width $max-width) {
-  padding: $base-spacing;
-  font-size: $base-font-size * 0.85;
+    padding: $base-spacing;
+    font-size: $base-font-size * 0.85;
   }
 
   @include media(max-width $mobile-navigation-breakpoint) {
@@ -30,8 +30,8 @@ footer {
 .footer-search  {
   @include span-columns(8);
 
-  	a {
-  	color: white;
-  	text-decoration: underline;
-  	}
+  a {
+  color: white;
+  text-decoration: underline;
+  }
 }
