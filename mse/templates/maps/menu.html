@@ -1,0 +1,55 @@
+{% extends "menu_base.html" %}
+{% load staticfiles %}
+
+{% block side-box %}
+  <div class="sidebox">
+      <h2>Compare Voyages</h2>
+      <p>Plot multiple voyages</p>
+ </div><!--sidebox -->
+{% endblock side-box %}  
+
+
+{% block menu-grid %}
+  <h2>Voyage Maps</h2>
+  <p>These maps present the routes of actual voyages taken from the ship's logbook.<br/>
+    <div class="col-lg-8">
+      <ul class="list-unstyled menu">
+     {% for geomap in resource_object_list %}
+      <li class="col-lg-3">
+        <a href="/maps/{{ geomap.short_name }}/"><img 
+        src="{% static 'maps/menupics/' %}{{ geomap.short_name }}_m.jpg" alt="image: {{ geomap.short_name }}" class="img-responsive"><br/>
+        <h4>{{ geomap.title|safe }}</h4></a>
+      </li>
+     {% endfor %}
+      </ul>    
+    </div><!--cols -->
+
+  <h2>Story Maps</h2>
+  <p>These maps present the routes of actual voyages taken from the ship's logbook.<br/>
+    <div class="col-lg-8">
+      <ul class="list-unstyled menu">
+     {% for geomap in story_list %}
+      <li class="col-lg-3">
+        <a href="/maps/{{ geomap.short_name }}/"><img 
+        src="{% static 'maps/menupics/' %}{{ geomap.short_name }}_m.jpg" alt="image: {{ geomap.short_name }}" class="img-responsive"><br/>
+        <h4>{{ geomap.title|safe }}</h4></a>
+      </li>
+     {% endfor %}
+      </ul>
+    </div><!--cols -->
+
+
+    
+  <div class="col-lg-8">
+    <ul class="list-unstyled menu">
+   {% for resource_object in resource_object_list %}
+	<li class="col-lg-3">
+		<a href="/artifacts/{{ resource_object.short_name }}/"><img 
+		src="{% static resource_object_list.0.menu_info.short_name %}s/menupics/{{ resource_object.filename }}_m.jpg" alt="image: {{ resource_object.short_name }}" class="img-responsive"><br/>
+		<h4>{{ resource_object.title|safe }}</h4></a>
+	</li>
+   {% endfor %}
+    </ul>     
+  </div><!--cols -->
+{% endblock menu-grid %}
+

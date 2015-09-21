@@ -31,7 +31,7 @@ def index(request):
         return render_to_response('pq/maps/index.html', {'item_list': item_list, 'story_list': story_list, 
             'lecture_list': lecture_list, 'interview_list': interview_list})
     else:
-        return render_to_response('maps/index.html', {'item_list': item_list, 'story_list': story_list})
+        return render_to_response('maps/menu.html', {'resource_object_list': item_list, 'story_list': story_list})
 
 def detail(request, short_name):
     o = get_object_or_404(Geomap, short_name=short_name)

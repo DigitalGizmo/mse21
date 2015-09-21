@@ -1,8 +1,6 @@
 from django.db import models
-#from connections.models import Connection
-#Weblink, Biblio, Essay
- 
 import datetime
+import sitewide.models
 
 class Artifact(models.Model):
     STATUS_NUMS = (
@@ -52,6 +50,11 @@ class Artifact(models.Model):
         verbose_name='Maps (full page)', blank=True)
     lectures = models.ManyToManyField('scholars.Lecture', 
         verbose_name='Lectures (full page)', blank=True)
+
+    # return menu object
+    @property
+    def menu_info(self):
+        return sitewide.models.Menu.objects.get(short_name='artifact')
 
     def __str__(self):
         return self.title

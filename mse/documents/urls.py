@@ -1,8 +1,10 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
+from . import views
 
 urlpatterns = patterns('documents.views',
-    url(r'^$', 'index'),
+    # url(r'^$', 'index'),
+    url(r'^$', views.DocumentListView.as_view(), name='documents'),
     url(r'^raw/$', 'index_raw'),
     url(r'^list/$', 'index_list'),
     url(r'^ideas/(?P<short_name>\S+)/$', 'ideas'),

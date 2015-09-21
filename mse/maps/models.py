@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.sites.models import Site
-
 import datetime
+import sitewide.models
 
 class Geomap(models.Model):
     STATUS_NUMS = (
@@ -72,6 +72,11 @@ class Geomap(models.Model):
 
     class Meta:
          verbose_name = "map"
+
+    # return menu object
+    @property
+    def menu_info(self):
+        return sitewide.models.Menu.objects.get(short_name='map')
 
     def __str__(self):
         return self.title

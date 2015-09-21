@@ -1,9 +1,19 @@
 from django.shortcuts import render_to_response, get_object_or_404
-from django.template import Context, loader
-from django.http import Http404
 from django.conf import settings
+from django.views import generic
 from scholars.models import Lecture, Interview
 
+class LectureListView(generic.ListView):
+    model = Lecture
+    template_name = 'scholars/menu_lecture.html' 
+    context_object_name = 'resource_object_list'
+
+class InterviewListView(generic.ListView):
+    model = Interview
+    template_name = 'scholars/menu_interview.html' 
+    context_object_name = 'resource_object_list'
+
+"""
 def lecture_index(request):
     item_list = Lecture.objects.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
     return render_to_response('scholars/lecture_index.html', {'item_list': item_list, 
@@ -13,6 +23,7 @@ def interview_index(request):
     interview_list = Interview.objects.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
     return render_to_response('scholars/interview_index.html', {'interview_list': interview_list, 
         'resource_type': 'interview'})
+"""
 
 def lecture(request, short_name):
     o = get_object_or_404(Lecture, short_name=short_name)

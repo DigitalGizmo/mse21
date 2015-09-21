@@ -2,98 +2,12 @@
 {% load static %}
 
 {% block fullpage %}
-<div class="col-full">
-    <ol class="breadcrumbs olc_crumbs">
-            <li class="home"><a title="Go to Learn." href="http://www.mysticseaport.org/learn/">Learn</a></li>      
-            <li class="current_item">MSE Home</li>
-	</ol>
-    
-    <h1>Mystic Seaport for Educators</h1>
-	<h4>Online Resources &bull; Enhanced Collections Access &bull; Community of Learners</h4>
-  
-    <ul class="slider-thumbs">
-    	<li><a href="/artifacts/">Artifact<br/>Articles<br/>
-	<img src="{% static 'images/hm_articles.jpg' %}" height="120" width="160" alt="Artifact Articles"></a><br/><span>Brief information and context about an artifact in the collection. Includes questions for deeper thought and other classroom ideas.</span></li>
-        
-    	<li><a href="/documents/">Living Documents<br/><img src="{% static 'images/hm_documents.jpg' %}" height="120" width="160" alt="Living Documents"></a><br/><span>Documents of the past come to life with sound, transcripts, and informational pop-ups.</span></li>
-        
-    	<li><a href="/maps/">Active Maps<br/><br/><img src="{% static 'images/hm_maps.jpg' %}" height="120" width="160" alt="Active Maps"></a><br/><span>Geospatial representations of objects and manuscripts from our collection.</span></li>
-        
-    	<li><a href="/sets/">Resource<br/>Sets<br/><img src="{% static 'images/hm_sets.jpg' %}" height="120" width="160" alt="Resource Sets"></a><br/><span>Collections of all MSE website features (Artifact Articles, Living Manuscripts, Active Maps, and Lectures &amp; Scholars) tied together under a central theme.</span></li>
-        
-    	<li><a href="/scholars/">Lectures &amp; Scholars<br/><img src="{% static 'images/hm_lectures.jpg' %}" height="120" width="160" alt="Lectures and Scholars"></a><br/><span>Audio recordings of popular lectures at the Frank C. Munson Institute of American Maritime Studies, as well as MSE teacher-scholar interviews.</span></li>
-    </ul>
+<h2> Home page to come.</h2>
 
-	<br clear="left"/>
-   
-	<div class="special">
-         <h4><em>New!</em></h4>
-         <h2><a href="/sets/ct_indian_mariners/">Connecticut Indian Whalers: Work, Community and Life at Sea</a></h2>
-         <h4><a href="/sets/ct_indian_mariners/">Check out the new Indian Mariners Resource Set!</a></h4> 
-    </div><!-- /special -->
-
-
-	<!-- left column -->
-	<article class="col-onethird">
-	        <h2><a href="/community/">Our MSE Community of Learners</a></h2>
-	        <p>The MSE Community includes educators, families and students involved in Mystic Seaport projects, partnerships and website content creation.  Click on "Community Projects" or "Community Members" to learn more about individuals and their classroom or web-based projects.</p>
-	
-		    <h2>About This Project</h2>
-		    <p>This website is an <em>ongoing</em> collaboration between Mystic Seaport and a growing community of educators. Working together, we aim to bring the treasures and resources of Mystic Seaport out of the Museum and into classrooms and homes across the country. Please check back in the future, as we continue to add new content regularly. <a href="javascript:popBox('connections','moreinfo','aboutproject')"><strong>More...</strong></a></p>
-		    <p><strong>This project is generously funded by the following:</strong></p>
-		    <p><strong>Lead Sponsor</strong></p>
-		  	<a href="http://www.imls.gov" target="resource"><img src="{% static 'images/imlsLogo.gif' %}" alt="IMLS logo" height="87" width="211"/></a>
-		    <p><strong>Support Sponsors</strong></p>
-			<p>
-				Anonymous (2)<br/>
-				Beagary Charitable Trust<br/>
-				Berkshire Taconic Foundation<br/>
-				Chester Kitchings Foundation<br/>
-				Connecticut Humanities<br/>
-				Fellows of the G.W. Blunt White Library<br/>
-				J.M Kaplan Fund<br/>
-				National Endowment for the Humanities<br/>
-				State Farm Mutual Automobile Insurance Company<br/>
-				Weezie Foundation<br/>
-			</p>
-	
-    </article>
-   
-   <!-- middle column -->
-   <article class="col-onethird">
-    <h3>Community Projects</h3>
-	 <ul class="community">
-		{% for project in project_list %}
-			<li><a class="tooltip" href="/community/projects/{{ project.short_name }}/"><img src="{% static 'community/projects/thumbpics/' %}{{ project.short_name }}_t.jpg" height="70" width="70" alt="image of {{ project.title }}"/><span class="tiptext">{{ project.title|safe }}</span></a></li>
-		{% endfor %}
-
-		{% for artifact in artifact_list %}
-			<li><a class="tooltip" href="/artifacts/{{ artifact.short_name }}/"><img src="{% static 'artifacts/thumbpics/' %}{{ artifact.filename }}_t.jpg" height="70" width="70" alt="image of {{ artifact.title }}"/><span class="tiptext">Artifact: {{ artifact.title|safe }}</span></a></li>
-		{% endfor %}
-		{% for document in document_list %}
-			<li><a class="tooltip" href="/documents/{{ document.short_name }}/"><img src="{% static 'documents/thumbpics/' %}{{ document.filename }}_t.jpg" height="70" width="70" alt="image of {{ document.title }}"/><span class="tiptext">Document: {{ document.title|safe }}</span></a></li>
-		{% endfor %}
-		{% for map in map_list %}
-			<li><a class="tooltip" href="/maps/{{ map.short_name }}/"><img src="{% static 'maps/thumbpics/' %}{{ map.short_name }}_t.jpg" height="70" width="70" alt="image of {{ map.title }}"/><span class="tiptext">Map: {{ map.title|safe }}</span></a></li>
-		{% endfor %}
-	 </ul>
-
-	</article>
-
-	<article class="col-onethird-home">
-	    <h3>Community Members</h3>
-	 <ul class="community">		
-		{% for item in item_list %}
-			<li>
-				<a class="tooltip" href="/community/profiles/{{ item.short_name }}/">
-			<img src="{% static 'community/profiles/thumbpics/' %}{{ item.short_name }}_t.jpg" height="70" width="70" alt="image: {{ item.filename }}"/>
-			<span class="tiptext">{{ item.profile_name|safe }}</span>
-			</a></li>
-		{% endfor %}				
-	 </ul>
-
-	</article>
-</div><!-- /col-full -->
+<p>big picture</p>
+<p>3 Featured Items</p>
+<p>Events</p>
+<p>Featured list</p>
 
 {% endblock fullpage %}
 

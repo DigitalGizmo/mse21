@@ -1,14 +1,22 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import Context, loader
-from django.http import Http404
+from django.views import generic
 from django.conf import settings
 from documents.models import Document
+#from django.http import Http404
 
+class DocumentListView(generic.ListView):
+    model = Document
+    template_name = 'menu_regular.html' 
+    context_object_name = 'resource_object_list'
+
+"""
 def index(request):
     resource_object_list = Document.objects.filter(augmented=True, 
         status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
     return render_to_response('documents/index.html', {'resource_object_list': resource_object_list, 
         'resource_type': 'document'})
+"""
  
 def index_raw(request):
     resource_object_list = Document.objects.filter(augmented=False, 

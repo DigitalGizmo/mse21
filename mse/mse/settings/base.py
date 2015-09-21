@@ -64,10 +64,10 @@ INSTALLED_APPS = (
     'community',
     'connections',
     'documents',
-    'general',
     'maps',
     'resources',
     'scholars',
+    'sitewide',
     #'tinymce',     
 )
 

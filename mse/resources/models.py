@@ -1,6 +1,6 @@
 from django.db import models
-
 import datetime
+import sitewide.models
 
 class Resourceset(models.Model):
     STATUS_NUMS = (
@@ -32,6 +32,11 @@ class Resourceset(models.Model):
         verbose_name='Maps (full page)', blank=True)
     lectures = models.ManyToManyField('scholars.Lecture', 
         verbose_name='Lectures (full page)', blank=True)
+
+    # return menu object
+    @property
+    def menu_info(self):
+        return sitewide.models.Menu.objects.get(short_name='set')
 
     def __str__(self):
         return self.title

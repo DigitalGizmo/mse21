@@ -1,9 +1,11 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
+from . import views
 
 
 urlpatterns = patterns('artifacts.views',
-    url(r'^$', 'index'),
+    # url(r'^$', 'index'),
+    url(r'^$', views.ArtifactListView.as_view(), name='artifacts'),
     url(r'^raw/$', 'index_raw'),
     url(r'^list/$', 'index_list'),
     url(r'^ideas/(?P<short_name>\S+)/$', 'ideas'),

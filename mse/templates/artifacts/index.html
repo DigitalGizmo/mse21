@@ -2,8 +2,14 @@
 {% load staticfiles %}
 
 {% block title-area %}
-	<h1>Artifact Articles</h1>
-	<p>"Artifact Articles" are an MSE original web feature that includes brief information and context about an artifact in the collection, written by an MSE Fellow or Mystic Seaport staff. Articles contain teacher-friendly components such as Questions for Deeper Thought, Artifact Facts, Related Items from the Collection, In the Classroom ideas, Related Resources and Related Websites. Check back often as we add new content regularly.</p>
+  <div class="col-lg-4 col-sm-2">
+    <img src="{% static 'images/' %}icon_artifact.png" alt="resource_type icon" 
+    height="87" width="95">   <!-- resource_type --> 
+  </div>
+  <div class="col-lg-8 col-sm-10">
+  	<h1>Artifact Articles</h1>
+  	<p>{{ resource_object_list.0.menu_info.menu_blurb }}</p>
+  </div>
 {% endblock title-area %}
 
 

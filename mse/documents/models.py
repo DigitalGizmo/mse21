@@ -1,5 +1,6 @@
 from django.db import models
 import datetime
+import sitewide.models
 
 class Document(models.Model):
     STATUS_NUMS = (
@@ -56,6 +57,11 @@ class Document(models.Model):
         else:
             _page_suffix = "01"
         return _page_suffix 
+
+    # return menu object
+    @property
+    def menu_info(self):
+        return sitewide.models.Menu.objects.get(short_name='document')
 
     def __str__(self):
         return self.short_name

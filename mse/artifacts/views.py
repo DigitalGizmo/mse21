@@ -1,14 +1,21 @@
 from django.shortcuts import render_to_response, get_object_or_404
-from django.template import Context, loader
-from django.http import Http404
+# from django.template import Context, loader
+from django.views import generic
 from django.conf import settings
 from artifacts.models import Artifact
 
+class ArtifactListView(generic.ListView):
+    model = Artifact
+    template_name = 'menu_regular.html'
+    context_object_name = 'resource_object_list'
+
+"""
 def index(request):
     resource_object_list = Artifact.objects.filter(augmented=True, 
         status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
     return render_to_response('artifacts/index.html', {'resource_object_list': resource_object_list, 
         'resource_type': 'artifact'})
+"""
 
 def index_raw(request):
     resource_object_list = Artifact.objects.filter(augmented=False, 

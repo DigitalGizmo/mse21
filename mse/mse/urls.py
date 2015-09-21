@@ -8,7 +8,7 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),  
-    url(r'^$', 'general.views.index'),
+    url(r'^$', 'sitewide.views.index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^artifacts/', include('artifacts.urls')),
     url(r'^community/', include('community.urls')),

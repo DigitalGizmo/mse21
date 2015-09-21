@@ -1,0 +1,26 @@
+{% extends "menu_base.html" %}
+{% load staticfiles %}
+
+{% block side-box %}
+  <div class="sidebox">
+    <h2>Thanks</h2>
+    <p>The video Interviews.</p>
+    <p>followed by logos.</p>
+  </div><!--sidebox -->
+{% endblock side-box %}  
+
+
+{% block menu-grid %}
+  <div class="col-lg-8">
+    <ul class="list-unstyled menu">
+   {% for resource_object in resource_object_list %}
+	<li class="col-lg-3">
+		<a href="/artifacts/{{ resource_object.short_name }}/"><img 
+		src="{% static resource_object_list.0.menu_info.short_name %}s/menupics/{{ resource_object.filename }}_m.jpg" alt="image: {{ resource_object.short_name }}" class="img-responsive"><br/>
+		<h4>{{ resource_object.title|safe }}</h4></a>
+	</li>
+   {% endfor %}
+    </ul>     
+  </div><!--cols -->
+{% endblock menu-grid %}
+

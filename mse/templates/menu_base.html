@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title-area %}
+  <div class="col-lg-4 col-sm-2">
+    <img src="{% static 'images/' %}icon_{{ resource_object_list.0.menu_info.short_name }}.png" alt="resource_type icon" 
+    height="87" width="95">   <!-- resource_type --> 
+  </div>
+  <div class="col-lg-8 col-sm-10">
+  	<h1>{{ resource_object_list.0.menu_info.title }}</h1>
+  	<p>{{ resource_object_list.0.menu_info.menu_blurb|safe }}</p>
+  </div>
+{% endblock title-area %}
+
+
+{% block main-content %}
+<!-- main content -->
+<div class="container main-content">
+  <div id="row"> 
+    <!-- search box -->  
+    <div class="col-lg-4 col-sm-4">
+      <div class="sidebox">
+      {% block side-box %}
+      {% endblock side-box %}  
+      </div><!--sidebox -->
+    </div><!--cols -->
+
+    {% block menu-grid %}
+    {% endblock menu-grid %}
+
+
+  </div><!--/row-->
+
+  <!-- paging -->
+  <div id="row" class="paging">
+    <div class="col-lg-4 col-sm-3">
+      <p><a href="#">first</a> | <a href="#">prev</a></p>
+    </div><!--cols -->
+
+    <div class="col-lg-4 col-sm-6 text-center">
+      <p><a href="#" class="selected">1</a> | <a href="#">2</a> | <a href="#">3</a> | <a href="#">4</a></p>
+    </div><!--cols -->
+
+    <div class="col-lg-4  col-sm-3 text-right">
+       <p><a href="#">next</a> | <a href="#">last</a></p>
+   </div><!--cols -->
+
+  </div><!--/row-->
+</div><!-- container main-content-->
+
+
+{% endblock main-content %}

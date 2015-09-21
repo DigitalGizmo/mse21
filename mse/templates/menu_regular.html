@@ -1,0 +1,26 @@
+{% extends "menu_base.html" %}
+{% load staticfiles %}
+
+{% block side-box %}
+  <h2>Search</h2>
+    </form><h4>xx {{ resource_object_list.0.menu_info.title }}</h4>
+  <p>Sort by: <a href="#">Title</a> | <a href="#">Item's Date</a></p>
+  <form id="item-search" class="item-search" data-action="/search" action="" method="GET">
+      <input type="hidden" name="itemsearch" value="educators.mysticseaport.org/" />
+      <label for="search-keywords"><input id="search-keywords" type="search" data-name="keywords" name="q" placeholder="Search" aria-label="Search" value="" required="required"></label>
+      <span class="glyphicon glyphicon-search" aria-hidden="true"></span></form>
+{% endblock side-box %}  
+
+{% block menu-grid %}
+  <div class="col-lg-8">
+    <ul class="list-unstyled menu">
+   {% for resource_object in resource_object_list %}
+	<li class="col-lg-3">
+		<a href="/artifacts/{{ resource_object.short_name }}/"><img 
+		src="{% static resource_object_list.0.menu_info.short_name %}s/menupics/{{ resource_object.filename }}_m.jpg" alt="image: {{ resource_object.short_name }}" class="img-responsive"><br/>
+		<h4>{{ resource_object.title|safe }}</h4></a>
+	</li>
+   {% endfor %}
+    </ul>     
+  </div><!--cols -->
+{% endblock menu-grid %}

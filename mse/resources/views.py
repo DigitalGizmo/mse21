@@ -1,15 +1,22 @@
 from django.shortcuts import render_to_response, get_object_or_404
-from django.template import Context, loader
-from django.http import Http404
+# from django.template import Context, loader
+from django.views import generic
 from django.conf import settings
 from resources.models import Resourceset
 
 # map_list shows in set, maps shows in sidebar
 
+class ResourcesetListView(generic.ListView):
+    model = Resourceset
+    template_name = 'menu_regular.html' 
+    context_object_name = 'resource_object_list'
+
+"""
 def index(request):
     resourceset_list = Resourceset.objects.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
     return render_to_response('resources/index.html', {'resourceset_list': resourceset_list, 
         'resource_type': 'set'})
+"""
 
 def index_list(request):
     resource_object_list = Resourceset.objects.all().order_by('ordinal')

@@ -2,8 +2,15 @@
 {% load staticfiles %}
 
 {% block title-area %}
-  <h1>Living Documents</h1>
-  <p>The "Living Documents" feature makes documents of the past to come to life with sound, transcripts, and informational pop-ups.  Created by <a href="javascript:popBox('connections','moreinfo','mse_fellows')">MSE Fellows</a> and Mystic Seaport staff, Living Documents contain teacher-friendly components such as <em>Questions for Deeper Thought, Artifact Facts, Related Items from the Collection, Related Resources, In the Classroom ideas</em> and <em>Related Websites</em>. Check back often as we add new content regularly.</p>
+  <div class="col-lg-4 col-sm-2">
+    <img src="{% static 'images/' %}icon_document.png" alt="resource_type icon" 
+    height="87" width="95">   <!-- resource_type --> 
+  </div>
+  <div class="col-lg-8 col-sm-10">
+   <h1>Living Documents XX</h1>
+  <p>XX The "Living Documents" feature makes documents of the past to come to life with sound, transcripts, and informational pop-ups.  Created by <a href="javascript:popBox('connections','moreinfo','mse_fellows')">MSE Fellows</a> and Mystic Seaport staff, Living Documents contain teacher-friendly components such as <em>Questions for Deeper Thought, Artifact Facts, Related Items from the Collection, Related Resources, In the Classroom ideas</em> and <em>Related Websites</em>. Check back often as we add new content regularly.</p>
+  </div>
+
 {% endblock title-area %}
 
 {% block main-content %}
