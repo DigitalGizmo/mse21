@@ -45,3 +45,7 @@
       }
     }
 }
+
+.no-logo {
+  @include shift(4);
+}

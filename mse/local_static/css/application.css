@@ -610,6 +610,10 @@ footer {
   text-decoration: underline;
 }
 
+.no-logo {
+  margin-left: 34.11922%;
+}
+
 .item-menu--item {
   float: left;
   display: block;
