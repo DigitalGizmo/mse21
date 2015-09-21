@@ -8,7 +8,7 @@ from resources.models import Resourceset
 
 class ResourcesetListView(generic.ListView):
     model = Resourceset
-    template_name = 'menu_regular.html' 
+    template_name = 'list_basic_grid.html' 
     context_object_name = 'resource_object_list'
 
 """

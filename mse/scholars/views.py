@@ -5,13 +5,13 @@ from scholars.models import Lecture, Interview
 
 class LectureListView(generic.ListView):
     model = Lecture
-    template_name = 'scholars/menu_lecture.html' 
     context_object_name = 'resource_object_list'
+    # template_name = 'scholars/lecture_list.html' 
 
 class InterviewListView(generic.ListView):
     model = Interview
-    template_name = 'scholars/menu_interview.html' 
     context_object_name = 'resource_object_list'
+    # template_name = 'scholars/interview_list.html' 
 
 """
 def lecture_index(request):

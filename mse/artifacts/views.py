@@ -6,7 +6,7 @@ from artifacts.models import Artifact
 
 class ArtifactListView(generic.ListView):
     model = Artifact
-    template_name = 'menu_regular.html'
+    template_name = 'list_basic_grid.html'
     context_object_name = 'resource_object_list'
 
 """

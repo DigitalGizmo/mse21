@@ -7,7 +7,7 @@ from documents.models import Document
 
 class DocumentListView(generic.ListView):
     model = Document
-    template_name = 'menu_regular.html' 
+    template_name = 'list_basic_grid.html' 
     context_object_name = 'resource_object_list'
 
 """
