@@ -1,44 +1,82 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block additional_css %}
-	<link rel="stylesheet" type="text/css" media="all" href="{% static 'common/css/map_styles.css' %}"/>
-{% endblock %}
+
 {% block additional_js %}
 	{% include "maps/common/map_header.js" %}
 {% endblock %}
 
-{% block body_class %}maps{% endblock %}
-{% block section_class %}maps{% endblock %}
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-geomap" aria-hidden="true"></i>
+  </aside>
 
-{% block fullpage %}
-<div class="col-full">
-	<ol class="breadcrumbs olc_crumbs">
-		<li class="home"><a title="Go to Learn." href="http://www.mysticseaport.org/learn/">Learn</a></li>
-		<li><a href="/">MSE Home</a></li>
-		<li><a href="/maps/">Active Maps</a></li>
-		{% block opt_breadcrumb %}<li><a href="/maps/{{ resource_object.short_name }}">About This {{ resource_object.map_type }} Map</a></li>{% endblock %}
-		<li class="current_item">{{ resource_object.title|safe }}</li>
-	</ol>
-	<h1>{{ resource_object.title|safe }}</h1>
+  <section class="title-area--text">
+    {% block breadcrumbs %}
+    <p class="breadcrumbs">
+    	<a href="{% url 'maps:map_list' %}">Active Maps</a> 
+    	&gt; <a href="{% url 'maps:'|add:resource_object.resource_type|add:'_detail' resource_object.short_name %}">About This Voyage Map</a>
+    </p>
+    {% endblock %}
+    <h1>{{ resource_object.title|safe }}</h1>
+    {% if resource_object.subtitle %}
+      <h3>{{ resource_object.subtitle|safe }}</h3>
+    {% endif %}
+
+    {% block instructions %}{% endblock instructions %}
+  </section>
+{% endblock title_area %}
+
+
+{% block content_area %}
+
+  <section class="content-wrapper">
+    <!--the map-->
+    <div id="map_wrapper">
+      <div id="map_canvas"></div>
+    </div>
+
+    <!--the map controls-->
+    <div id="map_controls" class="content-aside--box">
+
+			{% block map_nav %}
+			{% endblock map_nav %}
 	
-	{% block instructions %}instructions
-	{% endblock %}
+	  </div><!-- /map_controls  -->
 
+  </section><!-- /content-wrapper -->
+  
+  {% block related_asides %}
+  <section class="content-wrapper">
 
-    <div id="left_col">
-	{% block map_nav %}map nav and sidebar
-	{% endblock %}
+    <aside class="content-aside">
+      <section class="content-aside--box">
+        <h2 class="content-wrapper--head">Related Maps</h2>
+        <p><a href="/maps/compare/compare/{{ resource_object.pk }}/">Compare Voyages Map</a></p>
+        {% for map in resource_object.maps.all %}
+          <p><a href="/maps/{{ map.map_type|lower }}/{{ map.short_name }}/">{{ map.map_type }} Map: {{ map.title|safe }}</a>
+        {% endfor %}  
+        </p>
+      </section>
+    </aside><!-- /content-aside -->  
+
+    <aside class="content-aside">
+      {% include "_related_resources.html" %}
+    </aside><!-- /content-aside -->
+
+    <aside class="content-aside">
+      {% include "_related_items_viewless.html" %}
+    </aside><!-- /content-aside -->
+
+  </section><!-- /content-wrapper -->
+  {% endblock related_asides %}
+
 	<!--<h3>Map Overlays</h3>-->
 	<form name="overlay_controls" action="not_submitted" method="POST">
 		<input type="hidden" name="grounds" id="test" value="test"><!--<label for="test">19th Cent Whaling Grounds</label> type="checkbox"-->
 	</form>
-	</div><!-- /left_col  -->
-	
-    <div id="map_wrapper">
-	    <div id="map_canvas"></div>
-	</div>
 
-</div><!-- /col-full -->
 
-{% endblock fullpage %}
+{% endblock content_area %}
+
+

@@ -3,9 +3,9 @@ from django.conf import settings
 
 
 urlpatterns = patterns('maps.views',
-    url(r'^$', 'index'),
-    url(r'^ideas/(?P<short_name>\S+)/$', 'ideas'),
-    url(r'^biblio/(?P<short_name>\S+)/$', 'biblio'),
+    url(r'^$', 'index', name='map_list'),
+    url(r'^ideas/(?P<short_name>\S+)/$', 'ideas', name='geomap_ideas'),
+    url(r'^biblio/(?P<short_name>\S+)/$', 'biblio', name='geomap_biblio'),
     url(r'^about/(?P<short_name>\S+)/$', 'about'),
     url(r'^voyage/(?P<short_name>\S+)/$', 'voyage'),
     url(r'^story/(?P<short_name>\S+)/$', 'story'),
@@ -15,6 +15,6 @@ urlpatterns = patterns('maps.views',
     url(r'^compare/(?P<short_name>\S+)/(?P<map_id>\d+)/$', 'compare_this'),
     url(r'^compare/(?P<short_name>\S+)/$', 'compare'),
     #url(r'^(?P<short_name>\S+)/(?P<map_type>\S+)/$', 'logbook'),
-    url(r'^(?P<short_name>\S+)/$', 'detail'),
+    url(r'^(?P<short_name>\S+)/$', 'detail', name='geomap_detail'),
 )
 

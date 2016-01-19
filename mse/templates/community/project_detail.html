@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-community" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <p class="breadcrumbs">
+      <a href="{% url resource_object.app_namespace|add:':'|add:'community_list' %}">Our Community</a>
+    </p>
+    <h1>{{ resource_object.title|safe }}</h1>
+
+    {% if resource_object.subtitle %}
+      <h3>{{ resource_object.subtitle|safe }}</h3>
+    {% endif %}
+
+    <p>Original content by:
+    {% for profile in resource_object.profiles.all %}
+      <a href="/community/profiles/{{ profile.short_name }}/" class="title">
+      {{ profile.profile_name|safe }}</a>
+    {% endfor %}
+    </p>
+
+  </section>
+{% endblock title_area %}
+
+
+{% block content_area %}
+
+  <!-- page content --> 
+  <section class="content-wrapper">
+    <aside class="content-aside"><!-- boxes column -->
+
+      <section class="content-aside--picture">
+        <img src="{% static 'community/projects/fullpics/' %}{{ resource_object.short_name }}_f.jpg" alt="image: {{ resource_object.short_name }}"  />
+      </section>
+
+      {% include "_related_resources.html" %}
+
+      {% include "_related_items_viewless.html" %}
+
+    </aside><!-- /boxes column -->
+
+    <section class="content-main"><!-- main content column -->
+
+      <h2 class="content-wrapper--head">About The Project</h2>
+
+      {{ resource_object.narrative|safe }}
+
+
+    </section><!-- /main content column -->
+  </section><!-- /content-wrapper -->
+
+{% endblock content_area %}
+
+

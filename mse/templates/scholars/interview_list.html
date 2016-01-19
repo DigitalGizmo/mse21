@@ -1,26 +1,33 @@
 {% extends "list_base.html" %}
 {% load staticfiles %}
 
-{% block content-aside--box-innards %}
-  <div class="sidebox">
-    <h2>Thanks</h2>
-    <p>The video Interviews.</p>
-    <p>followed by logos.</p>
-  </div><!--sidebox -->
-{% endblock content-aside--box-innards %}  
+{% block aside_box_area %}
+  <section class="content-aside--box search">
+    <h2 class="content-wrapper--head">Funders for this Feature</h2>
+    {{ menu_info.aside_blurb|safe }}
+  </section>
+{% endblock aside_box_area %}  
 
 
 {% block menu %}
-  <div class="col-lg-8">
-    <ul class="list-unstyled menu">
-   {% for resource_object in resource_object_list %}
-	<li class="col-lg-3">
-		<a href="/artifacts/{{ resource_object.short_name }}/"><img 
-		src="{% static resource_object_list.0.menu_info.short_name %}s/menupics/{{ resource_object.filename }}_m.jpg" alt="image: {{ resource_object.short_name }}" class="img-responsive"><br/>
-		<h4>{{ resource_object.title|safe }}</h4></a>
-	</li>
-   {% endfor %}
-    </ul>     
-  </div><!--cols -->
+  <ul class="item-menu--list-pics">
+  {% for item in resource_object_list %}
+
+    <li>
+      <ul class="list-pic">
+        <li class="list-pic--img">
+          <a href="{% url 'scholars:interview_detail' item.short_name %}"><img src="{% static 'scholars/interviews/menupics/' %}{{ item.short_name }}_m.jpg" alt="image: {{ item.short_name }}"/></a>
+        </li>
+        <li class="list-pic--interviewee"><a href="{% url 'scholars:interview_detail' item.short_name %}">{{ item.scholar|safe }}</a></li>
+        <li class="list-pic--interviewer">Interviewed by 
+          {% for profile in item.profiles.all %}
+            <a href="/community/profiles/{{ profile.short_name }}/" class="title">
+            {{ profile.profile_name|safe }}</a>
+          {% endfor %}
+        </li>
+      </ul>
+    </li>
+  {% endfor %}
+  </ul>     
 {% endblock menu %}
 

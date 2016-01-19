@@ -89,4 +89,23 @@ Can't connect via psql as postgres to msedb_ed (without adding to pg_hba) so cha
 See above for connection.
 List Schemas > Alter > owner to msedb_user.
 
+Backup mse2 db and apply locally
+--------------------------
+eapps, logged in as root
+::
+
+  cd /var/www/mseadmin/data/FTP_transfer
+	pg_dump -Fc --clean --verbose mse2db --user=msedb_user > mse2db_2015_10_28.backup
+  [msedb_user password]
+
+  cd /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse (or workon mse)
+	
+Download via FTP
+Restore locally
+::
+
+	cd ~/Documents/Projects/MysticSeaport/MSE20/DataBaks/from_remote
+	pg_restore --clean --dbname=mse2db --user=msedb_user --verbose mse2db_2015_10_28.backup
+	(no: pg_restore --clean --dbname=mse2db --verbose mse2db_2015_10_28.backup)
+
 

@@ -3,14 +3,6 @@
 
 {% block instructions %}
 	<p>Use the links below or the numbers on the map to explore this interactive story map.<br/> You can also review the <a href="javascript:popBox('maps','about','{{ resource_object.short_name }}')">"About This Map"</a> introductory info.</p>
-	{% if resource_object.maps.all %}
-		<p class="rel_maps">
-		<strong>Related Maps:</strong> 
-		{% for map in resource_object.maps.all %}
-			<a href="/maps/{{ map.map_type|lower }}/{{ map.short_name }}/">{{ map.map_type }} Map: {{ map.title|safe }}</a>{% if not forloop.last %}, {% endif %} 
-		{% endfor %}
-		</p>
-	{% endif %}
 	
 {% endblock %}
 
@@ -25,9 +17,8 @@
 		var short_name = '{{ resource_object.short_name }}';
 	</script>
 
-	<p>&nbsp;</p>
-	<p><a href="javascript:popBox('maps','storyprint', '{{ resource_object.short_name }}')" class="subhead_link">Printable Version of the Story</a><br/>
-	You can also read the chapters above in one fell swoop without the map.</p>
+	<h3 class="story-print--link"><a href="javascript:popBox('maps','storyprint', '{{ resource_object.short_name }}')">Printable Version</a></h3>
+	<p class="story-print--blurb">Read all the chapters in one page.</p>
 	
 	
 

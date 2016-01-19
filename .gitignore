@@ -4,6 +4,7 @@
 *.db
 *.jpg
 *.gif
+*.png
 *.lnk
 *.css.map
 
@@ -19,10 +20,15 @@ robots.txt
 .svn/
 static/
 tinymce/
-fonts/
-ZoomAssets/
 templates/robots.txt
 mse/local_static/images/
 mse/local_static/common/css_images/
+mse/model/about_static
 mse/model/artifact_static
+mse/model/community_static
+mse/model/documents_static
+mse/model/maps_static
 mse/model/model_local_static
+mse/model/scholars_static
+mse/model/sitewide_static
+mse/model/resources_static

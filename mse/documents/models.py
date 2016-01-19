@@ -1,70 +1,42 @@
 from django.db import models
 import datetime
+import core.models
 import sitewide.models
 
-class Document(models.Model):
-    STATUS_NUMS = (
-        (1,'1 - Entered'),
-        (2,'2 - TBD'),
-        (3,'3 - Work in progress'),
-        (4,'4 - Published'),
-    )
-    title = models.CharField(max_length=128)
-    short_name = models.CharField(max_length=32, unique=True)
+class Document(core.models.ItemModel):
+    """
+    Document detail pages get resource_type from the instance
+    Document Menus get the equivalent from menu_info.short_name
+    """
+    _app_namespace = "documents"
+    _resource_type = "document"
+    _resource_type_title = "Document"
+    _static_path = "documents"
     bibid = models.CharField(max_length=32, blank=True, default='')
-    filename = models.CharField(max_length=64, blank=True, default='')
     object_name = models.CharField(max_length=128, blank=True, default='')
-    augmented = models.BooleanField()
-    description = models.TextField('Short Description', blank=True, default='')
-    narrative = models.TextField('About this..', blank=True, default='')
     hist_context = models.TextField('Historic Context', blank=True, default='')
     author = models.CharField(max_length=64, blank=True, default='')
     date_made = models.CharField(max_length=64)
     identifier = models.CharField('Locator', max_length=64)
-    ordinal = models.IntegerField('Order in Menu', default=999)
-    notes = models.TextField('Production Notes', blank=True, default='')
-    edited_by = models.CharField(max_length=64, blank=True, default='')
     read_by = models.CharField(max_length=64, blank=True, default='')
-    edit_date = models.DateTimeField('date edited', default=datetime.datetime.now)
-    status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
-    resourcesets = models.ManyToManyField('resources.Resourceset', 
-        verbose_name='Resource Sets to which this Document belongs', blank=True)
-    artifacts = models.ManyToManyField('artifacts.Artifact', 
-        verbose_name='Artifacts related to this Document', blank=True)
-    documents = models.ManyToManyField('documents.Document', 
-        verbose_name='Other Documents related to this Document', blank=True)
-    connections = models.ManyToManyField('connections.Connection', 
-        verbose_name='PDFs (new tab)', blank=True)
-    weblinks = models.ManyToManyField('connections.Weblink', blank=True)
-    biblio = models.ManyToManyField('connections.Biblio', 
-        verbose_name='Further Study (slimbox)', blank=True)
-    essays = models.ManyToManyField('connections.Essay', 
-        verbose_name='Background Info (slimbox)', blank=True)
-    audiovisuals = models.ManyToManyField('connections.Audiovisual', 
-        verbose_name='Media (slimbox)', blank=True)
-    maps = models.ManyToManyField('maps.Geomap', 
-        verbose_name='Maps (full page)', blank=True)
-    lectures = models.ManyToManyField('scholars.Lecture', 
-        verbose_name='Lectures (full page)', blank=True)
-    profiles = models.ManyToManyField('community.Profile', 
-        verbose_name='Choose creating Community Member(s)', blank=True)
-
+    # override core for separate default for doc y - top of page
+    initial_y = models.IntegerField('Y - Default is 1 (top of page)', 
+        null=True, blank=True, default=1)
+    
     @property
-    def first_page_suffix(self):
-        if self.page_set.all():
-            _first_page = self.page_set.all()[0]
-            _page_suffix = _first_page.page_suffix 
-        else:
-            _page_suffix = "01"
-        return _page_suffix 
+    def first_page(self):
+        return self.page_set.all()[0] 
+
+    # return title without <i> </i>
+    @property
+    def title_no_markup(self):
+        return self.title.replace("<i>", "").replace("</i>", "").replace("<em>", 
+            "").replace("</em>", "")
 
     # return menu object
     @property
     def menu_info(self):
         return sitewide.models.Menu.objects.get(short_name='document')
-
-    def __str__(self):
-        return self.short_name
 
 
 class Question(models.Model):

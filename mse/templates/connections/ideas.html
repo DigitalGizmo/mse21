@@ -5,7 +5,7 @@
 
 {% block slim_content%}
 {% for idea in idea_list %}
-    <h4>{{ idea.name|safe }}</h4>
+    <h3>{{ idea.name|safe }}</h3>
 	{{ idea.idea_text|safe }}
 {% endfor %}
 {% endblock slim_content %}

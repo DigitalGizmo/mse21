@@ -1,0 +1,7 @@
+{% extends "base_error.html" %}
+{% load staticfiles %}
+
+{% block error_msg %}
+	<h2>Sorry, there's a problem. </h2>
+	<p>{{ msg }} </p>
+{% endblock error_msg %}

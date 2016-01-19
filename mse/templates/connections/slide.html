@@ -10,11 +10,11 @@
 	<p class="credit">&copy; {{ curr_slide.credit_line }}</p>
 	<p class="slidenav">
 		{% if slide_num > 1 %}
-		<a href="javascript:slideView('{{ connection_object.short_name }}', {{slide_num}} - 1)">&lsaquo; previous </a>
+			<a href="javascript:slideView('{{ connection_object.short_name }}', {{slide_num|add:'-1' }})">&lsaquo; previous </a>
 		{% endif %}
 		{% if slide_num > 1 and slide_num < num_slides %} | {% endif %}
 		{% if slide_num < num_slides %}
-		<a href="javascript:slideView('{{ connection_object.short_name }}', {{slide_num}} + 1)">next &rsaquo;</a>
+			<a href="javascript:slideView('{{ connection_object.short_name }}', {{ slide_num|add:'+1' }})">next &rsaquo;</a>
 		{% endif %}
 	</p>
 

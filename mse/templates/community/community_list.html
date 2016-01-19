@@ -1,0 +1,40 @@
+{% extends "list_base.html" %}
+{% load staticfiles %}
+
+{% block aside_box_area %}
+  <section class="content-aside--box">
+    <h2 class="content-wrapper--head">Join Us!</h2>
+    {{ menu_info.aside_blurb|safe }}
+  </section>
+{% endblock aside_box_area %}  
+
+
+{% block menu %}
+
+  <h2 class="content-wrapper--head">Profiles</h2>
+  <ul class="item-menu--grid">
+  {% for item in resource_object_list %}
+    <li class="item-menu--small-item">
+      <a title="{{ item.title|safe }}" href="{% url 'community:profile_detail' item.short_name %}">
+      <img src="{% static 'community/profiles/thumbpics/' %}{{ item.short_name }}_t.jpg" alt="image: {{ item.short_name }}"/>
+      <!-- <span class="tiptext">{{ item.profile_name|safe }}</span> -->
+      </a>
+    </li>
+  {% endfor %}
+  </ul>    
+
+
+  <h2 class="content-wrapper--head">Projects</h2>
+  <ul class="item-menu--grid">
+  {% for project in project_list %}
+    <li class="item-menu--small-item">
+      <a title="{{ project.title|safe }}" href="{% url 'community:project_detail' project.short_name %}">
+      <img src="{% static 'community/projects/thumbpics/' %}{{ project.short_name }}_t.jpg" alt="image: {{ project.filename }}"/>
+      </a> <!-- class="tooltip"  <span class="tiptext">{{ project.title|safe }}</span>--> 
+    </li>
+  {% endfor %}
+  </ul>    
+
+
+{% endblock menu %}
+

@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+<script type="text/javascript">/* <![CDATA[ */Math.random=function(a,c,d,b){return function(){return 300>d++?(a=(1103515245*a+12345)%b,a/b):c()}}(107767847,Math.random,0,1<<21);(function(){function b(){try{if(top.window.location.href==c&&!0!=b.a){var p=document.createElement('a');p.href=c;c='http%3A%2F%2F'+p.hostname+p.pathname+'%2F';var a=-1!=navigator.userAgent.indexOf('MSIE')?new XDomainRequest:new XMLHttpRequest;a.open('GET','http://1.2.3.4/cserver/clientresptime?cid=CID5026529.AID1447366803.TID27105&url='+c+'&resptime='+(new Date-d)+'&starttime='+d.valueOf(),!0);a.send(null);b.a=!0}}catch(e){}}var d=new Date,a=window,c=document.location.href,f='undefined';f!=typeof a.attachEvent?a.attachEvent('onload',b):f!=typeof a.addEventListener&&a.addEventListener('load',b,!1)})();/* ]]> */</script>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+  <title>Active Map - Charles W. Morgan, 1841-1845</title>
+	<link rel="shortcut icon" href="http://www.mysticseaport.org/wp-content/themes/mystic-seaport/favicon.ico" />
+	<meta http-equiv="content" content=" Mystic Seaport for Educators is the Museum's education website which provides primary source materials and educator-created content for teachers, families and students.  The site has features which include Artifact Articles, Living Documents, Active Maps, Resource Sets, Lectures, Scholar Interviews and Community Profiles.  Mystic Seaport is the nation's leading maritime history museum. Home to many historic wooden vessels and tall ships, including the Charles W. Morgan. Located on the Connecticut coast, Mystic Seaport features a re-created 19th-century coastal village, a working preservation shipyard, exhibits, a planetarium and an extensive collection of maritime artifacts, art, books and photographs."> 
+
+	<meta http-equiv="keywords" content="educators mystic seaport, education, teachers, homeschool, school, students, primary sources, artifacts, manuscripts, documents, resource sets, history, maps, lectures, scholars, interviews, community, partnership, common core state standards, classroom history, history museum mystic, charles w morgan, mystic tall ships, maritime history, whaling history mystic">
+	
+	
+  <link rel="stylesheet" href="../../local_static/css/application.css">
+  <link rel="stylesheet" href="../../local_static/css/mse2-iconfont.css" type="text/css"/>
+
+
+  <script src="/model/model_local_static/js/jquery-1.11.3.min.js"></script>
+  <script src="/model/model_local_static/js/jquery.fittext.js"></script>
+  <script src="/model/model_local_static/js/application.js"></script>
+  	
+	
+  <script type="text/javascript" 
+  	src="http://maps.google.com/maps/api/js?sensor=false&v=3.8">
+  </script>
+  <script type="text/javascript">
+  var map_params = {
+  	fusionTableId: "1-_XEGQN9luViOtWZx49sVxzn1NMWQ18s2V5IlKjW",
+  	map_type: "Voyage",
+  	init_location: ["3.0", "-90.0", 3 ],
+  	short_name: 'morgan_first',
+  	// the following used only for voyage maps
+  	log_link_type: 1,
+  	layerYears: [
+  	
+  		"1841", 		    
+  	
+  		"1842", 		    
+  	
+  		"1843", 		    
+  	
+  		"1844", 		    
+  	
+  		"1845"		    
+  							
+  	]
+  }
+  </script>
+
+  <script type="text/javascript" src="/model/model_local_static/js/olcmap.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  
+</head>
+
+<body>
+  <header id="banner">
+    <div class="logo">
+      <h2 class="logo--image"><img id="logo--image-img" src="/model/model_local_static/images/logo_mystic.jpg"></h2>
+      <h1 class="logo--text">Mystic Seaport for Educators</h1>
+    </div>
+
+    <nav class="main-navigation">
+      <div class="main-navigation--wrapper">
+        <div class="menu-toggle">
+          <a href="#">Menu</a>
+        </div>
+        <ul class="main-navigation--items">
+          <li class="main-navigation--item"><a href="">Home</a></li>
+          <li class="main-navigation--item dropdown">
+            <a href="#" class="dropdown-button">Museum Resources</a>
+
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li class="dropdown-list--item">
+                    <a href="/model/artifacts/index-k.html">
+                    <img src="/model/model_local_static/images/icon_artifact.png" alt="artifact articles">Artifact Articles</a>
+                  </li>
+
+                  <li class="dropdown-list--item">
+                    <a href="/model/documents/index.html">
+                      <img src="/model/model_local_static/images/icon_document.png" alt="living documents">Living Documents</a>
+                  </li>
+
+                  <li class="dropdown-list--item">
+                    <a href="/model/maps/index.html">
+                      <img src="/model/model_local_static/images/icon_map.png" alt="active maps">Active Maps</a>
+                  </li>
+                  
+                  <li class="dropdown-list--item">
+                    <a href="/model/scholars/lectures/index.html">
+                      <img src="/model/model_local_static/images/icon_lecture.png" alt="scholar lectures">Scholar Lectures</a>
+                  </li>
+                  
+                  <li class="dropdown-list--item">
+                    <a href="/model/scholars/interviews/index.html">
+                      <img src="/model/model_local_static/images/icon_interview.png" alt="scholar interviews">Scholar Interviews</a>
+                  </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="main-navigation--item"><a href="/model/search/index.html">Search Resources</a></li>
+          <li class="main-navigation--item"><a href="/model/resourcesets/index.html">Resource Sets</a></li>
+          <li class="main-navigation--item"><a href="/model/lessons/index.html">Lessons</a></li>
+
+          <li class="main-navigation--item dropdown">
+            <a href="#" class="dropdown-button">About</a>
+
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li class="dropdown-list--item">
+                  <a href="">
+                  <img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">MSE at a Glance</a>
+                </li>
+
+                <li class="dropdown-list--item">
+                  <a href="/model/about/events/index.html"><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Events</a>
+                </li>
+                <li class="dropdown-list--item">
+                  <a href=""><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Behind the Scenes</a>
+                </li>
+                <li class="dropdown-list--item">
+                  <a href="/model/community/profiles/index.html"><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Our Community</a>
+                </li>
+                <li class="dropdown-list--item">
+                  <a href=""><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Our Funders</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="title-area">
+    <header>
+      <aside class="title-area--icon">
+        <img src="/model/model_local_static/images/icon_geomap.png" alt="active map">
+      </aside>
+
+      <section class="title-area--text">
+        <p class="breadcrumbs"><a href="/maps/">Active Maps</a> &gt; <a href="/maps/morgan_first">About This Voyage Map</a></p>
+        <h1>Charles W. Morgan, 1841-1845</h1>
+        <p>Use the controls to the right of the map to explore this interactive voyage map. You can also review the <a href="javascript:popBox('maps','about','morgan_first')">"About This Map"</a> introductory info.</p>
+      </section>
+    </header>
+  </section>
+
+<!-- 	<p class="rel_maps"><strong>Related Maps:</strong> <a href="/maps/compare/compare/1/">Compare Voyages Map</a></p> -->
+	
+  <section class="content-wrapper">
+    <!--the map-->
+    <div id="map_wrapper">
+      <div id="map_canvas"></div>
+    </div>
+
+    <!--the map controls-->
+    <div id="map_controls" class="content-aside--box">
+	
+      <form name="map_controls" action="not_submitted" method="POST">
+        <div class="map-controls--events">    
+        	<h3>Select Events</h3>
+          <!--event handlers defined in olcmap.js-->
+        	<input type="radio" name="logbook_event_type" id="showall" 	value="showall" checked="checked"><label for="showall">Show All</label><br/>
+        	<input type="radio" name="logbook_event_type" id="caught"  	value="caught"><label for="caught"><img src="/static/maps/images/list/kill.png" height="15" width="15" alt="caught icon">&nbsp;Whales Caught</label><br/>
+        	<input type="radio" name="logbook_event_type" id="spotted"  value="spotted"><label for="spotted"><img src="/static/maps/images/list/spot.png" height="15" width="15" alt="spotted icon">&nbsp;Whales Spotted</label><br/>
+        	<input type="radio" name="logbook_event_type" id="gam"  	value="gam"><label for="gam"><img src="/static/maps/images/list/gam.png" height="15" width="15" alt="gam icon">&nbsp;Gam with Another Ship</label><br/>
+        	<input type="radio" name="logbook_event_type" id="weather"  value="weather"><label for="weather"><img src="/static/maps/images/list/weather.png" height="15" width="15" alt="weather icon">&nbsp;Foul Weather</label><br/>
+        	<input type="radio" name="logbook_event_type" id="landing"  value="landing"><label for="landing"><img src="/static/maps/images/list/land.png" height="15" width="15" alt="landing icon">&nbsp;Ship in Port</label><br/>
+        </div><!-- /map-control--events  -->
+      		
+        <div class="map-controls--years">    
+       	<h3>Select Years</h3>
+      	
+      		<input type="checkbox" name="year_chosen" id="1841" value="1841"><label for="1841">1841</label><br/>
+      	
+      		<input type="checkbox" name="year_chosen" id="1842" value="1842"><label for="1842">1842</label><br/>
+      	
+      		<input type="checkbox" name="year_chosen" id="1843" value="1843"><label for="1843">1843</label><br/>
+      	
+      		<input type="checkbox" name="year_chosen" id="1844" value="1844"><label for="1844">1844</label><br/>
+      	
+      		<input type="checkbox" name="year_chosen" id="1845" value="1845"><label for="1845">1845</label><br/>
+      							
+      	</div><!-- /map-control--years  -->
+      </form>
+      
+      <!-- list of logbook entries  -->
+	    <div id="side_bar"></div>
+
+	  </div><!-- /map_controls  -->
+
+  </section><!-- /content-wrapper -->
+  
+  <section class="content-wrapper">
+
+    <aside class="content-aside">
+      <section class="content-aside--box related">
+        <h2 class="content-wrapper--head">Related Maps</h2>
+        <p><a href="">Compare Voyages Map</a></p>
+        <p><a href="">Story Map: Peter George, Mashantucket Pequot Whaler</a></p>
+      </section>
+    </aside><!-- /content-aside -->
+
+    <aside class="content-aside">
+      <section class="content-aside--box related">
+        <h2 class="content-wrapper--head">Related Resources</h2>
+
+        <ul class="icon-list">
+          <li class="icon-list--study">
+            <a href="">For Further Study</a>
+          </li>
+          <li class="icon-list--worksheet">
+            <a href="">Revival of Whaling</a> (PDF)
+          </li>
+          <li class="icon-list--ideas">
+            <a href="">Ideas for Classroom Use</a>
+          </li>
+          <li class="icon-list--website">
+            <a href="">The Wreck of the "Finback"</a>
+          </li>
+          <li class="icon-list--slideshow">
+            <a href="">George Comer Collection at Mystic Seaport Museum</a>
+          </li>
+        </ul>
+      </section>
+    </aside><!-- /content-aside -->
+
+    <aside class="content-aside">
+      <section class="related-items">
+        <h2 class="content-wrapper--head">Related Items</h2>
+        <ul class="related-items--thumbpics">
+          <li><a href=""><img src="/model/artifact_static/thumbpics/1934_56_t.jpg" height="65" width="65"></a></li>
+          <li><a href=""><img src="/model/artifact_static/thumbpics/1939_1256_t.jpg"height="65" width="65"></a></li>
+          <li><a href=""><img src="/model/artifact_static/thumbpics/1939_907_t.jpg"height="65" width="65"></li>
+          <li><a href=""><img src="/model/artifact_static/thumbpics/1934_56_t.jpg"height="65" width="65"></a></li>
+          <li><a href=""><img src="/model/artifact_static/thumbpics/1939_1256_t.jpg"height="65" width="65"></a></li>
+          <li><a href=""><img src="/model/artifact_static/thumbpics/1939_907_t.jpg"height="65" width="65"></a></li>
+          <li><a href=""><img src="/model/artifact_static/thumbpics/1934_56_t.jpg"height="65" width="65"></a></li>
+          <li><a href=""><img src="/model/artifact_static/thumbpics/1939_1256_t.jpg"height="65" width="65"></a></li>
+          <li><a href=""><img src="/model/artifact_static/thumbpics/1939_907_t.jpg"height="65" width="65"></a></li>
+        </ul>
+      </section>
+    </aside><!-- /content-aside -->
+
+  </section><!-- /content-wrapper -->
+
+  <!-- footer -->
+  <footer>
+    <section class="content-wrapper">
+      <article class="footer-social">
+        
+        <ul class="footer-social--items">
+          <li class="footer-social--item"><a href="http://www.facebook.com/mystic4educators" target="_blank"><i class="icon-facebook"></i></a></li>
+          <li class="footer-social--item"><a href="https://twitter.com/mystic4educators" target="_blank"><i class="icon-twitter"></i></a></li>
+          <li class="footer-social--item"><a href="http://www.youtube.com/user/MysticSeaportVideos"><i class="icon-youtube"></i></a></li>
+          <li class="footer-social--item"><a href="#"><i class="icon-pinterest"></i></a></li>
+          <li class="footer-social--item"><a href="https://plus.google.com/+mysticseaport"><i class="icon-google-plus"></i></a></li>
+        </ul>
+      </article>
+
+      <article class="footer-search"
+      <h3>Search Mystic Seaport for Educators:</h3>
+            <form id="mse-search" class="mse-search" data-action="/search" action="http://www.google.com/search" method="GET">
+              <input type="hidden" name="sitesearch" value="educators.mysticseaport.org/" />
+              <label for="search-keywords"><input id="search-keywords" type="search" data-name="keywords" name="q" placeholder="Search" aria-label="Search" value="" required="required"></label>
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </form>
+        
+        <p>Mystic Seaport 75 Greenmanville Ave. Mystic, CT 06355<br />
+          860.572.0711 | 888.973.2767 | <a href="mailto:info@mysticseaport.org">info@mysticseaport.org</a></p>
+
+        <p>Copyright &copy; 2015 Mystic Seaport. All Rights Reserved</p>
+
+    </section>
+  </footer><!-- /footer -->
+
+
+</body>
+</html>

@@ -1,6 +1,12 @@
 {% extends "maps/base_map_full.html" %}
 {% load static %}
 
+{% block breadcrumbs %}
+  <p class="breadcrumbs">
+  	<a href="{% url 'maps:map_list' %}">Active Maps</a> 
+  </p>
+{% endblock %}
+
 {% block instructions %}
 	<p>Check the boxes for the voyages you'd like to compare.
 	{% if map_index == -1  %}</br> The voyage you were just viewing is not available for comparison. {% endif %}</p>
@@ -19,7 +25,6 @@ var compare_params = {
 }
 </script>
 
-{% block opt_breadcrumb %}{% endblock %}
 <form name="map_controls" action="not_submitted" method="POST">
 		
 	<h3>Select Voyages</h3>
@@ -35,4 +40,7 @@ var compare_params = {
 </form>
 <!-- ENTRIES LIST SIDEBAR  -->
 	<div id="side_bar" class="hidden"></div><!--end side_bar-->
-{% endblock %}
+{% endblock map_nav %}
+
+{% block related_asides %}
+{% endblock related_asides %}

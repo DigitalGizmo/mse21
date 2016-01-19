@@ -2,48 +2,35 @@ from django.db import models
 from django.contrib.sites.models import Site
 import datetime
 import sitewide.models
+import core.models
 
-class Lecture(models.Model):
-    STATUS_NUMS = (
-        (1,'1 - Entered'),
-        (2,'2 - TBD'),
-        (3,'3 - Work in progress'),
-        (4,'4 - Published'),
-    )
-    short_name = models.CharField(max_length=32, unique=True)
+class Lecture(core.models.ManyModel):
+    _app_namespace = "scholars"
+    _resource_type = "lecture"
+    _resource_type_title = "Lecture"
+    _static_path = "scholars/lectures"
     title = models.CharField(max_length=128)
+    subtitle = models.CharField(max_length=128, blank=True, default='')
     scholar = models.CharField('Scholars full name',max_length=128, blank=True, default='')
     scholar_short_name = models.CharField(max_length=32, blank=True, default='')
-    narrative = models.TextField('About this...', blank=True, default='')
-    notes = models.TextField('Production Notes', blank=True, default='')
-    edited_by = models.CharField(max_length=64, blank=True, default='')
-    edit_date = models.DateTimeField('edit date', default=datetime.datetime.now)
-    status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
-    ordinal = models.IntegerField('Order in Menu', default=999)
-    resourcesets = models.ManyToManyField('resources.Resourceset', 
-        verbose_name='Choose Resource Sets this Lecture belongs to', blank=True)
-    artifacts = models.ManyToManyField('artifacts.Artifact', 
-        verbose_name='Artifacts related to this Lecture', blank=True)
-    documents = models.ManyToManyField('documents.Document', 
-        verbose_name='Documents related to this Lecture', blank=True)
-    connections = models.ManyToManyField('connections.Connection', 
-        verbose_name='PDFs - Classroom only. (new tab)', blank=True)
-    weblinks = models.ManyToManyField('connections.Weblink', blank=True)
-    biblio = models.ManyToManyField('connections.Biblio', 
-        verbose_name='Further Study', blank=True)
-    essays = models.ManyToManyField('connections.Essay', 
-        verbose_name='Background Info', blank=True)
-    audiovisuals = models.ManyToManyField('connections.Audiovisual', 
-        verbose_name='Media (slimbox)', blank=True)
-    maps = models.ManyToManyField('maps.Geomap', 
-        verbose_name='Maps (full page)', blank=True)
-    lectures = models.ManyToManyField('scholars.Lecture', 
-        verbose_name='Other Lectures related to this one', blank=True)
+    # Not included in ManyModel
     interviews = models.ManyToManyField('scholars.Interview', 
         verbose_name='Interviews related to this  Lecture', blank=True)
+    # For MPMRC version
     sites = models.ManyToManyField(Site,
             help_text="All lectures appear in MSE -- only need to move Pequot " \
             "over here for those desired in Pequot<br>")
+
+    # return title without <i> </i>
+    @property
+    def title_no_markup(self):
+        return self.title.replace("<i>", "").replace("</i>", "").replace("<em>", 
+            "").replace("</em>", "")
+
+    # return filename = short name. to be compatible with Artifacts, Docs in search results
+    @property
+    def filename(self):
+        return self.short_name
 
     # return menu object
     @property
@@ -77,23 +64,14 @@ class Idea(models.Model):
         return self.name
 
 
-class Interview(models.Model):
-    STATUS_NUMS = (
-        (1,'1 - Entered'),
-        (2,'2 - TBD'),
-        (3,'3 - Work in progress'),
-        (4,'4 - Published'),
-    )
-    short_name = models.CharField(max_length=32, unique=True)
+class Interview(core.models.CommonModel):
+    _app_namespace = "scholars"
+    _resource_type = "interview"
+    _resource_type_title = "Interview"
+    _static_path = "scholars/interviews"
     scholar = models.CharField('Scholars full name',max_length=128, blank=True, default='')
     scholar_short_name = models.CharField(max_length=32, blank=True, default='')
     full_length = models.CharField('Full video length', max_length=16, blank=True, default='')
-    narrative = models.TextField('About this...', blank=True, default='')
-    ordinal = models.IntegerField('Order in Menu', default=999)
-    notes = models.TextField('Production Notes', blank=True, default='')
-    edited_by = models.CharField(max_length=64, blank=True, default='')
-    edit_date = models.DateTimeField('edit date', default=datetime.datetime.now)
-    status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
     # profiles - enables: 1) showing content creator on Interview page
     # 2) listing this Interview on the person's Profile page
     profiles = models.ManyToManyField('community.Profile', 
@@ -104,10 +82,20 @@ class Interview(models.Model):
             help_text="All lectures appear in MSE -- only need to move Pequot " \
             "over here for those desired in Pequot<br>")
 
+    # return filename = short name. to be compatible with Artifacts, Docs in search results
+    @property
+    def filename(self):
+        return self.short_name
+
     # return menu object
     @property
     def menu_info(self):
         return sitewide.models.Menu.objects.get(short_name='interview')
+
+    # "alias" for scholar for use by featured item list
+    @property
+    def title(self):
+        return self.scholar
 
     def __str__(self):
         return self.short_name

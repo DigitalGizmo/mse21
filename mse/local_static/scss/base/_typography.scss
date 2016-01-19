@@ -31,7 +31,7 @@ a {
   &:active,
   &:focus,
   &:hover {
-    color: shade($action-color, 25%);
+    color: shade($action-color, 30%);
   }
 }
 
@@ -43,8 +43,7 @@ hr {
   margin: $base-spacing 0;
 }
 
-img,
-picture {
+img, picture {
   margin: 0;
   max-width: 100%;
 }

@@ -19,10 +19,14 @@
 {% endif %}
 
 {% if connection_object.media_type == "Video" %}
-<video controls>
-  <source src="{% static 'connections/audiovisuals/video/' %}{{ connection_object.short_name}}.webm" type="video/webm">
-Your browser does not support the video tag.
-</video>
+<div class="video">
+	<canvas width="960" height="540"></canvas>
+		<video controls="controls">
+		  <source src="{% static 'connections/audiovisuals/video/' %}{{ connection_object.short_name}}.webm" type="video/webm">
+		  <source src="{% static 'connections/audiovisuals/video/' %}{{ connection_object.short_name}}.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+		</video>
+</div> <!-- /video -->
 {% endif %}
 
 

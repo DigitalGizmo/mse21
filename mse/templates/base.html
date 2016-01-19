@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load settings_extras %}
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>{% block title %}Mystic Seaport Museum for Educators{% endblock %}</title>
@@ -15,168 +15,169 @@
 	<meta http-equiv="keywords" content="educators mystic seaport, education, teachers, homeschool, school, students, primary sources, artifacts, manuscripts, documents, resource sets, history, maps, lectures, scholars, interviews, community, partnership, common core state standards, classroom history, history museum mystic, charles w morgan, mystic tall ships, maritime history, whaling history mystic">
 	
 	{% block stylesheets %}
-		<!-- Bootstrap -->
-		<link rel="stylesheet" href="{% static 'common/css/bootstrap.min.css' %}" type="text/css"/>
-		<link rel="stylesheet" href="{% static 'common/css/yamm.css' %}" type="text/css"/>
-		<link rel="stylesheet" href="{% static 'common/css/mse.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/application.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'css/mse2-iconfont.css' %}" type="text/css"/>
+    {% block additional_css %}{% endblock %}
+  {% endblock stylesheets %}
 
-		<!-- for slimbox 
-		<link rel="stylesheet" href="{% static 'common/slimpop.css' %}" type="text/css" media="screen"/> -->
-
-		<!-- link rel="stylesheet" href="{% static 'common/slim_print.css' %}" type="text/css" media="print"/ -->
-		{% block additional_css %}{% endblock %}
-    {% endblock %}
-    {% block javascript %}
-		<script src="{% static 'common/jquery-1.11.1.min.js' %}" type="text/javascript"></script>
-		<script src="{% static 'common/scripts.js' %}" type="text/javascript"></script>
-		<script src="{% static 'common/slimpop.js' %}" type="text/javascript"></script>
-		<script type="text/javascript" src="//use.typekit.net/wkp1ody.js"></script>
-		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-		{% block additional_js %}{% endblock %}
-        <!-- to make IE be able to render html 5 styles -->
-		<!-- JavaScript -->
-		<!--[if IE]><![endif]-->
-		<!--[if lt IE 9]>
-		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-
-    {% endblock %}
+  {% block javascript %}
+    <script src="{% static 'js/jquery-1.11.3.min.js' %}" type="text/javascript"></script>
+  	<script src="{% static 'js/jquery.mobile-events.min.js' %}" type="text/javascript"></script>
+  	<script src="{% static 'js/jquery.fittext.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/application.js' %}" type="text/javascript"></script>
+  	{% block additional_js %}{% endblock %}
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  {% endblock javascript %}
 </head>
 
-<body "{% block body_class %}{% endblock %}"> <!-- class= -->
+<body>
+  <header id="banner">
+    <div class="logo">
+      <h2 class="logo--image"><a href="http://mysticseaport.org"><img id="logo--image-img" src="{% static 'images/logo_mystic.jpg' %}"></a></h2>
+      <h1 class="logo--text">Mystic Seaport for Educators</h1>
+    </div>
+    <nav class="main-navigation">
+      <div class="main-navigation--wrapper">
+        <div class="menu-toggle">
+          <a href="#">Menu</a>
+        </div>
+        <ul class="main-navigation--items">
+          <li class="main-navigation--item 
+            {% if main_nav_selected == 'home' %}main-navigation--selected {% endif %}"><a href="/">Home</a></li>
+          <li class="main-navigation--item dropdown 
+          {% if main_nav_selected == 'museum_resources' %}main-navigation--selected {% endif %}">
+            <a href="#" class="dropdown-button">Museum Resources</a>
 
-<!-- #Mystic header and main nav -->
-<header>
-  <div class="container">
-    <div id="row">
-      <div class="col-lg-2">
-       <a href="http://www.mysticseaport.org"><img src="{% static 'images/logo_mystic.jpg' %}" alt="Mystic Seaport Museum Home" class="mysticlogo"></a>
-      </div>
-      <div class="col-lg-10">
-        <h1><a href="#">Mystic Seaport for Educators</a></h1>
-      </div>
-    </div><!-- /row --> 
-  </div><!-- container --> 
-</header>
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li class="dropdown-list--item">
+                  <a href="{% url 'artifacts:artifact_list' %}">
+                    <i class="icon-artifact dropdown-list--icon" aria-hidden="true"></i>Artifact Articles</a>
+                  </li>
 
-<nav class="yamm navbar navbar-default">
-  <div id="row">
-    <!-- Nav toggle for mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div><!-- #navbar-header -->
+                  <li class="dropdown-list--item">
+                    <a href="{% url 'documents:document_list' %}">
+                      <i class="icon-document dropdown-list--icon" aria-hidden="true"></i>Living Documents</a>
+                  </li>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="col-lg-10 col-lg-offset-2">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/">MSE Home <span class="sr-only">(current)</span></a></li>
-          <li class="dropdown yamm-fw">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Museum Resources <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li>
-                <div class="yamm-content">
-                  <div class="row">
-                    <a href="/artifacts/">
-                      <img src="{% static 'images/icon_artifact.png' %}" alt="artifact articles"  class="menuicon">
-                      Artifact Articles</a>
-                    <a href="/documents/">
-                      <img src="{% static 'images/icon_document.png' %}" alt="living documents" class="menuicon">
-                      Living Documents</a>
-                    <a href="/maps/">
-                      <img src="{% static 'images/icon_map.png' %}" alt="active maps" class="menuicon">
-                      Active Maps</a>
-                    <a href="/scholars/lectures/">
-                      <img src="{% static 'images/icon_lecture.png' %}" alt="scholar lectures" class="menuicon">
-                      Scholar Lectures</a>
-                    <a href="/scholars/interviews/">
-                      <img src="{% static 'images/icon_interview.png' %}" alt="scholar interviews" class="menuicon">
-                      Scholar Interviews</a>
-                  </div>
-                </div>
-              </li>
-            </ul>
+                  <li class="dropdown-list--item">
+                    <a href="{% url 'maps:map_list' %}">
+                      <i class="icon-geomap dropdown-list--icon" aria-hidden="true"></i>Active Maps</a>
+                  </li>
+                  
+                  <li class="dropdown-list--item">
+                    <a href="{% url 'scholars:lecture_list' %}">
+                      <i class="icon-lecture dropdown-list--icon" aria-hidden="true"></i>Scholar Lectures</a>
+                  </li>
+                  
+                  <li class="dropdown-list--item">
+                    <a href="{% url 'scholars:interview_list' %}">
+                      <i class="icon-interview dropdown-list--icon" aria-hidden="true"></i>Scholar Interviews</a>
+                  </li>
+              </ul>
+            </div>
           </li>
-          <li><a href="#">Search Resources</a></li>
-          <li><a href="/sets/">Resource Sets</a></li>
-          <li><a href="#">Lessons</a></li>
-          <li><a href="#">Community</a></li>
-          <li><a href="#">Events</a></li>
-          <li><a href="#">About</a></li>
+
+          <li class="main-navigation--item
+          {% if main_nav_selected == 'search' %}main-navigation--selected {% endif %}"><a 
+            href="{% url 'sitewide:search_list' %}">Search Resources</a></li>
+          <li class="main-navigation--item
+            {% if main_nav_selected == 'resourcesets' %}main-navigation--selected {% endif %}"><a href="{% url 'resources:resourceset_list' %}">Resource Sets</a></li>
+          <li class="main-navigation--item
+          {% if main_nav_selected == 'lessons' %}main-navigation--selected {% endif %}"><a href="{% url 'curriculum:lesson_list' %}">Lessons</a></li>
+
+          <li class="main-navigation--item dropdown
+          {% if main_nav_selected == 'about' %}main-navigation--selected {% endif %}">
+            <a href="#" class="dropdown-button">About</a>
+
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li class="dropdown-list--item">
+                  <a href="{% url 'about:single_detail' 'aboutmse' %}">
+                  <i class="icon-aboutmse dropdown-list--icon" aria-hidden="true"></i>MSE at a Glance</a>
+                </li>
+
+                <li class="dropdown-list--item">
+                  <a href="{% url 'about:event_list' %}">
+                  <i class="icon-event dropdown-list--icon" aria-hidden="true"></i>Upcoming Events</a>
+                </li>
+                <li class="dropdown-list--item">
+                  <a href="{% url 'about:scene_list' %}">
+                  <i class="icon-scene dropdown-list--icon" aria-hidden="true"></i>Behind the Scenes</a>
+                </li>
+                <li class="dropdown-list--item">
+                  <a href="{% url 'community:community_list' %}">
+                  <i class="icon-community dropdown-list--icon" aria-hidden="true"></i>Our Community</a>
+                </li>
+                <li class="dropdown-list--item">
+                  <a href="{% url 'about:single_detail' 'funders' %}">
+                  <i class="icon-funders dropdown-list--icon" aria-hidden="true"></i>Our Funders</a>
+                </li>
+              </ul>
+            </div>
+          </li>
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /col-lg-10 col-lg-offset-2 -->
-  </div><!-- /container -->
-</nav>
+      </div>
+    </nav>
+  </header>
 
+  {% block fullpage %}
 
-{% block fullpage %}
+  <!-- page title area -->
+  <section class="title-area">
+    <header>
+  	{% block title_area %}
+  	{% endblock title_area %}
+    </header>
+  </section>
 
-<!-- page title area -->
-<div class="page-title">
-	<div class="container">
-		<div id="row"> 
-			{% block title-area %}
-			{% endblock title-area %}
-		</div><!-- /row -->
-	</div><!-- container --> 
-</div><!-- page-title --> 
-
-	{% block main-content %}
-		
-
-	{% endblock main-content %}
+  <!-- main content -->
+  {% block content_area %}
+    {# Will be filled in with section content wrapper in list, also section item image in detail #}
+  {% endblock content_area %}
 	
-{% endblock fullpage %}
+  {% endblock fullpage %}
 
-<!-- footer -->
-<footer>
-<div class="container"> 
-<div id="row"> 
+  <!-- footer -->
+  <footer>
+    <section class="content-wrapper">
+      <article class="footer-social">
+        
+        <ul class="footer-social--items">
+          <li class="footer-social--item"><a href="https://www.facebook.com/mysticseaport" target="_blank"><i class="icon-facebook"></i></a></li>
 
-  <div class="col-lg-8 col-sm-6">
+          <li class="footer-social--item"><a href="https://twitter.com/mysticseaport" target="_blank"><i class="icon-twitter"></i></a></li>
 
-    <p>Mystic Seaport 75 Greenmanville Ave. Mystic, CT 06355<br />
-      860.572.0711 | 888.973.2767 | <a href="mailto:info@mysticseaport.org">info@mysticseaport.org</a></p>
-    
-    <ul class="footer-social list-unstyled list-inline">
-      <li class="facebook"><a href="http://www.facebook.com/mystic4educators" target="_blank"><img src="{% static 'images/icon_fb.png' %}"></a></li>
-      <li class="twitter"><a href="https://twitter.com/mystic4educators" target="_blank"><img 
-        src="{% static 'images/icon_twitter.png' %}"></a></li>
-      <li class="youtube"><a href="#"><img src="{% static 'images/icon_youtube.png' %}"></a></li>
-      <li class="flickr"><a href="#"><img src="{% static 'images/icon_flickr.png' %}"></a></li>
-      <li class="googleplus"><a href="#"><img src="{% static 'images/icon_google.png' %}"></a></li>
-    </ul>
-    <p class="footer-copyright">Copyright &copy; 2015 Mystic Seaport. All Rights Reserved</p>
-  </div><!-- cols -->
+          <li class="footer-social--item"><a href="https://www.youtube.com/user/MysticSeaportVideos" target="_blank"><i class="icon-youtube"></i></a></li>
 
-  <div class="col-lg-4 col-sm-6">
-  <h4>Search Mystic Seaport for Educators:</h4>
-        <form id="mse-search" class="mse-search" data-action="/search" action="http://www.google.com/search" method="GET">
-          <input type="hidden" name="sitesearch" value="educators.mysticseaport.org/" />
-          <label for="search-keywords"><input id="search-keywords" type="search" data-name="keywords" name="q" placeholder="Search" aria-label="Search" value="" required="required"></label>
-          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        </form>
-  </div><!-- cols -->
+          <li class="footer-social--item"><a href="https://www.pinterest.com/mysticseaport/" target="_blank"><i class="icon-pinterest"></i></a></li>
 
-</div><!-- row --> 
+          <li class="footer-social--item"><a href="https://plus.google.com/+mysticseaport/posts" target="_blank"><i class="icon-google-plus"></i></a></li>
+        </ul>
+      </article>
 
-</div><!-- container --> 
-</footer><!-- #footer -->
+      <article class="footer-search">
+  <!--  <h3>Search Mystic Seaport for Educators:</h3>
+          <form id="mse-search" class="mse-search" data-action="/search" action="http://www.google.com/search" method="GET">
+            <input type="hidden" name="sitesearch" value="educators.mysticseaport.org/" />
+            <label for="search-keywords"><input id="search-keywords" type="search" data-name="keywords" name="q" placeholder="Search" aria-label="Search" value="" required="required"></label>
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </form> -->
+          
+        <p>Mystic Seaport 75 Greenmanville Ave. Mystic, CT 06355<br />
+          860.572.0711 | 888.973.2767 | <a href="mailto:info@mysticseaport.org">info@mysticseaport.org</a></p>
+        <p>Copyright &copy; 2015 Mystic Seaport. All Rights Reserved</p>
 
-<!-- jQuery (above, necessary for Bootstrap's JavaScript plugins) -->
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{% static 'common/js/bootstrap.min.js' %}"></script>
+      </article>
+    </section>
+  </footer><!-- /footer -->
 
-<!-- for slimbox -->
-<div id="lbOverlay" class="hidden" onclick="javascript:hideOverlay(event);"></div>
-<div id="ajax_wrapper" class="hidden"></div>
+  {% is_production "" as show_production %}
+  {% if show_production %}
+    {% include "_google_analytics.html" %}
+  {% endif %}
 
 </body>
 </html>

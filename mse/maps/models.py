@@ -2,14 +2,13 @@ from django.db import models
 from django.contrib.sites.models import Site
 import datetime
 import sitewide.models
+import core.models
 
-class Geomap(models.Model):
-    STATUS_NUMS = (
-        (1,'1 - Entered'),
-        (2,'2 - TBD'),
-        (3,'3 - Work in progress'),
-        (4,'4 - Published'),
-    )
+class Geomap(core.models.ManyModel):
+    _app_namespace = "maps"
+    _resource_type = "geomap"
+    _resource_type_title = "Map"
+    _static_path = "maps"
     MAP_TYPES = (
         ('Voyage', 'Voyage'),
         ('Story', 'Story'),
@@ -20,8 +19,8 @@ class Geomap(models.Model):
         (1,'1 - Logbook MSE collections'),
         (2,'2 - slim journal pages'),
     )
-    short_name = models.CharField(max_length=32, unique=True)
     title = models.CharField(max_length=128)
+    subtitle = models.CharField(max_length=128, blank=True, default='')
     fusion_table_id = models.CharField(max_length=64, default='add id for fusion table',
             help_text="For Voyages and Compare (not Story). Currently supplied by Don")
     map_type = models.CharField(max_length=16, default='Voyage', choices=MAP_TYPES)
@@ -39,39 +38,26 @@ class Geomap(models.Model):
         help_text="For launch page image. Will preceed credit.")
     credit = models.CharField(max_length=128, blank=True, default='', 
         help_text="For launch page image. Will follow caption.")
-    narrative = models.TextField('About This Map', blank=True, default='')
-    notes = models.TextField('Production Notes', blank=True, default='')
-    edited_by = models.CharField(max_length=64, blank=True, default='')
-    edit_date = models.DateTimeField('edit date', default=datetime.datetime.now)
-    status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
     log_link_type = models.IntegerField(default=0, choices=LOG_LINK_TYPES)
-    ordinal = models.IntegerField('Order in Menu', default=999)
+    # For MPMRC
+    sites = models.ManyToManyField(Site)
+    # extra manys
     profiles = models.ManyToManyField('community.Profile', 
         verbose_name='Choose creating Community Member(s)', blank=True)
-    resourcesets = models.ManyToManyField('resources.Resourceset', 
-        verbose_name='Choose Resource Sets this Map belongs to', blank=True)
-    artifacts = models.ManyToManyField('artifacts.Artifact', 
-        verbose_name='Artifacts related to this Map', blank=True)
-    documents = models.ManyToManyField('documents.Document', 
-        verbose_name='Documents related to this Map', blank=True)
-    connections = models.ManyToManyField('connections.Connection', 
-        verbose_name='PDFs', blank=True)
-    weblinks = models.ManyToManyField('connections.Weblink', blank=True)
-    biblio = models.ManyToManyField('connections.Biblio', 
-        verbose_name='Further Study', blank=True)
-    essays = models.ManyToManyField('connections.Essay', 
-        verbose_name='Background Info', blank=True)
-    audiovisuals = models.ManyToManyField('connections.Audiovisual', 
-        verbose_name='Media (slimbox)', blank=True)
-    maps = models.ManyToManyField('maps.Geomap', 
-        verbose_name='Maps (full page)', blank=True,
-        help_text="Related maps will show on Active map page as well as in sidebar on Launch page.")
-    lectures = models.ManyToManyField('scholars.Lecture', 
-        verbose_name='Lectures (full page)', blank=True)
-    sites = models.ManyToManyField(Site)
 
     class Meta:
          verbose_name = "map"
+
+    # return title without <i> </i>
+    @property
+    def title_no_markup(self):
+        return self.title.replace("<i>", "").replace("</i>", "").replace("<em>", 
+            "").replace("</em>", "")
+
+    # return filename = short name. to be compatible with Artifacts, Docs in search results
+    @property
+    def filename(self):
+        return self.short_name
 
     # return menu object
     @property

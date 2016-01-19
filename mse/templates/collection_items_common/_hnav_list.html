@@ -1,0 +1,33 @@
+{% load staticfiles %}
+
+{% if page_obj.has_previous %}
+  <li class="h-nav--arrow"> <!-- page prev -->
+    <a href="/{{ resource_object.app_namespace }}/hnav/{{ resource_object.short_name }}/{{ form.aug.value }}/{{ form.q.value }}/{{ page_obj.previous_page_number }}">&#9001;</a></li>
+{% else %}
+  <li class="h-nav--arrow-disabled">&#9001;</li>
+{% endif %}
+
+{% for nav_item in resource_object_list %}
+  {% if resource_object.short_name == nav_item.short_name %}
+    <li class="h-nav--item">
+      <img src="{% static resource_object.resource_type %}s/thumbpics/{{ nav_item.filename }}_t.jpg" class="h-nav--item-selected">
+  {% else %}
+    <li class="h-nav--item">
+      <a href="{% url resource_object.app_namespace|add:":"|add:resource_object.resource_type|add:'_detail' nav_item.short_name %}">
+        <img src="{% static resource_object.resource_type %}s/thumbpics/{{ nav_item.filename }}_t.jpg">
+      </a>
+    </li>
+  {% endif %}
+
+{% endfor %}
+
+{% if page_obj.has_next %}
+  <li class="h-nav--arrow"> <!-- page next -->
+      <a href="/{{ resource_object.app_namespace }}/hnav/{{ resource_object.short_name }}/{{ form.aug.value }}/{{ form.q.value }}/{{ page_obj.next_page_number }}">&#9002;</a></li>
+{% else %}
+  <li class="h-nav--arrow-disabled">&#9002;</li>
+{% endif %}
+
+{# page has to be inside the HTML that's updated by Ajax so it's correct in the form that calls the item #}
+<input type = "hidden" name = "page" value = "{{ form.page.value }}" />
+

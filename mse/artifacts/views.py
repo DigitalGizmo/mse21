@@ -3,98 +3,54 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.views import generic
 from django.conf import settings
 from artifacts.models import Artifact
+from core.views import MenuInfoMixin, CollectionSearchMixin, ItemDetailMixin
 
-class ArtifactListView(generic.ListView):
-    model = Artifact
-    template_name = 'list_basic_grid.html'
-    context_object_name = 'resource_object_list'
 
-"""
-def index(request):
-    resource_object_list = Artifact.objects.filter(augmented=True, 
+class ArtifactListView(CollectionSearchMixin, MenuInfoMixin, generic.ListView):
+    """
+    Shares template with Living Documents menu/list
+    Queryset will be filtered further by CollectionSearchMixin
+    """
+    queryset = Artifact.objects.filter( 
         status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
-    return render_to_response('artifacts/index.html', {'resource_object_list': resource_object_list, 
-        'resource_type': 'artifact'})
-"""
+    paginate_by = 12
+    context_object_name = 'resource_object_list'
+    template_name = 'collection_items_common/list_basic_grid.html'
+    # set menu_type for MenuInfoMixin
+    menu_type='artifact'
 
-def index_raw(request):
-    resource_object_list = Artifact.objects.filter(augmented=False, 
-        status_num__gte=settings.STATUS_LEVEL).order_by('title')
-    return render_to_response('artifacts/index_raw.html', {'resource_object_list': resource_object_list, 
-        'resource_type': 'artifact'})
 
 def index_list(request):
     resource_object_list = Artifact.objects.all().order_by('id_number')
-    return render_to_response('artifacts/index_list.html', {'resource_object_list': resource_object_list})
+    return render_to_response('artifacts/index_list.html', 
+        {'resource_object_list': resource_object_list})
 
-def detail(request, short_name):
-    o = get_object_or_404(Artifact, short_name=short_name)
-    # determine whether to show further reading link
-    if o.biblio.all():
-        has_further = True
-    else:
-        has_further = False
-    # both aug and raw
-    related_artifacts = o.artifacts.filter(status_num__gte=settings.STATUS_LEVEL) 
-    related_docs = o.documents.filter(status_num__gte=settings.STATUS_LEVEL) 
-    # augmented or raw
-    if o.augmented == True:       
-        has_items = True # will be false in raw if raw has no related artifacts, docs
-        related_pdfs = o.connections.filter(link_heading='related')  
-        classroom_pdfs = o.connections.filter(link_heading='classroom')  
-        essays = o.essays.all()  
-        audiovisuals = o.audiovisuals.all()  
-        maps = o.maps.all()  
-        lectures = o.lectures.all()  
-        # if o.is_vertical == True:       
-        #    template_name = "detail_vertical"
-        # else:
-        template_name = "detail"
-        return render_to_response('artifacts/' + template_name + '.html', {'resource_object': o, 
-            'related_artifacts': related_artifacts, 'related_docs': related_docs, 
-            'classroom_pdfs': classroom_pdfs, 'related_pdfs': related_pdfs, 'essays': essays, 
-            'audiovisuals': audiovisuals, 'maps': maps, 'lectures': lectures, 
-            'resource_type': 'artifact', 'has_further': has_further, 'page_suffix': 'A', 
-            'has_items': has_items})
-    else:
-        # raw: vertical or horizontal
-        # if o.is_vertical == True:       
-        #    template_name = "detail_raw_vertical"
-        # else:
-        template_name = "detail_raw"
-        # raw: show Items from the Collection header or not
-        if related_artifacts or related_docs:
-            has_items = True
-        else:
-            has_items = False
-        return render_to_response('artifacts/' + template_name + '.html', {'resource_object': o, 
-            'page_suffix': 'A', 'related_artifacts': related_artifacts, 'related_docs': related_docs, 
-            'has_items': has_items})
 
-""" raw view is determined by data field (not separte view) """
+class DetailListView(CollectionSearchMixin, ItemDetailMixin, MenuInfoMixin, generic.ListView):
+    """
+    ListView, using CollectionSearchMixin, gets the current item search set for the 
+    horizontal nav. This gets horizontal nav list as well as item detail.
+    The params (aug, q and page) are handled by the form.
+    """
+    queryset = Artifact.objects.filter( 
+        status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
+    paginate_by = 4
+    context_object_name = 'resource_object_list'
+    # template name set in urlconf
+    # template_name = 'artifacts/artifact_detail.html'
+    # template has conditions to handle diffs for raw artifacts
+    # set resource_type for ItemParamMixin
+    resource_type = "artifact"
+    # set menu_type for MenuInfoMixin
+    menu_type='artifact'
+
 
 def slim(request, short_name):
     o = get_object_or_404(Artifact, short_name=short_name)
     # a condition in slim.html checks for o.is_vertical
     # Pequot version needs siteID in order to supress "go to full page"
     return render_to_response('artifacts/slim.html', {'resource_object': o, 
-        'resource_type': 'artifact', 'siteid': settings.SITE_ID})
-
-def artifact_view(request, short_name, page_suffix):
-    """
-	Supports Ajax call to replace current view
-	"""
-    o = get_object_or_404(Artifact, short_name=short_name)
-    #filename = d.bibid + "_" + page_suffix
-    return render_to_response('artifacts/artifact_view.html', {'resource_object': o, 
-        'page_suffix': page_suffix})
-
-def zoom(request, short_name, page_suffix):
-    """
-	Supports js call to create new zoom window
-	"""
-    o = get_object_or_404(Artifact, short_name=short_name)
-    return render_to_response('artifacts/zoom.html', {'resource_object': o, 'page_suffix': page_suffix})
+        'siteid': settings.SITE_ID})
 
 def ideas(request, short_name):
     #print "short name: " + short_name

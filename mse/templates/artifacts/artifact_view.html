@@ -1,6 +1,0 @@
-{% load staticfiles %}
-
-<img src="{% static 'artifacts/fullpics/' %}{{ resource_object.filename }}_{{ page_suffix }}_f.jpg" alt="image: {{ resource_object.title }}"  />
-{# might need similar to doc block doc_view for vert and horiz to have diff dimensions #}
-
-{% include "artifacts/view_controls.html" %}

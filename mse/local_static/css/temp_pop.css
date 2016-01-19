@@ -1,0 +1,126 @@
+#popwrap	{
+	font-size: 1em;
+	line-height: 150%;
+	padding: 2em;
+	background-color: #FFF;
+	color: #555555;
+	overflow: auto;
+	border: 1px solid #666;
+}
+#popwrap .cardtext	{/*where is this used?*/
+	width: 350px;
+	padding: 0;
+}
+#popwrap h1, #popwrap h2, #popwrap h3, #popwrap h4, #popwrap h5	{
+	font-family: "museo-sans-condensed", "Arial Narrow", Arial, sans-serif;
+	text-transform: none;
+	color:#B23F05;
+}
+#popwrap h1	{ font-size: 200%; font-weight: 700; margin-bottom: .25em;}
+#popwrap h2	{ font-size: 170%; font-weight: 500;}
+#popwrap h3	{ font-size: 140%; font-weight: 500;}
+#popwrap h4	{ font-size: 120%; font-weight: 500; margin-top: 1em; line-height: 120%;}
+#popwrap h5	{ font-size: 100%; font-weight: 700;}
+
+#popwrap a	{
+	color:#4D5E90;
+}
+#popwrap p.close	{ /* for the close link */
+	float: right;
+}
+#popwrap p.credit	{ /* for credits */
+	font-size: 75%;
+	margin: 0;
+	padding: 0;
+	color: #777;
+}
+#popwrap p.subhead	{ /* used in Story Maps printable popup */
+	margin: -.5em 0;
+	padding: 0;
+	font-weight: 700;
+}
+/* for selected view in zoom window */
+span.selected img {opacity:0.5;}
+
+/* for footnotes */
+#popwrap ol { border-top: thin solid #777; color: #777;}
+#popwrap ol li {padding: .5em 0 .25em 0; margin-left: 1em;}
+#popwrap sup {
+	font-size: 75%;
+	vertical-align: super;
+	margin-left: .25em;	
+	line-height: 0;
+}
+#popwrap ul	{list-style-position: outside;}
+#popwrap ul li	{padding-bottom: .75em; margin-left: 20px;}
+
+/* 
+FOR ARTIFACTS & DOCUMENTS IN SLIMPOPS
+*/
+#popwrap h2.slim	{padding-top: 1em; }
+/* artifact/document facts */
+
+#popwrap dl dt {
+	float:left;
+	margin-right:.5em;
+}
+#popwrap a.link_newpage
+{
+	background: url(css_images/link_newpage.gif) no-repeat right;
+	padding-right: 14px;
+}
+#popwrap img.vertical	{
+	float: left;
+	margin-right: 20px;
+	padding-bottom: 20px;
+}
+#popwrap img.view	{
+	border: 1px solid gray;
+}
+/* from pop auxiliry */
+
+#popwrap video	{
+	max-width: 100% !important;
+	height: auto;
+	margin-top: 1em;
+}
+#popwrap p.slidenav	{/* for prev/next nav in slideshow */
+	font-weight: bold;
+	float: right;
+	margin-top: -26px;
+}
+.hidden { 
+	display: none; 
+}
+.unhidden { 
+	display: block; 
+}
+	
+#lbOverlay {
+	position: fixed;
+	z-index: 99; 
+	left: 0;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background:url(../images/overlay.png) repeat; 
+	cursor: pointer;
+}
+.pop_connection, .pop_collection { 
+	z-index: 100;		
+	position: fixed;/* this positions the slimpop relative to viewport, it won't scroll with the page */
+    top:0; left:0; right:0; bottom:0;/* this seems to have no impact, but when deleted, the slimpop won't appear */
+	overflow-x: hidden;
+	overflow-y: auto;
+	display: block;
+}
+.pop_connection { 
+	width:500px;
+	max-height:600px;
+    margin: auto;	
+}
+.pop_collection { 
+	width:700px;
+	max-height:770px;
+    margin: 2% auto;	
+}

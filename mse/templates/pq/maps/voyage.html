@@ -21,7 +21,7 @@
 	<input type="radio" name="logbook_event_type" id="landing"  value="landing"><label for="landing"><img src="{% static 'maps/images/list/land.png' %}" height="15" width="15" alt="landing icon">&nbsp;Ship in Port</label><br/>
 		
 	<h2>Voyage Years</h2>
-	<div class="years">    
+	<div class="map-controls--years">    
 	{% for item in resource_object.logyear_set.all %}
 		<input type="checkbox" name="year_chosen" id="{{item.year}}" value="{{item.year}}"><label for="{{item.year}}">{{item.year}}</label><br/>
 	{% endfor %}						

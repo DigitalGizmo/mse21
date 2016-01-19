@@ -2,18 +2,19 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import Context, loader
 from django.http import Http404
 from django.conf import settings
-#from django.utils import simplejson
 import json
+from django.core import serializers
 from django.contrib.sites.models import Site
 from maps.models import Geomap
 from scholars.models import Lecture, Interview
+from sitewide.models import Menu
 
-from django.core import serializers
 
 def index(request):
     """
-    Unlike the other menus which draw directly on tables, this one is filter via the
+    Unlike the other menus which draw directly on tables, this one is filtered via the
     maps_geomaps_sites association table.
+    Leaving this as a Function Based View -- not converting from legacy because it's complicated!
     """
     # handle multiple sites. Use raw ID which will work on devel as well as public
     item_list = Geomap.objects.filter(map_type='Voyage', status_num__gte=settings.STATUS_LEVEL, 
@@ -28,45 +29,32 @@ def index(request):
             sites__id__exact=settings.SITE_ID).order_by('ordinal')
         interview_list = Interview.objects.filter(status_num__gte=settings.STATUS_LEVEL, 
             sites__id__exact=settings.SITE_ID).order_by('ordinal')
-        return render_to_response('pq/maps/index.html', {'item_list': item_list, 'story_list': story_list, 
-            'lecture_list': lecture_list, 'interview_list': interview_list})
-    else:
-        return render_to_response('maps/menu.html', {'resource_object_list': item_list, 'story_list': story_list})
+        return render_to_response('pq/maps/index.html', {'item_list': item_list, 
+            'story_list': story_list, 'lecture_list': lecture_list, 'interview_list': interview_list})
+    else: # regular MSE menu
+        menu_info = get_object_or_404(Menu, short_name='geomap')
+        return render_to_response('maps/map_list.html', {'resource_object_list': item_list, 
+            'story_list': story_list, 'menu_info': menu_info, 
+            'main_nav_selected': menu_info.main_nav_name})
 
 def detail(request, short_name):
     o = get_object_or_404(Geomap, short_name=short_name)
-    related_artifacts = o.artifacts.filter(status_num__gte=settings.STATUS_LEVEL) 
-    related_docs = o.documents.filter(status_num__gte=settings.STATUS_LEVEL) 
-    related_pdfs = o.connections.filter(link_heading='related')  
-    classroom_pdfs = o.connections.filter(link_heading='classroom')  
-    essays = o.essays.all()  
-    audiovisuals = o.audiovisuals.all()  
-    maps = o.maps.all()  
-    lectures = o.lectures.all()  
-    # determine whether to show further reading link
-    if o.biblio.all():
-        has_further = True
-    else:
-        has_further = False
     # handle multiple sites. Use raw ID which will work on devel as well as public
     if settings.SITE_ID == 2:
         template_path = 'pq/maps/detail.html'
     else:
-        template_path = 'maps/detail.html'
-    return render_to_response(template_path, {'resource_object': o, 'related_artifacts': related_artifacts, 'related_docs': related_docs, 'classroom_pdfs': classroom_pdfs, 'related_pdfs': related_pdfs, 'essays': essays, 'audiovisuals': audiovisuals, 'maps': maps, 'lectures': lectures, 'resource_type': 'map', 'has_further': has_further, 'has_items': True})
+        template_path = 'maps/map_detail.html'
+    return render_to_response(template_path, {'resource_object': o, 
+        'main_nav_selected': 'museum_resources'})
 
 def voyage(request, short_name):
     o = get_object_or_404(Geomap, short_name=short_name)
     if settings.SITE_ID == 2:
-        related_artifacts = o.artifacts.filter(status_num__gte=settings.STATUS_LEVEL) 
-        related_docs = o.documents.filter(status_num__gte=settings.STATUS_LEVEL) 
-        essays = o.essays.all()  
-        audiovisuals = o.audiovisuals.all()  
-        maps = o.maps.all()  
-        lectures = o.lectures.all()  
-        return render_to_response('pq/maps/voyage.html', {'resource_object': o, 'related_artifacts': related_artifacts, 'related_docs': related_docs, 'essays': essays, 'audiovisuals': audiovisuals, 'maps': maps, 'lectures': lectures, 'has_items': True})
+        #lectures = o.lectures.all()  
+        return render_to_response('pq/maps/voyage.html', {'resource_object': o})
     else:
-        return render_to_response('maps/voyage.html', {'resource_object': o})
+        return render_to_response('maps/voyage.html', {'resource_object': o,
+            'main_nav_selected': 'museum_resources'})
 
 def story(request, short_name):
     o = get_object_or_404(Geomap, short_name=short_name)
@@ -74,16 +62,11 @@ def story(request, short_name):
     chap_list = serializers.serialize("json", o.chapter_set.all())
     # pq version gets sidebar connections
     if settings.SITE_ID == 2:
-        related_artifacts = o.artifacts.filter(status_num__gte=settings.STATUS_LEVEL) 
-        related_docs = o.documents.filter(status_num__gte=settings.STATUS_LEVEL) 
-        essays = o.essays.all()  
-        audiovisuals = o.audiovisuals.all()  
-        maps = o.maps.all()  
-        lectures = o.lectures.all()  
-        return render_to_response('pq/maps/story.html', {'resource_object': o, 'chap_data': chap_list, 'related_artifacts': related_artifacts, 'related_docs': related_docs, 'essays': essays, 'audiovisuals': audiovisuals, 'maps': maps, 'lectures': lectures, 'has_items': True})
+        return render_to_response('pq/maps/story.html', {'resource_object': o, 
+            'chap_data': chap_list})
     else:
-        return render_to_response('maps/story.html', {'resource_object': o, 'chap_data': chap_list})
-    # , "chap_data": chap_json
+        return render_to_response('maps/story.html', {'resource_object': o, 
+            'chap_data': chap_list, 'main_nav_selected': 'museum_resources'})
 
 # map index of -2 sent to be compatible with compare_this (-1 sent when match tried but not found)
 def compare(request, short_name):
@@ -94,7 +77,8 @@ def compare(request, short_name):
     else:
         template_path = 'maps/compare.html'
         voyage_list = get_voyage_list(o)
-    return render_to_response(template_path, {'resource_object': o, 'voyage_list': voyage_list, 'map_index': -2})
+    return render_to_response(template_path, {'resource_object': o, 'voyage_list': voyage_list, 
+        'map_index': -2, 'main_nav_selected': 'museum_resources'})
 
 # -1 means we tried compare, but didn't find one
 # -3 means an invalid number param was sent
@@ -117,7 +101,8 @@ def compare_this(request, short_name, map_id):
         template_path = 'pq/maps/compare.html'
     else:
         template_path = 'maps/compare.html'
-    return render_to_response(template_path, {'resource_object': o, 'voyage_list': voyage_list, 'map_index': map_index})
+    return render_to_response(template_path, {'resource_object': o, 'voyage_list': voyage_list, 
+        'map_index': map_index, 'main_nav_selected': 'museum_resources'})
 
 # compare object, map id (-1 for none)
 #sites__id__exact=settings.SITE_ID

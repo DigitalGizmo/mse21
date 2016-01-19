@@ -1,52 +1,86 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block title-area %}
-  <div class="col-lg-4 col-sm-2">
-    <img src="{% static 'images/' %}icon_{{ resource_object_list.0.menu_info.short_name }}.png" alt="resource_type icon" 
-    height="87" width="95">   <!-- resource_type --> 
-  </div>
-  <div class="col-lg-8 col-sm-10">
-  	<h1>{{ resource_object_list.0.menu_info.title }}</h1>
-  	<p>{{ resource_object_list.0.menu_info.menu_blurb|safe }}</p>
-  </div>
-{% endblock title-area %}
+{% block title %}{{ menu_info.title }}{% endblock %}
+
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-{{ menu_info.short_name }}" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <h1>{{ menu_info.title }}</h1>
+    <p>{{ menu_info.menu_blurb|safe }}</p>
+  </section>
+{% endblock title_area %}
 
 
-{% block main-content %}
-<!-- main content -->
-<div class="container main-content">
-  <div id="row"> 
+{% block content_area %}
+<section class="content-wrapper">
+
+  <form action="{{ request.get_full_path }}" method="GET" name="menu">
+  {# csrf_token #} {# JS for item selection will change method to post (and will change action) #}
+    <input type="hidden" name="page" value="{{ page_number }}"/>
+
+
+    {% block fullwidth_menu %}
+
     <!-- content-aside--box -->  
-    <div class="col-lg-4 col-sm-4">
-      <div class="sidebox">
-      {% block content-aside--box-innards %}
-      {% endblock content-aside--box-innards %}  
-      </div><!--sidebox -->
-    </div><!--cols -->
+    <aside class="content-aside">
+      {% block aside_box_area %}
+      {% endblock aside_box_area %}
+    </aside>
 
-    {% block menu %}
-    {% endblock menu %}
+    <section class="content-main">
+      {% block menu %}
+      {% endblock menu %}
 
+      <!-- paging -->
 
-  </div><!--/row-->
+      {% if is_paginated %}
+      {# if pagination is needed on full width menu (e.g. resource sets) will be an include #}
 
-  <!-- paging -->
-  <div id="row" class="paging">
-    <div class="col-lg-4 col-sm-3">
-      <p><a href="#">first</a> | <a href="#">prev</a></p>
-    </div><!--cols -->
-
-    <div class="col-lg-4 col-sm-6 text-center">
-      <p><a href="#" class="selected">1</a> | <a href="#">2</a> | <a href="#">3</a> | <a href="#">4</a></p>
-    </div><!--cols -->
-
-    <div class="col-lg-4  col-sm-3 text-right">
-       <p><a href="#">next</a> | <a href="#">last</a></p>
-   </div><!--cols -->
-
-  </div><!--/row-->
-</div><!-- container main-content-->
+      <nav id="paging">
+        <ul class="previous">
+          {% if page_obj.has_previous %}
+            <li class="page-nav prev-link">
+              <a href="?page={{ page_obj.previous_page_number }}">&lang; prev</a>
+            </li>
+          {% else %}
+            <li class="page-nav--disabled prev-link">&lang; prev</li>
+          {% endif %}
+        </ul>
 
 
-{% endblock main-content %}
+        <ul class="page-numbers">
+          {% for page_number in paginator.page_range %}
+            {% if page_number = page_obj.number %}
+              <li class="page-nav--selected">{{ page_number }}</li>
+            {% else %}
+              <li class="page-nav">
+                <a href="?page={{ page_number }}">{{ page_number }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        <ul class="next">
+          {% if page_obj.has_next %}
+            <li class="page-nav next-link">
+              <a href="?page={{ page_obj.next_page_number }}">next &rang;</a>
+            </li>
+          {% else %}
+            <li class="page-nav--disabled next-link">next &rang;</li>
+          {% endif %}
+
+        </ul>
+      </nav><!--/paging -->
+
+      {% endif %}
+    </section>
+    
+    {% endblock fullwidth_menu %}
+  </form>
+
+</section><!-- /content-wrapper -->
+{% endblock content_area %}

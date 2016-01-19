@@ -2,33 +2,31 @@
 {% load static %}
 
 {% block instructions %}
-	<p>Use the controls below to explore this interactive voyage map. You can also review the <a href="javascript:popBox('maps','about','{{ resource_object.short_name }}')">"About This Map"</a> introductory info.</p>
-	<p class="rel_maps"><strong>Related Maps:</strong> <a href="/maps/compare/compare/{{ resource_object.pk }}/">Compare Voyages Map</a>{% for map in resource_object.maps.all %},
-		<a href="/maps/{{ map.map_type|lower }}/{{ map.short_name }}/">{{ map.map_type }} Map: {{ map.title|safe }}</a> 
-	{% endfor %}
-		
+	<p>Use the controls to the right of the map to explore this interactive voyage map. You can also review the <a href="javascript:popBox('maps','about','{{ resource_object.short_name }}')">"About This Map"</a> introductory info.</p>
 	</p>
 	
 {% endblock %}
 
 {% block map_nav %}
 <form name="map_controls" action="not_submitted" method="POST">
-	<h3>Logbook Events</h3>
-<!--event handlers defined in olcmap.js-->
-	<input type="radio" name="logbook_event_type" id="showall" 	value="showall" checked="checked"><label for="showall">Show All</label><br/>
-	<input type="radio" name="logbook_event_type" id="caught"  	value="caught"><label for="caught"><img src="{% static 'maps/images/list/kill.png' %}" height="15" width="15" alt="caught icon">&nbsp;Whales Caught</label><br/>
-	<input type="radio" name="logbook_event_type" id="spotted"  value="spotted"><label for="spotted"><img src="{% static 'maps/images/list/spot.png' %}" height="15" width="15" alt="spotted icon">&nbsp;Whales Spotted</label><br/>
-	<input type="radio" name="logbook_event_type" id="gam"  	value="gam"><label for="gam"><img src="{% static 'maps/images/list/gam.png' %}" height="15" width="15" alt="gam icon">&nbsp;Gam with Another Ship</label><br/>
-	<input type="radio" name="logbook_event_type" id="weather"  value="weather"><label for="weather"><img src="{% static 'maps/images/list/weather.png' %}" height="15" width="15" alt="weather icon">&nbsp;Foul Weather</label><br/>
-	<input type="radio" name="logbook_event_type" id="landing"  value="landing"><label for="landing"><img src="{% static 'maps/images/list/land.png' %}" height="15" width="15" alt="landing icon">&nbsp;Ship in Port</label><br/>
-		
-	<h3>Voyage Years</h3>
-	<div class="years">    
-	{% for item in resource_object.logyear_set.all %}
-		<input type="checkbox" name="year_chosen" id="{{item.year}}" value="{{item.year}}"><label for="{{item.year}}">{{item.year}}</label><br/>
-	{% endfor %}						
-	</div><!-- /years  -->
+		<h3>Select Events</h3>
+	<!--event handlers defined in olcmap.js-->
+		<input type="radio" name="logbook_event_type" id="showall" 	value="showall" checked="checked"><label for="showall">Show All</label><br/>
+		<input type="radio" name="logbook_event_type" id="caught"  	value="caught"><label for="caught"><img src="{% static 'maps/images/list/kill.png' %}" height="15" width="15" alt="caught icon">&nbsp;Whales Caught</label><br/>
+		<input type="radio" name="logbook_event_type" id="spotted"  value="spotted"><label for="spotted"><img src="{% static 'maps/images/list/spot.png' %}" height="15" width="15" alt="spotted icon">&nbsp;Whales Spotted</label><br/>
+		<input type="radio" name="logbook_event_type" id="gam"  	value="gam"><label for="gam"><img src="{% static 'maps/images/list/gam.png' %}" height="15" width="15" alt="gam icon">&nbsp;Gam with Another Ship</label><br/>
+		<input type="radio" name="logbook_event_type" id="weather"  value="weather"><label for="weather"><img src="{% static 'maps/images/list/weather.png' %}" height="15" width="15" alt="weather icon">&nbsp;Foul Weather</label><br/>
+		<input type="radio" name="logbook_event_type" id="landing"  value="landing"><label for="landing"><img src="{% static 'maps/images/list/land.png' %}" height="15" width="15" alt="landing icon">&nbsp;Ship in Port</label><br/>
+	
+	<div class="map-controls--years">
+		<h3 class="map-controls--title">Select Years</h3>
+		{% for item in resource_object.logyear_set.all %}
+			<input type="checkbox" name="year_chosen" id="{{item.year}}" value="{{item.year}}"><label for="{{item.year}}">{{item.year}}</label><br/>
+		{% endfor %}						
+	</div><!-- /map-controls--years  -->
 </form>
+
 <!-- ENTRIES LIST SIDEBAR  -->
+	<h3 class="map-controls--title">Logbook Dates</h3>
 	<div id="side_bar"></div><!--end side_bar-->
 {% endblock %}

@@ -1,7 +1,9 @@
 .title-area {
   background-color: $toned-blue;
   margin-bottom: $base-spacing;
-    
+  min-height: 165px;
+  padding: $small-spacing 0;
+
   header  {
     @include outer-container;
     
@@ -14,38 +16,53 @@
       font-size: rem(12);
     }
   }
+
+  @media print {
+    background-color: transparent;
+    border-bottom: thin solid $primary-color;
+    border-top: thin solid $primary-color;
+    height: auto;
+  }
 }
 
-.title-area--logo {
+.title-area--icon {
   @include span-columns(4);
+}
+
+.title-area--icon-img  {
+  color: $primary-color;
+  font-family: icomoon;
+  font-size: 5em;
+  font-style: normal;
+  line-height: $small-line-height;
 }
 
 .title-area--text {
   color: $primary-color;
   @include span-columns(8);
 
-    h1 {
-      font-size: $large-font-size;
-      font-weight: 600;
-      margin: 0;
-    }
+  h1 {
+    font-size: $large-font-size;
+    font-weight: 600;
+    margin: 0;
+  }
 
-    h3 {
-      font-size: $large-font-size;
-      font-weight: 100;
-      font-style: italic;
-      margin: 0;
-    }
+  h3 {
+    font-size: $medlarge-font-size;
+    font-weight: 100;
+    font-style: italic;
+    margin: 0;
+  }
 
-    a {
-      color: $primary-color;
+  a {
+    color: $primary-color;
 
-      &:hover {
-        text-decoration: underline;
-      }
+    &:hover {
+      text-decoration: underline;
     }
+  }
 }
 
-.no-logo {
+.no-icon {
   @include shift(4);
 }

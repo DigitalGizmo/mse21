@@ -1,0 +1,75 @@
+{% extends "list_base.html" %}
+{% load staticfiles %}
+
+{% block aside_box_area %}
+  <section class="content-aside--box search">
+    <h2 class="content-wrapper--head">Search</h2>
+
+    <input type="search" name="q" value="{{ form.q.value }}" id="id_q" 
+      placeholder="Search lessons" class="search-field"/>
+      
+    <input type="submit" value="Go" />
+    <p id="clear"><a href="#">clear search</a></p>
+
+    <h2 class="content-wrapper--head">Narrow Your
+      {% if form.q.value %}
+        Search
+      {% else %}
+        View
+      {% endif %}
+    </h2>
+    <nav>
+      <h3>By Grade Level</h3>
+      {{ form.gls }}
+
+      <h3>By Subject</h3>
+      {{ form.sjs }}
+    </nav>
+  </section>
+{% endblock aside_box_area %}  
+
+{% block menu %}
+  <h2 class="content-wrapper--head">
+    {{ result_count }} 
+    {% if form.q.value %}
+      Lessons found matching your search
+    {% else %}
+      Lessons in this view
+    {% endif %}
+  </h2>
+
+  <ul class="item-menu--list-pics">
+  {% for item in resource_object_list %}
+    <li>
+      <ul class="list-pic">
+        <li class="list-pic--img">
+          <a href="{% url 'curriculum:lesson_detail' item.short_name %}">
+          <img src="{% static 'curriculum/lessons/menupics/' %}{{ item.short_name }}_m.jpg" 
+            alt="Menu image for {{ item.title }}"/></a>
+        </li>
+        <li class="list-pic--title"><a href="{% url 'curriculum:lesson_detail' item.short_name %}">{{ item.title|safe }}{% if item.subtitle %}: <span class="list-pic--subtitle">{{ item.subtitle|safe }}</span>{% endif %}</a>
+        </li>
+        <li class="list-pic--details">
+          Created by: 
+          {% for profile in item.profiles.all %}
+            <a href="/community/profiles/{{ profile.short_name }}/">
+            {{ profile.profile_name|safe }}</a>{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </li>
+        <li class="list-pic--details">
+          Grade Level: 
+          {% for level in item.gradelevels.all %}
+            {{ level.title|safe }}{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </li>
+        <li class="list-pic--details">
+          Subjects: 
+          {% for subject in item.subjects.all %}
+            {{ subject.title|safe }}{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+      </li>
+      </ul>
+  {% endfor %}
+  </ul>     
+{% endblock menu %}
+

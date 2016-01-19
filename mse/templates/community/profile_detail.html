@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ resource_object.resource_type|title }}: {{ resource_object.title|safe }}{% endblock %}
+
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-community" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <p class="breadcrumbs">
+      <a href="{% url resource_object.app_namespace|add:':'|add:'community_list' %}">Our Community</a>
+    </p>
+    <h1>Community Member Profile: {{ resource_object.title|safe }}</h1>
+    <p>{{ resource_object.profile_name}}, {{ resource_object.institution}}, {{ resource_object.location}}</p>
+  </section>
+{% endblock title_area %}
+
+
+{% block content_area %}
+<!-- main content -->
+  <!-- page content --> 
+  <section class="content-wrapper">
+
+    <aside class="content-aside">
+      <img src="{% static 'community/profiles/fullpics/' %}{{ resource_object.short_name }}_f.jpg" alt="image of {{ resource_object.profile_name}}">
+    </aside>
+
+
+    <section class="content-main"><!-- main content column -->
+
+      <h2 class="content-wrapper--head">About {{ resource_object.profile_name}}</h2>
+      {{ resource_object.narrative|safe}}
+
+      <h2 class="content-wrapper--head">This Member's Projects</h2>
+      <ul class="item-menu--grid">
+
+      {% for project in project_list %}
+        <li class="item-menu--item naked">
+          <a href="/community/projects/{{ project.short_name }}/">
+            <img src="{% static 'community/projects/menupics/' %}{{ project.short_name }}_m.jpg" alt="image of {{ project.title }}"/>
+            <span class="foo">Classroom Project:</span>{{ project.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      {% for artifact in artifact_list %}
+        <li class="item-menu--item naked">
+          <a href="/artifacts/{{ artifact.short_name }}/">
+            <img src="{% static 'artifacts/menupics/' %}{{ artifact.filename }}_m.jpg" alt="image of {{ artifact.title }}"/>
+            <span class="foo">Artifact Article:</span>{{ artifact.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      {% for document in document_list %}
+        <li class="item-menu--item naked">
+          <a href="/documents/{{ document.short_name }}/">
+            <img src="{% static 'documents/menupics/' %}{{ document.filename }}_m.jpg" alt="image of {{ document.title }}"/>
+            <span class="foo">Living Document:</span>{{ document.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      {% for geomap in geomap_list %}
+        <li class="item-menu--item naked">
+          <a href="/maps/{{ geomap.short_name }}/">
+            <img src="{% static 'maps/menupics/' %}{{ geomap.short_name }}_m.jpg" alt="image of {{ geomap.title }}"/>
+            <span class="foo">Map:</span>{{ geomap.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      {% for interview in interview_list %}
+        <li class="item-menu--item naked">
+          <a href="/scholars/interviews/{{ interview.short_name }}/">
+            <img src="{% static 'scholars/interviews/menupics/' %}{{ interview.short_name }}_m.jpg" alt="image of {{ interview.title }}"/>
+            <span class="foo">Interview:</span>{{ interview.scholar|safe }}
+          </a>
+        </li>
+      {% endfor %}
+      {% for lesson in lesson_list %}
+        <li class="item-menu--item naked">
+          <a href="/curriculum/lesson/{{ lesson.short_name }}/">
+            <img src="{% static 'curriculum/lessons/menupics/' %}{{ lesson.short_name }}_m.jpg" alt="image of {{ lesson.title }}"/>
+            <span class="foo">Lesson:</span>{{ lesson.title|safe }}
+          </a>
+        </li>
+      {% endfor %}
+
+      </ul>
+
+    </section><!-- /main content column -->
+  </section><!-- /content-wrapper -->
+
+{% endblock content_area %}

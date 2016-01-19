@@ -1,26 +1,25 @@
 {% extends "list_base.html" %}
 {% load staticfiles %}
 
-{% block content-aside--box-innards %}
-  <div class="sidebox">
-    <h2>Thanks</h2>
-    <p>Audio lectures, etc.</p>
-    <p>followed by logos.</p>
-  </div><!--sidebox -->
-{% endblock content-aside--box-innards %}  
+{% block aside_box_area %}
+  <section class="content-aside--box">
+    <h2 class="content-wrapper--head">Funders for this Feature</h2>
+    {{ menu_info.aside_blurb|safe }}
+  </section>
+{% endblock aside_box_area %}  
 
 
 {% block menu %}
-  <div class="col-lg-8">
-    <ul class="list-unstyled menu">
-   {% for resource_object in resource_object_list %}
-	<li class="col-lg-3">
-		<a href="/artifacts/{{ resource_object.short_name }}/"><img 
-		src="{% static resource_object_list.0.menu_info.short_name %}s/menupics/{{ resource_object.filename }}_m.jpg" alt="image: {{ resource_object.short_name }}" class="img-responsive"><br/>
-		<h4>{{ resource_object.title|safe }}</h4></a>
-	</li>
-   {% endfor %}
+  <ul class="item-menu--grid">
+  {% for item in resource_object_list %}
+    <li class="item-menu--item naked">
+      <a href="{% url 'scholars:lecture_detail' item.short_name %}">
+        <img src="{% static 'scholars/lectures/menupics/' %}{{ item.short_name }}_m.jpg" alt="image: {{ item.short_name }}" />
+        {{ item.title|safe }}
+      </a>
+      by <a href="javascript:popBox('connections','moreinfo','{{ item.scholar_short_name }}')"  class="item-menu--detail">{{ item.scholar }}</a>
+    </li>
+  {% endfor %}
     </ul>     
-  </div><!--cols -->
 {% endblock menu %}
 

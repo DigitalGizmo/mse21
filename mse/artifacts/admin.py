@@ -18,20 +18,29 @@ class IdeaInline(admin.TabularInline):
 
 class ArtifactAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,            {'fields': ['title', 'filename', 'short_name','id_number', 'object_name', 'date_made', 'maker', 'materials', 'measurements', 'assoc_place', 'description', 'narrative']}),
+        (None,            {'fields': ['title', 'subtitle', 'filename', 'short_name',
+            'id_number', 'object_name', 'date_made', 'maker', 'materials', 'measurements', 
+            'assoc_place', 'initial_zoom', 'initial_x', 'initial_y', 'description', 
+            'narrative']}),
         ('Content Creator(s)',   {'fields': ['profiles'], 'classes': ['collapse']}),
         ('Resource Sets',   {'fields': ['resourcesets'], 'classes': ['collapse']}),
-        ('Related Items from Collection',   {'fields': ['artifacts', 'documents'], 'classes': ['collapse']}),
-        ('Related Resources',   {'fields': ['biblio','essays', 'audiovisuals', 'lectures', 'maps'], 'classes': ['collapse']}),
-        ('Related Resources or Classroom',   {'fields': ['connections'], 'classes': ['collapse']}),
+        ('Related Items from Collection',   {'fields': ['artifacts', 'documents'], 
+            'classes': ['collapse']}),
+        ('Related Resources',   {'fields': ['biblio','essays', 'audiovisuals', 
+            'lectures', 'maps'], 'classes': ['collapse']}),
+        ('Related Lesson, other PDFs',   {'fields': ['connections', 'lessons'], 'classes': 
+            ['collapse']}),
         ('Weblinks',   {'fields': ['weblinks'], 'classes': ['collapse']}),
-        ('Behind the scenes',   {'fields': ['is_vertical', 'augmented', 'ordinal', 'edit_date', 'status_num', 'edited_by', 'notes'], 'classes': ['collapse']}),
+        ('Behind the scenes',   {'fields': ['is_vertical', 'augmented', 'ordinal', 
+            'edit_date', 'status_num', 'edited_by', 'notes'], 'classes': ['collapse']}),
     ]
     inlines = [QuestionInline, IdeaInline, PageInline]
-    list_display = ('title', 'id_number', 'filename', 'short_name', 'status_num', 'description')
+    list_display = ('title', 'id_number', 'filename', 'short_name', 'status_num', 
+        'description')
     list_filter	 = ['augmented'] # , 'edit_date'
     search_fields = ['id_number', 'title', 'short_name']
-    filter_horizontal = ['resourcesets', 'artifacts', 'documents', 'connections','weblinks','biblio', 'essays', 'audiovisuals', 'lectures', 'maps', 'profiles']
+    filter_horizontal = ['resourcesets', 'artifacts', 'documents', 'connections',
+    'weblinks','biblio', 'essays', 'audiovisuals', 'lectures', 'maps', 'profiles', 'lessons']
 
 admin.site.register(Artifact, ArtifactAdmin)
 

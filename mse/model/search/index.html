@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Search Results</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="/model/model_local_static/css/application.css">
+    <script src="/model/model_local_static/js/jquery-1.11.3.min.js"></script>
+    <script src="/model/model_local_static/js/application.js"></script>
+    <script src="/model/model_local_static/js/jquery.fittext.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <header id="banner">
+      <div class="logo">
+        <h2 class="logo--image"><img id="logo--image-img" src="/model/model_local_static/images/logo_mystic.jpg"></h2>
+        <h1 class="logo--text">Mystic Seaport for Educators</h1>
+      </div>
+      <nav class="main-navigation">
+        <div class="main-navigation--wrapper">
+          <div class="menu-toggle">
+            <a href="#">Menu</a>
+          </div>
+          <ul class="main-navigation--items">
+            <li class="main-navigation--item"><a href="">Home</a></li>
+            <li class="main-navigation--item dropdown">
+              <a href="#" class="dropdown-button">Museum Resources</a>
+
+              <div class="dropdown-menu">
+                <ul class="dropdown-list">
+                  <li class="dropdown-list--item">
+                      <a href="/model/artifacts/index-k.html">
+                      <img src="/model/model_local_static/images/icon_artifact.png" alt="artifact articles">Artifact Articles</a>
+                    </li>
+
+                    <li class="dropdown-list--item">
+                      <a href="/model/documents/index.html">
+                        <img src="/model/model_local_static/images/icon_document.png" alt="living documents">Living Documents</a>
+                    </li>
+
+                    <li class="dropdown-list--item">
+                      <a href="/model/maps/index.html">
+                        <img src="/model/model_local_static/images/icon_map.png" alt="active maps">Active Maps</a>
+                    </li>
+                    
+                    <li class="dropdown-list--item">
+                      <a href="/model/scholars/lectures/index.html">
+                        <img src="/model/model_local_static/images/icon_lecture.png" alt="scholar lectures">Scholar Lectures</a>
+                    </li>
+                    
+                    <li class="dropdown-list--item">
+                      <a href="/model/scholars/interviews/index.html">
+                        <img src="/model/model_local_static/images/icon_interview.png" alt="scholar interviews">Scholar Interviews</a>
+                    </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="main-navigation--item"><a href="/model/search/index.html">Search Resources</a></li>
+            <li class="main-navigation--item"><a href="/model/resourcesets/index.html">Resource Sets</a></li>
+            <li class="main-navigation--item"><a href="/model/lessons/index.html">Lessons</a></li>
+
+            <li class="main-navigation--item dropdown">
+              <a href="#" class="dropdown-button">About</a>
+
+              <div class="dropdown-menu">
+                <ul class="dropdown-list">
+                  <li class="dropdown-list--item">
+                    <a href="">
+                    <img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">MSE at a Glance</a>
+                  </li>
+
+                  <li class="dropdown-list--item">
+                    <a href="/model/about/events/index.html"><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Events</a>
+                  </li>
+                  <li class="dropdown-list--item">
+                    <a href=""><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Behind the Scenes</a>
+                  </li>
+                  <li class="dropdown-list--item">
+                    <a href="/model/community/profiles/index.html"><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Our Community</a>
+                  </li>
+                  <li class="dropdown-list--item">
+                    <a href=""><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Our Funders</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <section class="title-area">
+      <header>
+        <aside class="title-area--icon">
+          <img src="/model/model_local_static/images/icon_search.png" alt="search resources">
+        </aside>
+
+        <section class="title-area--text">
+          <h1>Search Resources</h1>
+        </section>
+      </header>
+    </section>
+
+    <section class="content-wrapper">
+      <aside class="content-aside">
+        <section class="content-aside--box search">
+          <h2 class="content-wrapper--head">Search</h2>
+          <p>127 Items found matching your search</p>
+          <input type="search" name="q" value="" id="some_id" placeholder="Search resources" aria-label="Search" class="search-resources--field"/>
+            
+          <h2 class="content-wrapper--head">Narrow Search</h2>
+            <ul class="search-resources--filters">
+              <li><input type="checkbox" name="type" value="artifacts"> <label>Artifacts</label></li>
+              <li><input type="checkbox" name="type" value="documents"> <label>Documents</label></li>
+              <li><input type="checkbox" name="type" value="maps"> <label>Maps</label></li>
+              <li><input type="checkbox" name="type" value="lectures"> <label>Lectures</label></li>
+              <li><input type="checkbox" name="type" value="interviews"> <label>Interviews</label></li>
+            </ul>
+          
+          <input type="submit" value="Go"/>
+
+        </section>
+      </aside>
+
+      <section class="content-main">
+        <h2 class="content-wrapper--head">Results</h2>
+        <table class="search-resources">
+          <tr class="search-resources--heads">
+            <th class="search-resources--pic">&nbsp;</th>
+            <th class="search-resources--title"><a href="">Title</a></th>
+            <th class="search-resources--type"><a href="">Type</a></th>
+            <th class="search-resources--content-by">Content by</th>
+          </tr>
+        
+          <tr>
+            <td>
+              <a href="/artifacts/cwm_ship/" class="">
+              <img src="/model/artifact_static/thumbpics/1934_56_t.jpg" alt="image: cwm_ship"/></a>
+            </td>
+            <td class="search-resources--title">
+              <a href="/artifacts/cwm_ship/" class="">
+              The <em>Charles W. Morgan</em></a>
+            </td>
+            <td class="search-resources--type">
+              artifact
+            </td>
+            <td class="search-resources--content-by">
+              Dr. Paul Goodwin
+            </td>  
+          </tr>
+    
+          <tr>
+            <td>
+              <a href="/artifacts/dgiron_ajp/" class="">
+              <img src="/model/artifact_static/thumbpics/1939_907_t.jpg" alt="image: dgiron_ajp"/></a>
+            </td>
+            <td class="search-resources--title">
+              <a href="/artifacts/dgiron_ajp/" class="">
+              Changing Whaling Technology</a>
+            </td>
+            <td class="search-resources--type">
+              artifact
+            </td>
+            <td class="search-resources--content-by">
+              Peter Emanuel
+            </td>  
+          </tr>
+      
+          <tr>
+            <td>
+              <a href="/artifacts/cwm_deck_earles/" class="">
+              <img src="/model/artifact_static/thumbpics/1939_1256_t.jpg" alt="image: cwm_deck_earles"/></a>
+            </td>
+            <td class="search-resources--title">
+              <a href="/artifacts/cwm_deck_earles/" class="">
+              Meet the Earles</a>
+            </td>
+            <td class="search-resources--type">
+              artifact
+            </td>
+            <td class="search-resources--content-by">
+              Emily Schimelman
+            </td>  
+          </tr>
+     
+          <tr>
+            <td>
+              <a href="/artifacts/spicer_inuit_outfit/" class="">
+              <img src="/model/artifact_static/thumbpics/1939_1385_t.jpg" alt="image: spicer_inuit_outfit"/></a>
+            </td>
+            <td class="search-resources--title">
+              <a href="/artifacts/spicer_inuit_outfit/" class="">
+              Cross-Cultural Clothing </a>
+            </td>
+            <td class="search-resources--type">
+              artifact
+            </td>
+            <td class="search-resources--content-by">
+              Sally Motycka
+            </td>  
+          </tr>
+    
+          <tr>
+            <td>
+              <a href="/artifacts/evacuation_boston_scrimshaw/" class="">
+              <img src="/model/artifact_static/thumbpics/1939_1256_t.jpg" alt="image: evacuation_boston_scrimshaw"/></a>
+            </td>
+            <td class="search-resources--title">
+              <a href="/artifacts/evacuation_boston_scrimshaw/" class="">
+              "The Evacuation of Boston"</a>
+            </td>
+            <td class="search-resources--type">
+              artifact
+            </td>
+            <td class="search-resources--content-by">
+              Dr. Paul Goodwin
+            </td>  
+          </tr>
+
+        </table>
+      </section><!-- /content-main -->
+    </section><!-- /content-wrapper -->
+
+    <footer>
+      <section class="content-wrapper">
+        <article class="footer-social">
+          
+          <ul class="footer-social--items">
+            <li class="footer-social--item"><a href="http://www.facebook.com/mystic4educators" target="_blank"><img src="/model/model_local_static/images/icon_fb.png"></a></li>
+            <li class="footer-social--item"><a href="https://twitter.com/mystic4educators" target="_blank"><img src="/model/model_local_static/images/icon_twitter.png"></a></li>
+            <li class="footer-social--item"><a href="#"><img src="/model/model_local_static/images/icon_youtube.png"></a></li>
+            <li class="footer-social--item"><a href="#"><img src="/model/model_local_static/images/icon_flickr.png"></a></li>
+            <li class="footer-social--item"><a href="#"><img src="/model/model_local_static/images/icon_google.png"></a></li>
+          </ul>
+        </article>
+
+        <article class="footer-search"
+        <h3>Search Mystic Seaport for Educators:</h3>
+              <form id="mse-search" class="mse-search" data-action="/search" action="http://www.google.com/search" method="GET">
+                <input type="hidden" name="sitesearch" value="educators.mysticseaport.org/" />
+                <label for="search-keywords"><input id="search-keywords" type="search" data-name="keywords" name="q" placeholder="Search" aria-label="Search" value="" required="required"></label>
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </form>
+          
+          <p>Mystic Seaport 75 Greenmanville Ave. Mystic, CT 06355<br />
+            860.572.0711 | 888.973.2767 | <a href="mailto:info@mysticseaport.org">info@mysticseaport.org</a></p>
+
+          <p>Copyright &copy; 2015 Mystic Seaport. All Rights Reserved</p>
+
+      </section>
+    </footer><!-- /footer -->
+
+    <script type="text/javascript">
+      $(".logo--text").fitText(1.4, { minFontSize: '20px', maxFontSize: '68px' });
+    </script>
+
+  </body>
+</html>

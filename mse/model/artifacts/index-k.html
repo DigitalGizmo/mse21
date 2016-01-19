@@ -27,42 +27,42 @@
           </div>
           <ul class="main-navigation--items">
             <li class="main-navigation--item"><a href="">Home</a></li>
-            <li class="main-navigation--item dropdown">
+            <li class="main-navigation--item dropdown main-navigation--selected">
               <a href="#" class="dropdown-button">Museum Resources</a>
 
               <div class="dropdown-menu">
                 <ul class="dropdown-list">
                   <li class="dropdown-list--item">
-                    <a href="">
+                      <a href="/model/artifacts/index-k.html">
                       <img src="/model/model_local_static/images/icon_artifact.png" alt="artifact articles">Artifact Articles</a>
                     </li>
 
                     <li class="dropdown-list--item">
-                      <a href="">
+                      <a href="/model/documents/index.html">
                         <img src="/model/model_local_static/images/icon_document.png" alt="living documents">Living Documents</a>
                     </li>
 
                     <li class="dropdown-list--item">
-                      <a href="">
+                      <a href="/model/maps/index.html">
                         <img src="/model/model_local_static/images/icon_map.png" alt="active maps">Active Maps</a>
                     </li>
                     
                     <li class="dropdown-list--item">
-                      <a href="">
+                      <a href="/model/scholars/lectures/index.html">
                         <img src="/model/model_local_static/images/icon_lecture.png" alt="scholar lectures">Scholar Lectures</a>
                     </li>
                     
                     <li class="dropdown-list--item">
-                      <a href="">
+                      <a href="/model/scholars/interviews/index.html">
                         <img src="/model/model_local_static/images/icon_interview.png" alt="scholar interviews">Scholar Interviews</a>
                     </li>
                 </ul>
               </div>
             </li>
 
-            <li class="main-navigation--item"><a href="">Search Resources</a></li>
-            <li class="main-navigation--item"><a href="">Resource Sets</a></li>
-            <li class="main-navigation--item"><a href="">Lessons</a></li>
+            <li class="main-navigation--item"><a href="/model/search/index.html">Search Resources</a></li>
+            <li class="main-navigation--item"><a href="/model/resourcesets/index.html">Resource Sets</a></li>
+            <li class="main-navigation--item"><a href="/model/lessons/index.html">Lessons</a></li>
 
             <li class="main-navigation--item dropdown">
               <a href="#" class="dropdown-button">About</a>
@@ -75,13 +75,13 @@
                   </li>
 
                   <li class="dropdown-list--item">
-                    <a href=""><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Events</a>
+                    <a href="/model/about/events/index.html"><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Events</a>
                   </li>
                   <li class="dropdown-list--item">
                     <a href=""><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Behind the Scenes</a>
                   </li>
                   <li class="dropdown-list--item">
-                    <a href=""><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Our Community</a>
+                    <a href="/model/community/profiles/index.html"><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Our Community</a>
                   </li>
                   <li class="dropdown-list--item">
                     <a href=""><img src="/model/model_local_static/images/icon_placeholder.png" alt="artifact articles">Our Funders</a>
@@ -96,7 +96,7 @@
 
     <section class="title-area">
       <header>
-        <aside class="title-area--logo">
+        <aside class="title-area--icon">
           <img src="/model/model_local_static/images/icon_artifact.png" alt="artifact articles">
         </aside>
 
@@ -109,81 +109,102 @@
     </section>
 
     <section class="content-wrapper">
+
       <aside class="content-aside">
         <section class="content-aside--box search">
-          <h2 class="content-aside--title">Search</h2>
-          <p>127 Artifact Articles</p>
+          <h2 class="content-wrapper--head">View</h2>
+          <form>
+             <ul>
+                <li><input type = "radio"
+                       name = "articles"
+                       id = "articles"
+                       value = "articles"
+                       checked = "checked" />
+                <label for = "articles">Artifact Articles (32)</label></li>
+                <li><input type = "radio"
+                       name = "records"
+                       id = "records"
+                       value = "records" />
+                <label for = "records">Artifact Records (104)</label></li>
+                <li><input type = "radio"
+                       name = "all"
+                       id = "all"
+                       value = "all" />
+                <label for = "all">All Artifacts (136)</label></li>
+              </ul>       
+          </form>
 
-          <nav>
-            <h3>Sort By</h3>
-            <ul>
-              <li>Title</li>
-              <li>Item's Date</li>
-            </ul>
-            <input type="search" name="" id="" value="" />
-          </nav>
-          <div id="dimensions"><p>Dimensions will go here.</p></div>
+          <h2 class="content-wrapper--head">Search</h2>
+          <form class="item-search" data-action="/search" action="" method="GET">
+              <input type="hidden" name="itemsearch" value="educators.mysticseaport.org/" class="item-search--field" />
+              <label for="search-keywords"><input type="search" data-name="keywords" name="q" placeholder="Search museum resources" aria-label="Search" value=""></label>
+              <button>Go</button>
+          </form>
 
-        </section>
-
-        <section class="content-aside--box facts">
-          <h2 class="content-aside--title">Artifact Facts</h3>
-          <p>127 Artifact Articles</p>
-
-          <nav>
-            <h3>Sort By</h3>
-            <ul>
-              <li>Title</li>
-              <li>Item's Date</li>
-            </ul>
-            <input type="search" name="" id="" value="" />
-          </nav>
+          <h2 class="content-wrapper--head">Sort</h2>
+          <p>by: <a href="">artifact's title</a> | <a href="">artifacts's date</a></p>
         </section>
       </aside>
 
       <section class="content-main">
+        <!-- block menu -->      
         <ul class="item-menu--grid">
-          <li class="item-menu--item">
-            <a href="artifact.html" class="item-menu--link">
+          <li class="item-menu--item basic">
+            <a href="artifact.html">
               <img src="http://fillmurray.com/150/150" alt="Bill" />
               Temple Toggle Iron
             </a>
           </li>
-          <li class="item-menu--item">
-            <a href="" class="item-menu--link">
+          <li class="item-menu--item basic">
+            <a href="">
               <img src="http://fillmurray.com/150/150" alt="Bill" />
               Temple Toggle Long Title Iron
             </a>
           </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
+          <li class="item-menu--item basic">
+            <a href="">
+              <img src="http://fillmurray.com/150/150" alt="Bill" />
+              Temple Toggle Iron
+            </a>
           </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
+          <li class="item-menu--item basic">
+            <a href="">
+              <img src="http://fillmurray.com/150/150" alt="Bill" />
+              Temple Toggle Iron
+            </a>
           </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
+          <li class="item-menu--item basic">
+            <a href="">
+              <img src="http://fillmurray.com/150/150" alt="Bill" />
+              Temple Toggle Iron
+            </a>
           </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
+          <li class="item-menu--item basic">
+            <a href="">
+              <img src="http://fillmurray.com/150/150" alt="Bill" />
+              Temple Toggle Iron
+            </a>
           </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
+          <li class="item-menu--item basic">
+            <a href="">
+              <img src="http://fillmurray.com/150/150" alt="Bill" />
+              Temple Toggle Iron
+            </a>
           </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
+          <li class="item-menu--item basic">
+            <a href="">
+              <img src="http://fillmurray.com/150/150" alt="Bill" />
+              Temple Toggle Iron
+            </a>
           </li>
-          <li class="item-menu--item">
-            <img src="http://fillmurray.com/150/150" alt="Bill" />
-            <h4>Temple Toggle Iron</h4>
+          <li class="item-menu--item basic">
+            <a href="">
+              <img src="http://fillmurray.com/150/150" alt="Bill" />
+              Temple Toggle Iron
+            </a>
           </li>
         </ul>
+        <!-- endblock menu -->      
       </section>
     </section><!-- /content-wrapper -->
 

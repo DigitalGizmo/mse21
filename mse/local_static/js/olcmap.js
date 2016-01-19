@@ -573,7 +573,7 @@ function init_voyage() {
 	addVoyageHandlers(document.map_controls);
 	// render first year
 	addDateLayer(0); 
-	$('div.years input:first').prop('checked', true);	
+	$('div.map-controls--years input:first').prop('checked', true);	
 }
 
 // register logbook event type radio buttons
@@ -862,33 +862,33 @@ function createVoyageMarker(layerIndex, row) {
 		iwHtml.push('</dl> ');
 		
 		if (row[10] > 0){
-			iwHtml.push('<dl class="icons">  <dt><img src="/static/maps/images/infowin/spot.png" height="25" width="25" alt="whales spotted icon"/></dt> ');
-			iwHtml.push('  <dt>Whales Spotted:</dt> ');
+			iwHtml.push('<dl class="icons"> ');
+			iwHtml.push('  <dt><img src="/static/maps/images/infowin/spot.png" height="25" width="25" alt="whales spotted icon"/>Whales Spotted:</dt> ');
 			iwHtml.push('  <dd>' + row[11] + '</dd> </dl>');
 		}
 		if (row[12] > 0){
-			iwHtml.push(' <dl class="icons"> <dt><img src="/static/maps/images/infowin/kill.png" height="25" width="25" alt="whales caught icon"/></dt> ');
-			iwHtml.push('  <dt>Whales Caught:</dt> ');
+			iwHtml.push(' <dl class="icons"> ');
+			iwHtml.push('  <dt><img src="/static/maps/images/infowin/kill.png" height="25" width="25" alt="whales caught icon"/>Whales Caught:</dt> ');
 			iwHtml.push('  <dd>' + row[13] + '</dd> </dl>');
 		}
 		if (row[14] > 0){
-			iwHtml.push(' <dl class="icons"> <dt><img src="/static/maps/images/infowin/oil.png" height="25" width="25" alt="oil barrel icon"/></dt> ');
-			iwHtml.push('  <dt>Oil:</dt> ');
+			iwHtml.push(' <dl class="icons"> ');
+			iwHtml.push('  <dt><img src="/static/maps/images/infowin/oil.png" height="25" width="25" alt="oil barrel icon"/>Oil:</dt> ');
 			iwHtml.push('  <dd>' + row[14] + ' Barrels</dd> </dl>');
 		}
 		if (row[18] > 0){
-			iwHtml.push(' <dl class="icons"> <dt><img src="/static/maps/images/infowin/weather.png" height="25" width="25" alt="stormy weather icon"/></dt> ');
-			iwHtml.push('  <dt>Weather</dt> ');
+			iwHtml.push(' <dl class="icons"> ');
+			iwHtml.push('  <dt><img src="/static/maps/images/infowin/weather.png" height="25" width="25" alt="stormy weather icon"/>Weather</dt> ');
 			iwHtml.push('  <dd>' + row[9] + '</dd> </dl>');
 		}
 		if (row[19] > 0){
-			iwHtml.push(' <dl class="icons"> <dt><img src="/static/maps/images/infowin/gam.png" height="25" width="25" alt="gam icon"/></dt> ');
-			iwHtml.push('  <dt>Gam:</dt> ');
+			iwHtml.push(' <dl class="icons"> ');
+			iwHtml.push('  <dt><img src="/static/maps/images/infowin/gam.png" height="25" width="25" alt="gam icon"/>Gam:</dt> ');
 			iwHtml.push('  <dd>' + row[17] + '</dd> </dl>');
 		}
 		if (row[20] > 0){
-			iwHtml.push(' <dl class="icons"> <dt><img src="/static/maps/images/infowin/land.png" height="25" width="25" alt="at anchor icon"/></dt> ');
-			iwHtml.push('  <dt>At Anchor</dt> ');
+			iwHtml.push(' <dl class="icons"> ');
+			iwHtml.push('  <dt><img src="/static/maps/images/infowin/land.png" height="25" width="25" alt="at anchor icon"/>At Anchor</dt> ');
 			iwHtml.push('  <dd>&nbsp;</dd> </dl>');
 		}
 		

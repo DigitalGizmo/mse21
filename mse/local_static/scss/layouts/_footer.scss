@@ -1,7 +1,8 @@
 footer {
-  background-color: $dark-blue;
-  color: darken(white, 20%);
+  background-color: $primary-color;
+  color: darken(white, 15%);
   font-weight: 200;
+  margin-top: $large-spacing;
   padding: $base-spacing;
 
   @include media(max-width $max-width) {
@@ -12,19 +13,31 @@ footer {
   @include media(max-width $mobile-navigation-breakpoint) {
     font-size: rem(12);
   }
+
+  a:link, a:visited {
+    color: darken($toned-blue, 15%);
+  }
+
+  a:hover {
+    color: white;
+  }
+  
+  @media print {
+    background-color: transparent;
+    border-top: thin solid $primary-color;
+    color: $primary-color;
+  }
 }
 
 .footer-social  {
   @include span-columns(4);
 }
 
-.footer-social--items  {
-  list-style-type: none;
-}
-
 .footer-social--item  {
   display: inline-block;
-  margin-right: $small-spacing;
+  font-family: icomoon;
+  font-size: 2em;
+  margin-right: $small-spacing / 2;
 }
 
 .footer-search  {

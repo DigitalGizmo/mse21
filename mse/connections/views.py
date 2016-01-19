@@ -26,11 +26,13 @@ def slides(request, short_name_param, slide_num=1):
     sn_int = int(slide_num)
     # get the record for this slide
     try:
+        # subtract 1 to get from slide number to zero-based index
         curr_slide = o.slide_set.all()[(sn_int-1):sn_int].get()
         num_slides = len(o.slide_set.all())
     except:
         raise Http404   
-    return render_to_response('connections/slide.html', {'connection_object': o, 'slide_num': sn_int, 'curr_slide': curr_slide, 'num_slides': num_slides})
+    return render_to_response('connections/slide.html', {'connection_object': o, 
+        'slide_num': sn_int, 'curr_slide': curr_slide, 'num_slides': num_slides})
 
 # for attract loop (not really a connection)
 def loop(request, slide_num):

@@ -12,18 +12,25 @@ class IdeaInline(admin.TabularInline):
 
 class LectureAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,            {'fields': ['title', 'short_name', 'scholar', 'scholar_short_name', 'narrative', 'sites']}),
+        (None,            {'fields': ['title', 'subtitle', 'short_name', 'scholar', 
+            'scholar_short_name', 'narrative', 'sites']}),
         ('Resource Sets',   {'fields': ['resourcesets'], 'classes': ['collapse']}),
-        ('Related Items from Collection',   {'fields': ['artifacts', 'documents'], 'classes': ['collapse']}),
-        ('Related Resources',   {'fields': ['biblio','essays', 'audiovisuals', 'lectures', 'interviews', 'maps'], 'classes': ['collapse']}),
-        ('Related Resources or Classroom',   {'fields': ['connections'], 'classes': ['collapse']}),
+        ('Related Items from Collection',   {'fields': ['artifacts', 'documents'], 
+            'classes': ['collapse']}),
+        ('Related Resources',   {'fields': ['biblio','essays', 'audiovisuals', 
+            'lectures', 'interviews', 'maps'], 'classes': ['collapse']}),
+        ('Related Lesson, other PDFs',   {'fields': ['connections', 'lessons'], 'classes': 
+            ['collapse']}),
         ('Weblinks',   {'fields': ['weblinks'], 'classes': ['collapse']}),
-        ('Behind the scenes',   {'fields': ['ordinal', 'edit_date', 'status_num', 'edited_by', 'notes'], 'classes': ['collapse']}),
+        ('Behind the scenes',   {'fields': ['ordinal', 'edit_date', 'status_num', 
+            'edited_by', 'notes'], 'classes': ['collapse']}),
     ]
     inlines = [TopicInline, IdeaInline]
     list_display = ('title', 'short_name', 'status_num', 'scholar')
     list_filter	 = ['scholar_short_name']
-    filter_horizontal = ['resourcesets', 'artifacts', 'documents', 'connections', 'weblinks', 'biblio', 'essays', 'audiovisuals', 'lectures', 'interviews', 'maps', 'sites']
+    filter_horizontal = ['resourcesets', 'artifacts', 'documents', 'connections', 
+        'weblinks', 'biblio', 'essays', 'audiovisuals', 'lectures', 'interviews', 
+        'maps', 'sites', 'lessons']
 admin.site.register(Lecture, LectureAdmin)
 
 
@@ -33,10 +40,12 @@ class QuestionInline(admin.TabularInline):
 
 class InterviewAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,            {'fields': ['short_name', 'scholar', 'scholar_short_name', 'full_length', 'narrative', 'sites']}),
+        (None,            {'fields': ['short_name', 'scholar', 'scholar_short_name', 
+            'full_length', 'narrative', 'sites']}),
         ('Content Creator(s)',   {'fields': ['profiles'], 'classes': ['collapse']}),
         ('Resource Sets',   {'fields': ['resourcesets'], 'classes': ['collapse']}),
-        ('Behind the scenes',   {'fields': ['ordinal', 'edit_date', 'status_num', 'edited_by', 'notes'], 'classes': ['collapse']}),
+        ('Behind the scenes',   {'fields': ['ordinal', 'edit_date', 'status_num', 
+            'edited_by', 'notes'], 'classes': ['collapse']}),
     ]
     inlines = [QuestionInline]
     list_display = ('short_name', 'scholar', 'status_num')

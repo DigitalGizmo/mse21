@@ -7,6 +7,8 @@ class Connection(models.Model):
         ('tbd','to be determined'),
     )
     LINK_HEADINGS = (
+        ('worksheet','Worksheet'),
+        ('visual','Visual'),
         ('related','Related Resources'),
         ('classroom','In the Classroom'),
      )
@@ -82,7 +84,8 @@ class Audiovisual(models.Model):
     credit_line = models.CharField(max_length=128, blank=True, default='')
     narrative = models.TextField('Narrative', blank=True, default='')
     media_type = models.CharField(max_length=16, choices=MEDIA_TYPES, default='image',
-            help_text="images go in olc/connections/static/connections/audiovisuals/images/, audio in ../audiovisuals/audio, etc.")
+            help_text="images go in olc/connections/static/connections/audiovisuals/images/, " \
+            "audio in ../audiovisuals/audio, etc.")
 
     class Meta:
          verbose_name = "Media"
@@ -94,7 +97,8 @@ class Audiovisual(models.Model):
 class Slide(models.Model):
     audiovisual = models.ForeignKey('connections.Audiovisual')
     slide_num = models.IntegerField(
-            help_text="File naming: olc/connections/static/connections/audiovisuals/slides/short_name_1, short_name_2, etc.")
+            help_text="File naming: olc/connections/static/connections/audiovisuals/slides/"\
+            "short_name_1, short_name_2, etc.")
     credit_line = models.CharField(max_length=128, blank=True, default='',
             help_text="For each slide -- Slides ignore Credit Line at top of form.")
     narrative = models.TextField('Caption', blank=True, default='',

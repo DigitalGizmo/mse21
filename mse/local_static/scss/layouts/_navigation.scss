@@ -2,6 +2,10 @@
   @include outer-container;
   padding-left: $logo-width-with-padding;
   position: relative;
+
+  @include media(max-width $mobile-navigation-breakpoint) {
+    padding-left: 0;
+  }
 }
 
 .logo--image {
@@ -10,7 +14,11 @@
 
   @include media(max-width $mobile-navigation-breakpoint) {
     display: none;
-  }   
+  }
+
+  @media print {
+    display: none;
+  }
 }
 
 .logo--text {
@@ -21,21 +29,39 @@
 
   @include media(max-width $mobile-navigation-breakpoint) {
     font-weight: 200;
+    padding-left: $base-spacing;
   }
+
+  @media print {
+    font-size: $medlarge-font-size!important;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  } 
 }
 
 .main-navigation {
   background-color: $primary-color;
   position: relative;
+
+  @media print {
+    display: none;
+  } 
 }
 
 .main-navigation--wrapper {
   @include outer-container;
   padding-left: $logo-width-with-padding;
+
+  @include media(max-width $mobile-navigation-breakpoint) {
+    padding-left: $base-spacing;
+  }
 }
 
-// when viewport is at breakpoint or smaller, horizontal main menu disappears,
-// (if viewport is less than or equal to 690, this disappears)
+// when viewport is at breakpoint or smaller,
+// horizontal main menu disappears,
+// (if viewport is less than or equal to 690, menu disappears)
 // works in conjunction with .menu-toggle
 .main-navigation--items {
   @include media(max-width $mobile-navigation-breakpoint) {
@@ -47,15 +73,16 @@
   display: inline-block;
   vertical-align: top;
 
-  @include media(max-width 975px) {
+  @include media(max-width 1004px) {
     font-size: rem(14);
   }
   
-  @include media(max-width 875px) {
+  @include media(max-width 906px) {
     font-size: rem(12);
 }
 
-  // when viewport is less than or equal to breakpoint, display the menu vertically
+  // when viewport is less than or equal to breakpoint,
+  // display the menu vertically
   // (less than or equal to 690, display vertically)
   @include media(max-width $mobile-navigation-breakpoint) {
     border-bottom: thin solid lighten($primary-color, 20%);
@@ -91,11 +118,16 @@
     font-weight: 500;
   }
 
-  // if viewport is larger than the breakpoint, disappear this element
+  // if viewport is larger than the breakpoint,
+  // disappear the mobile collapsed menu
   // min-width implied -- it's the default
-  // (if screen is greater than or equal to 691 (190+1) then  disappear)
+  // (if screen is greater than or equal to 691 (690+1) then  disappear)
   // works in conjunction with .main-navigation--items
   @include media($mobile-navigation-breakpoint + em(1)) {
     display: none;
   }
+}
+
+.main-navigation--selected {
+  background-color: darken($primary-color, 10%);
 }

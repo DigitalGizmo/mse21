@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ resource_object.resource_type|title }}: {{ resource_object.title|safe }}{% endblock %}
+
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-lesson" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <p class="breadcrumbs">
+      <a href="{% url resource_object.app_namespace|add:':'|add:resource_object.resource_type|add:'_list' %}">Lessons</a>
+    </p>
+    <h1>{{ resource_object.title|safe }}</h1>
+    {% if resource_object.subtitle %}
+      <h3>{{ resource_object.subtitle|safe }}</h3>
+    {% endif %}
+  </section>
+{% endblock title_area %}
+
+
+{% block content_area %}
+  <section class="content-wrapper">
+
+  <!-- content-aside--box -->  
+    <aside class="content-aside">
+
+      <img src="{% static 'curriculum/lessons/fullpics/' %}{{ resource_object.short_name }}_f.jpg"  alt="image of {{ resource_object.profile_name}}">
+
+      {% include "_related_resources.html" %}
+
+      {% include "_related_items_viewless.html" %}
+      
+    </aside>
+
+    <section class="content-main">
+
+      <h2 class="content-wrapper--head">About this Lesson</h2>
+      {{resource_object.narrative|safe}}
+
+     <h2 class="content-wrapper--head">Details</h2>
+     <dl class="lesson-details">
+        <dt>Created By</dt>
+        <dd>
+          {% for profile in resource_object.profiles.all %}
+            <a href="/community/profiles/{{ profile.short_name }}/">
+            {{ profile.profile_name|safe }}</a>{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </dd>
+        <dt>Grade Level</dt>
+        <dd>
+          {% for level in resource_object.gradelevels.all %}
+            {{ level.title|safe }}{% if not forloop.last %}, {% endif %}
+          {% endfor %}          
+        </dd>
+        <dt>Subjects</dt>
+        <dd>
+          {% for subject in resource_object.subjects.all %}
+            {{ subject.title|safe }}{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </dd>
+      </dl>
+
+      <h2 class="content-wrapper--head">Links to Lesson PDFs</h2>
+      <h3 class="content-wrapper--subhead">The Lesson</a></h3>
+      <p><a href="{% static 'curriculum/lessons/pdfs/' %}{{ resource_object.short_name }}.pdf" target="pdf">
+        {{ resource_object.title|safe }}
+        {% if resource_object.subtitle %}
+          : {{ resource_object.subtitle|safe }}
+        {% endif %}
+        </a></p>
+
+      {% if resource_object.supplement_set.all %}
+        <h3 class="content-wrapper--subhead">Supplements to the Lesson</h3>
+        <ul>
+        {% for supplement in resource_object.supplement_set.all %}          
+          <li>
+            <a href="{% static 'curriculum/lessons/pdfs/' %}{{ resource_object.short_name }}_{{ supplement.sup_num }}.pdf" 
+          target="pdf">{{supplement.title|safe}}</a></li>
+        {% endfor %}            
+         </ul>
+      {% endif %}
+
+
+    </section><!-- /content-main -->
+  </section><!-- /content-wrapper -->
+
+{% endblock content_area %}

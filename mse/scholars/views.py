@@ -2,50 +2,35 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.conf import settings
 from django.views import generic
 from scholars.models import Lecture, Interview
+from core.views import MenuInfoMixin
 
-class LectureListView(generic.ListView):
-    model = Lecture
+
+class LectureListView(MenuInfoMixin, generic.ListView):
+    queryset = Lecture.objects.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
     context_object_name = 'resource_object_list'
     # template_name = 'scholars/lecture_list.html' 
+    menu_type='lecture'
 
-class InterviewListView(generic.ListView):
-    model = Interview
+
+class InterviewListView(MenuInfoMixin, generic.ListView):
+    queryset = Interview.objects.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
     context_object_name = 'resource_object_list'
     # template_name = 'scholars/interview_list.html' 
+    menu_type='interview'
 
-"""
-def lecture_index(request):
-    item_list = Lecture.objects.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
-    return render_to_response('scholars/lecture_index.html', {'item_list': item_list, 
-        'resource_type': 'lecture'})
 
-def interview_index(request):
-    interview_list = Interview.objects.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')
-    return render_to_response('scholars/interview_index.html', {'interview_list': interview_list, 
-        'resource_type': 'interview'})
-"""
-
-def lecture(request, short_name):
-    o = get_object_or_404(Lecture, short_name=short_name)
-    related_artifacts = o.artifacts.filter(status_num__gte=settings.STATUS_LEVEL) 
-    related_docs = o.documents.filter(status_num__gte=settings.STATUS_LEVEL) 
-    related_pdfs = o.connections.filter(link_heading='related')  
-    classroom_pdfs = o.connections.filter(link_heading='classroom')  
-    essays = o.essays.all()  
-    audiovisuals = o.audiovisuals.all()  
-    maps = o.maps.all()  
-    lectures = o.lectures.all()  
-    interviews = o.interviews.all()  
-    # determine whether to show further reading link
-    if o.biblio.all():
-        has_further = True
-    else:
-        has_further = False
+class LectureDetailView(MenuInfoMixin, generic.DetailView):
+    model = Lecture
+    slug_field = 'short_name'
+    context_object_name = 'resource_object'
+    # menu type for MenuMixin - to enable main nav highlight
+    menu_type='lecture'
+    # determine template_name 
     if settings.SITE_ID == 2:
-        template_path = 'pq/scholars/lecture.html'
+        template_name = 'pq/scholars/lecture.html'
     else:
-        template_path = 'scholars/lecture.html'
-    return render_to_response(template_path, {'resource_object': o, 'resource_type': 'scholars/lecture', 'related_artifacts': related_artifacts, 'related_docs': related_docs, 'classroom_pdfs': classroom_pdfs, 'related_pdfs': related_pdfs, 'essays': essays, 'audiovisuals': audiovisuals, 'maps': maps, 'lectures': lectures, 'interviews': interviews, 'has_further': has_further, 'has_items': True})
+        template_name = 'scholars/lecture_detail.html'
+
 
 def ideas(request, short_name):
     o = get_object_or_404(Lecture, short_name=short_name)
@@ -58,7 +43,8 @@ def biblio(request, short_name):
     source_list = o.biblio.filter(biblio_type="source")
     arts_list = o.biblio.filter(biblio_type="related_arts")
     item_title = o.title
-    return render_to_response('connections/biblio.html', {'source_list': source_list, 'arts_list': arts_list, 'item_title': item_title})
+    return render_to_response('connections/biblio.html', {'source_list': source_list, 
+        'arts_list': arts_list, 'item_title': item_title})
 
 
 def interview(request, short_name):
@@ -67,8 +53,10 @@ def interview(request, short_name):
     if settings.SITE_ID == 2:
         template_path = 'pq/scholars/interview.html'
     else:
-        template_path = 'scholars/interview.html'
-    return render_to_response(template_path, {'resource_object': o, 'curr_question_num': 1, 'curr_question': curr_question, 'resource_type': 'scholars/interview'})
+        template_path = 'scholars/interview_detail.html'
+    return render_to_response(template_path, {'resource_object': o, 'curr_question_num': 1, 
+        'curr_question': curr_question, 'resource_type': 'interview',
+        'main_nav_selected': 'museum_resources'})
 
 def inter_view(request, short_name, question_num):
     """
@@ -78,6 +66,7 @@ def inter_view(request, short_name, question_num):
     For that matter, we can just pass through the interview short_name rather than the object
     """
     o = get_object_or_404(Interview, short_name=short_name)
+    # retrieve question number
     q_int = int(question_num)
     if q_int == 0:
         curr_question = "full video, no question displayed."
@@ -86,5 +75,11 @@ def inter_view(request, short_name, question_num):
             curr_question = o.question_set.all()[(q_int-1):q_int].get()
         except:
             raise Http404
-    return render_to_response('scholars/inter_view.html', {'resource_object': o, 'curr_question_num': question_num, 'curr_question': curr_question})
+    # different template for PQ as of MSE2.0
+    if settings.SITE_ID == 2:
+        template_path = 'pq/scholars/_inter_view.html'
+    else:
+        template_path = 'scholars/_inter_view.html'
+    return render_to_response(template_path, {'resource_object': o, 
+        'curr_question_num': question_num, 'curr_question': curr_question})
 

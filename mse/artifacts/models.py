@@ -1,55 +1,35 @@
 from django.db import models
 import datetime
+import core.models
 import sitewide.models
 
-class Artifact(models.Model):
-    STATUS_NUMS = (
-        (1,'1 - Entered'),
-        (2,'2 - TBD'),
-        (3,'3 - Work in progress'),
-        (4,'4 - Published'),
-    )
+class Artifact(core.models.ItemModel):
+    """
+    Artifact detail pages get resource_type from the instance
+    Arifact Menus get the equivalent from menu_info.short_name
+    """
+    _app_namespace = "artifacts"
+    _resource_type = "artifact"
+    _resource_type_title = "Artifact"
+    _static_path = "artifacts"
     id_number = models.CharField(max_length=64, blank=True, default='')
-    filename = models.CharField(max_length=64, blank=True, default='')
-    short_name = models.CharField(max_length=32, unique=True)
-    title = models.CharField(max_length=128)
     object_name = models.CharField(max_length=128, blank=True, default='')
     maker = models.CharField(max_length=64, blank=True, default='')
     assoc_place = models.CharField(max_length=64, blank=True, default='')
     date_made = models.CharField(max_length=64, blank=True, default='')
     materials = models.CharField(max_length=128, blank=True, default='')
     measurements = models.CharField(max_length=128, blank=True, default='')
-    description = models.TextField('Short Description', blank=True, default='')
-    narrative = models.TextField('Narrative', blank=True, default='')
     credit_line = models.CharField(max_length=128, blank=True, default='')
     is_vertical = models.BooleanField()
-    ordinal = models.IntegerField('Order in Menu', default=99)
-    notes = models.TextField('Production Notes', blank=True, default='')
-    edited_by = models.CharField(max_length=64, blank=True, default='')
-    edit_date = models.DateTimeField('edit date', default=datetime.datetime.now)
-    status_num = models.IntegerField(default=0, choices=STATUS_NUMS)
-    augmented = models.BooleanField()
-    profiles = models.ManyToManyField('community.Profile', 
-        verbose_name='Choose creating Community Member(s)', blank=True)
-    resourcesets = models.ManyToManyField('resources.Resourceset', 
-        verbose_name='Choose Resource Sets this Artifact belongs to', blank=True)
-    artifacts = models.ManyToManyField('artifacts.Artifact', 
-        verbose_name='Other Artifacts related to this Artifact', blank=True)
-    documents = models.ManyToManyField('documents.Document', 
-        verbose_name='Documents related to this Artifact', blank=True)
-    connections = models.ManyToManyField('connections.Connection', 
-        verbose_name='PDFs (new tab)', blank=True)
-    weblinks = models.ManyToManyField('connections.Weblink', blank=True)
-    biblio = models.ManyToManyField('connections.Biblio', 
-        verbose_name='Further Study (slimbox)', blank=True)
-    essays = models.ManyToManyField('connections.Essay', 
-        verbose_name='Background Info (slimbox)', blank=True)
-    audiovisuals = models.ManyToManyField('connections.Audiovisual', 
-        verbose_name='Media (slimbox)', blank=True)
-    maps = models.ManyToManyField('maps.Geomap', 
-        verbose_name='Maps (full page)', blank=True)
-    lectures = models.ManyToManyField('scholars.Lecture', 
-        verbose_name='Lectures (full page)', blank=True)
+    # init zoom and x are shared from core.
+    initial_y = models.IntegerField('Y - Default (blank) is 0 (centered)', null=True, 
+        blank=True)
+
+    # return title without <i> </i>
+    @property
+    def title_no_markup(self):
+        return self.title.replace("<i>", "").replace("</i>", "").replace("<em>", 
+            "").replace("</em>", "")
 
     # return menu object
     @property
@@ -79,7 +59,8 @@ class Idea(models.Model):
     
 class Page(models.Model):
     artifact = models.ForeignKey('artifacts.Artifact')
-    page_suffix = models.CharField('filename suffix', max_length=64, blank=True, default='')
+    page_suffix = models.CharField('filename suffix', max_length=64, blank=True, 
+        default='')
     page_label = models.CharField('view label', max_length=64, blank=True, default='')
     page_num = models.IntegerField('view order')
 

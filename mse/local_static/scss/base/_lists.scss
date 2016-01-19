@@ -15,17 +15,52 @@ ol {
     margin-bottom: $small-spacing;
     padding-left: $base-spacing;
   }
+  
+  &.horiz li {
+    display: inline;
+  }
 }
 
+// base dl styles
 dl {
   margin-bottom: $small-spacing;
 
   dt {
-    font-weight: bold;
-    margin-top: $small-spacing;
+    float: left;
+    margin-right: 5%;
+    margin-bottom: 1em;
+    max-width: 40%;
   }
-
+  
   dd {
-    margin: 0;
+    margin-left: 45%;
+    margin-bottom: .5em;
   }
+  
+  dd::after {
+    content: " ";
+    display: block;
+    clear: left;
+  }  
+}
+
+// for events and lesson pages
+dl.event-details, dl.lesson-details {
+  @include clearfix;
+
+  & dt:after {
+      content: ":";
+    }
+  
+  & dd {
+    @include shift(2);
+  }
+}
+
+.footnotes { 
+  border-top: 1px solid $toned-blue;
+  @extend %default-ol;
+  font-size: $small-font-size;
+  list-style-type: decimal;
+  padding-top: $small-spacing;
 }
