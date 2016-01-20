@@ -40,12 +40,10 @@
     <section class="content-main"><!-- main content column -->
       <header class="about">
         <h2 class="content-wrapper--head about--title">About This Map</h2>
-
-  		  <button class="about--go"><a href="/maps/{{ resource_object.map_type|lower }}/{{ resource_object.short_name }}">Go to this {{ resource_object.map_type }} Map</a></button>
+          <a href="/maps/{{ resource_object.map_type|lower }}/{{ resource_object.short_name }}"><button class="about--go">Go to this {{ resource_object.map_type }} Map</button></a>
       </header>
 
       {{ resource_object.narrative|safe }}
-
 
     </section><!-- /main content column -->
   </section><!-- /content-wrapper -->
