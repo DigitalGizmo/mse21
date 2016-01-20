@@ -39,7 +39,7 @@
   <ul class="item-menu--grid">  
 
     {% for artifact in artifact_list %}
-      <li class="item-menu--item basic">
+      <li class="item-menu--item basic resourceset-small">
         <a href="{% url 'artifacts:artifact_detail' artifact.short_name %}">
         <img src="{% static 'artifacts/menupics/' %}{{ artifact.filename }}_m.jpg" alt="image of {{ artifact.title }}"/>
         <i class="resource-icon {% if artifact.augmented %}icon-artifact{% else %}icon-artifact raw{% endif %}"></i>
@@ -48,7 +48,7 @@
     {% endfor %}
 
     {% for document in document_list %}
-      <li class="item-menu--item basic">
+      <li class="item-menu--item basic resourceset-small">
         <a href="{% url 'documents:document_detail' document.short_name %}" class="title">
         <img src="{% static 'documents/menupics/' %}{{ document.filename }}_m.jpg" alt="image of {{ document.title }}"/>
         <i class="resource-icon {% if document.augmented %}icon-document{% else %}icon-document raw{% endif %}"></i>
@@ -57,7 +57,7 @@
     {% endfor %}
 
     {% for map in map_list %}
-      <li class="item-menu--item basic">
+      <li class="item-menu--item basic resourceset-small">
         <a href="{% url 'maps:geomap_detail' map.short_name %}" class="title">
         <img src="{% static 'maps/menupics/' %}{{ map.short_name }}_m.jpg" alt="image of {{ map.title }}"/>
         <i class="resource-icon icon-geomap"></i>
@@ -66,7 +66,7 @@
     {% endfor %}
 
     {% for lecture in lecture_list %}
-      <li class="item-menu--item basic">
+      <li class="item-menu--item basic resourceset-small">
         <a href="{% url 'scholars:lecture_detail' lecture.short_name %}" class="title">
         <img src="{% static 'scholars/lectures/menupics/' %}{{ lecture.short_name }}_m.jpg" alt="image of {{ lecture.title }}"/>
         <i class="resource-icon icon-lecture"></i>

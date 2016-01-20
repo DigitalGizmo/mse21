@@ -98,6 +98,11 @@
   }
 }
 
+.resourceset-small {
+  font-size: $base-font-size * 0.9;
+  letter-spacing: 0.5px;
+}
+
 // community profiles, projects, events, lessons
 .picture, .naked, .list-pic--img, .item-menu--big-item {
   margin-bottom: $large-spacing;
