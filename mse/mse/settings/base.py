@@ -128,7 +128,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Static files (CSS, JavaScript, Images)
-STATIC_ROOT = BASE_DIR.ancestor(2).child("mse1_static")
+STATIC_ROOT = BASE_DIR.ancestor(2).child("mse_static")
 
 STATICFILES_DIRS = (
     BASE_DIR.child("local_static"),
