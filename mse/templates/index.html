@@ -36,7 +36,7 @@
 	    <ul class="home-list">
 			{% for event in event_list %}
 				<li>{{ event.start_date }}<br/>
-					<a href="{% url 'about:event_detail' event.short_name %}">{{ event.title }}</a>
+					<a href="{% url 'about:event_detail' event.short_name %}">{{ event.title|safe }}</a>
 				</li>
 			{% endfor %}
 	    </ul>
