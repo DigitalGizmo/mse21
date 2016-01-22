@@ -21,6 +21,21 @@ ol {
   }
 }
 
+//for About This Art/Doc ol
+.about-footnotes {
+  border-top: 1px solid $toned-blue;
+  font-size: $small-font-size;
+  list-style-position: inside;
+  list-style-type: decimal;
+  padding: $small-spacing 0 0 0;
+}
+
+//for About This Art/Doc ul, Behind the Scenes ul
+.about-list, .scenes-list {
+  list-style-type: disc;
+  padding-left: $large-spacing;
+}
+
 // base dl styles
 dl {
   margin-bottom: $small-spacing;
