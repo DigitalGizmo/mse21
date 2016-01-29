@@ -47,6 +47,22 @@
     {# Filled in by artifact/artifact_detail.html or document/document_detail.html #}  
   {% endblock item-viewer %}
 
+  <!-- Test for IE 11 and provide work-around hard-coded dimensions -->
+  <script type="text/javascript">
+    //alert('navigator.userAgent: ' + navigator.userAgent);
+    var isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/));
+    //if (true) {
+    if (isIE11) { 
+      // /Trident.*rv[ :]?11\./
+      ///alert('detected IE 11');
+      var $itempage = $('#item-image');
+      $itempage.css('width', '1100px');
+      $itempage.css('height', '400px');
+      $itempage.css('margin-left', 'auto');
+      $itempage.css('margin-right', 'auto');
+    }
+  </script>
+
   <!-- page content --> 
   <section class="content-wrapper">
 
