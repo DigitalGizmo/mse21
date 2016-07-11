@@ -6,22 +6,63 @@
 
   <ul class="item-menu--list-pics">
   {% for event in resource_object_list %}
+    {% if event.on_menu %}
+      {# If we're going to do past and future this should be handled in model and view as two lists #}
+      {% if event.is_future %}
+        <li>
+          <ul class="list-pic">
+            <li class="list-pic--img"><a href="{% url 'about:event_detail' event.short_name %}">
+              <img src="{% static 'about/events/menupics/' %}{{ event.short_name }}_m.jpg" 
+              alt="image: {{ item.short_name }}" /></a>
+            </li>
+            <li class="list-pic--date">
+              {{ event.start_date|date:"F d, Y" }}
+              {% if event.end_date %}
+                - {{ event.end_date|date:"l, F d, Y" }}
+              {% endif %}
+            </li>
+            <li class="list-pic--title"><a href="{% url 'about:event_detail' event.short_name %}">{{ event.title|safe }}</a></li>
+            <li class="list-pic--blurb">{{ event.description|safe }} <a href="{% url 'about:event_detail' event.short_name %}">Learn more...</a></li>
+          </ul>
+        </li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  </ul>  
+
+  <ul class="item-menu--list-pics">
     <li>
       <ul class="list-pic">
-        <li class="list-pic--img"><a href="{% url 'about:event_detail' event.short_name %}">
-          <img src="{% static 'about/events/menupics/' %}{{ event.short_name }}_m.jpg" 
-          alt="image: {{ item.short_name }}" /></a>
-        </li>
-        <li class="list-pic--date">
-          {{ event.start_date|date:"F d, Y" }}
-          {% if event.end_date %}
-            - {{ event.end_date|date:"l, F d, Y" }}
-          {% endif %}
-        </li>
-        <li class="list-pic--title"><a href="{% url 'about:event_detail' event.short_name %}">{{ event.title|safe }}</a></li>
-        <li class="list-pic--blurb">{{ event.description|safe }} <a href="{% url 'about:event_detail' event.short_name %}">Learn more...</a></li>
+        <li class="list-pic--img">&nbsp;</li>
+        <li class="list-pic--title"><h1>Past Events</h1></li>
+         <hr>
       </ul>
     </li>
+  </ul>   
+ 
+  <ul class="item-menu--list-pics">
+  {% for event in resource_object_list %}
+    {% if event.on_menu %}
+      {# If we're going to do past and future this should be handled in model and view as two lists #}
+      {% if not event.is_future %}
+        <li>
+          <ul class="list-pic">
+            <li class="list-pic--img"><a href="{% url 'about:event_detail' event.short_name %}">
+              <img src="{% static 'about/events/menupics/' %}{{ event.short_name }}_m.jpg" 
+              alt="image: {{ item.short_name }}" /></a>
+            </li>
+            <li class="list-pic--date">
+              {{ event.start_date|date:"F d, Y" }}
+              {% if event.end_date %}
+                - {{ event.end_date|date:"l, F d, Y" }}
+              {% endif %}
+            </li>
+            <li class="list-pic--title"><a href="{% url 'about:event_detail' event.short_name %}">{{ event.title|safe }}</a></li>
+            <li class="list-pic--blurb">{{ event.description|safe }} <a href="{% url 'about:event_detail' event.short_name %}">Learn more...</a></li>
+          </ul>
+        </li>
+      {% endif %}
+    {% endif %}
   {% endfor %}
   </ul>   
 

@@ -1,6 +1,8 @@
-from django.db import models
 import datetime
 import sitewide.models
+from django.db import models
+# from django.utils import timezone
+from datetime import date
 
 class Event(models.Model):
     _app_namespace = "about"
@@ -16,6 +18,7 @@ class Event(models.Model):
     location = models.CharField(max_length=128, blank=True, default='')
     cost = models.CharField(max_length=64, blank=True, default='')
     on_home = models.BooleanField(default=False)
+    on_menu = models.BooleanField(default=True)
     contact_name = models.CharField(max_length=32, blank=True, default='')
     contact_email = models.CharField(max_length=64, blank=True, default='')
     contact_phone = models.CharField(max_length=32, blank=True, default='')
@@ -23,6 +26,12 @@ class Event(models.Model):
 
     class Meta:
         ordering = ['start_date']
+
+    @property
+    def is_future(self):
+        if date.today() < self.start_date:
+            return True
+        return False
 
     # return list containing name and domain parts of email address
     @property

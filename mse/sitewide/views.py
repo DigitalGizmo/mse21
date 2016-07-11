@@ -20,15 +20,20 @@ class HomeListView(generic.ListView):
     Featured: banner_error_none and
     banner_error_multi. 
     """
-    model = Event
+    # filter for events that belong on home page
+    queryset = Event.objects.filter(on_home=True)
+
     # handle pequot home or MSE home
     if settings.SITE_ID == 2:
         template_name = 'pq/index.html' 
     else:
+        # MSE site
         template_name = 'index.html' 
         # context_object_name = 'event_list' # use default
 
         # Get banner_item
+        # banner_item might better be called featured_object.
+        # Featured model provides access to the tryptic list and new_list
         def get_context_data(self, **kwargs):
             # Call the base implementation first to get a context
             context = super(HomeListView, self).get_context_data(**kwargs)

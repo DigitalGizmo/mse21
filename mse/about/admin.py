@@ -3,11 +3,12 @@ from .models import Event, Scene, Single
 
 class EventAdmin(admin.ModelAdmin):
 	fieldsets = [
-		(None,	{'fields': ['short_name', 'title', 'subtitle', 'start_date', 'end_date', 'time_details', 
-			'location', 'cost', 'ordinal', 'on_home', 'description', 'details']}),
+		(None,	{'fields': ['short_name', 'title', 'subtitle', 'start_date', 
+			'end_date', 'time_details', 'location', 'cost', 'ordinal', 
+			'on_home', 'on_menu', 'description', 'details']}),
 		('Contact',   {'fields': ['contact_name', 'contact_email', 'contact_phone']}),
 	]
-	list_display = ('title', 'short_name', 'start_date', 'location', 'on_home')
+	list_display = ('title', 'short_name', 'start_date', 'location', 'on_home', 'on_menu')
 
 admin.site.register(Event, EventAdmin)
 
