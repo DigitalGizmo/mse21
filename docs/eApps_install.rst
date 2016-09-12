@@ -78,7 +78,7 @@ pip install django
 WSGI part 2
 -----------
 
-in /etc/httpd/conf/vhosts/mseadmin
+in /etc/httpd/conf/vhosts/mseadmin msedev.mysticseaport.org
 ::
 	#user 'mseadmin' virtual host 'msedev.mysticseaport.org' configuration file
 	<VirtualHost 68.169.52.41:80>

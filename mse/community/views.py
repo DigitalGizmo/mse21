@@ -69,4 +69,11 @@ class ProjectDetailView(MenuInfoMixin, generic.DetailView):
     template_name = 'community/project_detail.html'
     menu_type='project'
 
+def biblio(request, short_name):
+    o = get_object_or_404(Project, short_name=short_name)
+    source_list = o.biblio.filter(biblio_type="source")
+    arts_list = o.biblio.filter(biblio_type="related_arts")
+    item_title = o.title
+    return render_to_response('connections/biblio.html', {'source_list': source_list, 
+        'arts_list': arts_list, 'item_title': item_title})
 

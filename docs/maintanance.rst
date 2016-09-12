@@ -16,6 +16,14 @@ Process for database changes
 * makemigrations and test the change locally
 * migrations stay in source control
 * update remote git and run migrate there. (not makemigrations -- already there)
+::
+
+	manpy (aText) expands to
+	./manage.py
+	(then)
+	migrate
+	setmse (atext) expands to 
+	--settings=mse.settings.staging
 
 Backup remote and restore local
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
