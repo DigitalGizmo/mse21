@@ -13,7 +13,9 @@
       <a href="{% url resource_object.app_namespace|add:':'|add:'community_list' %}">Our Community</a>
     </p>
     <h1>Community Member Profile: {{ resource_object.title|safe }}</h1>
-    <p>{{ resource_object.profile_name}}, {{ resource_object.institution}}, {{ resource_object.location}}</p>
+    <p>{% if resource_object.institution %}
+    {{ resource_object.institution}}<br />{% endif %}
+    {{ resource_object.location}}</p>
   </section>
 {% endblock title_area %}
 

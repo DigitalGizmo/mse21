@@ -19,7 +19,7 @@
     <p>Original content by:
     {% for profile in resource_object.profiles.all %}
       <a href="/community/profiles/{{ profile.short_name }}/" class="title">
-      {{ profile.profile_name|safe }}</a>
+      {{ profile.profile_name|safe }}</a>{% if not forloop.last %}, {% endif %}
     {% endfor %}
     </p>
 

@@ -15,6 +15,7 @@ tinymce.init({
     theme: "modern",
     width: 700,
     height: 200,
+    convert_urls: false, // so that we don't get ../../../static/connections etc.
 	allow_script_urls: true,
 	 plugins: [
 		"advlist autolink link lists charmap",
@@ -27,20 +28,22 @@ tinymce.init({
         {title: 'New Page', value: "[paste page URL here]"},
         {title: 'Slim MoreInfo', value: "javascript:popBox('connections','moreinfo','SHORTNAME')"},
         {title: 'Slim Artifact', value: "javascript:popBox('artifacts','slim','SHORTNAME')"},
-        {title: 'Slim Document', value: "javascript:popBox('documents','slim','SHORTNAME')"}
+        {title: 'Slim Document', value: "javascript:popBox('documents','slim','SHORTNAME')"},
+        {title: 'PDF', value: "/static/connections/pdfs/SHORTNAME.pdf"}
     ],
 	link_class_list: [
-		{title: 'If new page, choose icon', value: ''},
+		{title: 'If new page, choose icon (not for PDFs)', value: ''},
 		//{title: 'Slim - MoreInfo, Arti, Doc (no icon)', value: ''},
 		{title: 'Page - Internal (MSE)', value: 'link_newpage'},
 		{title: 'Page - External site (inlc. Collections)', value: 'link_external'}
 	],	
     target_list: [
-        {title: 'If new page, choose target', value: ''},
+        {title: 'If new page or PDF, choose target', value: ''},
         //{title: 'Slim - MoreInfo, Arti, Doc (no target)', value: ''},
         {title: 'Page - Internal (MSE)', value: '_self'},
         {title: 'Page - MSM Collections (external)', value: 'collections'},
-        {title: 'Page - Other External', value: 'external'}
+        {title: 'Page - Other External', value: 'external'},
+        {title: 'Page - PDF', value: 'pdf'}
     ],
 
    //content_css: "{% static 'common/olc_style.css' %}",

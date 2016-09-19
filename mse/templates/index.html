@@ -7,7 +7,7 @@
 <div id="home-banner">
 
 	<img class="home-banner--image" src="{% static 'sitewide/home/bannerpics/' %}{{ banner_item.short_name }}.jpg" />
-	<h2 class="home-banner--text"><a href="{% url banner_item.resource_locator|add:'_detail' banner_item.short_name %}">{{ banner_item.banner_blurb }}</a></h2>
+	<h2 class="home-banner--text"><a href="{% url banner_item.resource_locator|add:'_detail' banner_item.short_name %}">{{ banner_item.banner_blurb|safe }}</a></h2>
 
 </div><!-- /item-viewer--container -->
 
