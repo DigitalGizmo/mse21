@@ -29,7 +29,7 @@
 
         <img class="alignleft" src="{% static 'maps/fullpics/' %}{{ resource_object.short_name }}.jpg" alt="image: {{ resource_object.short_name }}"  />
 
-        <p class="content-wrapper--caption">[caption]</p>
+        <p class="content-wrapper--caption">{{ resource_object.caption|safe }} {{ resource_object.credit|safe }}</p>
 
       {% include "_related_resources.html" %}
 
