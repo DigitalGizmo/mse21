@@ -25,25 +25,25 @@ tinymce.init({
 	],
     link_list: [
         //{title: 'Page - Ext. or Int. (fill in blank)', value: ''},
-        {title: 'New Page', value: "[paste page URL here]"},
-        {title: 'Slim MoreInfo', value: "javascript:popBox('connections','moreinfo','SHORTNAME')"},
-        {title: 'Slim Artifact', value: "javascript:popBox('artifacts','slim','SHORTNAME')"},
-        {title: 'Slim Document', value: "javascript:popBox('documents','slim','SHORTNAME')"},
-        {title: 'PDF', value: "/static/connections/pdfs/SHORTNAME.pdf"}
+        {title: 'New Tab - External', value: "[paste page URL here]"},
+        {title: 'New Tab - PDF', value: "/static/connections/pdfs/SHORTNAME.pdf"},
+        {title: 'Slim - MoreInfo', value: "javascript:popBox('connections','moreinfo','SHORTNAME')"},
+        {title: 'Slim - Artifact', value: "javascript:popBox('artifacts','slim','SHORTNAME')"},
+        {title: 'Slim - Document', value: "javascript:popBox('documents','slim','SHORTNAME')"}
     ],
 	link_class_list: [
-		{title: 'If new page, choose icon (not for PDFs)', value: ''},
+		{title: 'If new tab, choose icon:', value: ''},
 		//{title: 'Slim - MoreInfo, Arti, Doc (no icon)', value: ''},
-		{title: 'Page - Internal (MSE)', value: 'link_newpage'},
-		{title: 'Page - External site (inlc. Collections)', value: 'link_external'}
+		{title: 'Same Tab (replace page) - Internal (MSE)', value: 'link_newpage'},
+		{title: 'New Tab - External, MSE Collections or PDF', value: 'link_external'}
 	],	
     target_list: [
-        {title: 'If new page or PDF, choose target', value: ''},
+        {title: 'If new tab, choose target:', value: ''},
         //{title: 'Slim - MoreInfo, Arti, Doc (no target)', value: ''},
-        {title: 'Page - Internal (MSE)', value: '_self'},
-        {title: 'Page - MSM Collections (external)', value: 'collections'},
-        {title: 'Page - Other External', value: 'external'},
-        {title: 'Page - PDF', value: 'pdf'}
+        {title: 'Internal (MSE)', value: '_self'},
+        {title: 'MSM Collections (external)', value: 'collections'},
+        {title: 'PDF', value: 'pdf'},
+        {title: 'Other External', value: 'external'}
     ],
 
    //content_css: "{% static 'common/olc_style.css' %}",
