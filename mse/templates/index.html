@@ -4,12 +4,11 @@
 {% block fullpage %}
 
 <!-- featured item - banner -->  
-<div id="home-banner">
+<div class="home-banner--left">
 
 	<img class="home-banner--image" src="{% static 'sitewide/home/bannerpics/' %}{{ banner_item.short_name }}.jpg" />
 	<h2 class="home-banner--text"><a href="{% url banner_item.resource_locator|add:'_detail' banner_item.short_name %}">{{ banner_item.banner_blurb|safe }}</a></h2>
-
-</div><!-- /item-viewer--container -->
+</div>
 
 <!-- Three featured items --> 
 <section class="content-wrapper">
