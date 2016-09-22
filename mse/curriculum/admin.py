@@ -30,12 +30,13 @@ class LessonAdmin(admin.ModelAdmin):
             'classes': ['collapse']}),
         ('Related Resources',   {'fields': ['biblio','essays', 'audiovisuals', 
             'lectures', 'maps'], 'classes': ['collapse']}),
+        ('Weblinks',   {'fields': ['weblinks'], 'classes': ['collapse']}),
         ('Behind the scenes',   {'fields': ['ordinal', 
             'edit_date', 'status_num', 'edited_by', 'notes'], 'classes': ['collapse']}),
     ]
     inlines = [ SupplementInline]
     list_display = ('short_name', 'title', 'ordinal', 'status_num')
     filter_horizontal = ['gradelevels', 'subjects', 'profiles', 'artifacts', 'documents',
-        'biblio','essays', 'audiovisuals', 'lectures', 'maps']
+        'weblinks', 'biblio','essays', 'audiovisuals', 'lectures', 'maps']
 
 admin.site.register(Lesson, LessonAdmin)
