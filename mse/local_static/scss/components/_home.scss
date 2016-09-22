@@ -2,8 +2,16 @@
 	@include omega();
 }
 
-#home-banner {
+.home-banner {
 	text-align: center;
+}
+
+.home-banner--left {
+	text-align: left;
+}
+
+.home-banner--right {
+	text-align: right;
 }
 
 .home-banner--image {

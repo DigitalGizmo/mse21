@@ -30,8 +30,8 @@ ol {
   padding: $small-spacing 0 0 0;
 }
 
-//for About This Art/Doc ul, Behind the Scenes ul
-.about-list, .scenes-list {
+//for About This Art/Doc ul, Behind the Scenes ul, community projects
+.about-list, .scenes-list, .for-wysiwyg ul {
   list-style-type: disc;
   padding-left: $large-spacing;
 }

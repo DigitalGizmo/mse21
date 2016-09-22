@@ -246,7 +246,7 @@ ol {
   list-style-type: decimal;
   padding: 0.75em 0 0 0; }
 
-.about-list, .scenes-list {
+.about-list, .scenes-list, .for-wysiwyg ul {
   list-style-type: disc;
   padding-left: 3em; }
 
@@ -818,8 +818,14 @@ ul.icon-list li.icon-list--map::before {
 .home-grid {
   margin-right: 0; }
 
-#home-banner {
+.home-banner {
   text-align: center; }
+
+.home-banner--left {
+  text-align: left; }
+
+.home-banner--right {
+  text-align: right; }
 
 .home-banner--image {
   margin-bottom: 1.5em; }
