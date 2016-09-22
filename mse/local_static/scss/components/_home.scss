@@ -28,7 +28,8 @@
   }
 
 	a:link, a:visited {
-		color: white;	
+		color: white;
+		text-shadow: 1px 1px 2px $dark-gray;	
 
 	  // when viewport is less than 690, make text small
 	  @include media($mobile-navigation-breakpoint) {

@@ -838,7 +838,8 @@ ul.icon-list li.icon-list--map::before {
     .home-banner--text {
       padding-bottom: 3em; } }
   .home-banner--text a:link, .home-banner--text a:visited {
-    color: white; }
+    color: white;
+    text-shadow: 1px 1px 2px #222; }
     @media screen and (min-width: 43.125em) {
       .home-banner--text a:link, .home-banner--text a:visited {
         font-size: 1.25em;
