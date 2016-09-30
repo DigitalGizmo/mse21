@@ -821,12 +821,6 @@ ul.icon-list li.icon-list--map::before {
 .home-banner {
   text-align: center; }
 
-.home-banner--left {
-  text-align: left; }
-
-.home-banner--right {
-  text-align: right; }
-
 .home-banner--image {
   margin-bottom: 1.5em; }
 
@@ -860,6 +854,12 @@ ul.icon-list li.icon-list--map::before {
     color: gray;
     text-decoration: underline;
     transition: color 150ms ease; }
+
+.banner-text-left {
+  text-align: left; }
+
+.banner-text-right {
+  text-align: right; }
 
 .featured {
   margin-bottom: 1.5em;
