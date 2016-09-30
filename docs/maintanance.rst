@@ -75,8 +75,8 @@ Backup msedb
 ::
 
 	cd /var/www/mseadmin/data/FTP_transfer
-	pg_dump -Fc --clean --verbose msedb --user=msedb_user > msedb_2015_06_22.backup
-    [msedb_user password]
+	pg_dump -Fc --clean --verbose msedb --user=msedb_user > msedb_$(date +"%Y_%m_%d").backup
+    [msedb_user password -- in Django settings]
 
 Copy data
 Note msedb_ed as the target.
@@ -84,7 +84,7 @@ Note msedb_ed as the target.
 
 	su - postgres
 	cd /var/www/mseadmin/data/FTP_transfer
-	pg_restore --clean --dbname=msedb_ed --user=msedb_user --verbose msedb_2015_06_22.backup
+	pg_restore --clean --dbname=msedb_ed --user=msedb_user --verbose msedb_$(date +"%Y_%m_%d").backup
 
 Got an error that may be two-wrongs-make-a-right:
 pg_restore: [archiver (db)] Error from TOC entry 5; 2615 2200 SCHEMA public postgres

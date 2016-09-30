@@ -13,6 +13,7 @@ Public, live
 	dir: educators.mysticseaport.org
 	env: mse_ed
 	branch: develop
+	static: mse_static
 
 Local, Don's machine
 	env: mse2 (mse leads to old project)
