@@ -894,8 +894,10 @@ function createVoyageMarker(layerIndex, row) {
 		
 		iwHtml.push('<br clear="left"><h4>Logbook Entry For This Day</h4>');
 		if (log_link_type==1) { 
-			iwHtml.push('<a href="http://library.mysticseaport.org/initiative/PageImage.cfm?PageNum=' + 
-				row[21] + '&BibID=' + row[22] + '" target="reference">Link to Logbook</a>'); 
+
+			iwHtml.push('<a href="http://research.mysticseaport.org/item/l0' + 
+				row[22] + '/' + row[21] + '/" target="reference">Link to Logbook</a>'); 
+
 		} else if (log_link_type==2) {
 			iwHtml.push('<a href="javascript:popBox(&apos;maps&apos; ,&apos;journal&apos; ,&apos;' + 
 				short_name + '&apos; ,&apos;' + row[21] + '&apos;)">Link to Journal</a>');

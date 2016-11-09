@@ -72,11 +72,28 @@ Update Educators Database
 ~~~~~~~~~~
 
 Backup msedb
+Login as root:
 ::
 
 	cd /var/www/mseadmin/data/FTP_transfer
 	pg_dump -Fc --clean --verbose msedb --user=msedb_user > msedb_$(date +"%Y_%m_%d").backup
     [msedb_user password -- in Django settings]
+
+Newer approach to backup -- run this local script which creates the backup copy on the
+remote server.
+Oops, the following doesn't work:
+pg_dump: [archiver (db)] connection to database "msedb" failed: fe_sendauth: no password supplied
+
+I think I must need to configure the db password to a remote file, like .htaccess
+::
+		
+	cd ~/Documents/Projects/MysticSeaport/MSE20/DataBaks/scripts
+	ssh root@68.169.52.41 'bash -s' < copy_msedb.sh
+	(root password)
+
+Further progress would be to see if the script will run as mseadmin, and, if so,
+put the script on the server, and see if it runs from there.
+This would make it accessible to anyone with mseadmin login. 
 
 Copy data
 Note msedb_ed as the target.
@@ -109,11 +126,18 @@ eapps, logged in as root
   cd /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse (or workon mse)
 	
 Download via FTP
+Or, try wget
+Transfer to local via FTP pvma root.
+(hmm, doesn't work, FTP_transfer permissions, mixup on user, password)
+::
+	cd ~/Documents/Projects/MysticSeaport/MSE20/DataBaks/from_remote
+	wget --user=root --password='?' ftp://68.169.52.41/FTP_transfer/msedb_$(date +"%Y_%m_%d").backup
+
 Restore locally
 ::
 
 	cd ~/Documents/Projects/MysticSeaport/MSE20/DataBaks/from_remote
-	pg_restore --clean --dbname=mse2db --user=msedb_user --verbose mse2db_2015_10_28.backup
-	(no: pg_restore --clean --dbname=mse2db --verbose mse2db_2015_10_28.backup)
+	pg_restore --clean --dbname=msedb --user=msedb_user --verbose msedb_$(date +"%Y_%m_%d").backup
+	(??: pg_restore --clean --dbname=mse2db --verbose mse2db_2015_10_28.backup)
 
 
