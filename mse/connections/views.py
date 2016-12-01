@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import Context, loader
 from django.http import Http404
 from django.conf import settings
-from connections.models import Essay, Biblio, Moreinfo, Audiovisual
+from connections.models import Essay, Biblio, Moreinfo, Audiovisual, Slide
 
 def essay(request, short_name_param):
     e = get_object_or_404(Essay, short_name=short_name_param)
@@ -25,14 +25,26 @@ def slides(request, short_name_param, slide_num=1):
     o = get_object_or_404(Audiovisual, short_name=short_name_param) 
     sn_int = int(slide_num)
     # get the record for this slide
+
+    slide = get_object_or_404(Slide, audiovisual_id=o.id, 
+        slide_num=slide_num)
+
+    """
     try:
         # subtract 1 to get from slide number to zero-based index
         curr_slide = o.slide_set.all()[(sn_int-1):sn_int].get()
         num_slides = len(o.slide_set.all())
     except:
-        raise Http404   
+        raise Http404 
+    """  
+
+    return render_to_response('connections/slide.html', {'connection_object': o, 
+        'slide': slide})
+
+    """
     return render_to_response('connections/slide.html', {'connection_object': o, 
         'slide_num': sn_int, 'curr_slide': curr_slide, 'num_slides': num_slides})
+    """
 
 # for attract loop (not really a connection)
 def loop(request, slide_num):

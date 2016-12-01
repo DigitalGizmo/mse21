@@ -1,6 +1,37 @@
 Maintanance
 ============
 
+As of February 2016 the active development elements:
+	directory: msedev.mysticseaport.org 
+	env:  mse -- mse2 is a duplicate - wsgi uses mse
+	branch: develop
+	settings: mse/settings/staging
+	database: msedb
+	static: mse_static
+
+Public, live
+	dir: educators.mysticseaport.org
+	env: mse_ed
+	branch: develop
+	static: mse_static
+
+Local, Don's machine
+	env: mse2 (mse leads to old project)
+	database: mse2_db
+
+
+Transition to MSE 2.0
+----------------
+
+* Static
+	mse1_static is outside of educators and msedev -- initially shared by both
+
+	
+	Maps
+		Currently handled through Google Fusion Tables
+		Keys managed in Don's digitalgizmo account via: https://console.developers.google.com/project
+
+
 Database backups and transfers to local
 -----------------------------------
 
@@ -81,10 +112,7 @@ Login as root:
 
 Newer approach to backup -- run this local script which creates the backup copy on the
 remote server.
-Oops, the following doesn't work:
-pg_dump: [archiver (db)] connection to database "msedb" failed: fe_sendauth: no password supplied
-
-I think I must need to configure the db password to a remote file, like .htaccess
+(configured .pgpass in root)
 ::
 		
 	cd ~/Documents/Projects/MysticSeaport/MSE20/DataBaks/scripts
@@ -131,8 +159,7 @@ Transfer to local via FTP pvma root.
 (hmm, doesn't work, FTP_transfer permissions, mixup on user, password)
 ::
 	cd ~/Documents/Projects/MysticSeaport/MSE20/DataBaks/from_remote
-	wget --user=root --password='?' ftp://68.169.52.41/FTP_transfer/msedb_$(date +"%Y_%m_%d").backup
-
+	wget --user=mseadmin --password='[enter by hand]' ftp://msedev.mysticseaport.org/FTP_transfer/msedb_$(date +"%Y_%m_%d").backup
 Restore locally
 ::
 

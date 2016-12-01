@@ -97,7 +97,7 @@ class SearchListView(MenuInfoMixin, FormMixin, generic.ListView):
 
         # for submissions after initial display
         if form.is_valid():
-            print(' -------- form valid ----')
+            # print(' -------- form valid ----')
             q = form.cleaned_data['q']
 
             # empty list means all

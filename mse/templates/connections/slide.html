@@ -6,18 +6,27 @@
 
 {% block slim_content%}
 
-	<img src="{% static 'connections/audiovisuals/slides/' %}{{ connection_object.short_name }}_{{slide_num}}.jpg" class="view" height="400" alt="image: {{ connection_object.title }}"/>
-	<p class="credit">&copy; {{ curr_slide.credit_line }}</p>
+	<img src="{% static 'connections/audiovisuals/slides/' %}{{ connection_object.short_name }}_{{slide.slide_num}}.jpg" class="view" height="400" alt="image: {{ connection_object.title }}"/>
+	<p class="credit">&copy; {{ slide.credit_line }}</p>
 	<p class="slidenav">
-		{% if slide_num > 1 %}
-			<a href="javascript:slideView('{{ connection_object.short_name }}', {{slide_num|add:'-1' }})">&lsaquo; previous </a>
-		{% endif %}
-		{% if slide_num > 1 and slide_num < num_slides %} | {% endif %}
-		{% if slide_num < num_slides %}
-			<a href="javascript:slideView('{{ connection_object.short_name }}', {{ slide_num|add:'+1' }})">next &rsaquo;</a>
-		{% endif %}
+
+      {% if slide.get_prev %}
+		<a href="javascript:slideView('{{ connection_object.short_name }}', {{ slide.get_prev.slide_num }})">&lsaquo; previous </a>
+      {% else %}
+        <!-- <span class="no-more">&lArr; Previous</span> -->
+      {% endif %}
+
+      {% if slide.get_next  %}
+      	{% if slide.get_prev %} | {% endif %}
+		<a href="javascript:slideView('{{ connection_object.short_name }}', {{ slide.get_next.slide_num }})">next &rsaquo;</a>
+
+      {% else %}
+        <!-- <span class="no-more">Next &rArr;</span> -->
+      {% endif %}
+
+
 	</p>
 
-{{ curr_slide.narrative|safe }}
+{{ slide.narrative|safe }}
 
 {% endblock slim_content %}

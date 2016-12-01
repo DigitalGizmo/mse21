@@ -97,15 +97,37 @@ class Audiovisual(models.Model):
 class Slide(models.Model):
     audiovisual = models.ForeignKey('connections.Audiovisual')
     slide_num = models.IntegerField(
-            help_text="File naming: olc/connections/static/connections/audiovisuals/slides/"\
+            help_text="File naming: olc/connections/static/connections/audiovisuals/slides/" \
             "short_name_1, short_name_2, etc.")
     credit_line = models.CharField(max_length=128, blank=True, default='',
             help_text="For each slide -- Slides ignore Credit Line at top of form.")
     narrative = models.TextField('Caption', blank=True, default='',
             help_text="caption for each slide -- slides ignore Narrative at top of form.")
 
+    # next, prev slide, false if none
+    def get_next(self):
+        next_list = Slide.objects.filter(audiovisual_id=self.audiovisual_id, 
+            slide_num__gt=self.slide_num)
+        if next_list:
+            return next_list.first()
+        return False
+
+    def get_prev(self):
+        prev_list = Slide.objects.filter(audiovisual_id=self.audiovisual_id, 
+            slide_num__lt=self.slide_num).order_by('-slide_num')
+        if prev_list:
+            return prev_list.first()
+        return False
+
+    """
+    def num_slides(self):
+        slides = Slide.objects.filter(audiovisual_id=self.audiovisual_id)
+        return len(slides)
+    """
+
     class Meta:
-         verbose_name = "Slides - only for Slideshow"
+        verbose_name = "Slides - only for Slideshow"
+        ordering = ['slide_num']
          
     def __str__(self):
         return self.credit_line
