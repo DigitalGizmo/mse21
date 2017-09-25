@@ -2,25 +2,25 @@
 {% load staticfiles %}
 
 {% block item-viewer %}
-	<section id="item-viewer">
+<section id="item-viewer">
 
-		<script type="text/javascript"> Z.showImage("item-image", 
-		  "{% static resource_object.resource_type %}s/zooms/{{ resource_object.filename }}_{{ curr_page.page_suffix }}_z", 
-		  "{{ resource_object.zoom_settings|safe }}zSkinPath={% static 'js/Assets/Skins/Default' %}"); 
-		</script>
+	<script type="text/javascript"> Z.showImage("item-image", 
+	  "{% static resource_object.resource_type %}s/zooms/{{ resource_object.filename }}_{{ curr_page.page_suffix }}_z", 
+	  "{{ resource_object.zoom_settings|safe }}zSkinPath={% static 'js/Assets/Skins/Default' %}"); 
+	</script>
 
-		<div id="item-viewer--container">
-			<div id="item-image">zoomable document image here</div>
+	<div id="item-viewer--container">
+		<div id="item-image">zoomable document image here</div>
 
-			<div id="document-text" class="hidden">
-				{% include "documents/_page_text.html" %}
-				{% comment "_page_text.html contains only the following " %}
-				<div class="document-text--transcription">
-					{{ curr_page.transcript|safe }}
-				</div>
-				{% endcomment %}
-			</div><!-- /document-text -->
-		</div><!-- /item-viewer--container -->
+		<div id="document-text" class="hidden">
+			{% include "documents/_page_text.html" %}
+			{% comment "_page_text.html contains only the following " %}
+			<div class="document-text--transcription">
+				{{ curr_page.transcript|safe }}
+			</div>
+			{% endcomment %}
+		</div><!-- /document-text -->
+	</div><!-- /item-viewer--container -->
 
     <!-- document controls --> 
     <div class="item-viewer--tools">
@@ -51,7 +51,7 @@
 
 
     </div><!-- /item-viewer--tools -->
-	</section><!-- /item-viewer -->
+</section><!-- /item-viewer -->
 {% endblock item-viewer %}
 
 {% block about-title %}About This Document{% endblock %}

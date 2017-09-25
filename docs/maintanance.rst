@@ -1,7 +1,8 @@
 Maintanance
 ============
 
-As of February 2016 the active development elements:
+As of February 2016 the active 
+Development elements:
 	directory: msedev.mysticseaport.org 
 	env:  mse -- mse2 is a duplicate - wsgi uses mse
 	branch: develop
@@ -16,7 +17,7 @@ Public, live
 	static: mse_static
 
 Local, Don's machine
-	env: mse2 (mse leads to old project)
+	env: mse2 (mse leads to old project) (new env, changing to mse only)
 	database: mse2_db
 
 
@@ -32,6 +33,7 @@ Transition to MSE 2.0
 		Keys managed in Don's digitalgizmo account via: https://console.developers.google.com/project
 
 
+
 Database backups and transfers to local
 -----------------------------------
 
@@ -42,49 +44,8 @@ http://68.169.52.41/phppgadmin/
 user: postgres
 Pass: in 1pass, keychain
 
-Process for database changes
-~~~~~~~~~~~~~~~~~~~~~
-* makemigrations and test the change locally
-* migrations stay in source control
-* update remote git and run migrate there. (not makemigrations -- already there)
-::
 
-	manpy (aText) expands to
-	./manage.py
-	(then)
-	migrate
-	setmse (atext) expands to 
-	--settings=mse.settings.staging
-
-Backup remote and restore local
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-On eapps, login as root. We're not using the -O option since local and remote have the same user.
-Maybe su - postgres avoid the error below?)
-::
-
-    cd /var/www/mseadmin/data/FTP_transfer
-	pg_dump -Fc --clean --verbose msedb --user=msedb_user > mse_2015_06_02.backup
-    [msedb_user password]
-	
-    cd /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse (or workon mse)
-
-Transfer to local via FTP mystic root.
-::
-
-	cd ~/Documents/Projects/MSE20/DataBaks/from_remote
-	pg_restore --clean --dbname=msedb --verbose mse_2015_06_02_noo.backup
-
-One error ignored: revoking and granting on user postgres.
-(Maybe loging in as postgre would help? May need to alter local setup)
-Line to fix the owner of public:
-::
-
-	psql postgres
-	\connect msedb
-	ALTER SCHEMA public OWNER to msedb_user;
-
-Collect static
+Collect static [belongs elsewhere]
 ~~~~~~~~~~~~~~~~
 Batch file is at /usr/local/bin
 Executed by msedev.mysticseaport.org/management/collect
@@ -99,18 +60,24 @@ Renew WSGI for code change
 	touch /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/mse/wsgi.py
 
 
-Update Educators Database
-~~~~~~~~~~
 
-Backup msedb
-Login as root:
+Process for database changes
+~~~~~~~~~~~~~~~~~~~~~
+* makemigrations and test the change locally
+* migrations stay in source control
+* update remote git and run migrate there. (not makemigrations -- already there)
 ::
 
-	cd /var/www/mseadmin/data/FTP_transfer
-	pg_dump -Fc --clean --verbose msedb --user=msedb_user > msedb_$(date +"%Y_%m_%d").backup
-    [msedb_user password -- in Django settings]
+	./manage.py
+	(then)
+	migrate
+	setmse (atext) expands to 
+	--settings=mse.settings.staging
 
-Newer approach to backup -- run this local script which creates the backup copy on the
+Backup remote
+~~~~~~~~~~~~~~
+
+Run this local script which creates the backup copy on the
 remote server.
 (configured .pgpass in root)
 ::
@@ -123,48 +90,54 @@ Further progress would be to see if the script will run as mseadmin, and, if so,
 put the script on the server, and see if it runs from there.
 This would make it accessible to anyone with mseadmin login. 
 
-Copy data
+Backup msedb -- older terminal/login method
+Login as root:
+::
+
+	cd /var/www/mseadmin/data/FTP_transfer
+	pg_dump -Fc --clean --verbose msedb --user=msedb_user > msedb_$(date +"%Y_%m_%d").backup
+	(password is now stored on server) [msedb_user password]
+    [msedb_user password -- in Django settings]
+
+If you need to go back to the active virtenv:
+::
+    cd /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse (or workon mse)
+
+[or, use PGAdmin with which I have a direct connection to eApps mse db]
+
+
+Update Educators Database
+--------------------------
+
+Copy data to educators
 Note msedb_ed as the target.
+Log into shell as root
 ::
 
 	su - postgres
 	cd /var/www/mseadmin/data/FTP_transfer
 	pg_restore --clean --dbname=msedb_ed --user=msedb_user --verbose msedb_$(date +"%Y_%m_%d").backup
+	[db password here]
+(will likely get 2 errors, but that's ok.)
 
-Got an error that may be two-wrongs-make-a-right:
-pg_restore: [archiver (db)] Error from TOC entry 5; 2615 2200 SCHEMA public postgres
-pg_restore: [archiver (db)] could not execute query: ERROR:  must be member of role "postgres"
-    Command was: ALTER SCHEMA public OWNER TO postgres;
 
-can ignore the change of owner below:
+restore local
+~~~~~~~~~~~~~~
 
-Can't connect via psql as postgres to msedb_ed (without adding to pg_hba) so change public schema owner in phpPgAdmin.
-See above for connection.
-List Schemas > Alter > owner to msedb_user.
-
-Backup mse2 db and apply locally
---------------------------
-eapps, logged in as root
+[Looks like we still have to do this -- must not have wget set up]
+Transfer to local via FTP mystic root.
+Then, the command line approach:
 ::
 
-  cd /var/www/mseadmin/data/FTP_transfer
-	pg_dump -Fc --clean --verbose mse2db --user=msedb_user > mse2db_2015_10_28.backup
-  [msedb_user password]
+	cd ~/Documents/Projects/MysticSeaport/MSE20/DataBaks/from_remote
+	pg_restore --clean --dbname=mse2db --verbose msedb_$(date +"%Y_%m_%d").backup
 
-  cd /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse (or workon mse)
-	
-Download via FTP
-Or, try wget
-Transfer to local via FTP pvma root.
+[Or use PGAdmin3 to restore -- hmm, returned 0, didn't work 2017-09-06]
+
+wget effort so far:
 (hmm, doesn't work, FTP_transfer permissions, mixup on user, password)
 ::
 	cd ~/Documents/Projects/MysticSeaport/MSE20/DataBaks/from_remote
 	wget --user=mseadmin --password='[enter by hand]' ftp://msedev.mysticseaport.org/FTP_transfer/msedb_$(date +"%Y_%m_%d").backup
-Restore locally
-::
-
-	cd ~/Documents/Projects/MysticSeaport/MSE20/DataBaks/from_remote
-	pg_restore --clean --dbname=msedb --user=msedb_user --verbose msedb_$(date +"%Y_%m_%d").backup
-	(??: pg_restore --clean --dbname=mse2db --verbose mse2db_2015_10_28.backup)
 
 
