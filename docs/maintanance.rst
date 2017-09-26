@@ -21,32 +21,28 @@ Local, Don's machine
 	database: mse2_db
 
 
+Maps
+	Currently handled through Google Fusion Tables
+	Keys managed in Don's digitalgizmo account via: https://console.developers.google.com/project
+
+	Actual fusion table maps are under Don's don.b.button@gmail.com account. In Drive.
+
+	Process:
+	- groom in Excel (normalize column names)
+	- open in Numbers and export to CSV
+	- create new Fusion table in Drive
+	- Tools > Publish - Anyone with link
+	- File > About this table - get ID
+
 Transition to MSE 2.0
 ----------------
 
-* Static
+Collect static 
+~~~~~~~~~~~~~~~~
+
+Static directory
 	mse1_static is outside of educators and msedev -- initially shared by both
 
-	
-	Maps
-		Currently handled through Google Fusion Tables
-		Keys managed in Don's digitalgizmo account via: https://console.developers.google.com/project
-
-
-
-Database backups and transfers to local
------------------------------------
-
-Tools
-~~~~~~~~~
-phpPgAdmin
-http://68.169.52.41/phppgadmin/
-user: postgres
-Pass: in 1pass, keychain
-
-
-Collect static [belongs elsewhere]
-~~~~~~~~~~~~~~~~
 Batch file is at /usr/local/bin
 Executed by msedev.mysticseaport.org/management/collect
 Since Apache is executing this, the ownership of mse/static is apache:apache
@@ -59,6 +55,16 @@ Renew WSGI for code change
 	touch /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/mse/wsgi.py
 	touch /var/www/mseadmin/data/www/msesand.mysticseaport.org/mse/mse/wsgi.py
 
+
+Database 
+-----------------------------------
+
+Tools
+~~~~~~~~~
+phpPgAdmin
+http://68.169.52.41/phppgadmin/
+user: postgres
+Pass: in 1pass, keychain
 
 
 Process for database changes
@@ -124,7 +130,7 @@ Log into shell as root
 restore local
 ~~~~~~~~~~~~~~
 
-[Looks like we still have to do this -- must not have wget set up]
+[Looks like we still have to do this rather than wget -- must not have wget set up]
 Transfer to local via FTP mystic root.
 Then, the command line approach:
 ::

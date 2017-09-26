@@ -863,12 +863,12 @@ function createVoyageMarker(layerIndex, row) {
 		
 		if (row[10] > 0){
 			iwHtml.push('<dl class="icons"> ');
-			iwHtml.push('  <dt><img src="/static/maps/images/infowin/spot.png" height="25" width="25" alt="whales spotted icon"/>Whales Spotted:</dt> ');
+			iwHtml.push('  <dt><img src="/static/maps/images/infowin/spot.png" height="25" width="25" alt="whales spotted icon"/>Spotted:</dt> ');
 			iwHtml.push('  <dd>' + row[11] + '</dd> </dl>');
 		}
 		if (row[12] > 0){
 			iwHtml.push(' <dl class="icons"> ');
-			iwHtml.push('  <dt><img src="/static/maps/images/infowin/kill.png" height="25" width="25" alt="whales caught icon"/>Whales Caught:</dt> ');
+			iwHtml.push('  <dt><img src="/static/maps/images/infowin/kill.png" height="25" width="25" alt="whales caught icon"/>Caught:</dt> ');
 			iwHtml.push('  <dd>' + row[13] + '</dd> </dl>');
 		}
 		if (row[14] > 0){

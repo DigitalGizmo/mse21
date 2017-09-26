@@ -33,13 +33,15 @@ class Featured(models.Model):
     """
     RESOURCE_LOCATOR = (
         ('artifacts:artifact', 'artifact'),
-        ('documents:document', 'document'),
-        ('maps:geomap', 'map'),
-        ('scholars:lecture', 'lecture'),
-        ('scholars:interview', 'interview'),
-        ('resources:resourceset', 'resource set'),
-        ('community:profile', 'profile'),
         ('community:project', 'classroom project'),
+        ('documents:document', 'document'),
+        ('about:event', 'event'),
+        ('scholars:interview', 'interview'),
+        ('scholars:lecture', 'lecture'),
+        ('curriculum:lesson', 'lesson'),
+        ('maps:geomap', 'map'),
+        ('community:profile', 'profile'),
+        ('resources:resourceset', 'resource set'),
         ('nolink', 'item not linked'),
     )
     DISPLAY_STATUS = (
