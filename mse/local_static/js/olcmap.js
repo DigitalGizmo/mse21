@@ -33,7 +33,7 @@ Story variables
 /* ===========================================================
 Logbook Voyage variables
  ===========================================================*/
-var locEventNames = ["none", "na", "spot", "kill-spot", "gam", "na", "spot-gam", "kill-spot-gam", "weather", "na", "spot-weather", "kill-spot-weather", "gam-weather", "na", "spot-gam-weather", "kill-spot-gam-weather", "land", "na", "spot-land", "kill-spot-land", "gam-land", "na", "spot-gam-land", "kill-spot-gam-land", "weather-land", "na", "spot-weather-land", "kill-spot-weather-land", "gam-weather-land", "na", "spot-gam-weather-land", "kill-spot-gam-weather-land"];
+var locEventNames = ["none", "kill", "spot", "kill-spot", "gam", "na-5", "spot-gam", "kill-spot-gam", "weather", "kill-weather", "spot-weather", "kill-spot-weather", "gam-weather", "na-13", "spot-gam-weather", "kill-spot-gam-weather", "land", "na-17", "spot-land", "kill-spot-land", "gam-land", "na-21", "spot-gam-land", "kill-spot-gam-land", "weather-land", "na-25", "spot-weather-land", "kill-spot-weather-land", "gam-weather-land", "na-29", "spot-gam-weather-land", "kill-spot-gam-weather-land"];
 
 var MODE_COL_NAMES = ['all', 'Caught_code', 'Whales_sptd_code', 'gam_code', 'squally_wthr_code', 'anchor_code'];
 var MODE_TITLES	= ['All', 'Whales Caught', 'Whales Spotted', 'Gam with Another Ship', 'Foul Weather', 'Ship in Port']; // for no data for year message

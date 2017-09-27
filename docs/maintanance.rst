@@ -20,6 +20,8 @@ Local, Don's machine
 	env: mse2 (mse leads to old project) (new env, changing to mse only)
 	database: mse2_db
 
+GIT
+	Use git logged in as mseadmin
 
 Maps
 	Currently handled through Google Fusion Tables
