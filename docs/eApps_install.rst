@@ -111,4 +111,8 @@ in /etc/httpd/conf/vhosts/mseadmin msedev.mysticseaport.org
 	        Options +Includes +ExecCGI
 	</Directory>
 	~            	
-    
+
+Added redorect to https
+::
+        Redirect Permanent / https://educators.mysticseaport.org/
+

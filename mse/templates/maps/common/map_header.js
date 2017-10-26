@@ -2,7 +2,7 @@
 {# Shared between PQ and MSE #}
 
 <script type="text/javascript" 
-	src="http://maps.google.com/maps/api/js?sensor=false&v=3.8">
+	src="https://maps.google.com/maps/api/js?sensor=false&v=3.8">
 </script>
 <script type="text/javascript">
 var map_params = {
