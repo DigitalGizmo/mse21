@@ -22,6 +22,8 @@ class Event(models.Model):
     contact_name = models.CharField(max_length=32, blank=True, default='')
     contact_email = models.CharField(max_length=64, blank=True, default='')
     contact_phone = models.CharField(max_length=32, blank=True, default='')
+    contact_text = models.TextField('Open text (ignore the other fields)', 
+        blank=True, default='')
     ordinal = models.IntegerField('Order in Menu', default=99)
 
     class Meta:

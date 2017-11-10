@@ -17,7 +17,7 @@ Public, live
 	static: mse_static
 
 Local, Don's machine
-	env: mse2 (mse leads to old project) (new env, changing to mse only)
+	env: mse 
 	database: mse2_db
 
 GIT

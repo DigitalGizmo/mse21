@@ -38,7 +38,7 @@ class Biblio(models.Model):
         ('related_arts','Art, Film, Lit'),
     )
     title = models.CharField(max_length=128)
-    citation = models.CharField(max_length=255, blank=True, default='')
+    citation = models.TextField(blank=True, default='')
     biblio_type = models.CharField(max_length=16, choices=BIBLIO_TYPES, default='source')
     description = models.TextField(blank=True, default='')
 

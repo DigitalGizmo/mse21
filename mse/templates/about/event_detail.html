@@ -52,9 +52,14 @@
         </dl>
 
         <h2 class="content-wrapper--head">Sign Up</h2>
-        <p>Please contact {{ resource_object.contact_name }}: 
+        {{ resource_object.contact_text|safe}}
+
+        {% if resource_object.contact_name %}
+        <p>
+          Please contact {{ resource_object.contact_name }}: 
           <a href="javascript:window.location.href = 'mailto:' + ['{{ resource_object.contact_email_parts.0 }}','{{ resource_object.contact_email_parts.1 }}'].join('@') + '?Subject=Workshop: {{ resource_object.title|safe }}'">{{ resource_object.contact_email_parts.0 }}<!---->@<!---->{{ resource_object.contact_email_parts.1 }}</a>, {{ resource_object.contact_phone }}.
         </p>
+        {% endif %}
 
     </section><!-- /content-main -->
   </section><!-- /content-wrapper -->
