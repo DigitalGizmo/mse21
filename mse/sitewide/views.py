@@ -4,6 +4,7 @@ from django.views import generic
 from django.views.generic.edit import FormMixin
 from django.apps import apps
 from django.db.models import Q
+from datetime import date
 
 from django.conf import settings
 from sitewide.models import Featured
@@ -13,7 +14,7 @@ from .forms import SearchForm
 from artifacts.models import Artifact
 from documents.models import Document
 
-class HomeListView(generic.ListView):
+class HomeTemplateView(generic.TemplateView):
     """
     tryptic_list, and new_list are accessed from the instance of the banner_item.
     Exception messages require two entries in admin sitewide > 
@@ -21,7 +22,7 @@ class HomeListView(generic.ListView):
     banner_error_multi. 
     """
     # filter for events that belong on home page
-    queryset = Event.objects.filter(on_home=True)
+    # queryset = Event.objects.filter(on_home=True)
 
     # handle pequot home or MSE home
     if settings.SITE_ID == 2:
@@ -29,21 +30,24 @@ class HomeListView(generic.ListView):
     else:
         # MSE site
         template_name = 'index.html' 
-        # context_object_name = 'event_list' # use default
+        # obsolete, not using event list: context_object_name = 'event_list' # use default
 
-        # Get banner_item
-        # banner_item might better be called featured_object.
-        # Featured model provides access to the tryptic list and new_list
         def get_context_data(self, **kwargs):
             # Call the base implementation first to get a context
-            context = super(HomeListView, self).get_context_data(**kwargs)
+            context = super(HomeTemplateView, self).get_context_data(**kwargs)
+
+            # get current events list
+            context['current_events'] = Event.objects.filter(start_date__gte=date.today())
+
+            # Get banner_item and other featured
+            # banner_item might better be called featured_object.
             # Single banner instance will provide access to tryptic and 
-            # new list properties
+            # new list properties, as deined in the model
             try:
                 context['banner_item'] = Featured.objects.get(display_status = 3)
                 # also set main nav highlight
                 context['main_nav_selected'] = 'home'
-                return context
+                # return context
             except Featured.DoesNotExist:
                 context['banner_item'] = Featured.objects.get(short_name = 
                     'banner_error_none')
@@ -52,6 +56,8 @@ class HomeListView(generic.ListView):
                 context['banner_item'] = Featured.objects.get(short_name = 
                     'banner_error_multi')
                 return context
+
+            return context
 
 
 class SearchListView(MenuInfoMixin, FormMixin, generic.ListView):

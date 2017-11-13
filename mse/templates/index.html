@@ -33,7 +33,7 @@
 	  <section class="content-aside--box">
 	    <h2 class="content-wrapper--head"><a href="{% url 'about:event_list' %}">Upcoming Events</a></h2>
 	    <ul class="home-list">
-			{% for event in event_list %}
+			{% for event in current_events %}
 				<li>{{ event.start_date }}<br/>
 					<a href="{% url 'about:event_detail' event.short_name %}">{{ event.title|safe }}</a>
 				</li>
