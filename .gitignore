@@ -32,3 +32,5 @@ mse/model/model_local_static
 mse/model/scholars_static
 mse/model/sitewide_static
 mse/model/resources_static
+mse/model/videos/menupics
+mse/model/videos/thumbpics
