@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^maps/', include('maps.urls', namespace='maps')),
     url(r'^sets/', include('resources.urls', namespace='resources')),
     url(r'^scholars/', include('scholars.urls', namespace='scholars')),
+    url(r'^videos/', include('videos.urls', namespace='videos')),
     #url(r'^tinymce/', include('tinymce.urls')),
 ]

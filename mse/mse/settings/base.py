@@ -71,6 +71,7 @@ INSTALLED_APPS = (
     'resources',
     'scholars',
     'sitewide',
+    'videos',
     #'tinymce',     
 )
 
