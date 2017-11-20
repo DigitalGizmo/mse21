@@ -7,7 +7,7 @@ Development elements:
 	env:  mse -- mse2 is a duplicate - wsgi uses mse
 	branch: develop
 	settings: mse/settings/staging
-	database: msedb
+	database: mse2db
 	static: mse_static
 
 Public, live
