@@ -55,7 +55,8 @@
   // if greater than or equal to 691 (690 + 1)
   .dropdown-list--item { 
     @include media($mobile-navigation-breakpoint + em(1)) {
-      @include span-columns(12/5);
+      //@include span-columns(12/5);
+      @include span-columns(12/6);
     }
 
     a {

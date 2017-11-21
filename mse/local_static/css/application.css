@@ -786,7 +786,7 @@ ul.icon-list li.icon-list--map::before {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 18.11388%; }
+    width: 14.70196%; }
     .dropdown .dropdown-list--item:last-child {
       margin-right: 0; } }
 .dropdown .dropdown-list--item a {
@@ -1609,6 +1609,20 @@ span.selected img {
   padding-left: 1.5em; }
   .questions li {
     margin-bottom: 1.5em; }
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0; }
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
 
 .scenes-entry {
   margin-bottom: 1.5em; }

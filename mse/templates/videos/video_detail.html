@@ -35,21 +35,14 @@
         <h2 class="content-wrapper--head">{{ resource_object.title|safe }}</h2>
         {{ resource_object.narrative|safe }}
 
-        <article class="content-main--interview">
-          <div id="inter_view_wrapper">   
+        <article>
 
-           <!-- <canvas width="960" height="540"></canvas>
-            <video width="960" height="540" controls="controls" poster="/static/scholars/interviews/images/videoposter.jpg"> -->
+          <div class="video-wrapper">
 
-          <div class="video">
-
-            <iframe width="960" height="540" src="https://www.youtube.com/embed/{{ resource_object.video_source }}?rel=0" frameborder="0" allowfullscreen></iframe>
-
-            <!-- <iframe src="https://player.vimeo.com/video/243579287" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+            <iframe width="960" height="540" src="https://www.youtube.com/embed/{{ resource_object.video_source }}?rel=0" frameborder="0" allowfullscreen></iframe>oka
 
           </div> <!-- /video -->
 
-          </div> <!--/ inter_view_wrapper-->
         </article><!--/content-main--interview-->
 
       </section><!-- /content-main-->
