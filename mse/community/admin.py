@@ -22,7 +22,7 @@ class ProjectAdmin(admin.ModelAdmin):
         ('Related Items from Collection',   {'fields': ['artifacts', 'documents'], 
             'classes': ['collapse']}),
         ('Related Resources',   {'fields': ['biblio','essays', 'audiovisuals', 
-            'lectures', 'maps'], 'classes': ['collapse']}),
+            'lectures', 'maps', 'videos'], 'classes': ['collapse']}),
         ('Related Lesson, other PDFs',   {'fields': ['connections', 'lessons'], 
             'classes': ['collapse']}),
         ('Weblinks',   {'fields': ['weblinks'], 'classes': ['collapse']}),
@@ -32,6 +32,6 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display = ('title', 'short_name', 'status_num')
     #list_filter	 = ['scholar_short_name']
     filter_horizontal = ['resourcesets','artifacts', 'documents', 'connections','weblinks',
-    'biblio', 'essays', 'audiovisuals', 'lectures', 'maps','profiles', 'lessons']
+    'biblio', 'essays', 'audiovisuals', 'lectures', 'maps','profiles', 'lessons', 'videos']
 admin.site.register(Project, ProjectAdmin)
 

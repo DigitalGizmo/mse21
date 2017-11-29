@@ -19,17 +19,17 @@ class IdeaInline(admin.TabularInline):
 class ArtifactAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,            {'fields': ['title', 'subtitle', 'filename', 'short_name',
-            'id_number', 'object_name', 'date_made', 'maker', 'materials', 'measurements', 
-            'assoc_place', 'initial_zoom', 'initial_x', 'initial_y', 'description', 
-            'narrative']}),
+            'id_number', 'object_name', 'date_made', 'maker', 'materials', 
+            'measurements', 'assoc_place', 'initial_zoom', 'initial_x', 'initial_y', 
+            'description', 'narrative']}),
         ('Content Creator(s)',   {'fields': ['profiles'], 'classes': ['collapse']}),
         ('Resource Sets',   {'fields': ['resourcesets'], 'classes': ['collapse']}),
         ('Related Items from Collection',   {'fields': ['artifacts', 'documents'], 
             'classes': ['collapse']}),
         ('Related Resources',   {'fields': ['biblio','essays', 'audiovisuals', 
-            'lectures', 'maps'], 'classes': ['collapse']}),
-        ('Related Lesson, other PDFs',   {'fields': ['connections', 'lessons'], 'classes': 
-            ['collapse']}),
+            'lectures', 'maps', 'videos'], 'classes': ['collapse']}),
+        ('Related Lesson, other PDFs',   {'fields': ['connections', 'lessons'], 
+            'classes': ['collapse']}),
         ('Weblinks',   {'fields': ['weblinks'], 'classes': ['collapse']}),
         ('Behind the scenes',   {'fields': ['is_vertical', 'augmented', 'ordinal', 
             'edit_date', 'status_num', 'edited_by', 'notes'], 'classes': ['collapse']}),
@@ -40,7 +40,8 @@ class ArtifactAdmin(admin.ModelAdmin):
     list_filter	 = ['augmented'] # , 'edit_date'
     search_fields = ['id_number', 'title', 'short_name']
     filter_horizontal = ['resourcesets', 'artifacts', 'documents', 'connections',
-    'weblinks','biblio', 'essays', 'audiovisuals', 'lectures', 'maps', 'profiles', 'lessons']
+    'weblinks','biblio', 'essays', 'audiovisuals', 'lectures', 'maps', 'profiles', 
+    'lessons', 'videos']
 
 admin.site.register(Artifact, ArtifactAdmin)
 

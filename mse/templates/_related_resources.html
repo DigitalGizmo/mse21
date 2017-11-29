@@ -48,6 +48,10 @@ urls, as well as appname/resource names have uneven depths.)
       <li class="icon-list--map"><a href="/maps/{{ map.short_name }}/" class="link_newpage">Map: {{ map.title|safe }}</a></li>
   {% endfor %}
 
+  {% for video in resource_object.videos.all %}
+      <li class="icon-list--video"><a href="/videos/{{ video.short_name }}/" class="link_newpage">Video: {{ video.title|safe }}</a></li>
+  {% endfor %}
+
   {% for lecture in resource_object.lectures.all %}
       <li class="icon-list--lecture"><a href="/scholars/lectures/{{ lecture.short_name }}/" class="link_newpage">Lecture: {{ lecture.title|safe }}</a></li>
   {% endfor %}

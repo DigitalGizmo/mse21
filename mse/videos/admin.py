@@ -10,7 +10,7 @@ class VideoAdmin(admin.ModelAdmin):
         ('Related Items from Collection',   {'fields': ['artifacts', 'documents'], 
         	'classes': ['collapse']}),
         ('Related Resources',   {'fields': ['biblio','essays', 'audiovisuals', 'lectures', 
-            'maps'], 'classes': ['collapse']}),
+            'maps', 'videos'], 'classes': ['collapse']}),
         ('Related Lesson, other PDFs',   {'fields': ['connections', 'lessons'], 'classes': 
             ['collapse']}),
         ('Weblinks',   {'fields': ['weblinks'], 'classes': ['collapse']}),
@@ -21,6 +21,6 @@ class VideoAdmin(admin.ModelAdmin):
     ##list_filter	 = ['augmented']
     search_fields = ['title', 'short_name']
     filter_horizontal = ['resourcesets','artifacts', 'documents', 'connections','weblinks',
-        'biblio', 'essays', 'audiovisuals', 'lectures', 'maps', 'lessons']
+        'biblio', 'essays', 'audiovisuals', 'lectures', 'maps', 'lessons', 'videos']
 
 admin.site.register(Video, VideoAdmin)

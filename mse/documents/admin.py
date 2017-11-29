@@ -25,7 +25,7 @@ class DocumentAdmin(admin.ModelAdmin):
         ('Related Items from Collection',   {'fields': ['artifacts', 'documents'], 
             'classes': ['collapse']}),
         ('Related Resources',   {'fields': ['biblio','essays', 'audiovisuals', 'lectures', 
-            'maps'], 'classes': ['collapse']}),
+            'maps', 'videos'], 'classes': ['collapse']}),
         ('Related Lesson, other PDFs',   {'fields': ['connections', 'lessons'], 'classes': 
             ['collapse']}),
         ('Weblinks',   {'fields': ['weblinks'], 'classes': ['collapse']}),
@@ -38,7 +38,7 @@ class DocumentAdmin(admin.ModelAdmin):
     list_filter	 = ['augmented']
     search_fields = ['identifier', 'title', 'short_name']
     filter_horizontal = ['resourcesets','artifacts', 'documents', 'connections','weblinks',
-        'biblio', 'essays', 'audiovisuals', 'lectures', 'maps','profiles', 'lessons']
+        'biblio', 'essays', 'audiovisuals', 'lectures', 'maps','profiles', 'lessons', 'videos']
 
 admin.site.register(Document, DocumentAdmin)
 

@@ -74,6 +74,8 @@ class ManyModel(CommonModel):
     weblinks = models.ManyToManyField('connections.Weblink', blank=True)
     lessons = models.ManyToManyField('curriculum.Lesson', 
         verbose_name='Lesson PDFs (new tab)', blank=True)
+    videos = models.ManyToManyField('videos.Video', 
+        verbose_name='Videos related to this item', blank=True)
 
     class Meta:
         abstract = True

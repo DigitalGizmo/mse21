@@ -29,7 +29,7 @@ class LessonAdmin(admin.ModelAdmin):
         ('Related Items from Collection',   {'fields': ['artifacts', 'documents'], 
             'classes': ['collapse']}),
         ('Related Resources',   {'fields': ['biblio','essays', 'audiovisuals', 
-            'lectures', 'maps'], 'classes': ['collapse']}),
+            'lectures', 'maps', 'videos'], 'classes': ['collapse']}),
         ('Weblinks',   {'fields': ['weblinks'], 'classes': ['collapse']}),
         ('Behind the scenes',   {'fields': ['ordinal', 
             'edit_date', 'status_num', 'edited_by', 'notes'], 'classes': ['collapse']}),
@@ -37,6 +37,6 @@ class LessonAdmin(admin.ModelAdmin):
     inlines = [ SupplementInline]
     list_display = ('short_name', 'title', 'ordinal', 'status_num')
     filter_horizontal = ['gradelevels', 'subjects', 'profiles', 'artifacts', 'documents',
-        'weblinks', 'biblio','essays', 'audiovisuals', 'lectures', 'maps']
+        'weblinks', 'biblio','essays', 'audiovisuals', 'lectures', 'maps', 'videos']
 
 admin.site.register(Lesson, LessonAdmin)
