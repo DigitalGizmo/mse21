@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block title %}{# resource_type|title #}: {{ resource_object.title|safe }}{% endblock %}
+{% block title %}Video: {{ resource_object.title|safe }}{% endblock %}
 
 {% block title_area %}
   <aside class="title-area--icon">
@@ -24,10 +24,10 @@
 
     <section class="content-wrapper">
       <aside class="content-aside">
-        <section class="content-aside--box">
-          <h2 class="content-wrapper--head">Related resources</h2>
-          <p>Goes here</p>
-        </section>
+
+        {% include "_related_resources.html" %}
+
+        {% include "_related_items_viewless.html" %}
 
       </aside>
 
