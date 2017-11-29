@@ -10,6 +10,7 @@ class SearchForm(forms.Form):
         ('i','Interviews'),
         ('d','Documents'),
         ('a','Artifacts'),
+        ('v','Videos'),
     )
     q = forms.CharField(max_length=100, required=False)
     #q = forms.CharField(widget=forms.TextInput(attrs={'class': 'search-resources--field', 

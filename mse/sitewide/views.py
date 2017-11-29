@@ -76,10 +76,10 @@ class SearchListView(MenuInfoMixin, FormMixin, generic.ListView):
     menu_type='search'
     # specific to methods below
     init_data = {'q': ''}
-    all_rts = {'rts': ['m', 'l', 'i', 'd', 'a']}
+    all_rts = {'rts': ['m', 'l', 'i', 'd', 'a','v']}
     resource_types = {'a': ['artifacts', 'artifact'], 'd': ['documents', 'document'], 
         'm': ['maps', 'geomap'], 'l': ['scholars', 'lecture'], 
-        'i': ['scholars', 'interview'], }
+        'i': ['scholars', 'interview'], 'v': ['videos', 'video'], }
 
     def get_form_kwargs(self):
         return {
