@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from django.views.generic import ListView, DetailView
 from .models import Video
@@ -28,5 +28,5 @@ def biblio(request, short_name):
     source_list = a.biblio.filter(biblio_type="source")
     arts_list = a.biblio.filter(biblio_type="related_arts")
     item_title = a.title
-    return render_to_response('connections/biblio.html', {'source_list': source_list, 
+    return render(request, 'connections/biblio.html', {'source_list': source_list, 
         'arts_list': arts_list, 'item_title': item_title})

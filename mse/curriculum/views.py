@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic.edit import FormMixin
 from django.db.models import Q
@@ -100,7 +100,7 @@ def biblio(request, short_name):
     source_list = o.biblio.filter(biblio_type="source")
     arts_list = o.biblio.filter(biblio_type="related_arts")
     item_title = o.title
-    return render_to_response('connections/biblio.html', {'source_list': source_list, 
+    return render(request, 'connections/biblio.html', {'source_list': source_list, 
         'arts_list': arts_list, 'item_title': item_title})
 
 

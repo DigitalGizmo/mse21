@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 #from django.template import Context, loader
 from django.views import generic
 from django.conf import settings
@@ -22,7 +22,7 @@ class DocumentListView(CollectionSearchMixin, MenuInfoMixin, generic.ListView):
  
 def index_list(request):
     resource_object_list = Document.objects.all().order_by('identifier')
-    return render_to_response('documents/index_list.html', 
+    return render(request, 'documents/index_list.html', 
         {'resource_object_list': resource_object_list})
 
 
@@ -57,7 +57,7 @@ class DetailListView(CollectionSearchMixin, ItemDetailMixin, MenuInfoMixin, gene
         try:        
             curr_page = resource_object.first_page
         except:
-            return render_to_response('error_msg.html', 
+            return render(request, 'error_msg.html', 
                 {'msg':'Document entry in Admin must define at least one Page.'})
         # set the context variable
         context['curr_page'] = curr_page
@@ -77,7 +77,7 @@ def doc_page(request, doc_short_name, page_suffix, filename):
     # get page record for this suffix
     curr_page = d.page_set.get(page_suffix=page_suffix)            
 
-    return render_to_response('documents/_page_text.html', {'resource_object': d, 
+    return render(request, 'documents/_page_text.html', {'resource_object': d, 
         'curr_page': curr_page})
 
 def slim(request, short_name):
@@ -87,11 +87,11 @@ def slim(request, short_name):
     try:        
         curr_page = o.first_page
     except:
-        return render_to_response('error_msg.html', 
+        return render(request, 'error_msg.html', 
             {'msg':'Document entry in Admin must define at least one Page.'})
 
     # Pequot version needs siteID in order to supress "go to full page"
-    return render_to_response('documents/slim.html', {'resource_object': o, 
+    return render(request, 'documents/slim.html', {'resource_object': o, 
         'curr_page': curr_page, 'siteid': settings.SITE_ID})
 
 
@@ -99,7 +99,7 @@ def ideas(request, short_name):
     o = get_object_or_404(Document, short_name=short_name)
     idea_list = o.idea_set.all()
     title = o.title
-    return render_to_response('connections/ideas.html', {'title': title, 
+    return render(request, 'connections/ideas.html', {'title': title, 
         'idea_list': idea_list})
 
 
@@ -108,5 +108,5 @@ def biblio(request, short_name):
     source_list = d.biblio.filter(biblio_type="source")
     arts_list = d.biblio.filter(biblio_type="related_arts")
     item_title = d.title
-    return render_to_response('connections/biblio.html', {'source_list': source_list, 
+    return render(request, 'connections/biblio.html', {'source_list': source_list, 
         'arts_list': arts_list, 'item_title': item_title})

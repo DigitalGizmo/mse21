@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.template import Context, loader
 from django.http import Http404
 from django.conf import settings
@@ -29,11 +29,11 @@ def index(request):
             sites__id__exact=settings.SITE_ID).order_by('ordinal')
         interview_list = Interview.objects.filter(status_num__gte=settings.STATUS_LEVEL, 
             sites__id__exact=settings.SITE_ID).order_by('ordinal')
-        return render_to_response('pq/maps/index.html', {'item_list': item_list, 
+        return render(request, 'pq/maps/index.html', {'item_list': item_list, 
             'story_list': story_list, 'lecture_list': lecture_list, 'interview_list': interview_list})
     else: # regular MSE menu
         menu_info = get_object_or_404(Menu, short_name='geomap')
-        return render_to_response('maps/map_list.html', {'resource_object_list': item_list, 
+        return render(request, 'maps/map_list.html', {'resource_object_list': item_list, 
             'story_list': story_list, 'menu_info': menu_info, 
             'main_nav_selected': menu_info.main_nav_name})
 
@@ -44,16 +44,16 @@ def detail(request, short_name):
         template_path = 'pq/maps/detail.html'
     else:
         template_path = 'maps/map_detail.html'
-    return render_to_response(template_path, {'resource_object': o, 
+    return render(request, template_path, {'resource_object': o, 
         'main_nav_selected': 'museum_resources'})
 
 def voyage(request, short_name):
     o = get_object_or_404(Geomap, short_name=short_name)
     if settings.SITE_ID == 2:
         #lectures = o.lectures.all()  
-        return render_to_response('pq/maps/voyage.html', {'resource_object': o})
+        return render(request, 'pq/maps/voyage.html', {'resource_object': o})
     else:
-        return render_to_response('maps/voyage.html', {'resource_object': o,
+        return render(request, 'maps/voyage.html', {'resource_object': o,
             'main_nav_selected': 'museum_resources'})
 
 def story(request, short_name):
@@ -62,10 +62,10 @@ def story(request, short_name):
     chap_list = serializers.serialize("json", o.chapter_set.all())
     # pq version gets sidebar connections
     if settings.SITE_ID == 2:
-        return render_to_response('pq/maps/story.html', {'resource_object': o, 
+        return render(request, 'pq/maps/story.html', {'resource_object': o, 
             'chap_data': chap_list})
     else:
-        return render_to_response('maps/story.html', {'resource_object': o, 
+        return render(request, 'maps/story.html', {'resource_object': o, 
             'chap_data': chap_list, 'main_nav_selected': 'museum_resources'})
 
 # map index of -2 sent to be compatible with compare_this (-1 sent when match tried but not found)
@@ -77,7 +77,7 @@ def compare(request, short_name):
     else:
         template_path = 'maps/compare.html'
         voyage_list = get_voyage_list(o)
-    return render_to_response(template_path, {'resource_object': o, 'voyage_list': voyage_list, 
+    return render(request, template_path, {'resource_object': o, 'voyage_list': voyage_list, 
         'map_index': -2, 'main_nav_selected': 'museum_resources'})
 
 # -1 means we tried compare, but didn't find one
@@ -101,7 +101,7 @@ def compare_this(request, short_name, map_id):
         template_path = 'pq/maps/compare.html'
     else:
         template_path = 'maps/compare.html'
-    return render_to_response(template_path, {'resource_object': o, 'voyage_list': voyage_list, 
+    return render(request, template_path, {'resource_object': o, 'voyage_list': voyage_list, 
         'map_index': map_index, 'main_nav_selected': 'museum_resources'})
 
 # compare object, map id (-1 for none)
@@ -130,30 +130,30 @@ def get_voyage_list(o):
 
 def about(request, short_name):
     o = get_object_or_404(Geomap, short_name=short_name)
-    return render_to_response('maps/about.html', {'resource_object': o, 'siteid': settings.SITE_ID})
+    return render(request, 'maps/about.html', {'resource_object': o, 'siteid': settings.SITE_ID})
 
 def storyprint(request, short_name):
     o = get_object_or_404(Geomap, short_name=short_name)
-    return render_to_response('maps/storyprint.html', {'resource_object': o, 'siteid': settings.SITE_ID})
+    return render(request, 'maps/storyprint.html', {'resource_object': o, 'siteid': settings.SITE_ID})
 
 def storylarge(request, short_name, chap_num):
     o = get_object_or_404(Geomap, short_name=short_name)
-    return render_to_response('maps/storylarge.html', {'resource_object': o, 'chap_num': chap_num, 'siteid': settings.SITE_ID})
+    return render(request, 'maps/storylarge.html', {'resource_object': o, 'chap_num': chap_num, 'siteid': settings.SITE_ID})
 
 def journal_page(request, short_name, page_num):
     o = get_object_or_404(Geomap, short_name=short_name)
-    return render_to_response('maps/journal_page.html', {'resource_object': o, 'page_num': page_num, 'siteid': settings.SITE_ID})
+    return render(request, 'maps/journal_page.html', {'resource_object': o, 'page_num': page_num, 'siteid': settings.SITE_ID})
 
 def ideas(request, short_name):
     #print "short name: " + short_name
     o = get_object_or_404(Geomap, short_name=short_name)
     idea_list = o.idea_set.all()
     title = o.title
-    return render_to_response('connections/ideas.html', {'title': title,'idea_list': idea_list, 'siteid': settings.SITE_ID})
+    return render(request, 'connections/ideas.html', {'title': title,'idea_list': idea_list, 'siteid': settings.SITE_ID})
 
 def biblio(request, short_name):
     o = get_object_or_404(Geomap, short_name=short_name)
     source_list = o.biblio.filter(biblio_type="source")
     arts_list = o.biblio.filter(biblio_type="related_arts")
     item_title = o.title
-    return render_to_response('connections/biblio.html', {'source_list': source_list, 'arts_list': arts_list, 'item_title': item_title, 'siteid': settings.SITE_ID})
+    return render(request, 'connections/biblio.html', {'source_list': source_list, 'arts_list': arts_list, 'item_title': item_title, 'siteid': settings.SITE_ID})

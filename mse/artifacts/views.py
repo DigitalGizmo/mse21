@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import get_object_or_404, render
 # from django.template import Context, loader
 from django.views import generic
 from django.conf import settings
@@ -22,7 +22,7 @@ class ArtifactListView(CollectionSearchMixin, MenuInfoMixin, generic.ListView):
 
 def index_list(request):
     resource_object_list = Artifact.objects.all().order_by('id_number')
-    return render_to_response('artifacts/index_list.html', 
+    return render(request, 'artifacts/index_list.html', 
         {'resource_object_list': resource_object_list})
 
 
@@ -49,7 +49,7 @@ def slim(request, short_name):
     o = get_object_or_404(Artifact, short_name=short_name)
     # a condition in slim.html checks for o.is_vertical
     # Pequot version needs siteID in order to supress "go to full page"
-    return render_to_response('artifacts/slim.html', {'resource_object': o, 
+    return render(request, 'artifacts/slim.html', {'resource_object': o, 
         'siteid': settings.SITE_ID})
 
 def ideas(request, short_name):
@@ -57,13 +57,13 @@ def ideas(request, short_name):
     o = get_object_or_404(Artifact, short_name=short_name)
     idea_list = o.idea_set.all()
     title = o.title
-    return render_to_response('connections/ideas.html', {'title': title,'idea_list': idea_list})
+    return render(request, 'connections/ideas.html', {'title': title,'idea_list': idea_list})
 
 def biblio(request, short_name):
     a = get_object_or_404(Artifact, short_name=short_name)
     source_list = a.biblio.filter(biblio_type="source")
     arts_list = a.biblio.filter(biblio_type="related_arts")
     item_title = a.title
-    return render_to_response('connections/biblio.html', {'source_list': source_list, 
+    return render(request, 'connections/biblio.html', {'source_list': source_list, 
         'arts_list': arts_list, 'item_title': item_title})
 
