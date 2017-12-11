@@ -54,7 +54,7 @@
 
         <ul class="page-numbers">
           {% for page_number in paginator.page_range %}
-            {% if page_number = page_obj.number %}
+            {% if page_number == page_obj.number %}
               <li class="page-nav--selected">{{ page_number }}</li>
             {% else %}
               <li class="page-nav">

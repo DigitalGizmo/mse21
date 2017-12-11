@@ -1,20 +1,11 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import TemplateView
-
-# from sitewide.views import HomeListView
-
-"""
-hame page treatment is experimental.
-May need to include sitewide urls
-"""
+from django.conf import settings
 
 urlpatterns = [
     url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),  
-    #url(r'^$', 'sitewide.views.index'),
-    #url(r'^$', HomeListView.as_view(), name='home'),
     url(r'^', include('sitewide.urls', namespace='sitewide')),
-    url(r'^admin/', include(admin.site.urls)),
     url(r'^about/', include('about.urls', namespace='about')),
     url(r'^artifacts/', include('artifacts.urls', namespace='artifacts')),
     url(r'^community/', include('community.urls', namespace='community')),
@@ -27,3 +18,6 @@ urlpatterns = [
     url(r'^videos/', include('videos.urls', namespace='videos')),
     #url(r'^tinymce/', include('tinymce.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns.append( url(r'^admin/', admin.site.urls))

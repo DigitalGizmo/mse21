@@ -30,7 +30,7 @@
 
       <h2 class="content-wrapper--head">{{ resource_object.title|safe }}</h2>
 
-      {% if resource_object.short_name = 'funders' %}
+      {% if resource_object.short_name == 'funders' %}
         {% include "about/_funder_list.html" %}
       {% endif %}
 
