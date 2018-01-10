@@ -37,7 +37,7 @@ class HomeTemplateView(generic.TemplateView):
             context = super(HomeTemplateView, self).get_context_data(**kwargs)
 
             # get current events list
-            context['current_events'] = Event.objects.filter(start_date__gte=date.today())
+            context['current_events'] = Event.objects.filter(start_date__gte=date.today(), on_home=True)
 
             # Get banner_item and other featured
             # banner_item might better be called featured_object.
