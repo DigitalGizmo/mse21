@@ -3,7 +3,7 @@
 
 {% block aside_box_area %}
   <section class="content-aside--box">
-    <h2 class="content-wrapper--head">Funders for this Feature</h2>
+    <h2 class="content-wrapper--head">About these Videos</h2>
     {{ menu_info.aside_blurb|safe }}
   </section>
 {% endblock aside_box_area %}  
@@ -17,7 +17,7 @@
          <img src="{% static 'videos/menupics/' %}{{ item.short_name }}_m.jpg" alt="image:{{ item.short_name }}" />
         {{ item.title|safe }}
       </a>
-      Credit {{ item.producer }}
+      <!-- Credit {{ item.producer }} -->
     </li>
   {% endfor %}
     </ul>     
