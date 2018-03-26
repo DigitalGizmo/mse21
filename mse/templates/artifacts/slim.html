@@ -1,0 +1,16 @@
+{% extends "collection_items_common/base_collection.html" %}
+{% load staticfiles %}
+
+{# title in base_collection #}
+
+{% block collection_image %}
+	<img src="{% static 'artifacts/fullpics/' %}{{ resource_object.filename }}_A_f.jpg" alt="image: {{ resource_object.title }}" {% if resource_object.is_vertical %}class="vertical"{% endif %}/>
+	
+	<!--width="320"-->
+	<!-- p class="credit">{{ resource_object.credit_line|safe }}</p -->
+{% endblock collection_image %}
+
+{% block attributes%}
+  	<h2>Artifact Facts</h2>
+	{% include "artifacts/_artifact_attributes.html" %}
+{% endblock attributes %}

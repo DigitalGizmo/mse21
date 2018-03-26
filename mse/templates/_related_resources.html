@@ -1,0 +1,64 @@
+{% load staticfiles %}
+
+{% comment %}
+There are four kinds of links here. The external urls and the urls for other full pages are
+pretty straight-forward. The javascript:popBox calls are all calls to "connections". This format
+is compatable with many in-line links to moreInfos and slimpop artifacts and documents.
+The links with class pop-url (further reading and classroom ideas) are handled by the 
+external JavaScript -- they take advantage of the Django url template tag that's driven by
+url "names" than in turn take advantage of urlConf names that are normalized (where as the actual
+urls, as well as appname/resource names have uneven depths.)
+{% endcomment %}
+
+<section class="content-aside--box related">
+<h2 class="content-wrapper--head">Related Resources</h2><!-- related resources box -->
+
+<ul class="icon-list">
+
+  {% if resource_object.biblio.all %}
+    <li class="icon-list--study"><a class="pop-url" 
+      href="{% url resource_object.app_namespace|add:':'|add:resource_object.resource_type|add:'_biblio' resource_object.short_name %}">For Further Study</a></li>
+  {% endif %}
+
+  {% if resource_object.idea_set.all %} 
+    <li class="icon-list--ideas"><a class="pop-url" href="{% url resource_object.app_namespace|add:':'|add:resource_object.resource_type|add:'_ideas' resource_object.short_name %}">Ideas for Classroom Use</a></li>
+  {% endif %} 
+
+  {% for essay in resource_object.essays.all %}
+    <li class="icon-list--info"><a href="javascript:popBox('connections','essays','{{ essay.short_name }}')">Background: {{ essay.title|safe }}</a></li>
+  {% endfor %}
+
+  {% for audiovisual in resource_object.audiovisuals.all %}
+    <li class="icon-list--{{ audiovisual.media_type|lower }}"><a href="javascript:popBox('connections','{{ audiovisual.media_type|lower }}','{{ audiovisual.short_name }}')">{{ audiovisual.media_type }}: {{ audiovisual.title|safe }}</a></li>
+  {% endfor %}
+
+  {% for link in resource_object.connections.all %}
+    <li class="icon-list--{{ link.link_heading }}"><a href="{% static 'connections/pdfs/' %}{{ link.to_short_name }}.pdf" target="pdf">{{ link.link_heading|title }}: {{ link.link_text|safe }}</a> (PDF)</li>
+  {% endfor %}
+
+  {% for weblink in resource_object.weblinks.all %}
+      <li class="icon-list--website"><a href="{{ weblink.link_url }}" target="external"  class="link_external">Weblink: {{ weblink.link_text|safe }}</a></li>
+  {% endfor %}
+
+  {% for lesson in resource_object.lessons.all %}
+    <li class="icon-list--lesson link_newpage"><a href="{% url 'curriculum:lesson_detail' lesson.short_name %}" class="link_newpage">Lesson: {{ lesson.title|safe }}</a> (PDF)</li>
+  {% endfor %}
+
+  {% for map in resource_object.maps.all %}
+      <li class="icon-list--map"><a href="/maps/{{ map.short_name }}/" class="link_newpage">Map: {{ map.title|safe }}</a></li>
+  {% endfor %}
+
+  {% for video in resource_object.videos.all %}
+      <li class="icon-list--video"><a href="/videos/{{ video.short_name }}/" class="link_newpage">Video: {{ video.title|safe }}</a></li>
+  {% endfor %}
+
+  {% for lecture in resource_object.lectures.all %}
+      <li class="icon-list--lecture"><a href="/scholars/lectures/{{ lecture.short_name }}/" class="link_newpage">Lecture: {{ lecture.title|safe }}</a></li>
+  {% endfor %}
+
+  {% for interview in resource_object.interviews.all %}
+      <li class="icon-list--interview"><a href="/scholars/interviews/{{ interview.short_name }}/"  class="link_newpage">Interview: {{ interview.scholar|safe }}</a></li>
+  {% endfor %}
+
+</ul>
+</section>

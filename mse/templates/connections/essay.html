@@ -1,0 +1,10 @@
+{% extends "connections/base_connection.html" %}
+
+{% block heading %}Background Info{% endblock %}
+{% block connection_title %}{{ essay.title|safe }}{% endblock %}
+
+{% block slim_content%}
+
+{{ essay.narrative|safe }}
+
+{% endblock slim_content %}

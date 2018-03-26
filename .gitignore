@@ -1,0 +1,36 @@
+# Extensions
+*.pyc
+*.log
+*.db
+*.jpg
+*.gif
+*.png
+*.lnk
+*.css.map
+
+# Files
+.DS_Store
+.com.apple.timemachine.supported
+secrets.json
+robots.txt
+
+# Directories
+**/.sass-cache
+**/.sass-cache/*
+.svn/
+static/
+tinymce/
+templates/robots.txt
+mse/local_static/images/
+mse/local_static/common/css_images/
+mse/model/about_static
+mse/model/artifact_static
+mse/model/community_static
+mse/model/documents_static
+mse/model/maps_static
+mse/model/model_local_static
+mse/model/scholars_static
+mse/model/sitewide_static
+mse/model/resources_static
+mse/model/videos/menupics
+mse/model/videos/thumbpics

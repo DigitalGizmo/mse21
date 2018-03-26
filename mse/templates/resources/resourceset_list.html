@@ -1,0 +1,22 @@
+{% extends "list_base.html" %}
+{% load staticfiles %}
+
+
+{% block fullwidth_menu %}
+
+  <ul class="item-menu--grid-big">
+
+  {% for resourceset in resource_object_list %}
+    <li class="item-menu--big-item">
+      <a href="{% url 'resources:resourceset_detail' resourceset.short_name %}">
+        <h3>{{ resourceset.title|safe }}</h3>
+        <img src="{% static 'resources/menupics/' %}{{ resourceset.short_name }}.jpg" alt="image: {{ resourceset.short_name }}"/>
+      </a>
+    </li>
+  {% endfor %}
+
+  </ul>
+
+  {# if pagination is required, we should probably make it and include, here it't not in section #}
+
+{% endblock fullwidth_menu %}

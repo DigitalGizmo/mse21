@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ resource_type|title }}: {{ resource_object.scholar|safe }}{% endblock %}
+
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-interview" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <p class="breadcrumbs">
+      <a href="{% url 'scholars:'|add:resource_type|add:'_list' %}">Scholar Interviews</a>
+    </p>
+    <h1>Interview of {{ resource_object.scholar|safe }}</h1>
+    <p>
+      {% for profile in resource_object.profiles.all %}
+        <a href="/community/profiles/{{ profile.short_name }}/" class="title">
+        {{ profile.profile_name|safe }}</a>{% endfor %}, Interviewer
+    </p>
+  </section>
+{% endblock title_area %}
+
+
+{% block content_area %}
+<!-- main content -->
+  <!-- page content --> 
+
+    <section class="content-wrapper">
+      <aside class="content-aside">
+        <section class="content-aside--box">
+          <h2 class="content-wrapper--head">Interview Questions</h2>
+          <p>Click a question below to play that segment of the video. Or <a href="javascript:interView('{{ resource_object.short_name }}', '0')">click here to play the complete video</a>. ({{ resource_object.full_length }})</p>
+          <ol class="interview-questions">
+
+          {% for question in resource_object.question_set.all %}
+
+            <li><a href="javascript:interView('{{ resource_object.short_name }}', '{{ question.question_num}}')">{{question.title|safe}}</a><br>
+            {{question.question_text|safe}} ({{question.length}})</li>
+
+          {% endfor %}
+
+          </ol>
+        </section>
+
+      </aside>
+
+      <section class="content-main">
+        <h2 class="content-wrapper--head">About This Interview</h2>
+        {{ resource_object.narrative|safe }}
+
+        <article class="content-main--interview">
+          <div id="inter_view_wrapper">    
+              {% include "scholars/_inter_view.html" %}        
+          </div> <!--/ inter_view_wrapper-->
+        </article><!--/content-main--interview-->
+
+      </section><!-- /content-main-->
+    </section><!-- /content-wrapper -->
+
+
+{% endblock content_area %}

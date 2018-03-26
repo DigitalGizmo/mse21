@@ -1,0 +1,8 @@
+ul.icon-list {margin-left: 300px;}
+
+.icon-list li.asterisk {
+    list-style-image: url('/local_static/images/asterisk.svg');
+}
+.icon-list li.trypot {
+    list-style-image: url('/local_static/images/svg-test.svg');
+}

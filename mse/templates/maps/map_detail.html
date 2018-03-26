@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ resource_object.resource_type|title }}: {{ resource_object.title_no_markup }}{% endblock %}
+
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-geomap" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <p class="breadcrumbs">
+      <a href="{% url 'maps:map_list' %}">Active Maps</a>
+    </p>
+    <h1>{{ resource_object.title|safe }}</h1>
+    {% if resource_object.subtitle %}
+      <h3>{{ resource_object.subtitle|safe }}</h3>
+    {% endif %}
+
+  </section>
+{% endblock title_area %}
+
+
+{% block content_area %}
+
+  <!-- page content --> 
+  <section class="content-wrapper">
+    <aside class="content-aside"><!-- boxes column -->
+
+        <img class="alignleft" src="{% static 'maps/fullpics/' %}{{ resource_object.short_name }}.jpg" alt="image: {{ resource_object.short_name }}"  />
+
+        <p class="content-wrapper--caption">{{ resource_object.caption|safe }} {{ resource_object.credit|safe }}</p>
+
+      {% include "_related_resources.html" %}
+
+      {% include "_related_items_viewless.html" %}
+
+    </aside><!-- /boxes column -->
+
+    <section class="content-main"><!-- main content column -->
+      <header class="about">
+        <h2 class="content-wrapper--head about--title">About This Map</h2>
+          <a href="/maps/{{ resource_object.map_type|lower }}/{{ resource_object.short_name }}"><button class="about--go">Go to this {{ resource_object.map_type }} Map</button></a>
+      </header>
+
+      {{ resource_object.narrative|safe }}
+
+    </section><!-- /main content column -->
+  </section><!-- /content-wrapper -->
+
+{% endblock content_area %}
+
+

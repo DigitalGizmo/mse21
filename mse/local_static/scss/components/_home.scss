@@ -1,0 +1,122 @@
+.home-grid {
+	@include omega();
+}
+
+.home-banner {
+	text-align: center;
+}
+
+.home-banner--image {
+	margin-bottom: $base-spacing;
+}
+
+.home-banner--text {
+	margin: -$large-spacing * 3 auto 0 auto;
+	padding-bottom: $large-spacing * 2;
+	width: 75%;
+	
+  @media print {
+		padding-bottom: $large-spacing;
+  }
+
+	a:link, a:visited {
+		color: white;
+		text-shadow: 1px 1px 2px $dark-gray;	
+
+	  // when viewport is less than 690, make text small
+	  @include media($mobile-navigation-breakpoint) {
+			font-size: $base-font-size * 1.25;
+			font-weight: 400;
+		}
+
+		// when screen is greater than or equal to 691, 
+		// but less than 980, make text medium
+		@include media(min-width $mobile-navigation-breakpoint) {
+			font-size: $medlarge-font-size;
+			font-weight: 200;
+		}
+
+		// when screen is greater than or equal to 980, make text large
+	  @include media(min-width 980px) {
+			font-size: $large-font-size;
+			font-weight: 200;
+		}
+	
+	  @media print {
+			font-size: $large-font-size;
+			font-weight: 200;
+	  }   
+	}
+
+	&:hover {
+	  color: shade(white, 50%);
+	  text-decoration: underline;
+	  transition: color $base-duration $base-timing;
+	}
+}
+
+.banner-text-left {
+	text-align: left;
+}
+
+.banner-text-right {
+	text-align: right;
+}
+
+.featured {
+  margin-bottom: $base-spacing;
+	position: relative;
+
+  img {
+  	box-shadow: $hard-shadow;
+	}	
+}
+
+.featured h2 a {
+	color: white;
+
+	&:hover {
+	  text-decoration: underline;
+	}
+}
+
+.featured-header {
+	background-color: adjust-color($primary-color, $alpha: -0.3);
+	max-width: 400px;
+	padding: $small-spacing;
+	position: absolute;
+
+	@include fill-parent();
+}
+
+.featured-header--title, .featured-header--subtitle {
+	color: white;
+	font-weight: 200;
+	margin: 0;
+}
+
+.featured-header--subtitle {
+	font-size: $small-font-size;
+}
+
+.featured-header--title {
+	font-size: $medlarge-font-size;
+  
+  @include media(max-width 775px) {
+    font-size: rem(20);
+  }
+}
+
+.home-list {
+	font-size: $small-font-size;
+	line-height: $base-line-height;
+
+		a {
+			font-size: $base-font-size * 1.25;
+			font-weight: 600;
+		}
+
+		li {
+			margin-bottom: $base-spacing;
+		}
+}

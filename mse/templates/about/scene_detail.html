@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ resource_object.resource_type|title }}: {{ resource_object.title|safe }}{% endblock %}
+
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-{{ resource_object.resource_type }}" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <p class="breadcrumbs">
+      <a href="{% url resource_object.app_namespace|add:':'|add:'scene_list' %}">Behind the Scenes at MSE</a>
+    </p>
+    <h1>{{ resource_object.title|safe }}</h1>
+    {% if resource_object.subtitle %}
+      <h3>{{ resource_object.subtitle|safe }}</h3>
+    {% endif %}
+  </section>
+{% endblock title_area %}
+
+{% block content_area %}
+
+  <section class="content-wrapper">
+    <aside class="content-aside">
+      <img src="{% static 'about/events/fullpics/' %}{{ resource_object.short_name }}_f.jpg"  alt="image of {{ resource_object.profile_name}}">
+    </aside>
+
+    <section class="content-main">
+        <h3>Date posted: {{ resource_object.posted|date:"F d, Y" }}</h3>
+
+      {{resource_object.narrative|safe}}
+
+
+    </section><!-- /content-main -->
+  </section><!-- /content-wrapper -->
+
+
+{% endblock content_area %}

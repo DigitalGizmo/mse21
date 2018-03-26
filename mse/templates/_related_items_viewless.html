@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+<section class="related-items"><!-- related items box -->
+
+{% if resource_object.has_items %}
+  <h2 class="content-wrapper--head">Related Items</h2>
+  <ul class="related-items--thumbpics">
+    {% for arti in resource_object.related_artifacts %}
+        <li><a href="{% url 'artifacts:artifact_detail' arti.short_name %}"><img src="{% static 'artifacts/thumbpics/' %}{{ arti.filename }}_t.jpg" height="65" width="65" alt="{{ arti.short_name }} - {{ arti.filename }}"></a></li>
+    {% endfor %}		
+    {% for doc in resource_object.related_documents %}
+        <li><a href="{% url 'documents:document_detail' doc.short_name %}"><img src="{% static 'documents/thumbpics/' %}{{ doc.filename }}_t.jpg" height="65" width="65" alt="{{ doc.short_name }} - {{ doc.filename }}"></a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+</section>

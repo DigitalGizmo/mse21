@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Video: {{ resource_object.title|safe }}{% endblock %}
+
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-video" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <p class="breadcrumbs">
+      <a href="{% url 'videos:video_list' %}">Videos</a>
+    </p>
+    <h1>{{ resource_object.title|safe }}</h1>
+    <p>{{ resource_object.producer|safe }}</p>
+  </section>
+{% endblock title_area %}
+
+
+{% block content_area %}
+<!-- main content -->
+  <!-- page content --> 
+
+    <section class="content-wrapper">
+      <aside class="content-aside">
+
+        {% include "_related_resources.html" %}
+
+        {% include "_related_items_viewless.html" %}
+
+      </aside>
+
+      <section class="content-main">
+        <h2 class="content-wrapper--head">{{ resource_object.title|safe }}</h2>
+        {{ resource_object.narrative|safe }}
+
+        <article>
+
+          <div class="video-wrapper">
+
+            <iframe width="960" height="540" src="https://www.youtube.com/embed/{{ resource_object.video_source }}?rel=0" frameborder="0" allowfullscreen></iframe>oka
+
+          </div> <!-- /video -->
+
+        </article><!--/content-main--interview-->
+
+      </section><!-- /content-main-->
+    </section><!-- /content-wrapper -->
+
+
+{% endblock content_area %}

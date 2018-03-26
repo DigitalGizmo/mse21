@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ resource_object.resource_type|title }}: {{ resource_object.title_no_markup }}{% endblock %}
+
+{% block additional_js %}
+  <script type="text/javascript" src="{% static 'js/ZoomifyImageViewerPro-min.js' %}"></script>
+{% endblock additional_js %}
+
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-{{ resource_object.resource_type }}" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <p class="breadcrumbs">
+    <a 
+      href="{% url resource_object.app_namespace|add:":"|add:resource_object.resource_type|add:'_list' %}">{{ resource_object.resource_type|title }}s</a>
+    </p>
+    <h1>{{ resource_object.title|safe }}</h1>
+    {% if resource_object.subtitle %}
+      <h3>{{ resource_object.subtitle|safe }}</h3>
+    {% endif %}
+
+    {% block crumbs-title %}
+      {# Filled in by artifact/artifact_detail.html or document/document_detail.html #}
+    {% endblock crumbs-title %}
+    
+    {% if resource_object.augmented %}
+      <p>Original content by:
+      {% for profile in resource_object.profiles.all %}
+        <a href="/community/profiles/{{ profile.short_name }}/" class="title">
+        {{ profile.profile_name|safe }}</a>
+      {% endfor %}
+      </p>
+    {% endif %}
+    {# lose edited_by. but if needed its on old resource_sidebar #}
+  </section>
+{% endblock title_area %}
+
+
+{% block content_area %}
+<!-- main content -->
+	
+  <!-- big image -->  
+  {% block item-viewer %}
+    {# Filled in by artifact/artifact_detail.html or document/document_detail.html #}  
+  {% endblock item-viewer %}
+
+  <!-- Test for IE 11 and provide work-around hard-coded dimensions -->
+  <script type="text/javascript">
+    //alert('navigator.userAgent: ' + navigator.userAgent);
+    var isIE11 = !!(navigator.userAgent.match(/Trident/) && navigator.userAgent.match(/rv[ :]11/));
+    //if (true) {
+    if (isIE11) { 
+      // /Trident.*rv[ :]?11\./
+      ///alert('detected IE 11');
+      var $itempage = $('#item-image');
+      $itempage.css('width', '1100px');
+      $itempage.css('height', '400px');
+      $itempage.css('margin-left', 'auto');
+      $itempage.css('margin-right', 'auto');
+    }
+  </script>
+
+  <!-- page content --> 
+  <section class="content-wrapper">
+
+    <aside class="content-aside"><!-- boxes column -->
+
+      <form action="{{ request.get_full_path }}" method="GET" name="horizontal-nav">
+      {% if form.sa.value == 't' %}
+        <section class="content-aside--box search"><!-- search box -->
+            <h2 class="content-wrapper--head">{{ resource_object.resource_type|title }}s</h2>
+        
+          {% if form.q.value %} {# search term present #}
+            <h5 class="content-wrapper--subhead">{{ result_count }} {{ resource_object.resource_type|title }}s found that match:
+            &quot;{{ form.q.value }}&quot;</h5>
+          {% else %}
+           <h5 class="content-wrapper--subhead">Viewing {{ result_count }} {{ resource_object.resource_type|title }}s:</h5>
+          {% endif %}
+
+          <ul class="horiz item-nav" id="horizontal-nav-list">
+            {% include "collection_items_common/_hnav_list.html" %}
+          </ul>
+
+          <p class="search-return">
+            <a href="/{{ resource_object.app_namespace }}/?aug={{ form.aug.value }}&q={{ form.q.value }} ">
+            {% if form.q.value %}
+              Return to search results
+            {% else %}
+              Return to Menu
+            {% endif %}
+            </a>
+          </p>
+          <input type = "hidden" name = "aug" value = "{{ form.aug.value }}" />
+          <input type = "hidden" name = "q" value = "{{ form.q.value }}" />
+          {# the hidden page input is in the include above -- so that it's updated by Ajax paging #}
+          {# valuse of "status of aside" (sa) from this menu is always true -- show h-nav #}
+          <input type="hidden" name="sa" value = "{{ form.sa.value }}"/>
+        </section>
+      {% endif %}
+      </form>
+
+      <section class="content-aside--box facts"><!-- facts box -->
+        {% block content-aside--box-facts %}
+          {# Filled in by artifact/artifact_detail.html or document/document_detail.html #}
+        {% endblock content-aside--box-facts %}
+      </section>
+
+      {# Condition to omit for artifact_raw.html #}
+      {% if resource_object.augmented %}
+        {% include "_related_resources.html" %}
+      {% endif %}
+
+      {% include "_related_items_viewless.html" %}
+
+
+    </aside><!-- /boxes column -->
+
+    <section class="content-main"><!-- main content column -->
+      {% if resource_object.augmented %}
+        <h2 class="content-wrapper--head">{% block about-title %}About This ...{% endblock %}</h2>
+        {{ resource_object.narrative|safe }}
+
+        {% block historical_context %}{% endblock historical_context %}
+
+        <h2 class="content-wrapper--head2">Questions for Further Thought</h2>
+        <ol class="questions">
+        {% for question in resource_object.question_set.all %}					
+          <li>{{question.question_text|safe}}</li>
+        {% endfor %}						
+        </ol>
+      {% else %} {# raw #}
+        <h2 class="content-wrapper--head">Description</h2>
+        {{ resource_object.description|safe }}
+      {% endif %}
+    </section><!-- /main content column -->
+  </section><!-- /content-wrapper -->
+
+{% endblock content_area %}

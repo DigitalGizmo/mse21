@@ -1,0 +1,100 @@
+.dropdown {
+  $large-screen: em(640) !default;
+
+  .dropdown-button {
+    cursor: pointer;
+    
+    // little arrow indicating dropdown menu
+    &:after {
+      content: " \25BE";
+      color: $toned-blue;
+    } 
+  }
+
+  .dropdown-menu {
+    @include transition (all 0.2s ease-in-out);
+    background-color: $toned-blue;
+    overflow: show;
+    text-align: left;
+
+    // when viewport is greater than the breakpoint,
+    // position dropdown menu below main menu and hide it.
+    // ie: if greater than or equal to 691 (690 + 1)
+    @include media($mobile-navigation-breakpoint + em(1)) {
+      @include position(absolute, 48px 0 null 0);
+      box-shadow: $soft-shadow;
+      display: none;
+    }
+    
+    // when viewport is less than or equal to 1004,
+    // but larger than or equal to 690,
+    // position dropdown menu a little higher up.
+    @include media(max-width 1004px min-width $mobile-navigation-breakpoint) {
+      @include position(absolute, 42px 0 null 0);
+    }
+  
+    // when viewport is less than or equal to 906,
+    // but larger than or equal to 690,
+    // position dropdown menu a little higher up.
+    @include media(max-width 906px min-width $mobile-navigation-breakpoint) {
+      @include position(absolute, 36px 0 null 0);
+    }  
+  }
+
+  .dropdown-list {
+    // when viewport is greater than the breakpoint,
+    // make the dropdowns span entire viewport
+    @include media($mobile-navigation-breakpoint + em(1)) {
+      @include outer-container;
+      padding-left: $logo-width-with-padding;
+    }
+  }
+
+  // when viewport is greater than the breakpoint, 
+  // make dropdowns span 2.4 cols
+  // if greater than or equal to 691 (690 + 1)
+  .dropdown-list--item { 
+    @include media($mobile-navigation-breakpoint + em(1)) {
+      //@include span-columns(12/5);
+      @include span-columns(12/6);
+    }
+
+    a {
+      color: $primary-color;
+      display: block;
+      line-height: $base-spacing * 0.75;
+
+      // when viewport is less than or equal to breakpoint, 
+      // style dropdowns and disappear the icons
+      @include media(max-width $mobile-navigation-breakpoint) {
+        background-color: $primary-color;
+        color: white;
+        line-height: $small-spacing;
+        padding-left: 2.5em;
+        
+        i {
+          display: none;
+        }
+      }
+
+      // when viewport is greater than the breakpoint, 
+      // center the link text
+      @include media($mobile-navigation-breakpoint + em(1)) {
+        text-align: center;
+      }
+
+      &:hover {
+        background-color: darken($toned-blue, 15%);
+        color: white;
+      }
+    }
+  }
+}
+
+.dropdown-list--icon  {
+  color: $primary-color;
+  display: block;
+  font-family: icomoon;
+  font-size: 4.5em;
+  line-height: $small-line-height;
+}

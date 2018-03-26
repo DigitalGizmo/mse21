@@ -1,0 +1,36 @@
+{% extends "pq/base.html" %}
+{% load staticfiles %}
+
+{% block additional_css %}
+	<link rel="stylesheet" type="text/css" media="all" href="{% static 'common/css/map_styles.css' %}"/>
+{% endblock %}
+
+{% block additional_js %}
+	{% include "maps/common/map_header.js" %}
+	<script src="{% static 'common/exhibit_timeout.js' %}"type="text/javascript"></script>
+{% endblock %}
+
+{% block body_class %}{% endblock %}
+{% block section_class %}maps{% endblock %}
+
+{% block two_or_three %}col-full{% endblock %}
+
+{% block page_title %}{{ resource_object.title|safe }}{% endblock %}
+
+{% block columns %}
+<!-- in columns block -->
+	
+    <div id="left_col">
+		{% block map_nav %}map nav and sidebar{% endblock %}
+		<!--<h2>Map Overlays</h2>-->
+		<form name="overlay_controls" action="not_submitted" method="POST">
+			<input type="hidden" name="grounds" id="test" value="test"><!--<label for="test">19th Cent Whaling Grounds</label> type="checkbox"-->
+		</form>
+	</div><!-- /left_col  -->
+	
+    <div id="map_wrapper">
+	    <div id="map_canvas"></div>
+		{% block sidebar_include %}{% include "pq/resource_side_regular.html" %}{% endblock %}
+	</div>
+{% endblock columns %}
+	

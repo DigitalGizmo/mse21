@@ -1,0 +1,78 @@
+{% extends "list_base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ resource_object.resource_type|title }}: {{ resource_object.title_no_markup }}{% endblock %}
+
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-resourceset" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <p class="breadcrumbs"><a href="{% url resource_object.app_namespace|add:":"|add:resource_object.resource_type|add:'_list' %}">{{ resource_object.menu_info.title }}</a></p>
+    <h1>{{ resource_object.title|safe }}</h1>
+    {% if resource_object.subtitle %}
+      <h3>{{ resource_object.subtitle|safe }}</h3>
+    {% endif %}
+    <p>Original content by: 
+    {% for profile in resource_object.profiles.all %}
+      <a href="{% url 'community:profile_detail' profile.short_name %}">
+      {{ profile.profile_name|safe }}</a>
+    {% endfor %}
+    </p>
+  </section>
+{% endblock title_area %}
+
+
+{% block aside_box_area %}
+  <section class="content-aside--box">
+    <h2 class="content-wrapper--head">About This Set</h2>
+    {{ resource_object.narrative|safe }}
+  </section>
+
+  {% include "_related_resources.html" %}
+
+{% endblock aside_box_area %}
+
+
+{% block menu %}
+  <ul class="item-menu--grid">  
+
+    {% for artifact in artifact_list %}
+      <li class="item-menu--item basic resourceset-small">
+        <a href="{% url 'artifacts:artifact_detail' artifact.short_name %}">
+        <img src="{% static 'artifacts/menupics/' %}{{ artifact.filename }}_m.jpg" alt="image of {{ artifact.title }}"/>
+        <i class="resource-icon {% if artifact.augmented %}icon-artifact{% else %}icon-artifact raw{% endif %}"></i>
+        {{ artifact.title|safe }}</a>
+      </li>
+    {% endfor %}
+
+    {% for document in document_list %}
+      <li class="item-menu--item basic resourceset-small">
+        <a href="{% url 'documents:document_detail' document.short_name %}" class="title">
+        <img src="{% static 'documents/menupics/' %}{{ document.filename }}_m.jpg" alt="image of {{ document.title }}"/>
+        <i class="resource-icon {% if document.augmented %}icon-document{% else %}icon-document raw{% endif %}"></i>
+        {{ document.title|safe }}</a>
+      </li>
+    {% endfor %}
+
+    {% for map in map_list %}
+      <li class="item-menu--item basic resourceset-small">
+        <a href="{% url 'maps:geomap_detail' map.short_name %}" class="title">
+        <img src="{% static 'maps/menupics/' %}{{ map.short_name }}_m.jpg" alt="image of {{ map.title }}"/>
+        <i class="resource-icon icon-geomap"></i>
+        {{ map.title|safe }}</a>
+      </li>
+    {% endfor %}
+
+    {% for lecture in lecture_list %}
+      <li class="item-menu--item basic resourceset-small">
+        <a href="{% url 'scholars:lecture_detail' lecture.short_name %}" class="title">
+        <img src="{% static 'scholars/lectures/menupics/' %}{{ lecture.short_name }}_m.jpg" alt="image of {{ lecture.title }}"/>
+        <i class="resource-icon icon-lecture"></i>
+        {{ lecture.title|safe }}</a>
+      </li>
+    {% endfor %}
+
+  </ul>
+{% endblock menu %}

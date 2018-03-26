@@ -1,0 +1,189 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* HEADER */
+
+header h1	{/* Mystic Seaport for Educators */
+	font-size: 5em;
+	font-weight: 100;
+	margin-top: 0;
+}
+header h1 a {
+	color: #597485;
+}
+.mysticlogo	{
+	position: absolute;
+	z-index: 5;
+}
+nav.navbar 	{
+	background-color: #597485;
+	margin-bottom: 0;
+	margin-top: 8px;
+}
+
+/* NAV */
+
+div.collapse	{
+	margin-left: 80px;
+}
+nav.navbar a:link	{
+	color: white;
+}
+nav.navbar a:visited	{
+	color: #dee3e7;
+}
+nav.navbar a:hover	{
+	color: white;
+	text-decoration: underline;
+}
+ul.dropdown-menu li div.yamm-content	{/* submenu background color */
+  background-color: #dee3e7;
+}
+nav.navbar ul.dropdown-menu li div.yamm-content a:link	{/* submenu link colors */
+  color: #597485;
+}
+nav.navbar ul.dropdown-menu li div.yamm-content a:visited	{/* submenu link colors */
+  color: #597485;
+}
+nav.navbar ul.dropdown-menu li div.yamm-content a:hover	{/* submenu link colors */
+  color: #597485;
+}
+nav img.menuicon	{
+	display: block;
+}
+div.yamm-content a	{/*so the submenu img/text blocks stack*/
+	float: left;
+	padding-right: 4em;
+}
+nav.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover {/*the selected menu item: lite teal bkgnd, dark teal text */
+  color: #597485;
+  background-color: #dee3e7;
+}
+/* PAGE TITLE AREA */
+
+.page-title	{
+	background-color: #dee3e7;
+	color: #597485;
+	padding-bottom: 20px;
+	overflow: auto;
+}
+.page-title h1	{
+	margin: 0;
+}
+.page-title h3	{
+	font-style: italic;
+	font-weight: 100;
+	margin: 4px 0 10px 0;
+}
+p.breadcrumbs	{
+	margin: .5em 0 0 0;
+}
+/* ----------------- */
+/* MAIN CONTENT AREA */
+/* ----------------- */
+div.main-content	{
+	padding-top: 2em;
+}
+div.sidebox	{
+	background-color: #dee3e7;
+	padding: 0 1.25em 1em 1.25em;
+	border-radius: 25px;
+}	
+div.sidebox h2, div.sidebox h4, div.sidebox p, div.sidebox a {
+	color: #597485;
+}
+div.sidebox h2	{
+	padding-top: .25em;
+}
+div.main-content h2	{
+	font-weight: 200;
+	letter-spacing: 1px;
+	color: #597485;
+
+}
+/* MENU PAGES */
+ul.menu li {
+	margin-bottom: 2em;
+	margin-right: 1em;
+	padding: 1em;
+	height: 225px;
+	background-color: #899ba7;
+}
+ul.menu li h4	{
+	font-size: 1.25em;
+	font-weight: 100;
+	letter-spacing: 1px;
+	color: white; 
+	padding: 0 5px 5px 5px;
+	margin-top: -10px;
+}
+ul.menu img.img-responsive	{
+	/*box-shadow: 5px 5px 0px #cbcbcb;*/
+}
+ul.menu li a:link	{
+}
+ul.menu img.img-responsive:hover	{
+	opacity:0.65;
+}
+/* paging */
+.paging p	{
+	color: #597485;
+}
+.paging a:link, div.page-title a:link	{
+	color: #597485;
+}
+.paging a:visited, div.page-title a:visited	{
+	color: #597485;
+}
+.paging a:hover, div.page-title a:hover	{
+	text-decoration: underline;
+	color: #597485;
+}
+.paging a.selected	{
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/* ITEM PAGES */
+/* big images on item pages */
+div.item-image	{
+	border: 1px solid #ccc;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+}
+div.item-image ul {
+	list-style: none;
+}
+div.item-image ul li {
+	float: right;
+}
+div.item-image h4 	{
+	font-weight: 200;
+	font-size: 1em;
+}
+ul.thumbs > li {/* for horizontal nav of items */
+	padding-right: 0;
+	padding-left: 0;
+	margin-bottom: 3px;
+	border: 1px solid #ccc;
+}
+div.sidebox .dl-horizontal dt {
+	text-align: left;
+}
+div.sidebox dl.dl-horizontal {/* for artifact/document facts */
+ }
+
+
+footer	{
+	background-color: #022b61;
+	color: white;
+	font-size: .8em;
+	padding: 20px 0 4em 0;
+	margin-top: 3em;
+}
+footer .glyphicon	{
+	font-size: 2em;
+	vertical-align: -30%;
+}

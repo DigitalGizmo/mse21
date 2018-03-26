@@ -1,0 +1,78 @@
+{% extends "pq/base.html" %}
+{% load static %}
+ 
+{% block additional_js %}<script src="{% static 'common/exhibit_timeout.js' %}"type="text/javascript"></script>{% endblock %}
+	
+{% block title %}Connecticut Indian Mariners Menu{% endblock %}
+{% block body_class %}maps{% endblock %}
+{% block section_class %}maps{% endblock %}
+
+{% block breadcrumbs %}
+<li class="current_item">Active Maps</li>
+{% endblock %}
+{% block page_title %}Active Maps{% endblock %}
+
+{% block fullpage %}
+
+<section id="page" class="container">
+  <div class="col-full">  
+	<div class="mainmenu">
+		<h2>Story Maps</h2>
+	    <p class="tagline">Follow the lives of Indian Mariners as they travel the globe during their maritime careers.</p>
+		<ul> 
+		{% for geomap in story_list %}
+			<li>
+				<a href="/maps/{{ geomap.short_name }}/" class="title">
+				<img src="{% static 'maps/pqmenupics/' %}{{ geomap.short_name }}_m.png" height="190" width="190"  alt="menu image: {{ geomap.filename }}"/><br/>
+				{{ geomap.title|safe }}</a>
+			</li>
+		{% endfor %}
+		</ul>
+	
+    </div><!-- /mainmenu -->
+    
+    <div class="mainmenu">
+    	<h2>Voyage Maps</h2>
+	    <p class="tagline">Maps based on logbooks or journals of the voyages that Indian Mariners sailed on.</p>
+	    <ul>
+		   {% for geomap in item_list %}
+			<li>
+		       <a href="/maps/{{ geomap.short_name }}/" class="title">
+		       <img src="{% static 'maps/pqmenupics/' %}{{ geomap.short_name }}_m.png" height="190" width="190" alt="image: {{ geomap.filename }}"/><br/>
+		       {{ geomap.title|safe }}<br/>{{geomap.date_range}} Voyage</a>
+			</li>
+		   {% endfor %}
+	    </ul>
+    </div><!-- /mainmenu -->
+    
+    <div class="mainmenu">    
+	    <h2><a href="/maps/compare/compare/">Compare Voyages</a></h2>
+	    <p class="tagline">Compare the voyages for journeys currently mapped out on our site.</p>
+	    <p>&nbsp;</p>
+    </div><!-- /mainmenu -->
+    
+    <div class="mainmenu">
+	    <h2>Learn More</h2>
+	    <ul>
+			{% for lecture in lecture_list %}
+			  <li>
+				<a href="/scholars/lectures/{{ lecture.short_name }}/" class="title">
+				<img src="{% static 'scholars/lectures/pqmenupics/' %}{{ lecture.short_name }}_m.png" height="190" width="190" alt="image: {{ lecture.short_name }}"/><br/>
+				Lecture by {{ lecture.scholar }}</a>
+			  </li>
+			{% endfor %}
+			{% for interview in interview_list %}
+			  <li>
+				<a href="/scholars/interviews/{{ interview.short_name }}/" class="title">
+				<img src="{% static 'scholars/interviews/pqmenupics/' %}{{ interview.short_name }}_m.png" height="190" width="190" alt="image: {{ interview.short_name }}"/><br/>
+				Interview with {{ interview.scholar|safe }}</a>
+			  </li>
+			{% endfor %}	
+	    </ul>
+    </div><!-- /mainmenu -->
+    
+  </div><!-- /col-full -->
+</section>
+<br clear="left">
+{% endblock fullpage %}
+

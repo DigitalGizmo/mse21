@@ -1,0 +1,133 @@
+.logo {
+  @include outer-container;
+  padding-left: $logo-width-with-padding;
+  position: relative;
+
+  @include media(max-width $mobile-navigation-breakpoint) {
+    padding-left: 0;
+  }
+}
+
+.logo--image {
+  @include position(absolute, 0 null null 0);
+  z-index: $logo-z-index;
+
+  @include media(max-width $mobile-navigation-breakpoint) {
+    display: none;
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+.logo--text {
+  color: $primary-color;
+  font-size: em(68);
+  font-weight: 100;
+  margin-bottom: 0;
+
+  @include media(max-width $mobile-navigation-breakpoint) {
+    font-weight: 200;
+    padding-left: $base-spacing;
+  }
+
+  @media print {
+    font-size: $medlarge-font-size!important;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  } 
+}
+
+.main-navigation {
+  background-color: $primary-color;
+  position: relative;
+
+  @media print {
+    display: none;
+  } 
+}
+
+.main-navigation--wrapper {
+  @include outer-container;
+  padding-left: $logo-width-with-padding;
+
+  @include media(max-width $mobile-navigation-breakpoint) {
+    padding-left: $base-spacing;
+  }
+}
+
+// when viewport is at breakpoint or smaller,
+// horizontal main menu disappears,
+// (if viewport is less than or equal to 690, menu disappears)
+// works in conjunction with .menu-toggle
+.main-navigation--items {
+  @include media(max-width $mobile-navigation-breakpoint) {
+    display: none;
+  }
+}
+
+.main-navigation--item {
+  display: inline-block;
+  vertical-align: top;
+
+  @include media(max-width 1004px) {
+    font-size: rem(14);
+  }
+  
+  @include media(max-width 906px) {
+    font-size: rem(12);
+}
+
+  // when viewport is less than or equal to breakpoint,
+  // display the menu vertically
+  // (less than or equal to 690, display vertically)
+  @include media(max-width $mobile-navigation-breakpoint) {
+    border-bottom: thin solid lighten($primary-color, 20%);
+    display: block;
+  }
+
+  // when viewport is greater than the breakpoint, remove left margin from links
+  // if greater than or equal to 691 (690 + 1)
+  &:first-child {
+    @include media($mobile-navigation-breakpoint + em(1)) {
+      margin-left: -$base-spacing;
+    }
+  }
+
+  a {
+    color: white;
+    display: block;
+    padding: $small-spacing $base-spacing;
+
+    @include media(max-width 825px) {
+      padding: $small-spacing $small-spacing;
+    }
+
+    &:hover {
+      background-color: darken($primary-color, 15%);
+    }
+  }
+}
+
+.menu-toggle {
+  a {
+    color: white;
+    font-weight: 500;
+  }
+
+  // if viewport is larger than the breakpoint,
+  // disappear the mobile collapsed menu
+  // min-width implied -- it's the default
+  // (if screen is greater than or equal to 691 (690+1) then  disappear)
+  // works in conjunction with .main-navigation--items
+  @include media($mobile-navigation-breakpoint + em(1)) {
+    display: none;
+  }
+}
+
+.main-navigation--selected {
+  background-color: darken($primary-color, 10%);
+}

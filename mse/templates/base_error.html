@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block fullpage %}
+<div class="content-wrapper">
+    <ol class="breadcrumbs olc_crumbs">
+            <li><a href="/">MSE Home</a></li>
+	</ol>
+
+	<h1>Mystic Seaport for Educators</h1>
+	<h4>Online Resources &bull; Enhanced Collection Access &bull; Community of Learners</h4>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	{% block error_msg %}
+		<h2>[error msg here]</h2>
+	{% endblock error_msg %}
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+</div>
+{% endblock fullpage %}

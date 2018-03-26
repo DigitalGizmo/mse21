@@ -1,0 +1,67 @@
+{% extends "list_base.html" %}
+{% load staticfiles %}
+
+{% block aside_box_area %}
+
+  {# I need to either put titles for augmentation types (Articls, Records, etc.) in db or in child template #}
+  <section class="content-aside--box search">
+
+    <h2 class="content-wrapper--head">View</h2>
+
+    <ul>
+      <li>
+        {{ form.aug.0.tag }}
+        <label for = "id_aug_0"> {{ menu_info.title }}</label>
+      </li>
+      
+      <li>
+        {{ form.aug.1.tag }}
+        <label for = "id_aug_1"> {{ menu_info.short_name|title }} Records </label>
+      </li>
+      
+      <li>
+        {{ form.aug.2.tag }}
+        <label for = "id_aug_2"> All {{ menu_info.short_name|title }}s </label>
+      </li>
+    </ul>       
+
+
+    <h2 class="content-wrapper--head2">Search</h2>
+    <input type="search" name="q" class="search-field" value="{{ form.q.value }}" id="some_id" 
+      placeholder="Search {{ menu_info.short_name|title }}s"/>
+    <input type="submit" value="Go" />
+    <p id="clear"><a href="#">clear search</a></p>
+
+    {# valuse of "status of aside" (sa) from this menu is always true -- show h-nav #}
+    <input type="hidden" name="sa" value="t"/>
+
+    <h5 class="content-wrapper--subhead">
+      {{ result_count }} Items in this
+      {% if form.q.value %}
+        Search
+      {% else %}
+        View
+      {% endif %}
+    </h5>
+
+    <!-- <h2 class="content-wrapper--head">Sort</h2>
+    <p>by: <a href="">artifact's title</a> | <a href="">artifacts's date</a></p> -->
+  </section>
+
+{% endblock aside_box_area %}  
+
+{% block menu %}
+{#  Extra div id="item" to allow JS access to item menu only for Horizontal nav params #}
+  <div id="item-menu-params">
+    <ul class="item-menu--grid"> 
+    {% for resource_object in resource_object_list %}
+      <li class="item-menu--item basic">
+        <a href="{% url resource_object.app_namespace|add:":"|add:resource_object.resource_type|add:'_detail' resource_object.short_name %}">
+         <img src="{% static menu_info.short_name %}s/menupics/{{ resource_object.filename }}_m.jpg" alt="image: {{ resource_object.short_name }}"/>
+         {{ resource_object.title|safe }}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div> 
+{% endblock menu %}

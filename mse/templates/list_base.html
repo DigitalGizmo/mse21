@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ menu_info.title }}{% endblock %}
+
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-{{ menu_info.short_name }}" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <h1>{{ menu_info.title }}</h1>
+    {{ menu_info.menu_blurb|safe }}
+  </section>
+{% endblock title_area %}
+
+
+{% block content_area %}
+<section class="content-wrapper">
+
+  <form action="{{ request.get_full_path }}" method="GET" name="menu">
+  {# csrf_token #} {# JS for item selection will change method to post (and will change action) #}
+    <input type="hidden" name="page" value="{{ page_number }}"/>
+
+
+    {% block fullwidth_menu %}
+
+    <!-- content-aside--box -->  
+    <aside class="content-aside">
+      {% block aside_box_area %}
+      {% endblock aside_box_area %}
+    </aside>
+
+    <section class="content-main">
+      {% block menu %}
+      {% endblock menu %}
+
+      <!-- paging -->
+
+      {% if is_paginated %}
+      {# if pagination is needed on full width menu (e.g. resource sets) will be an include #}
+
+      <nav id="paging">
+        <ul class="previous">
+          {% if page_obj.has_previous %}
+            <li class="page-nav prev-link">
+              <a href="?page={{ page_obj.previous_page_number }}">&lang; prev</a>
+            </li>
+          {% else %}
+            <li class="page-nav--disabled prev-link">&lang; prev</li>
+          {% endif %}
+        </ul>
+
+
+        <ul class="page-numbers">
+          {% for page_number in paginator.page_range %}
+            {% if page_number == page_obj.number %}
+              <li class="page-nav--selected">{{ page_number }}</li>
+            {% else %}
+              <li class="page-nav">
+                <a href="?page={{ page_number }}">{{ page_number }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        <ul class="next">
+          {% if page_obj.has_next %}
+            <li class="page-nav next-link">
+              <a href="?page={{ page_obj.next_page_number }}">next &rang;</a>
+            </li>
+          {% else %}
+            <li class="page-nav--disabled next-link">next &rang;</li>
+          {% endif %}
+
+        </ul>
+      </nav><!--/paging -->
+
+      {% endif %}
+    </section>
+    
+    {% endblock fullwidth_menu %}
+  </form>
+
+</section><!-- /content-wrapper -->
+{% endblock content_area %}

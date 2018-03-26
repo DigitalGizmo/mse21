@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ resource_object.resource_type|title }}: {{ resource_object.title|safe }}{% endblock %}
+
+{% block title_area %}
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-event" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <p class="breadcrumbs">
+      <a href="{% url resource_object.app_namespace|add:':'|add:'event_list' %}">Upcoming Events</a>
+    </p>
+    <h1>{{ resource_object.title|safe }}</h1>
+    {% if resource_object.subtitle %}
+      <h3>{{ resource_object.subtitle|safe }}</h3>
+    {% endif %}
+  </section>
+{% endblock title_area %}
+
+{% block content_area %}
+
+  <section class="content-wrapper">
+    <aside class="content-aside">
+      <img src="{% static 'about/events/fullpics/' %}{{ resource_object.short_name }}_f.jpg"  alt="image of {{ resource_object.profile_name}}">
+    </aside>
+
+    <section class="content-main">
+
+      {{resource_object.description|safe}}
+
+       <h2 class="content-wrapper--head">Details</h2>
+       <dl class="event-details">
+          <dt>Date</dt>
+          <dd>
+            {{ resource_object.start_date|date:"l, F d, Y" }}
+            {% if resource_object.end_date %}
+              - {{ resource_object.end_date|date:"l, F d, Y" }}
+            {% endif %}
+          </dd>
+          <dt>Time</dt>
+          <dd>
+            {{ resource_object.time_details }}      
+          </dd>
+          <dt>Where</dt>
+          <dd>{{ resource_object.location }}</dd>
+          <dt>Cost</dt>
+          <dd>{{ resource_object.cost }}</dd>
+          <dt>Details</dt>
+          <dd>{{ resource_object.details|safe }}</dd>
+        </dl>
+
+        <h2 class="content-wrapper--head">Sign Up</h2>
+        {{ resource_object.contact_text|safe}}
+
+        {% if resource_object.contact_name %}
+        <p>
+          Please contact {{ resource_object.contact_name }}: 
+          <a href="javascript:window.location.href = 'mailto:' + ['{{ resource_object.contact_email_parts.0 }}','{{ resource_object.contact_email_parts.1 }}'].join('@') + '?Subject=Workshop: {{ resource_object.title|safe }}'">{{ resource_object.contact_email_parts.0 }}<!---->@<!---->{{ resource_object.contact_email_parts.1 }}</a>, {{ resource_object.contact_phone }}.
+        </p>
+        {% endif %}
+
+    </section><!-- /content-main -->
+  </section><!-- /content-wrapper -->
+
+
+{% endblock content_area %}

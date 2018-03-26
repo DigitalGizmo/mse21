@@ -1,0 +1,56 @@
+#paging {
+  font-weight: 400;
+
+  @include media(min-width 590px max-width 1088px) {
+    font-size: $small-font-size;
+  }
+}
+
+.previous {
+  @include span-columns(2 8);
+}
+
+.page-numbers {
+  @include span-columns(4 8);
+  text-align: center;
+}
+
+.next {
+  @include span-columns(2 8);
+  text-align: right;
+}
+
+.page-nav, .page-nav--disabled, .page-nav--selected {
+  display: inline;
+}
+
+.page-nav, .page-nav--selected {  
+  border: thin solid $toned-blue;
+  margin-right: $tiny-spacing;
+  padding: 0 0 0 4px;
+
+  &:hover {
+    background-color: $toned-blue;
+  }
+}
+
+.next-link, .prev-link {
+  border: none;
+
+  &:hover {
+    background-color: white;
+    text-decoration: underline;
+  }
+}
+
+.page-nav--selected {
+  background-color: $toned-blue;
+  border: thin solid $light-gray;
+  color: $primary-color;
+  font-weight: 800;
+  padding-right: 4px;
+}
+
+.page-nav--disabled {
+  color: $medium-gray;
+}

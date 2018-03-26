@@ -1,0 +1,23 @@
+{% extends "resource_sidebar.html" %}
+{# extended by community/project (scholars/lecture?) #}
+
+{% block two_or_three %}three-col{% endblock %}
+
+{% block columns %} {# columns declared in base.html #}
+<!-- left one-third  column -->
+<article id="content" class="col-onethird">
+	{% block content %} 
+		content goes here
+	{% endblock content %}
+</article>
+
+<!-- middle one-third  column -->
+<article id="content" class="col-onethird">
+	{% block middle_col %} 
+		middle column goes here
+	{% endblock middle_col %}
+</article>
+
+{% endblock columns %}
+
+{# sidebar supplied by resource_sidebar #}

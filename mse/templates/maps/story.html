@@ -1,0 +1,25 @@
+{% extends "maps/base_map_full.html" %}
+{% load static %}
+
+{% block instructions %}
+	<p>Use the links below or the numbers on the map to explore this interactive story map.<br/> You can also review the <a href="javascript:popBox('maps','about','{{ resource_object.short_name }}')">"About This Map"</a> introductory info.</p>
+	
+{% endblock %}
+
+{% block map_nav %}
+
+	<h3>Story Chapters</h3>
+	<!-- Place holder - story_nav side_bar -->
+	<div id="story_nav"></div><!--end side_bar-->
+	
+	<script type="text/javascript">
+		var chap_json = {{chap_data|safe}};
+		var short_name = '{{ resource_object.short_name }}';
+	</script>
+
+	<h3 class="story-print--link"><a href="javascript:popBox('maps','storyprint', '{{ resource_object.short_name }}')">Printable Version</a></h3>
+	<p class="story-print--blurb">Read all the chapters in one page.</p>
+	
+	
+
+{% endblock %}

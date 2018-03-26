@@ -1,0 +1,13 @@
+{% extends "pq/resource_sidebar.html" %}
+
+{% block two_or_three %}two-col{% endblock %}
+
+{% block columns %}
+<!-- two-thirds  column -->
+<article id="content" class="col-twothirds">
+	{% block content %} 
+		content goes here
+	{% endblock content %}
+</article>
+
+{% endblock columns %}

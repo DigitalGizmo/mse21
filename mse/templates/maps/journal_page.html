@@ -1,0 +1,9 @@
+{% load static %}
+
+<div id="popwrap">
+	<p class="close"><a href='javascript:hideBox();'>close</a>
+		{% if siteid == 1 %}
+		 | <a href="javascript:divPrint('ajax_wrapper');">print</a>
+		{% endif %}</p>
+	<img src="{% static 'maps/journal_pages/' %}{{ resource_object.short_name }}_{{ page_num }}.jpg" alt="image: {{ resource_object.title }}"  />	
+</div><!-- /popwrap-->

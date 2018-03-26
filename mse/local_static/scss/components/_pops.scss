@@ -1,0 +1,147 @@
+#popwrap	{
+	background-color: white;
+	border: 1px solid $medium-gray;
+	box-shadow: $soft-shadow;
+	padding: $base-spacing;
+	overflow: auto;
+}
+
+#popwrap h1	{ 
+	font-size: $large-font-size; 
+	font-weight: 200; 
+	margin: 0 0 $small-spacing 0;
+}
+
+#popwrap h2	{ 
+	font-size: $medlarge-font-size; 
+	font-weight: 400;
+}
+
+#popwrap h3	{ 
+	font-size: $base-font-size; 
+	font-weight: 600; 
+	margin-bottom: $small-bottom-spacing;
+}
+
+#popwrap h4	{ 
+	font-size: $small-font-size; 
+	font-weight: 600; 
+	margin: 0;
+}
+
+#popwrap h5	{ 
+	font-size: $small-font-size; 
+	font-weight: 400;
+}
+
+#popwrap p.close	{ /* for the close link */
+	float: right;
+}
+
+#popwrap p.credit, #infowindow p.credit	{ /* for credits */
+	color: $medium-gray;
+	font-size: $small-font-size;
+	margin: 0;
+	padding: 0;
+}
+
+// for selected view in zoom window
+span.selected img {
+	opacity: 0.5;
+}
+
+// for footnotes
+#popwrap ol {
+	border-top: thin solid $medium-gray; 
+	color: $medium-gray;
+	font-size: $small-font-size;
+	list-style-type: decimal;
+
+	li {
+		padding: .5em 0 .25em 0;
+		margin-left: $base-spacing;
+	}
+}
+
+#popwrap sup {
+	font-size: $small-font-size;
+}
+
+#popwrap ul	li { /* CW Morgan Timeline...other uses? */
+	padding-bottom: $base-spacing; 
+}
+
+//FOR ARTIFACTS & DOCUMENTS IN SLIMPOPS
+
+.pop-description {
+	margin-top: $base-spacing;
+}
+
+#popwrap a.link_newpage  {
+	background: url(../images/link_newpage.gif) no-repeat right;
+	padding-right: 14px;
+}
+
+#popwrap img.vertical	{
+	float: left;
+	margin-right: 20px;
+	padding-bottom: 20px;
+}
+
+#popwrap img.view	{
+	border: 1px solid $medium-gray;
+}
+
+/* from pop auxiliry */
+
+#popwrap video	{
+	max-width: 100% !important;
+	height: auto;
+	margin-top: 1em;
+}
+
+#popwrap p.slidenav	{/* for prev/next nav in slideshow */
+	font-weight: 400;
+	float: right;
+	margin-top: -26px;
+}
+
+.hidden { 
+	display: none; 
+}
+
+.unhidden { 
+	display: block; 
+}
+	
+#lbOverlay {
+	position: fixed;
+	z-index: 99; 
+	left: 0;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: url(../images/overlay.png) repeat; 
+	cursor: pointer;
+}
+
+.pop_connection, .pop_collection { 
+	display: block;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: fixed;/* this positions the slimpop relative to viewport, it won't scroll with the page */
+  top:0; left:0; right:0; bottom:0;/* this seems to have no impact, but when deleted, the slimpop won't appear */
+	z-index: 100;		
+}
+
+.pop_connection { 
+  margin: auto;	
+	max-height:600px;
+	width:500px;
+}
+
+.pop_collection { 
+  margin: 2% auto;	
+	max-height:770px;
+	width:700px;
+}

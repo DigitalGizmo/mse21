@@ -1,0 +1,21 @@
+{% extends "pq/maps/base_map_full.html" %}
+{% load static %}
+
+{% block breadcrumbs %}
+		<li><a href="/maps/{{ resource_object.short_name }}">About This Story Map</a></li>
+		<li class="current_item">{{ resource_object.title|safe }}</li>
+{% endblock %}
+
+{% block under_title %}
+	<p>Use the links below or the numbers on the map to explore this interactive story map. You can also review the <a href="javascript:popBox('maps','about','{{ resource_object.short_name }}')">"About This Map"</a> introductory info.</p>
+{% endblock %}
+{% block map_nav %}
+	<h2>Story Chapters</h2>
+	<!-- Place holder - story_nav side_bar -->
+	<div id="story_nav"></div><!--end side_bar-->	
+	<script type="text/javascript">
+		var chap_json = {{chap_data|safe}};
+		// var short_name = '{{ resource_object.short_name }}'; // moved to base
+	</script>
+
+{% endblock %}

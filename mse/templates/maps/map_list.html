@@ -1,0 +1,38 @@
+{% extends "list_base.html" %}
+{% load staticfiles %}
+
+{% block aside_box_area %}
+  <section class="content-aside--box search">
+    <h2 class="content-wrapper--head"><a href="compare/compare">Compare Voyages</a></h2>
+    <p>This feature lets you plot multiple voyages on a single map to compare the ships' routes.</p>
+  </section>
+{% endblock aside_box_area %}  
+
+
+{% block menu %}
+  <h2 class="content-wrapper--head">Voyage Maps</h2>
+  <p>These maps present the routes of actual voyages taken from the ship's logbook.<br/>
+  <ul class="item-menu--grid naked">
+  {% for geomap in resource_object_list %}
+    <li class="item-menu--item naked">
+      <a href="/maps/{{ geomap.short_name }}/"><img 
+      src="{% static 'maps/menupics/' %}{{ geomap.short_name }}_m.jpg" alt="image: {{ geomap.short_name }}">
+      {{ geomap.title|safe }}</a>
+    </li>
+  {% endfor %}
+  </ul>    
+
+  <h2 class="content-wrapper--head">Story Maps</h2>
+  <p>These maps present the routes of actual voyages taken from the ship's logbook.<br/>
+  <ul class="item-menu--grid naked">
+  {% for geomap in story_list %}
+    <li class="item-menu--item naked">
+      <a href="/maps/{{ geomap.short_name }}/"><img 
+      src="{% static 'maps/menupics/' %}{{ geomap.short_name }}_m.jpg" alt="image: {{ geomap.short_name }}"><br/>
+      {{ geomap.title|safe }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+
+{% endblock menu %}
+

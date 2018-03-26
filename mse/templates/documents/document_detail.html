@@ -1,0 +1,67 @@
+{% extends "collection_items_common/item_detail.html" %}
+{% load staticfiles %}
+
+{% block item-viewer %}
+<section id="item-viewer">
+
+	<script type="text/javascript"> Z.showImage("item-image", 
+	  "{% static resource_object.resource_type %}s/zooms/{{ resource_object.filename }}_{{ curr_page.page_suffix }}_z", 
+	  "{{ resource_object.zoom_settings|safe }}zSkinPath={% static 'js/Assets/Skins/Default' %}"); 
+	</script>
+
+	<div id="item-viewer--container">
+		<div id="item-image">zoomable document image here</div>
+
+		<div id="document-text" class="hidden">
+			{% include "documents/_page_text.html" %}
+			{% comment "_page_text.html contains only the following " %}
+			<div class="document-text--transcription">
+				{{ curr_page.transcript|safe }}
+			</div>
+			{% endcomment %}
+		</div><!-- /document-text -->
+	</div><!-- /item-viewer--container -->
+
+    <!-- document controls --> 
+    <div class="item-viewer--tools">
+
+	    <!-- paging --> 
+			{% if resource_object.page_set.all %} {# add: if length greater than 1 #}
+				<nav id="document-paging">
+					<h5 class="document-paging--title">Page: </h5>
+					<ul id="document-paging--list" class="horiz">
+					{% for page in resource_object.page_set.all %}
+						<li class="document-paging--page{% if forloop.last %} last{% endif %}"><a href="/documents/{{ resource_object.short_name }}/{{ page.page_suffix }}/{{ resource_object.filename }}">{{ page.page_label }}</a></li>
+					{% endfor %}		
+					</ul>
+				</nav>
+			{% endif %}
+
+			{% if resource_object.augmented %}
+	    <!-- Audio, show/hide transcription --> 
+			<button id="toggle-transcription">Show Transcription</button>
+
+	  	<!-- read aloud --> 
+	  	<h5 class="document-audio">Read Aloud:</h5>
+			<audio id="doc_audio" controls="controls">
+				<source id="doc_audio_oog" src="{% static 'documents/media/' %}{{ resource_object.filename }}_{{ curr_page.page_suffix }}.oog" type="audio/ogg"/>
+				<source id="doc_audio_mp3" src="{% static 'documents/media/' %}{{ resource_object.filename }}_{{ curr_page.page_suffix }}.mp3" type="audio/mpeg"/>
+			</audio>
+			{% endif %}
+
+
+    </div><!-- /item-viewer--tools -->
+</section><!-- /item-viewer -->
+{% endblock item-viewer %}
+
+{% block about-title %}About This Document{% endblock %}
+
+{% block content-aside--box-facts %}
+  	<h2 class="content-wrapper--head">Document Facts</h2>
+  	{% include "documents/_document_attributes.html" %}
+{% endblock content-aside--box-facts %}
+
+{% block historical_context %}
+  <h2 class="content-wrapper--head2">Historical Context</h2>
+	{{ resource_object.hist_context|safe }}
+{% endblock historical_context %}

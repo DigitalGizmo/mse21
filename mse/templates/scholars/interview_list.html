@@ -1,0 +1,33 @@
+{% extends "list_base.html" %}
+{% load staticfiles %}
+
+{% block aside_box_area %}
+  <section class="content-aside--box search">
+    <h2 class="content-wrapper--head">Funders for this Feature</h2>
+    {{ menu_info.aside_blurb|safe }}
+  </section>
+{% endblock aside_box_area %}  
+
+
+{% block menu %}
+  <ul class="item-menu--list-pics">
+  {% for item in resource_object_list %}
+
+    <li>
+      <ul class="list-pic">
+        <li class="list-pic--img">
+          <a href="{% url 'scholars:interview_detail' item.short_name %}"><img src="{% static 'scholars/interviews/menupics/' %}{{ item.short_name }}_m.jpg" alt="image: {{ item.short_name }}"/></a>
+        </li>
+        <li class="list-pic--interviewee"><a href="{% url 'scholars:interview_detail' item.short_name %}">{{ item.scholar|safe }}</a></li>
+        <li class="list-pic--interviewer">Interviewed by 
+          {% for profile in item.profiles.all %}
+            <a href="/community/profiles/{{ profile.short_name }}/" class="title">
+            {{ profile.profile_name|safe }}</a>
+          {% endfor %}
+        </li>
+      </ul>
+    </li>
+  {% endfor %}
+  </ul>     
+{% endblock menu %}
+

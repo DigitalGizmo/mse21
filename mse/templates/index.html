@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block fullpage %}
+
+<!-- featured item - banner -->  
+<div class="home-banner">
+
+	<img class="home-banner--image" src="{% static 'sitewide/home/bannerpics/' %}{{ banner_item.short_name }}.jpg" />
+	<h2 class="home-banner--text banner-text-left"><a href="{% url banner_item.resource_locator|add:'_detail' banner_item.short_name %}">{{ banner_item.banner_blurb|safe }}</a></h2>
+</div>
+
+<!-- Three featured items --> 
+<section class="content-wrapper">
+	{% for trypic_item in banner_item.tryptic_list %}
+	  <article class="content-aside">
+	    <section class="featured">
+	      <header class="featured-header">
+	        <h5 class="featured-header--subtitle">{{ trypic_item.resource_type_title }}</h5>
+	        <h2 class="featured-header--title"><a href="{% url trypic_item.resource_locator|add:'_detail' trypic_item.short_name %}">{{ trypic_item.resource_title|safe }}</a></h2>
+	      </header>
+	      <a href="{% url trypic_item.resource_locator|add:'_detail' trypic_item.short_name %}"><img src="{% static 'sitewide/home/featuredpics/' %}{{ trypic_item.short_name }}.jpg" alt="featured item"></a>
+	    </section>
+	  </article>
+	{% endfor %}
+</section><!-- /content-wrapper -->
+
+<!-- three boxes  --> 
+<section class="content-wrapper">
+
+	<!-- events --> 
+	<article class="content-aside">
+	  <section class="content-aside--box">
+	    <h2 class="content-wrapper--head"><a href="{% url 'about:event_list' %}">Upcoming Events</a></h2>
+	    <ul class="home-list">
+			{% for event in current_events %}
+				<li>{{ event.start_date }}<br/>
+					<a href="{% url 'about:event_detail' event.short_name %}">{{ event.title|safe }}</a>
+				</li>
+			{% endfor %}
+	    </ul>
+	  </section>
+	</article>
+
+	<!-- new item list --> 
+	<article class="content-aside">
+	  <section class="content-aside--box">
+	    <h2 class="content-wrapper--head">What's New</h2>
+	    <ul class="home-list">
+			{% for new_item in banner_item.new_list %}
+				<li>{{ new_item.resource_type_title }}<br/>
+					<a href="{% url new_item.resource_locator|add:'_detail' new_item.short_name %}">{{ new_item.resource_title|safe }}</a>					
+				</li>
+			{% endfor %}
+	    </ul>
+	  </section>
+	</article>
+
+	<!-- funders --> 
+	<article class="content-aside">
+	  <section class="content-aside--box">
+	    <h2 class="content-wrapper--head"><a href="{% url 'about:single_detail' 'funders' %}">Our Funders</a></h2>
+
+	    <a href="http://imls.gov" target="external">
+	    <img src="{% static 'images/funder_logos/imls_logo.gif' %}" alt="Institute of Museum and Library Services"></a>
+
+	    <a href="http://neh.gov" target="external">
+	    <img src="{% static 'images/funder_logos/neh_logo.png' %}" alt="National Endowment for the Humanities"></a>
+
+	    <a href="http://cthumanities.org" target="external">
+	    <img src="{% static 'images/funder_logos/CThumanities_logo.gif' %}" alt="Connecticut Humanities"></a>
+
+	  </section>
+	</article>
+
+</section><!-- /content-wrapper -->
+
+{% endblock fullpage %}
+

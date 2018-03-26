@@ -1,0 +1,16 @@
+.content-aside {
+	// when screen is greater than or equal to 590
+	// but less than 800
+  @include media(min-width 590px max-width 799px) {
+    @include span-columns(5);
+  }
+
+	// when screen is greater than or equal to 760
+  @include media(800px) {
+    @include span-columns(4);
+  }
+
+  @media print {
+    @include span-columns(4);
+  }
+}

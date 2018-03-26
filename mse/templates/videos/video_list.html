@@ -1,0 +1,25 @@
+{% extends "list_base.html" %}
+{% load staticfiles %}
+
+{% block aside_box_area %}
+  <section class="content-aside--box">
+    <h2 class="content-wrapper--head">About these Videos</h2>
+    {{ menu_info.aside_blurb|safe }}
+  </section>
+{% endblock aside_box_area %}  
+
+
+{% block menu %}
+  <ul class="item-menu--grid">
+  {% for item in resource_object_list %}
+    <li class="item-menu--item naked">
+      <a href="{% url 'videos:video_detail' item.short_name %}">
+         <img src="{% static 'videos/menupics/' %}{{ item.short_name }}_m.jpg" alt="image:{{ item.short_name }}" />
+        {{ item.title|safe }}
+      </a>
+      <!-- Credit {{ item.producer }} -->
+    </li>
+  {% endfor %}
+    </ul>     
+{% endblock menu %}
+
