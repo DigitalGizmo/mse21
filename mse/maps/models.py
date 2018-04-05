@@ -23,6 +23,7 @@ class Geomap(core.models.ManyModel):
     subtitle = models.CharField(max_length=128, blank=True, default='')
     fusion_table_id = models.CharField(max_length=64, default='add id for fusion table',
             help_text="For Voyages and Compare (not Story). Currently supplied by Don")
+    voyageid = models.CharField(max_length=24, blank=True, default='')
     map_type = models.CharField(max_length=16, default='Voyage', choices=MAP_TYPES)
     init_lat = models.FloatField("Initial Latitude", blank=True, null=True,
         help_text="Decimal degrees, South is negative. Right click on google maps - What's Here.")
@@ -30,6 +31,7 @@ class Geomap(core.models.ManyModel):
         help_text="Decimal degrees, West is negative")
     init_zoom = models.IntegerField("Initial Zoom Level", default=3,
         help_text="0= entire world, 3= most of hemisphere, 9 = area like Connecticut, 12= buildings")
+    start_date = models.DateField(null=True, blank=True)
     date_range = models.CharField(max_length=64, blank=True, default='', 
         help_text="For Voyages -- Shows under title in Compare navigation")
     description = models.CharField(max_length=64, blank=True, default='', 
@@ -93,11 +95,12 @@ class Logyear(models.Model):
 
 class Comparevoyage(models.Model):
     geomap = models.ForeignKey('maps.Geomap')
-    label = models.CharField('nickname for this voyage', max_length=32, unique=True)
-    voyage_id = models.IntegerField('voyage map ID', default=0,
+    label = models.CharField('nickname for this map', max_length=32, unique=True)
+    compare_geomap_id = models.IntegerField('map ID', default=0,
             help_text="look for number in admin edit link for map in question")    
     ordinal = models.IntegerField('Order in Menu', default=999)    
     color = models.CharField('Line Color', max_length=16, blank=True, default='')
+    compare_voyage_id = models.CharField(max_length=16, blank=True, default='')
 
     class Meta:
          verbose_name = "Compare map only - Voyage map IDs"

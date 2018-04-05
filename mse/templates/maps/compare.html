@@ -9,29 +9,30 @@
 
 {% block instructions %}
 	<p>Check the boxes for the voyages you'd like to compare.
-	{% if map_index == -1  %}</br> The voyage you were just viewing is not available for comparison. {% endif %}</p>
+	{% if start_layer_index == -1  %}</br> The voyage you were just viewing is not available for comparison. {% endif %}</p>
 {% endblock %}
 
 {% block map_nav %}
 <script type="text/javascript">
-var compare_params = {
-	init_location: ["{{ resource_object.init_lat }}", "{{ resource_object.init_long }}", {{ resource_object.init_zoom }} ],
-	// layerYears: ['1841', '1842']
-	layerIDs: [{% for item in voyage_list %}{{item.voyage_id}}{% if not forloop.last %}, {% endif %}{% endfor %}],
-	// could use json and combine w/ layerIDs, but layerID code works and is parallel to
-	// layerYears
-	layerColors: [{% for item in voyage_list %}'{{item.color}}'{% if not forloop.last %}, {% endif %}{% endfor %}],
-	startMapIndex: {{map_index}}
-}
+	var compare_params = {
+		init_location: ["{{ resource_object.init_lat }}", "{{ resource_object.init_long }}", {{ resource_object.init_zoom }} ],
+		// layerYears: ['1841', '1842']
+		numVoyages: {{voyage_list|length}},
+		// could use json and combine w/ layerIDs, but layerID code works and is parallel to
+		// layerYears
+		layerColors: [{% for item in voyage_list %}'{{item.color}}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+		startLayerIndex: {{start_layer_index}},	
+		startMapVoyageId: "{{voyageid}}",
+	}
 </script>
 
 <form name="map_controls" action="not_submitted" method="POST">
 		
 	<h3>Select Voyages</h3>
 	<ul class="compare_list">
-	{% for item in voyage_list %}
+	{% for item in voyage_list %}{# javascript will get the layer index from the index of this list order #}
 		<li style="border-top: 2px solid #{{item.color}};">
-			<input type="checkbox" name="item_chosen" id="{{item.voyage_id}}" value="{{item.voyage_id}}"><label for="{{item.voyage_id}}">{{item.title|safe}}</label><br/>
+			<input type="checkbox" name="item_chosen" id="{{item.compare_voyage_id}}" value="{{item.compare_voyage_id}}"><label for="{{item.compare_voyage_id}}">{{item.title|safe}}</label><br/>
 			{{item.date_range}}, {{item.description}}<br/>
 			<a href="/maps/voyage/{{ item.short_name }}">see voyage map</a>
 		</li>

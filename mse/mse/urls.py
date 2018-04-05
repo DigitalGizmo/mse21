@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^connections/', include('connections.urls', namespace='connections')),
     url(r'^curriculum/', include('curriculum.urls', namespace='curriculum')),
     url(r'^documents/', include('documents.urls', namespace='documents')),
+    url(r'^mapdata/', include('mapdata.urls', namespace='mapdata')),
     url(r'^maps/', include('maps.urls', namespace='maps')),
     url(r'^sets/', include('resources.urls', namespace='resources')),
     url(r'^scholars/', include('scholars.urls', namespace='scholars')),

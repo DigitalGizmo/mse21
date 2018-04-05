@@ -1,6 +1,13 @@
 Maintanance
 ============
 
+
+On eApps: 
+	For updates
+		login w ssh w/ mseadmin
+		cd to msedev or ed
+		
+
 As of February 2016 the active 
 Development elements:
 	directory: msedev.mysticseaport.org 
@@ -81,6 +88,10 @@ Process for database changes
 	migrate
 	setmse (atext) expands to 
 	--settings=mse.settings.staging
+
+To use 2nd, map database
+::
+	manage.py migrate --database=msemap_db
 
 Backup remote
 ~~~~~~~~~~~~~~

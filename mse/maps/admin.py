@@ -21,7 +21,8 @@ class ChapterInline(admin.StackedInline):
 class GeomapAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,            {'fields': ['title', 'subtitle', 'short_name', 'map_type', 
-            'init_lat', 'init_long', 'init_zoom', 'fusion_table_id', 'date_range', 
+            'init_lat', 'init_long', 'init_zoom', 'voyageid', 'start_date',
+            'fusion_table_id', 'date_range', 
             'description', 'caption', 'credit', 'log_link_type', 'sites']}),
         (None,            {'fields': ['narrative']}),
         ('Content Creator(s)',   {'fields': ['profiles'], 'classes': ['collapse']}),
@@ -37,7 +38,7 @@ class GeomapAdmin(admin.ModelAdmin):
             'edited_by', 'notes'], 'classes': ['collapse']}),
     ]
     inlines = [IdeaInline, LogyearInline, ComparevoyageInline, ChapterInline]
-    list_display = ('title', 'short_name', 'map_type', 'status_num', 'edit_date')
+    list_display = ('title', 'short_name', 'voyageid', 'map_type', 'status_num')
     list_filter	 = ['map_type']
     filter_horizontal = ['resourcesets', 'artifacts', 'documents', 'connections', 'weblinks', 
     'biblio', 'essays', 'audiovisuals', 'lectures', 'maps', 'profiles', 'sites', 'lessons', 

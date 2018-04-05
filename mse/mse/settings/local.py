@@ -17,6 +17,14 @@ DATABASES = {
         'PASSWORD': 'cwmorgan$1814',
         'HOST': '127.0.0.1',
         'PORT': '5432',
+    },
+    'msemap_db': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'msemap_db',
+        'USER': 'msemap_user',
+        'PASSWORD': 'FranAllen$1891',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 

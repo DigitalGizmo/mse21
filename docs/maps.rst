@@ -28,3 +28,30 @@ Create new Fusion table
 		- copy Id to enter into admin
 		- 1aCXFIiwU1eofMOFe9DaPVg7QrKiqU7gcBmRxTDjT
 		- FrancisAllen
+
+
+Version 2 Internalization
+================
+
+2nd database
+--------------
+
+Have to migrate separately
+::
+	$ ./manage.py migrate  [uses default]
+	$ ./manage.py migrate --database=msemap_db
+
+Be aware that terminal readout will display all tables for each migration/ makemigration 
+-- but most of the tables are actually skipped by the router rules in place
+
+
+2nd database installation
+--------------------------
+Django docs: [Multiple databases | Django documentation | Django](https://docs.djangoproject.com/en/1.11/topics/db/multi-db/)
+How to, Simple: [How to Configure Multiple Databases in Django the Simple Way](https://strongarm.io/blog/multiple-databases-in-django/)
+
+routers.py is in mse/mse
+Identified in mse/mse/settings/base.py::
+	DATABASE_ROUTERS = ['mse.routers.MapdataRouter',]
+
+The app mapdata is set up to always use that 2nd database.

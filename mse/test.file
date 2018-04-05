@@ -1,0 +1,3 @@
+st_display = ('voyageid', 'day', 'month', 'year', 'lat', 'lon')
+    list_filter	 = ['voyageid']
+

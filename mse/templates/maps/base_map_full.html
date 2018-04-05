@@ -52,7 +52,7 @@
     <aside class="content-aside">
       <section class="content-aside--box">
         <h2 class="content-wrapper--head">Related Maps</h2>
-        <p><a href="/maps/compare/compare/{{ resource_object.pk }}/">Compare Voyages Map</a></p>
+        <p><a href="/maps/compare/compare/{{ resource_object.voyageid }}/">Compare Voyages Map</a></p>
         {% for map in resource_object.maps.all %}
           <p><a href="/maps/{{ map.map_type|lower }}/{{ map.short_name }}/">{{ map.map_type }} Map: {{ map.title|safe }}</a>
         {% endfor %}  
