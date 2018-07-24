@@ -46,7 +46,7 @@ class Resourceset(core.models.CommonModel):
         return self.title
 
 class Idea(models.Model):
-    resourceset = models.ForeignKey('resources.Resourceset')
+    resourceset = models.ForeignKey('resources.Resourceset', on_delete=models.CASCADE)
     name = models.CharField('Label', max_length=64, blank=True, default='')
     idea_text = models.TextField(blank=True, default='')
     idea_num = models.IntegerField(default=0)

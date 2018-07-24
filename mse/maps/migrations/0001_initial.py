@@ -78,7 +78,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(verbose_name='Label', max_length=64, null=True, blank=True)),
                 ('idea_text', models.TextField(null=True, blank=True)),
                 ('idea_num', models.IntegerField(default=0)),
-                ('geomap', models.ForeignKey(to='maps.Geomap')),
+                ('geomap', models.ForeignKey(to='maps.Geomap', on_delete=models.CASCADE)),
             ],
             options={
                 'verbose_name': 'Ideas for Classroom Use',
@@ -89,7 +89,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
                 ('year', models.CharField(verbose_name='Voyage - Year', max_length=4, null=True, blank=True)),
-                ('geomap', models.ForeignKey(to='maps.Geomap')),
+                ('geomap', models.ForeignKey(to='maps.Geomap', on_delete=models.CASCADE)),
             ],
             options={
                 'verbose_name': 'Voyage map only - Logyear',
@@ -98,11 +98,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='comparevoyage',
             name='geomap',
-            field=models.ForeignKey(to='maps.Geomap'),
+            field=models.ForeignKey(to='maps.Geomap', on_delete=models.CASCADE),
         ),
         migrations.AddField(
             model_name='chapter',
             name='geomap',
-            field=models.ForeignKey(to='maps.Geomap'),
+            field=models.ForeignKey(to='maps.Geomap', on_delete=models.CASCADE),
         ),
     ]

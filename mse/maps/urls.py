@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 
+app_name = "maps"
+
 urlpatterns = [
     url(r'^$', views.index, name='map_list'),
     url(r'^ideas/(?P<short_name>\S+)/$', views.ideas, name='geomap_ideas'),

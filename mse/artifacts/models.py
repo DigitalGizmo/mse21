@@ -40,7 +40,7 @@ class Artifact(core.models.ItemModel):
         return self.title
 
 class Question(models.Model):
-    artifact = models.ForeignKey('artifacts.Artifact')
+    artifact = models.ForeignKey('artifacts.Artifact', on_delete=models.CASCADE)
     question_text = models.CharField(max_length=255)
     question_num = models.IntegerField()
     
@@ -48,7 +48,7 @@ class Question(models.Model):
         return self.question_text
 
 class Idea(models.Model):
-    artifact = models.ForeignKey('artifacts.Artifact')
+    artifact = models.ForeignKey('artifacts.Artifact', on_delete=models.CASCADE)
     name = models.CharField('Label', max_length=64, blank=True, default='')
     idea_text = models.TextField(blank=True, default='')
     idea_num = models.IntegerField(default=0)
@@ -58,7 +58,7 @@ class Idea(models.Model):
 
     
 class Page(models.Model):
-    artifact = models.ForeignKey('artifacts.Artifact')
+    artifact = models.ForeignKey('artifacts.Artifact', on_delete=models.CASCADE)
     page_suffix = models.CharField('filename suffix', max_length=64, blank=True, 
         default='')
     page_label = models.CharField('view label', max_length=64, blank=True, default='')

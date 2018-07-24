@@ -41,7 +41,7 @@ class Lecture(core.models.ManyModel):
         return self.title
 
 class Topic(models.Model):
-    lecture = models.ForeignKey('scholars.Lecture')
+    lecture = models.ForeignKey('scholars.Lecture', on_delete=models.CASCADE)
     topic_num = models.IntegerField(default=0)
     title = models.CharField(max_length=128)
     transcript = models.TextField('Transcription', blank=True, default='')
@@ -55,7 +55,7 @@ class Topic(models.Model):
 
 
 class Idea(models.Model):
-    lecture = models.ForeignKey('scholars.Lecture')
+    lecture = models.ForeignKey('scholars.Lecture', on_delete=models.CASCADE)
     name = models.CharField('Label', max_length=64, blank=True, default='')
     idea_text = models.TextField(blank=True, default='')
     idea_num = models.IntegerField(default=0)
@@ -101,7 +101,7 @@ class Interview(core.models.CommonModel):
         return self.short_name
 
 class Question(models.Model):
-    interview = models.ForeignKey('scholars.Interview')
+    interview = models.ForeignKey('scholars.Interview', on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     question_text = models.CharField(max_length=255, blank=True, default='')
     question_num = models.IntegerField(default=0)

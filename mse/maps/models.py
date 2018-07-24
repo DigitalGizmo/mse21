@@ -71,7 +71,7 @@ class Geomap(core.models.ManyModel):
 
 
 class Idea(models.Model):
-    geomap = models.ForeignKey('maps.Geomap')
+    geomap = models.ForeignKey('maps.Geomap', on_delete=models.CASCADE)
     name = models.CharField('Label', max_length=64, blank=True, default='')
     idea_text = models.TextField(blank=True, default='')
     idea_num = models.IntegerField(default=0)
@@ -83,7 +83,7 @@ class Idea(models.Model):
         return self.name
 
 class Logyear(models.Model):
-    geomap = models.ForeignKey('maps.Geomap')
+    geomap = models.ForeignKey('maps.Geomap', on_delete=models.CASCADE)
     year = models.CharField('Voyage - Year', max_length=4, blank=True, default='')
 
     class Meta:
@@ -94,7 +94,7 @@ class Logyear(models.Model):
         
 
 class Comparevoyage(models.Model):
-    geomap = models.ForeignKey('maps.Geomap')
+    geomap = models.ForeignKey('maps.Geomap', on_delete=models.CASCADE)
     label = models.CharField('nickname for this map', max_length=32, unique=True)
     compare_geomap_id = models.IntegerField('map ID', default=0,
             help_text="look for number in admin edit link for map in question")    
@@ -110,7 +110,7 @@ class Comparevoyage(models.Model):
         
 
 class Chapter(models.Model):
-    geomap = models.ForeignKey('maps.Geomap')
+    geomap = models.ForeignKey('maps.Geomap', on_delete=models.CASCADE)
     chap_num = models.IntegerField("Chapter Number", blank=True, null=True)
     latitude = models.FloatField("Latitude", blank=True, null=True)
     longitude = models.FloatField("Longitude", blank=True, null=True)

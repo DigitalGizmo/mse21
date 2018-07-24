@@ -82,7 +82,7 @@ class Migration(migrations.Migration):
                 ('slide_num', models.IntegerField(help_text='File naming: olc/connections/static/connections/audiovisuals/slides/short_name_1, short_name_2, etc.')),
                 ('credit_line', models.CharField(blank=True, null=True, help_text='For each slide -- Slides ignore Credit Line at top of form.', max_length=128)),
                 ('narrative', models.TextField(verbose_name='Caption', blank=True, help_text='caption for each slide -- slides ignore Narrative at top of form.', null=True)),
-                ('audiovisual', models.ForeignKey(to='connections.Audiovisual')),
+                ('audiovisual', models.ForeignKey(to='connections.Audiovisual', on_delete=models.CASCADE)),
             ],
             options={
                 'verbose_name': 'Slides - only for Slideshow',

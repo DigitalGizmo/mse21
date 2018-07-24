@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=192)),
                 ('sup_num', models.IntegerField()),
                 ('ordinal', models.IntegerField(verbose_name='Order in Menu', default=99)),
-                ('lesson', models.ForeignKey(to='curriculum.Lesson')),
+                ('lesson', models.ForeignKey(to='curriculum.Lesson', on_delete=models.CASCADE)),
             ],
         ),
     ]

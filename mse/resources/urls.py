@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 
+app_name = "resources"
+
 urlpatterns = [
     # url(r'^$', 'index'),
     url(r'^$', views.ResourcesetListView.as_view(), name='resourceset_list'),

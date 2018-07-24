@@ -92,7 +92,7 @@ class Lesson(core.models.ManyModel):
 
 
 class Supplement(models.Model):
-    lesson = models.ForeignKey('curriculum.Lesson')
+    lesson = models.ForeignKey('curriculum.Lesson', on_delete=models.CASCADE)
     title = models.CharField(max_length=192)
     sup_num = models.IntegerField()
     ordinal = models.IntegerField('Order in Menu', default=99)

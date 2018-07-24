@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 
+app_name = "scholars"
+
 # Lectures and interviews urls are pre-pended with "scholars" for reasons of a) legacy, 
 # b) pequot version of site.
 urlpatterns = [

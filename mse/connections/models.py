@@ -95,7 +95,7 @@ class Audiovisual(models.Model):
 
 
 class Slide(models.Model):
-    audiovisual = models.ForeignKey('connections.Audiovisual')
+    audiovisual = models.ForeignKey('connections.Audiovisual', on_delete=models.CASCADE)
     slide_num = models.IntegerField(
             help_text="File naming: olc/connections/static/connections/audiovisuals/slides/" \
             "short_name_1, short_name_2, etc.")

@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(verbose_name='Label', max_length=64, blank=True, null=True)),
                 ('idea_text', models.TextField(blank=True, null=True)),
                 ('idea_num', models.IntegerField(default=0)),
-                ('document', models.ForeignKey(to='documents.Document')),
+                ('document', models.ForeignKey(to='documents.Document', on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(
@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
                 ('page_label', models.CharField(verbose_name='page label', max_length=64, blank=True, null=True)),
                 ('page_num', models.IntegerField(verbose_name='page order')),
                 ('transcript', models.TextField(verbose_name='Transcription', blank=True, null=True)),
-                ('document', models.ForeignKey(to='documents.Document')),
+                ('document', models.ForeignKey(to='documents.Document', on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(
@@ -61,7 +61,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', auto_created=True, primary_key=True, serialize=False)),
                 ('question_text', models.CharField(max_length=255)),
                 ('question_num', models.IntegerField(default=0)),
-                ('document', models.ForeignKey(to='documents.Document')),
+                ('document', models.ForeignKey(to='documents.Document', on_delete=models.CASCADE)),
             ],
         ),
     ]

@@ -37,6 +37,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='idea',
             name='resourceset',
-            field=models.ForeignKey(to='resources.Resourceset'),
+            field=models.ForeignKey(to='resources.Resourceset', on_delete=models.CASCADE),
         ),
     ]

@@ -40,7 +40,7 @@ class Document(core.models.ItemModel):
 
 
 class Question(models.Model):
-    document = models.ForeignKey('documents.Document')
+    document = models.ForeignKey('documents.Document', on_delete=models.CASCADE)
     question_text = models.CharField(max_length=255)
     question_num = models.IntegerField(default=0)
 
@@ -49,7 +49,7 @@ class Question(models.Model):
 
 
 class Page(models.Model):
-    document = models.ForeignKey('documents.Document')
+    document = models.ForeignKey('documents.Document', on_delete=models.CASCADE)
     page_suffix = models.CharField('filename suffix', max_length=64, blank=True, default='')
     page_label = models.CharField('page label', max_length=64, blank=True, default='')
     page_num = models.IntegerField('page order')
@@ -63,7 +63,7 @@ class Page(models.Model):
 
 
 class Idea(models.Model):
-    document = models.ForeignKey('documents.Document')
+    document = models.ForeignKey('documents.Document', on_delete=models.CASCADE)
     name = models.CharField('Label', max_length=64, blank=True, default='')
     idea_text = models.TextField(blank=True, default='')
     idea_num = models.IntegerField(default=0)

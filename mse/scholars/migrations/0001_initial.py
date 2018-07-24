@@ -60,7 +60,7 @@ class Migration(migrations.Migration):
                 ('question_text', models.CharField(blank=True, max_length=255, null=True)),
                 ('question_num', models.IntegerField(default=0)),
                 ('length', models.CharField(blank=True, max_length=16, null=True)),
-                ('interview', models.ForeignKey(to='scholars.Interview')),
+                ('interview', models.ForeignKey(to='scholars.Interview', on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ['question_num'],
@@ -74,7 +74,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=128)),
                 ('transcript', models.TextField(blank=True, verbose_name='Transcription', null=True)),
                 ('caption', models.TextField(blank=True, verbose_name='Caption', null=True)),
-                ('lecture', models.ForeignKey(to='scholars.Lecture')),
+                ('lecture', models.ForeignKey(to='scholars.Lecture', on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ['topic_num'],
@@ -83,6 +83,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='idea',
             name='lecture',
-            field=models.ForeignKey(to='scholars.Lecture'),
+            field=models.ForeignKey(to='scholars.Lecture', on_delete=models.CASCADE),
         ),
     ]

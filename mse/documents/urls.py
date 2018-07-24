@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 
+app_name = "documents"
+
 urlpatterns = [
     # url names must start with resource_type (per model.py _resource_type)
     url(r'^$', views.DocumentListView.as_view(), name='document_list'),

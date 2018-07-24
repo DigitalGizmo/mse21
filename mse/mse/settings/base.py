@@ -68,31 +68,32 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'about',
-    'artifacts',
-    'community',
-    'connections',
-    'core',
-    'curriculum',
-    'documents',
-    'mapdata',
-    'maps',
-    'resources',
-    'scholars',
-    'sitewide',
-    'videos',
+    'about.apps.AboutConfig',
+    'artifacts.apps.ArtifactsConfig',
+    'community.apps.CommunityConfig',
+    'connections.apps.ConnectionsConfig',
+    'core.apps.CoreConfig',
+    'curriculum.apps.CurriculumConfig',
+    'documents.apps.DocumentsConfig',
+    'mapdata.apps.MapdataConfig',
+    'maps.apps.MapsConfig',
+    'resources.apps.ResourcesConfig',
+    'scholars.apps.ScholarsConfig',
+    'sitewide.apps.SitewideConfig',
+    'videos.apps.VideosConfig',
     #'tinymce',     
 )
 
 # Second database for map data
 DATABASE_ROUTERS = ['mse.routers.MapdataRouter',]
 
-MIDDLEWARE_CLASSES = (
+# MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',

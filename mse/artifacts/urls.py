@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from . import views
 
+app_name = "artifacts"
 
 urlpatterns = [
     # url names must start with resource_type (per model.py _resource_type)

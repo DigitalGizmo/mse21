@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 
+app_name = "connections"
+
 urlpatterns = [
     url(r'^essays/(?P<short_name_param>\S+)/$', views.essay),
     url(r'^moreinfo/(?P<short_name_param>\S+)/$', views.moreinfo),

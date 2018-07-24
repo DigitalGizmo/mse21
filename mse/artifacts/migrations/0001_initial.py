@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(verbose_name='Label', max_length=64, blank=True, null=True)),
                 ('idea_text', models.TextField(blank=True, null=True)),
                 ('idea_num', models.IntegerField(default=0)),
-                ('artifact', models.ForeignKey(to='artifacts.Artifact')),
+                ('artifact', models.ForeignKey(to='artifacts.Artifact', on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(
@@ -54,7 +54,7 @@ class Migration(migrations.Migration):
                 ('page_suffix', models.CharField(verbose_name='filename suffix', max_length=64, blank=True, null=True)),
                 ('page_label', models.CharField(verbose_name='view label', max_length=64, blank=True, null=True)),
                 ('page_num', models.IntegerField(verbose_name='view order')),
-                ('artifact', models.ForeignKey(to='artifacts.Artifact')),
+                ('artifact', models.ForeignKey(to='artifacts.Artifact', on_delete=models.CASCADE)),
             ],
             options={
                 'verbose_name': 'View',
@@ -66,7 +66,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
                 ('question_text', models.CharField(max_length=255)),
                 ('question_num', models.IntegerField()),
-                ('artifact', models.ForeignKey(to='artifacts.Artifact')),
+                ('artifact', models.ForeignKey(to='artifacts.Artifact', on_delete=models.CASCADE)),
             ],
         ),
     ]

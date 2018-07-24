@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 
+app_name = "community"
+
 urlpatterns = [
     #url(r'^$', 'index'),
     url(r'^$', views.ProfileListView.as_view(), name='community_list'),

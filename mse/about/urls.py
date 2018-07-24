@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 
+app_name = "about"
+
 urlpatterns = [
     url(r'^events/$', views.EventListView.as_view(), name='event_list'),
     url(r'^events/(?P<slug>\S+)/$', views.EventDetailView.as_view(), 
