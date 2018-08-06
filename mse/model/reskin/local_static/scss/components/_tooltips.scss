@@ -1,0 +1,21 @@
+// TOOL TIPS
+a.tooltip span.tiptext {
+	box-shadow: $soft-shadow;
+	display: none;
+	font-size: $small-font-size;
+	line-height: $small-line-height;
+	padding: 6px;
+	z-index: 10;
+}
+
+a.tooltip:hover span.tiptext {
+	background: white;
+	border: 1px solid $primary-color;
+	color: $base-font-color;
+	display: inline;
+	position: absolute;
+}
+
+a.tooltip:hover img {
+	opacity: 0.65;
+}

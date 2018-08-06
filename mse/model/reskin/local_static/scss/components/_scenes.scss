@@ -1,0 +1,25 @@
+.scenes-entry {
+	@include clearfix;
+	margin-bottom: $base-spacing;
+}
+
+.scenes-img {
+  @include media(580px) {
+    @include span-columns(4);
+	}
+}
+
+.scenes-main {
+  @include media(580px) {
+    @include span-columns(8);
+  }
+}
+
+.scenes-title {
+	font-size: $medlarge-font-size;
+}
+
+.scenes-date {
+	color: $primary-color;
+	font-weight: 600;
+}

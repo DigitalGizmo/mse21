@@ -1,0 +1,174 @@
+.item-menu--grid {
+  @include row();
+  margin-bottom: $base-spacing;
+}
+
+.item-menu--item {
+  @include span-columns(4 8);
+
+  // smaller than 589,  1 cols
+  @include media(max-width 589px) {
+    @include span-columns(4);
+    @include omega(2n);
+  }
+  
+  // smaller than 799 and larger than 589,  2 cols
+  @include media(min-width 590px max-width 799px) {
+    @include span-columns(3.3333 8);
+    @include omega(2n);
+  }
+
+  // smaller than 910 and larger than 799, 3 cols
+  @include media(min-width 800px max-width 910px) {
+    @include span-columns(2.6666 8);
+    @include omega(3n);
+  }
+  
+  // larger than 910, 4 cols
+  @include media(910px) {
+    @include span-columns(2 8);
+    @include omega(4n);
+  }
+
+  @media print {
+    @include span-columns(2 8);
+    @include omega(4n);
+  } 
+}
+
+// resource sets main menu
+.item-menu--big-item {
+  font-size: $base-font-size;
+  margin-bottom: $base-spacing;
+  position: relative;
+
+  @include span-columns(4 12);  
+  @include omega(3n);
+
+  @include media(max-width 589px) {
+    font-size: $small-font-size;
+    @include span-columns(6 12);
+    @include omega(2n);
+  }  
+  
+  h3 {
+    background-color: adjust-color($primary-color, $alpha: -0.3);
+    color: white;
+    font-size: $base-font-size * 1.25;
+    font-weight: 200;
+    padding: $small-spacing;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+// for items on a resource set page
+.resource-icon {
+  font-family: 'icomoon';
+  font-size: $base-font-size * 1.125;
+  padding-right: 0;
+  vertical-align: text-top;
+
+  &.raw {
+    color: darken($toned-blue, 50%);
+  }
+}
+
+// artifacts, documents
+.basic {
+  background-color: rgba($primary-color, 0.6);
+  height: 216px;
+  line-height: $heading-line-height;
+  margin-bottom: $base-spacing;
+  padding: $small-spacing;
+
+  @media print {
+    background-color: transparent;
+    height: 180px;
+  } 
+
+  a {
+    color: white;
+    font-weight: 200;
+
+    @media print {
+      color: $primary-color;
+      font-weight: 400;
+    }
+  }
+}
+
+.resourceset-small {
+  font-size: $base-font-size * 0.9;
+  letter-spacing: 0.5px;
+}
+
+// community profiles, projects, events, lessons
+.picture, .naked, .list-pic--img, .item-menu--big-item {
+  margin-bottom: $large-spacing;
+
+  img {
+    box-shadow: $hard-shadow;
+  }
+}
+
+// maps, lectures
+.naked {
+  font-weight: 200;    
+
+  a {
+    display: block;
+    font-weight: 600;    
+  }
+
+  a.item-menu--detail {
+    font-weight: 200;
+    display: inline;        
+  }
+}
+
+// interviews, events, lessons
+.list-pic {
+  clear: left;
+  margin-bottom: $large-spacing;
+}
+
+.list-pic--img {
+  float: left;
+//  margin-right: $base-spacing;
+}
+
+.list-pic--interviewee, 
+.list-pic--title,  {
+  font-size: $medlarge-font-size;
+  font-weight: 200;    
+}
+
+.list-pic--subtitle {
+  font-style: italic;
+}
+
+// events, lessons
+.list-pic--date, .list-pic--title, .list-pic--details, .list-pic--blurb, .list-pic--interviewee, 
+.list-pic--interviewer {
+  margin-left: 180px;
+}
+
+.list-pic--date,  {
+  font-weight: 600;
+  color: $primary-color;    
+}
+
+// community
+.item-menu--small-item {
+  float: left;
+  margin: 0 $small-spacing $small-spacing 0;
+
+  img {
+    box-shadow: $hard-shadow;
+
+    &:hover {
+      opacity: 0.65;
+    }
+  }
+}
