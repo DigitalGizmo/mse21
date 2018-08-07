@@ -1,0 +1,153 @@
+#item-viewer {
+  position: relative;
+}
+
+#item-viewer--container {
+  margin-top: -$base-spacing;
+}
+
+#item-image {
+  background-color: $toned-blue;
+  border: 1px solid darken($toned-blue, 25%);
+  height: em(400);
+}
+
+#document-text {
+  background-color: $beige;
+  border: 1px solid darken($beige, 15%);
+  color: $dark-gray;
+  font-size: $medlarge-font-size;
+  height: 400px;
+  line-height: $base-line-height;
+  opacity: 0.75;
+  overflow: scroll;
+
+  @include position(absolute, 0px null null 0px );
+}
+
+.document-text--transcription {
+  @include span-columns(8);
+  @include shift(2);
+}
+
+.smalltext {/* large text size */
+  font-size: $small-font-size;
+}
+
+.largetext {/* large text size */
+  font-size: $large-font-size;
+}
+
+.italics {/* italic text */
+  font-style: italic;
+}
+
+.doublespaced {/* double spaced lines */
+  line-height: $base-line-height * 2;
+}
+
+table.trans td {/* for transcriptions in tables */
+  padding: 1px;
+  margin: 1px;
+}
+
+.item-viewer--tools {
+  @include outer-container;
+  margin-bottom: 1em;
+  margin-top: .5em;
+  
+  @include media(max-width $max-width) {
+    font-size: $base-font-size * 0.85;
+    //padding: $base-spacing;
+  } 
+}
+
+// transcription toggle button
+#toggle-transcription {
+  margin-top: -6px;
+  @include span-columns(3);
+  @include shift(1);
+
+  @media print {
+    display: none;
+  }  
+}
+
+// document tools - paging
+#document-paging {
+  @include span-columns(3);
+}
+
+#document-paging--list {
+  li {
+    padding: 2px;
+  }
+
+  li.document-paging--page::after {
+    content: " |"
+  }
+
+  li.last::after {
+    content: none;
+  }
+
+    a:link {
+      text-decoration: underline;
+    }
+
+    a:hover {
+      background-color: $toned-blue;
+    }
+}
+
+.document-paging--title {
+  float: left;
+  margin: 2px 4px 0 em(1);
+}
+
+.document-paging--selected {
+  font-weight: 600;
+}
+
+// document tools - audio
+.document-audio {
+  @include span-columns(2);
+  margin: 6px 8px 0 0;
+  width: unset;
+
+  @media print {
+    display: none;
+  }
+}
+
+#doc_audio {
+
+  @media print {
+    display: none;
+  }
+}
+
+// artifacts other views
+#other-views {
+  text-align: right;
+}
+
+.other-views--title {
+  display: inline;
+  margin: 3em 8px 0 0;
+}
+
+#other-views--list {
+  float: right;
+}
+
+#other-views--list li {
+  
+  & img  {
+    border: 1px solid $light-gray;
+  } 
+
+  & img.other-views--selected  {
+    border: 1px solid $selected;
+  }
+}

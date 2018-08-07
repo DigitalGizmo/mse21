@@ -1,0 +1,61 @@
+//for search resources
+.search-resources {
+	@include fill-parent;
+	text-align: left;
+
+    @include media(max-width $max-width) {
+      padding: $base-spacing;
+      font-size: $base-font-size * 0.85;
+    }
+
+    @include media(max-width $mobile-navigation-breakpoint) {
+      font-size: rem(12);
+    }
+	
+	img {
+		font-size: .25em;
+	}
+
+	tr {
+		vertical-align: top;
+	}
+
+	td {
+		padding-right: $small-spacing;
+	}
+}
+
+.search-resources--heads {
+	background-color: $toned-blue;
+	border-bottom: 12px solid white;
+	color: $primary-color;
+}
+
+.search-resources--pic {
+	max-width: 12%;
+}
+
+.search-resources--title {
+	width: 43%;
+}
+
+.search-resources--type {
+	width: 20%;
+}
+
+.search-resources--content-by {
+	width: 25%;
+}
+
+.search-resources--title {
+	font-weight: 600;
+}
+
+.search-resources--field {
+	@include span-columns (3 4);
+	margin-bottom: $base-spacing;
+}
+
+.search-resources--filters {
+	margin-bottom: $base-spacing;
+}

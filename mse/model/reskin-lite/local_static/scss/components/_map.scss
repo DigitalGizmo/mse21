@@ -1,0 +1,249 @@
+#map_wrapper	{
+	margin-bottom: $base-spacing;
+  @include media(580px) {
+    @include span-columns(9);
+  }
+}
+
+#map_canvas {
+	border: 1px solid lighten($primary-color, 20%);
+	height: 720px; 
+	@include fill-parent();
+	padding-bottom: $base-spacing;
+}
+
+#map_controls	{
+  @include media(580px) {
+    @include span-columns(3);
+  }
+	
+	input {
+		margin-right: $small-spacing;
+	}
+
+	label {
+		font-size: $small-font-size;
+}
+
+	h3 {
+		margin-bottom: 0;
+	}
+}
+
+.map-controls--title {
+	margin-top: $base-spacing;
+}
+
+#side_bar	{ 
+	background-color: white;
+	border: 1px solid lighten($primary-color, 20%);
+	height: 350px;
+	margin-top: $small-spacing;
+	overflow: scroll;
+	z-index: 9999;
+
+	h3	{
+		background: $primary-color;
+		color: white;
+		font-weight: 400;
+		margin: 0; 
+		padding: .15em .5em; 
+		width: 100%; 
+	}
+	
+	//for logbook entry dates
+	li {
+		font-size: $small-font-size;
+	}
+}
+
+//*------ABOUT THIS MAP STYLES---------*//
+
+.about {
+	@include clearfix;
+	margin-bottom: $small-spacing;
+}
+
+.about--title {
+	float: left;
+}
+
+.about--go {
+	float: right;
+
+		a:hover {
+			color: white;
+		}
+}
+
+//*------STORY MAP STYLES---------*//
+
+#story_nav ol li {
+	font-size: $small-font-size;
+	padding-bottom: $small-spacing;
+}
+
+.story-print--link {
+	margin: $base-spacing 0 0 0;
+}
+
+.story-print--blurb {
+	margin-top: 0;
+}
+
+#popwrap .story-print--title {
+	margin-bottom: $small-bottom-spacing;
+}
+
+#popwrap .story-print--number	{ /* used in Story Maps printable popup */
+	border-top: 1px solid $light-gray;
+	margin-top: $base-spacing;
+	padding-top: $small-spacing;
+}	
+
+#popwrap p.story-print--date	{ /* used in Story Maps printable popup */
+	font-weight: 600;
+	margin: 0;
+}
+
+ol.entry_list	{ 
+	margin: 0 .5em; 
+	padding: 0; 
+	list-style-type: none;
+
+	li {
+		padding: .2em 0 0 .2em;
+	
+	  img {
+			margin-right: 6px;
+		}	
+	}
+}
+
+span.close {
+	float: right;
+}
+
+//*------INFO WINDOW STYLES---------*//
+
+#infowindow	{ 
+	width: 420px; 
+	max-height: 450px; 
+	font-size: 1.25em; 
+	padding-left: $small-spacing; 
+}
+
+#infowindow header	{
+	border-bottom: 1px solid $light-gray;
+	overflow: auto;
+}
+
+#infowindow header date {
+	font-size: $base-font-size; 
+	color: $primary-color; 
+}
+
+#infowindow section	{
+	margin-top: .25em; 
+}
+
+#infowindow section p.date {
+	margin: 0; 
+	padding: 0;
+}
+
+// #infowindow section p.credit {
+// 	color: $medium-gray; 
+// 	font-size: $small-font-size; 
+// }
+
+#infowindow section img.story	{
+	border: 1px solid $light-gray;
+}
+
+// logbook entry data
+#infowindow dl.icons, #infowindow dl.noicons {
+	font-size: $small-font-size; 
+
+  & dt {
+    margin-bottom: $small-spacing / 2;
+    margin-right: 3%;
+    max-width: 32%;
+  } 
+  
+  & dd {
+    margin-left: 35%;
+    margin-bottom: $small-spacing / 2;
+  }
+}
+
+#infowindow dl.icons dt img {
+ 		float: left; 
+	 	margin-right: 4px;
+	 	vertical-align: middle; 
+}
+
+#infowindow section h2 {
+	font-size: 1.5em; 
+	font-weight: 600; 
+	margin: 0;
+}
+
+#infowindow h4 {
+	float: left; 
+	font-size: 1em; 
+	font-weight: 700; 
+	margin: .25em 0;
+}
+
+#infowindow div.log_entry	{ 
+	padding: 0 $small-spacing; 
+	background-color: #F2F2F2; 
+	border: thin solid $light-gray; 
+	height: 120px; 
+	width: 400px; 
+	overflow-y: scroll; 
+	overflow-x: hidden;
+}
+
+#infowindow a { 
+	float: right; 
+	font-size: .9em; 
+	margin-top: 6px;
+}
+
+#infowindow a:link, #infowindow a:visited, #infowindow a:hover {
+//	color: #4D5E90;
+}
+
+#infowindow div.infonav	{/* for prev/next nav in story chapters and voyage map infowindows */
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+
+//*------COMPARE VOYAGES STYLES---------*//
+
+.compare_list li	{ 
+	padding-bottom: $large-spacing;
+	
+	//voyage name	(font size isn't working...)
+	label { 
+		font-size: $medlarge-font-size; 
+		font-weight: 600;
+	}
+}
+
+/*------TABLETS STYLES (old responsiveness)
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape)
+{
+
+	#map_canvas {
+		 height: 600px; 
+		 width: 700px; 
+		 border: 1px #666666 solid;
+		 }
+}---------*/

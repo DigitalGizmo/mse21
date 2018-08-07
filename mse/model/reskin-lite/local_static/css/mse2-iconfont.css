@@ -1,0 +1,104 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/mse2_iconfont/icomoon.eot?jrj8fe');
+	src:url('../fonts/mse2_iconfont/icomoon.eot?jrj8fe#iefix') format('embedded-opentype'),
+		url('../fonts/mse2_iconfont/icomoon.ttf?jrj8fe') format('truetype'),
+		url('../fonts/mse2_iconfont/icomoon.woff?jrj8fe') format('woff'),
+		url('../fonts/mse2_iconfont/icomoon.svg?jrj8fe#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-artifact:before {
+    content: "\e903";
+}
+.icon-document:before {
+    content: "\e901";
+}
+.icon-geomap:before {
+    content: "\e90b";
+}
+.icon-lecture:before {
+    content: "\e904";
+}
+.icon-interview:before {
+    content: "\e90e";
+}
+.icon-search:before {
+    content: "\1f329";
+}
+.icon-resourceset:before {
+    content: "\1f326";
+}
+.icon-aboutmse:before {
+    content: "\e913";
+}
+.icon-event:before {
+    content: "\2756";
+}
+.icon-scene:before {
+    content: "\1f321";
+}
+.icon-community:before {
+    content: "\e910";
+}
+.icon-funders:before {
+    content: "\1f322";
+}
+.icon-ideas:before {
+    content: "\f36c";
+}
+.icon-lesson:before {
+    content: "\f127";
+}
+.icon-worksheet:before {
+    content: "\f12e";
+}
+.icon-visual:before {
+    content: "\f147";
+}
+.icon-slideshow:before {
+    content: "\f148";
+}
+.icon-information:before {
+    content: "\f149";
+}
+.icon-study:before {
+    content: "\f357";
+}
+.icon-video:before {
+    content: "\f256";
+}
+.icon-audio:before {
+    content: "\f259";
+}
+.icon-weblink:before {
+    content: "\e905";
+}
+.icon-google-plus:before {
+    content: "\e906";
+}
+.icon-facebook:before {
+    content: "\e907";
+}
+.icon-twitter:before {
+    content: "\e908";
+}
+.icon-youtube:before {
+    content: "\e91c";
+}
+.icon-pinterest:before {
+    content: "\e909";
+}
