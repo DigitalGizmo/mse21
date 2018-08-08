@@ -3,17 +3,20 @@
 }
 
 .home-banner {
-	text-align: center;
+	//text-align: center;
+	background: center / cover no-repeat url("../images/home/bannerpics/banner.jpg");
+	height: 300px;
 }
 
 .home-banner--image {
-	margin-bottom: $base-spacing;
-	width: 100%;
+	//margin-bottom: $base-spacing;
+	//width: 100%;
 }
 
 .home-banner--text {
-	margin: -$large-spacing * 3 auto 0 auto;
-	padding-bottom: $large-spacing * 2;
+	//margin: -$large-spacing * 3 auto 0 auto;
+	//margin: -$large-spacing * 3 auto 0 auto;
+	padding-bottom: $large-spacing * 2.25;
 	//width: 75%;
 	
   @media print {
@@ -56,18 +59,43 @@
 	}
 }
 
+h2.home-banner--subtitle {
+	margin-top: -3em;
+	padding-left: 20%;
+	position: relative;
+
+  &::after {
+	  content: "";
+	  border-bottom: 5px solid white;
+	  position: absolute;
+	  left: 0;
+	  right: 0;
+	  bottom: 5px;
+	}
+}
+
 h1.home-banner--title {
 	color: white;
 	font-size: $large-font-size * 2;
-}
+	padding: $base-spacing 0 0 20%;
+	position: relative;
 
-.banner-text-left {
-	text-align: left;
+	&::after {
+	  content: "";
+	  border-bottom: 5px solid white;
+	  position: absolute;
+	  left: 0;
+	  right: 0;
+	  bottom: 14px;
+	}
 }
+// .banner-text-left {
+// 	text-align: left;
+// }
 
-.banner-text-right {
-	text-align: right;
-}
+// .banner-text-right {
+// 	text-align: right;
+// }
 
 .featured {
   margin-bottom: $xlarge-spacing;

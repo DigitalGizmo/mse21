@@ -501,9 +501,18 @@ footer {
   @media print {
     .logo--image {
       display: none; } }
-  .logo--image img {
-    height: 96px;
-    width: auto; }
+
+.our-logo--image {
+  position: absolute;
+  top: 0;
+  left: 8.75em;
+  z-index: 1; }
+  @media screen and (max-width: 43.125em) {
+    .our-logo--image {
+      display: none; } }
+  @media print {
+    .our-logo--image {
+      display: none; } }
 
 .logo--text {
   color: white;
@@ -759,9 +768,6 @@ ul.icon-list li.icon-list--map::before {
 .dropdown .dropdown-button {
   cursor: pointer; }
 .dropdown .dropdown-menu {
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
   background-color: white;
   overflow: show;
   text-align: left; }
@@ -825,22 +831,18 @@ ul.icon-list li.icon-list--map::before {
   color: #040a50;
   display: block;
   font-family: icomoon;
-  font-size: 4.5em;
+  font-size: 2.5em;
   line-height: 1; }
 
 .home-grid {
   margin-right: 0; }
 
 .home-banner {
-  text-align: center; }
-
-.home-banner--image {
-  margin-bottom: 1.5em;
-  width: 100%; }
+  background: center/cover no-repeat url("../images/home/bannerpics/banner.jpg");
+  height: 300px; }
 
 .home-banner--text {
-  margin: -9em auto 0 auto;
-  padding-bottom: 6em; }
+  padding-bottom: 6.75em; }
   @media print {
     .home-banner--text {
       padding-bottom: 3em; } }
@@ -868,15 +870,30 @@ ul.icon-list li.icon-list--map::before {
     text-decoration: underline;
     transition: color 150ms ease; }
 
+h2.home-banner--subtitle {
+  margin-top: -3em;
+  padding-left: 20%;
+  position: relative; }
+  h2.home-banner--subtitle::after {
+    content: "";
+    border-bottom: 5px solid white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px; }
+
 h1.home-banner--title {
   color: white;
-  font-size: 4em; }
-
-.banner-text-left {
-  text-align: left; }
-
-.banner-text-right {
-  text-align: right; }
+  font-size: 4em;
+  padding: 1.5em 0 0 20%;
+  position: relative; }
+  h1.home-banner--title::after {
+    content: "";
+    border-bottom: 5px solid white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 14px; }
 
 .featured {
   margin-bottom: 4.5em;

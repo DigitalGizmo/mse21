@@ -23,8 +23,27 @@
   }
 
   img {
-    height: 96px;
-    width: auto;    
+    //height: 96px;
+    //width: auto;    
+  }
+}
+
+.our-logo--image {
+  @include position(absolute, 0 null null $logo-width);
+  z-index: $logo-z-index;
+
+
+  @include media(max-width $mobile-navigation-breakpoint) {
+    display: none;
+  }
+
+  @media print {
+    display: none;
+  }
+
+  img {
+    //height: 96px;
+    //width: auto;    
   }
 }
 
