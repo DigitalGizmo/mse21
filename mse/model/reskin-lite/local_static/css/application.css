@@ -549,7 +549,6 @@ footer {
       display: none; } }
 
 .main-navigation--wrapper {
-  border-bottom: 5px solid white;
   padding: 0.5em 0;
   text-align: right; }
   @media screen and (max-width: 43.125em) {
@@ -774,7 +773,7 @@ ul.icon-list li.icon-list--map::before {
   @media screen and (min-width: 43.1875em) {
     .dropdown .dropdown-menu {
       position: absolute;
-      top: 80px;
+      top: 70px;
       right: 0;
       left: 0;
       display: none; } }
