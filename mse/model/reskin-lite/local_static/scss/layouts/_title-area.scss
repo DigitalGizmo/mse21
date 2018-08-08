@@ -1,5 +1,5 @@
 .title-area {
-  background-color: $toned-blue;
+  background-color: white;
   margin-bottom: $base-spacing;
   min-height: 165px;
   padding: $small-spacing 0;
@@ -30,8 +30,7 @@
 }
 
 .title-area--icon-img  {
-//  color: $primary-color;
-  color: $dark-blue;
+  color: $primary-color;
   font-family: icomoon;
   font-size: 5em;
   font-style: normal;

@@ -5,15 +5,15 @@
     cursor: pointer;
     
     // little arrow indicating dropdown menu
-    &:after {
-      content: " \25BE";
-      color: white;
-    } 
+    //&:after {
+    //  content: " \25BE";
+    //  color: white;
+    //} 
   }
 
   .dropdown-menu {
     @include transition (all 0.2s ease-in-out);
-    background-color: $teal;
+    background-color: white;
     overflow: show;
     text-align: left;
 
@@ -21,7 +21,7 @@
     // position dropdown menu below main menu and hide it.
     // ie: if greater than or equal to 691 (690 + 1)
     @include media($mobile-navigation-breakpoint + em(1)) {
-      @include position(absolute, 48px 0 null 0);
+      @include position(absolute, 80px 0 null 0);
       //box-shadow: $soft-shadow;
       display: none;
     }
@@ -84,7 +84,7 @@
       }
 
       &:hover {
-        background-color: darken($toned-blue, 15%);
+        background-color: $teal;
         color: white;
       }
     }
@@ -92,8 +92,7 @@
 }
 
 .dropdown-list--icon  {
-//  color: $primary-color;
-  color: white;
+  color: $primary-color;
   display: block;
   font-family: icomoon;
   font-size: 4.5em;
