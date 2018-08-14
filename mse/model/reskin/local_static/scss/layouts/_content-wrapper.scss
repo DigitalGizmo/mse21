@@ -1,0 +1,47 @@
+.content-wrapper {
+  @include outer-container;
+
+  @include media(max-width $max-width) {
+    padding: $base-spacing;
+  }
+}
+
+.content-wrapper--head {
+  font-size: $large-font-size;
+  font-weight: 200;
+  margin: 0;
+
+  @include media(max-width 775px) {
+    font-size: rem(24);
+  }
+}
+
+.content-wrapper--head2 {
+    @extend .content-wrapper--head;
+    margin-top: $small-spacing;
+}
+
+.content-wrapper--subhead {
+  margin-bottom: $small-bottom-spacing;
+  font-weight: 600;
+}
+
+.content-wrapper a.link_external {
+	background: url(../images/link_ext.gif) no-repeat right;
+  padding-right: $tiny-icon-spacing;
+}
+
+.content-wrapper a.link_pop {
+	background: url(../images/link_pop.gif) no-repeat right;
+  padding-right: $tiny-icon-spacing;
+}
+
+.content-wrapper a.link_newpage {
+	background: url(../images/link_newpage.gif) no-repeat right;
+  padding-right: $tiny-icon-spacing;
+}
+
+.content-wrapper--caption {
+  color: $medium-gray;
+  font-size: $small-font-size;
+}

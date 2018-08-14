@@ -1,0 +1,26 @@
+.content-main--lecture {
+  margin-top: $large-spacing;
+
+  h2 {
+    font-size: $medlarge-font-size;
+    font-weight: 400;
+  }
+
+  audio {
+  }
+}
+
+// scrolling text area used for lecture transcriptions
+.transcription {
+  overflow: auto;
+  height: 200px;
+  border: thin solid $toned-blue-background-color;
+  border-radius: $base-border-radius;
+  background-color: $toned-blue;
+  padding: $base-spacing;
+  margin: $base-spacing 0;
+
+  p {
+    color: $primary-color; 
+    }
+}

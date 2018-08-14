@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <title>Artifact Articles</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="local_static/css/mse-styles.css">
+    <link rel="stylesheet" href="local_static/css/mse2-iconfont.css">
+    <script src="local_static/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="local_static/js/jquery.mobile-events.min.js" type="text/javascript"></script>
+    <script src="local_static/js/jquery.fittext.js" type="text/javascript"></script>
+    <script src="local_static/js/application.js" type="text/javascript"></script>
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <header id="banner">
+    <div class="logo">
+      <h2 class="logo--image">
+        <a href="http://mysticseaport.org">
+          <img id="logo--image-img" src="local_static/images/logo-white.png">
+        </a>
+      </h2>
+
+      <h1 class="our-logo--image">
+        <a href="/">
+          <img id="our-logo--image-img" src="local_static/images/our-logo.png">
+        </a>
+      </h1>
+    </div>
+
+    <nav class="main-navigation">
+      <div class="main-navigation--wrapper">
+        <div class="menu-toggle">
+          <a href="#">Menu</a>
+        </div>
+        <ul class="main-navigation--items">
+          <li class="main-navigation--item 
+            "><a href="/">Home</a></li>
+          <li class="main-navigation--item dropdown 
+          main-navigation--selected ">
+            <a href="#" class="dropdown-button">Museum Resources</a>
+
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li class="dropdown-list--item">
+                  <a href="/artifacts/">
+                    <i class="icon-artifact dropdown-list--icon" aria-hidden="true"></i>Artifact Articles</a>
+                  </li>
+
+                  <li class="dropdown-list--item">
+                    <a href="/documents/">
+                      <i class="icon-document dropdown-list--icon" aria-hidden="true"></i>Living Documents</a>
+                  </li>
+
+                  <li class="dropdown-list--item">
+                    <a href="/maps/">
+                      <i class="icon-geomap dropdown-list--icon" aria-hidden="true"></i>Active Maps</a>
+                  </li>
+                  
+                  <li class="dropdown-list--item">
+                    <a href="/scholars/lectures/">
+                      <i class="icon-lecture dropdown-list--icon" aria-hidden="true"></i>Scholar Lectures</a>
+                  </li>
+                  
+                  <li class="dropdown-list--item">
+                    <a href="/scholars/interviews/">
+                      <i class="icon-interview dropdown-list--icon" aria-hidden="true"></i>Scholar Interviews</a>
+                  </li>
+
+                  <li class="dropdown-list--item">
+                    <a href="/videos/">
+                      <i class="icon-video dropdown-list--icon" aria-hidden="true"></i>Videos</a>
+                  </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="main-navigation--item
+          "><a 
+            href="/search/">Search Resources</a></li>
+          <li class="main-navigation--item
+            "><a href="/sets/">Resource Sets</a></li>
+          <li class="main-navigation--item
+          "><a href="/curriculum/">Lessons</a></li>
+
+          <li class="main-navigation--item dropdown
+          ">
+            <a href="#" class="dropdown-button">About</a>
+
+            <div class="dropdown-menu">
+              <ul class="dropdown-list">
+                <li class="dropdown-list--item">
+                  <a href="/about/aboutmse/">
+                  <i class="icon-aboutmse dropdown-list--icon" aria-hidden="true"></i>MSE at a Glance</a>
+                </li>
+
+                <li class="dropdown-list--item">
+                  <a href="/about/events/">
+                  <i class="icon-event dropdown-list--icon" aria-hidden="true"></i>Upcoming Events</a>
+                </li>
+                <li class="dropdown-list--item">
+                  <a href="/about/scenes/">
+                  <i class="icon-scene dropdown-list--icon" aria-hidden="true"></i>Behind the Scenes</a>
+                </li>
+                <li class="dropdown-list--item">
+                  <a href="/community/">
+                  <i class="icon-community dropdown-list--icon" aria-hidden="true"></i>Our Community</a>
+                </li>
+                <li class="dropdown-list--item">
+                  <a href="/about/funders/">
+                  <i class="icon-funders dropdown-list--icon" aria-hidden="true"></i>Our Funders</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- page title area -->
+  <section class="title-area">
+    <header>
+  	
+  <aside class="title-area--icon">
+    <i class="title-area--icon-img icon-artifact" aria-hidden="true"></i>
+  </aside>
+
+  <section class="title-area--text">
+    <h1>Artifact Articles</h1>
+    <p><em><strong>Artifact Articles</strong></em> are an MSE original web feature that include brief information and context about an artifact in the collection, written by <a href="javascript:popBox('connections','moreinfo','mse_fellows')">MSE Fellows</a>&nbsp;or Mystic Seaport staff. Articles contain teacher-friendly components such as <em>Questions for Deeper</em> <em>Thought</em>, <em>Artifact Facts</em>, <em>Related Items from the Collection</em>, <em>In the Classroom Ideas</em>, <em>Related Resources</em> and <em>Related Websites</em>. Check back often as we add new content regularly.</p>
+  </section>
+
+    </header>
+  </section>
+
+  <!-- main content -->
+  
+<section class="content-wrapper">
+
+  <form action="/artifacts/" method="GET" name="menu">
+   
+    <input type="hidden" name="page" value=""/>
+
+
+    
+
+    <!-- content-aside--box -->  
+    <aside class="content-aside">
+      
+
+  
+  <section class="content-aside--box search">
+
+    <h2 class="content-wrapper--head">View</h2>
+
+    <ul>
+      <li>
+        <input type="radio" name="aug" value="f" checked id="id_aug_0" />
+        <label for = "id_aug_0"> Artifact Articles</label>
+      </li>
+      
+      <li>
+        <input type="radio" name="aug" value="r" id="id_aug_1" />
+        <label for = "id_aug_1"> Artifact Records </label>
+      </li>
+      
+      <li>
+        <input type="radio" name="aug" value="a" id="id_aug_2" />
+        <label for = "id_aug_2"> All Artifacts </label>
+      </li>
+    </ul>       
+
+
+    <h2 class="content-wrapper--head2">Search</h2>
+    <input type="search" name="q" class="search-field" value="" id="some_id" 
+      placeholder="Search Artifacts"/>
+    <input type="submit" value="Go" />
+    <p id="clear"><a href="#">clear search</a></p>
+
+    
+    <input type="hidden" name="sa" value="t"/>
+
+    <h5 class="content-wrapper--subhead">
+      78 Items in this
+      
+        View
+      
+    </h5>
+
+    <!-- <h2 class="content-wrapper--head">Sort</h2>
+    <p>by: <a href="">artifact's title</a> | <a href="">artifacts's date</a></p> -->
+  </section>
+
+
+    </aside>
+
+    <section class="content-main">
+      
+
+  <div id="item-menu-params">
+    <ul class="item-menu--grid"> 
+    
+      <li class="item-menu--item basic">
+        <a href="/artifacts/cwm_ship/">
+         <img src="local_static/images/menupics/1941_761_m.jpg" alt="image: cwm_ship"/>
+         The <em>Charles W. Morgan</em>
+        </a>
+      </li>
+    
+      <li class="item-menu--item basic">
+        <a href="/artifacts/azorean_whaling_photo/">
+         <img src="local_static/images/menupics/1965_889_1_m.jpg" alt="image: azorean_whaling_photo"/>
+         Azorean Whaling
+        </a>
+      </li>
+    
+      <li class="item-menu--item basic">
+        <a href="/artifacts/1812_seabag/">
+         <img src="local_static/images/menupics/2000_178_m.jpg" alt="image: 1812_seabag"/>
+         Embroidered Seabag
+        </a>
+      </li>
+    
+      <li class="item-menu--item basic">
+        <a href="/artifacts/dgiron_ajp/">
+         <img src="local_static/images/menupics/1943_664_m.jpg" alt="image: dgiron_ajp"/>
+         Changing Whaling Technology
+        </a>
+      </li>
+    
+      <li class="item-menu--item basic">
+        <a href="/artifacts/tortoise_shell_cradle/">
+         <img src="local_static/images/menupics/2005_34_9_m.jpg" alt="image: tortoise_shell_cradle"/>
+         Sea Turtle Shell Cradle
+        </a>
+      </li>
+    
+      <li class="item-menu--item basic">
+        <a href="/artifacts/whale_stamp_bone/">
+         <img src="local_static/images/menupics/1947_1655_m.jpg" alt="image: whale_stamp_bone"/>
+         Bone Whale Stamp
+        </a>
+      </li>
+    
+      <li class="item-menu--item basic">
+        <a href="/artifacts/ohio_oil_samples/">
+         <img src="local_static/images/menupics/1952_85_1_m.jpg" alt="image: ohio_oil_samples"/>
+         "Oils of All Kinds"
+        </a>
+      </li>
+    
+      <li class="item-menu--item basic">
+        <a href="/artifacts/cwm_deck_earles/">
+         <img src="local_static/images/menupics/1973_899_231_m.jpg" alt="image: cwm_deck_earles"/>
+         Meet the Earles
+        </a>
+      </li>
+    
+      <li class="item-menu--item basic">
+        <a href="/artifacts/immigrant_stereograph/">
+         <img src="local_static/images/menupics/2001_127_5_m.jpg" alt="image: immigrant_stereograph"/>
+         A Look at Immigration
+        </a>
+      </li>
+    
+      <li class="item-menu--item basic">
+        <a href="/artifacts/guano_trade_poster/">
+         <img src="local_static/images/menupics/1952_1046_m.jpg" alt="image: guano_trade_poster"/>
+         Soluble Pacific Guano Poster
+        </a>
+      </li>
+    
+      <li class="item-menu--item basic">
+        <a href="/artifacts/galena_civil_war/">
+         <img src="local_static/images/menupics/1964_1558_m.jpg" alt="image: galena_civil_war"/>
+         Mystic Made
+        </a>
+      </li>
+    
+      <li class="item-menu--item basic">
+        <a href="/artifacts/jewish_immigration_ephemera/">
+         <img src="local_static/images/menupics/1998_110_6_m.jpg" alt="image: jewish_immigration_ephemera"/>
+         Jewish Immigration
+        </a>
+      </li>
+    
+    </ul>
+  </div> 
+
+
+      <!-- paging -->
+
+      
+      
+
+      <nav id="paging">
+        <ul class="previous">
+          
+            <li class="page-nav--disabled prev-link">&lang; prev</li>
+          
+        </ul>
+
+
+        <ul class="page-numbers">
+          
+            
+              <li class="page-nav--selected">1</li>
+            
+          
+            
+              <li class="page-nav">
+                <a href="?page=2">2</a>
+              </li>
+            
+          
+            
+              <li class="page-nav">
+                <a href="?page=3">3</a>
+              </li>
+            
+          
+            
+              <li class="page-nav">
+                <a href="?page=4">4</a>
+              </li>
+            
+          
+            
+              <li class="page-nav">
+                <a href="?page=5">5</a>
+              </li>
+            
+          
+            
+              <li class="page-nav">
+                <a href="?page=6">6</a>
+              </li>
+            
+          
+            
+              <li class="page-nav">
+                <a href="?page=7">7</a>
+              </li>
+            
+          
+        </ul>
+
+        <ul class="next">
+          
+            <li class="page-nav next-link">
+              <a href="?page=2">next &rang;</a>
+            </li>
+          
+
+        </ul>
+      </nav><!--/paging -->
+
+      
+    </section>
+    
+    
+  </form>
+
+</section><!-- /content-wrapper -->
+
+	
+  
+
+  <!-- footer -->
+  <footer>
+    <section class="content-wrapper">
+      <article class="footer-social">
+        
+        <ul class="footer-social--items">
+          <li class="footer-social--item"><a href="https://www.facebook.com/mysticseaport" target="_blank"><i class="icon-facebook"></i></a></li>
+
+          <li class="footer-social--item"><a href="https://twitter.com/mysticseaport" target="_blank"><i class="icon-twitter"></i></a></li>
+
+          <li class="footer-social--item"><a href="https://www.youtube.com/user/MysticSeaportVideos" target="_blank"><i class="icon-youtube"></i></a></li>
+
+          <li class="footer-social--item"><a href="https://www.pinterest.com/mysticseaport/" target="_blank"><i class="icon-pinterest"></i></a></li>
+
+          <li class="footer-social--item"><a href="https://plus.google.com/+mysticseaport/posts" target="_blank"><i class="icon-google-plus"></i></a></li>
+        </ul>
+      </article>
+
+      <article class="footer-search">
+  <!--  <h3>Search Mystic Seaport for Educators:</h3>
+          <form id="mse-search" class="mse-search" data-action="/search" action="http://www.google.com/search" method="GET">
+            <input type="hidden" name="sitesearch" value="educators.mysticseaport.org/" />
+            <label for="search-keywords"><input id="search-keywords" type="search" data-name="keywords" name="q" placeholder="Search" aria-label="Search" value="" required="required"></label>
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </form> -->
+          
+        <p>Mystic Seaport 75 Greenmanville Ave. Mystic, CT 06355<br />
+          860.572.0711 | <a href="mailto:info@mysticseaport.org">info@mysticseaport.org</a></p>
+        <p>Copyright &copy; 2016 Mystic Seaport. All Rights Reserved</p>
+
+      </article>
+    </section>
+  </footer><!-- /footer -->
+
+  
+  
+
+</body>
+</html>
+

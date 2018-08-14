@@ -1,0 +1,144 @@
+@import "libraries/normalize";
+@import "libraries/bourbon/bourbon";
+@import "libraries/neat/neat";
+
+$font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$mobile: new-breakpoint(max-width 600px 4);
+$tablet: new-breakpoint(max-width 1000px 12);
+
+$paleblue: #dee3e7;
+$teal: #597485;
+$darkblue: #022b61;
+
+body    {
+    font: 100% $font-stack;
+    @include span-columns(12);
+}
+
+header  {
+    background-color: $paleblue;
+    margin-bottom: 20px;
+
+    img.logo {
+        @include span-columns(2);
+    }
+}
+
+.banner {
+    @include span-columns(10);
+
+    nav {
+        // nothing at nav level yet
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+.banner nav ul li {
+    float: left;
+    margin: 0 5px 0 0;
+
+    a {
+        display: block;
+        padding: .5em 2em .5em 0;
+        color: $teal;
+    }
+
+    // the rest of ".banner nav ul li" will be nested below
+}
+
+.banner nav ul li a:hover {
+    color: white;
+}
+
+.banner nav ul li ul {
+    display: none;
+}
+
+.banner nav ul li:hover ul, .banner nav ul li.hover ul {
+    position: absolute;
+    display: inline;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.banner nav ul li:hover li {
+    float: left;
+}
+
+.banner nav ul li:hover li a {
+    color: $teal;
+}
+
+.banner nav ul li li a:hover {
+    color: white;
+}
+
+section.main {
+    margin-bottom: 20px;
+}
+
+footer  {
+    background-color: $darkblue;
+    color: white;
+}
+
+// to contain page contents
+.page-width{
+    @include outer-container(90%);
+    border: thin solid green;
+}
+
+// for left column of stacked boxes
+aside.boxes {
+    @include span-columns(4);
+    border: thin solid blue;
+
+    @include media($mobile) {
+      @include span-columns(4);
+    }
+}
+
+#content {
+    @include span-columns(8);
+    border: thin solid red;
+
+    @include media($mobile) {
+      @include span-columns(4);
+    }
+}
+
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        @include span-columns(2 of 8);
+        @include omega(4n);
+        margin-bottom: 2em;
+        height: 225px;
+        background-color: #899ba7;
+
+        @include media($tablet) {
+            @include span-columns(4 of 8);
+            @include omega(2n);
+        }
+
+        h4   {
+            font-size: 1.25em;
+            font-weight: 100;
+            letter-spacing: 1px;
+            color: white; 
+        }
+
+    }
+}
+
+
+

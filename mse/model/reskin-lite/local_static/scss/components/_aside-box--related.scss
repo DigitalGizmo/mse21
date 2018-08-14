@@ -1,0 +1,101 @@
+// related resources icon list
+ul.icon-list {
+  font-family: $base-font-family;
+  line-height: $heading-line-height;
+  list-style-type: none;
+
+    li {
+      padding-bottom: .5em;
+    }
+}
+ 
+ul.icon-list li::before {
+  color: $primary-color;
+  font-family: icomoon;
+  font-size: 1.75em;
+  padding-right: .15em;
+  vertical-align: -.15em;
+}
+
+// for further study (mortar board)
+ul.icon-list li.icon-list--study::before {
+  content: "\f357";
+} 
+
+// ideas for classroom use (lightbulb)
+ul.icon-list li.icon-list--ideas::before {
+  content: "\f36c";
+}
+
+// related websites (chain links)
+ul.icon-list li.icon-list--website::before {
+  content: "\e905";
+}
+
+// worksheets (documents)
+ul.icon-list li.icon-list--worksheet::before {
+  content: "\f12e";
+//  content: "\f127";
+}
+
+// lesson plan (clipboard)
+ul.icon-list li.icon-list--lesson::before {
+  content: "\f127";
+}
+
+// video (video camera)
+ul.icon-list li.icon-list--video::before {
+  content: "\f256";
+}
+
+// slideshow (slides)
+ul.icon-list li.icon-list--slideshow::before {
+  content: "\f148";
+}
+
+// background info (info letter i)
+ul.icon-list li.icon-list--info::before {
+  content: "\f149";
+}
+
+// audio (speaker with sound waves)
+ul.icon-list li.icon-list--audio::before {
+  content: "\f259";
+}
+
+// image (single slide)
+ul.icon-list li.icon-list--visual::before {
+  content: "\f147";
+}
+
+// lecture (my mic)
+ul.icon-list li.icon-list--lecture::before {
+  content: "\e904"
+}
+
+// visual (single slide same as slide -- need to make a new one)
+ul.icon-list li.icon-list--visual::before {
+  content: "\f147";
+}
+
+// interview (my q&a bubble)
+ul.icon-list li.icon-list--interview::before {
+  content: "\e90e"
+}
+
+// map (my globe)
+ul.icon-list li.icon-list--map::before {
+  content: "\e90b"
+}
+
+// related items from the collection
+.related-items--thumbpics {
+    
+  li {
+    display: inline;
+
+      img {
+        border: 1px solid $medium-gray;
+      }
+  }
+}

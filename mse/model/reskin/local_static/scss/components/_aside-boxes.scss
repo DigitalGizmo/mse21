@@ -1,0 +1,58 @@
+// search aside box
+
+.search-field {
+  margin: $tiny-spacing 0;
+  width: 70%;
+}
+
+.search-return, .item-nav {
+  padding: $small-spacing 0;
+}
+
+// horizontal navigation
+#horizontal-nav-list {
+  @media print {
+    display: none;
+  }
+}
+
+.h-nav--arrow, .h-nav--arrow-disabled {
+  font-family: "Arial, Cambria Math";
+  font-size: $large-font-size;
+  vertical-align: text-bottom;
+  
+  a:hover {
+      background-color: $toned-blue-background-color;
+      color: #fff;
+  }
+}
+
+.h-nav--arrow-disabled {
+  color: $medium-gray;
+}
+
+.h-nav--item img {
+
+  // when screen is greater than or equal to 590 
+  // but less than 970, make the h-nav thms small
+  @include media(min-width 590px max-width 970px) {
+    height: 32px;
+    width: 32px;
+  }
+
+  height: 50px;
+  width: 50px;
+}
+
+.h-nav--item-selected {
+  border: 2px solid $selected;
+}
+
+// artifact/document facts aside box
+dl.attributes {
+  line-height: $heading-line-height;
+
+  & dt:after {
+      content: ":";
+    }
+}

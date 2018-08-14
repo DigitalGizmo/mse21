@@ -1,0 +1,67 @@
+// Typography
+$base-font-family: $sharp20;
+$heading-font-family: $sharp15;
+
+// Font Sizes
+$base-font-size: 1em;
+$small-font-size: $base-font-size * 0.8;
+$medlarge-font-size: $base-font-size * 1.5;
+$large-font-size: $base-font-size * 2;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+$small-line-height: 1;
+
+// Breakpoints
+$mobile-navigation-breakpoint: em(690);
+
+// Other Sizes
+$base-border-radius: 20px;
+$base-spacing: $base-line-height * 1em;
+$large-spacing: $base-spacing * 2;
+$xlarge-spacing: $base-spacing * 3;
+$small-spacing: $base-spacing / 2;
+$tiny-spacing: $small-spacing / 1.5;
+$tiny-icon-spacing: $small-spacing * 1.25;
+$small-bottom-spacing: em(4);
+$base-z-index: 0;
+$logo-z-index: $base-z-index + 1;
+$logo-width: em(140);
+$logo-width-with-padding: $logo-width + $base-spacing;
+
+// Colors
+$dark-blue: #040a50;  /* naval blue */
+$toned-blue: #bae2de; /* arctic ice */
+$teal: #f05f19; /* nautical orange */
+$dark-gray: #222;
+$medium-gray: #999;
+$light-gray: #ddd;
+$beige: #FEECD7;
+$selected: orange;
+
+// Font Colors
+$base-font-color: $dark-gray;
+$primary-color: $dark-blue;
+$action-color: $primary-color;
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
+$toned-blue-background-color: darken($toned-blue, 15%);
+
+//Shadows
+$hard-shadow: 5px 5px 0px #ccc;
+$soft-shadow: 5px 5px 10px rgba(0, 0, 0, 0.75);
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;

@@ -1,0 +1,50 @@
+footer {
+  background-color: $primary-color;
+  color: darken(white, 15%);
+  font-weight: 200;
+  margin-top: $large-spacing;
+  padding: $base-spacing;
+
+  @include media(max-width $max-width) {
+    padding: $base-spacing;
+    font-size: $base-font-size * 0.85;
+  }
+
+  @include media(max-width $mobile-navigation-breakpoint) {
+    font-size: rem(12);
+  }
+
+  a:link, a:visited {
+    color: darken($toned-blue, 15%);
+  }
+
+  a:hover {
+    color: white;
+  }
+  
+  @media print {
+    background-color: transparent;
+    border-top: thin solid $primary-color;
+    color: $primary-color;
+  }
+}
+
+.footer-social  {
+  @include span-columns(4);
+}
+
+.footer-social--item  {
+  display: inline-block;
+  font-family: icomoon;
+  font-size: 2em;
+  margin-right: $small-spacing / 2;
+}
+
+.footer-search  {
+  @include span-columns(8);
+
+  a {
+  color: white;
+  text-decoration: underline;
+  }
+}

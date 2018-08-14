@@ -1,0 +1,80 @@
+body {
+  color: $dark-gray;
+  font-family: $base-font-family;
+  font-feature-settings: "kern", "liga", "pnum";
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  font-size: $base-font-size;
+  text-transform: uppercase;
+  line-height: $heading-line-height;
+  margin: 0 0 $small-spacing;
+  color: $primary-color;  
+}
+
+p {
+  margin: 0 0 $small-spacing;
+}
+
+a {
+  color: $action-color;
+  text-decoration: none;
+  transition: color $base-duration $base-timing;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: shade($action-color, 30%);
+  }
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: $base-spacing 0;
+}
+
+img, picture {
+  margin: 0;
+  max-width: 100%;
+}
+
+@font-face {
+    font-family: "Sharp15";
+    src: 
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold15.eot"),  /* IE9 Compat Modes */
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold15.woff2") format("woff2"), /* Super Modern Browsers */
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold15.woff") format("woff"), /* Pretty Modern Browsers */
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold15.ttf") format("truetype"); /* Safari, Android, iOS */
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Sharp20";
+    src:
+    url("../fonts/SharpGrotesk/SharpGroteskLight20.eot"),  /* IE9 Compat Modes */
+    url("../fonts/SharpGrotesk/SharpGroteskLight20.woff2") format("woff2"), /* Super Modern Browsers */
+    url("../fonts/SharpGrotesk/SharpGroteskLight20.woff") format("woff"), /* Pretty Modern Browsers */
+    url("../fonts/SharpGrotesk/SharpGroteskLight20.ttf") format("truetype"); /* Safari, Android, iOS */
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Sharp20";
+    src: 
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold20.eot"),  /* IE9 Compat Modes */
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold20.woff2") format("woff2"), /* Super Modern Browsers */
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold20.woff") format("woff"), /* Pretty Modern Browsers */
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold20.ttf") format("truetype"); /* Safari, Android, iOS */
+    font-weight: bold;
+}

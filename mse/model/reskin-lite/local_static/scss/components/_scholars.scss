@@ -1,0 +1,97 @@
+.content-main--lecture {
+  margin-top: $large-spacing;
+
+  h2 {
+    font-size: $medlarge-font-size;
+    font-weight: 400;
+  }
+
+  audio {
+
+    @media print {
+      display: none;
+    }
+  }
+}
+
+// scrolling text area used for lecture transcriptions
+.transcription {
+  background-color: $toned-blue;
+  border: thin solid $toned-blue-background-color;
+  border-radius: $base-border-radius;
+  height: 200px;
+  margin: $base-spacing 0;
+  overflow: auto;
+  padding: $base-spacing;
+
+  @media print {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    height: auto;
+    overflow: none;
+    padding: 0;
+  }
+
+    p {
+      color: $primary-color; 
+    }
+}
+
+// scrolling text area for interview questions
+.interview-questions  {
+  background-color: #fff;  
+  border: thin solid $toned-blue-background-color;
+  border-radius: $base-border-radius;
+  font-size: $small-font-size;
+  height: 400px;
+  overflow: auto;
+  padding: $small-spacing;
+
+  @media print {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    height: auto;
+    overflow: none;
+    padding: 0;
+  }
+
+  a {
+    font-weight: 600;
+  }
+}
+
+// lists
+.lecture-topics, .interview-questions {
+  @extend %default-ol;
+}
+
+.interview-questions {
+  list-style-position: inside;
+    
+    li {
+      padding-bottom: $base-spacing;
+
+      @media print {
+        list-style-position: outside;
+      }
+    }
+}
+
+.video {
+  position: relative;
+  margin-bottom: $small-spacing;
+}
+
+.video video, .video canvas {
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+video {
+  height: 100% !important;
+  position: absolute;
+}
