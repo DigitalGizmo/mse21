@@ -1,8 +1,9 @@
 {% load staticfiles %}
 {# Shared between PQ and MSE #}
 
+<!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&v=3.8">  -->
 <script type="text/javascript" 
-	src="https://maps.google.com/maps/api/js?sensor=false&v=3.8">
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeNn7jnsXVRjtwwHM1us9C_8QZHeofDyc"> 
 </script>
 <script type="text/javascript">
 var map_params = {
