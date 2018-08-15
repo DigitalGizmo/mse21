@@ -109,22 +109,25 @@
   margin-bottom: $large-spacing;
 
   img {
-    box-shadow: $hard-shadow;
+    //box-shadow: $hard-shadow;
+    border: 1px solid $light-gray;
   }
 }
 
 // maps, lectures
 .naked {
-  font-weight: 200;    
+  //font-weight: 200;    
 
   a {
     display: block;
-    font-weight: 600;    
+    font-family: $heading-font-family;
+    text-transform: uppercase; 
   }
 
   a.item-menu--detail {
-    font-weight: 200;
     display: inline;        
+    font-family: $base-font-family;
+    text-transform: none; 
   }
 }
 
@@ -141,8 +144,13 @@
 
 .list-pic--interviewee, 
 .list-pic--title,  {
-  font-size: $medlarge-font-size;
-  font-weight: 200;    
+  font-family: $heading-font-family;
+  font-size: $base-font-size * 1.25;
+  text-transform: uppercase;  
+}
+
+.list-pic--interviewer {
+  //font-size: $small-font-size;
 }
 
 .list-pic--subtitle {
@@ -166,7 +174,8 @@
   margin: 0 $small-spacing $small-spacing 0;
 
   img {
-    box-shadow: $hard-shadow;
+    //box-shadow: $hard-shadow;
+    border: 1px solid $light-gray;
 
     &:hover {
       opacity: 0.65;

@@ -773,7 +773,7 @@ ul.icon-list li.icon-list--map::before {
   @media screen and (min-width: 43.1875em) {
     .dropdown .dropdown-menu {
       position: absolute;
-      top: 70px;
+      top: 80px;
       right: 0;
       left: 0;
       display: none; } }
@@ -838,36 +838,35 @@ ul.icon-list li.icon-list--map::before {
 
 .home-banner {
   background: center/cover no-repeat url("../images/banner.jpg");
-  height: 300px; }
+  height: 300px;
+  margin-bottom: 3em; }
 
-.home-banner--text {
-  padding-bottom: 6.75em; }
+@media print {
+  .home-banner--text {
+    padding-bottom: 3em; } }
+.home-banner--text a:link, .home-banner--text a:visited {
+  color: white;
+  text-shadow: 1px 1px 2px #222; }
+  @media screen and (min-width: 43.125em) {
+    .home-banner--text a:link, .home-banner--text a:visited {
+      font-size: 1.25em;
+      font-weight: 400; } }
+  @media screen and (min-width: 43.125em) {
+    .home-banner--text a:link, .home-banner--text a:visited {
+      font-size: 1.5em;
+      font-weight: 200; } }
+  @media screen and (min-width: 980px) {
+    .home-banner--text a:link, .home-banner--text a:visited {
+      font-size: 2em;
+      font-weight: 200; } }
   @media print {
-    .home-banner--text {
-      padding-bottom: 3em; } }
-  .home-banner--text a:link, .home-banner--text a:visited {
-    color: white;
-    text-shadow: 1px 1px 2px #222; }
-    @media screen and (min-width: 43.125em) {
-      .home-banner--text a:link, .home-banner--text a:visited {
-        font-size: 1.25em;
-        font-weight: 400; } }
-    @media screen and (min-width: 43.125em) {
-      .home-banner--text a:link, .home-banner--text a:visited {
-        font-size: 1.5em;
-        font-weight: 200; } }
-    @media screen and (min-width: 980px) {
-      .home-banner--text a:link, .home-banner--text a:visited {
-        font-size: 2em;
-        font-weight: 200; } }
-    @media print {
-      .home-banner--text a:link, .home-banner--text a:visited {
-        font-size: 2em;
-        font-weight: 200; } }
-  .home-banner--text:hover {
-    color: gray;
-    text-decoration: underline;
-    transition: color 150ms ease; }
+    .home-banner--text a:link, .home-banner--text a:visited {
+      font-size: 2em;
+      font-weight: 200; } }
+.home-banner--text:hover {
+  color: gray;
+  text-decoration: underline;
+  transition: color 150ms ease; }
 
 h2.home-banner--subtitle {
   margin-top: -3em;
@@ -1407,16 +1406,16 @@ and (orientation : landscape)
 .picture, .naked, .list-pic--img, .item-menu--big-item {
   margin-bottom: 3em; }
   .picture img, .naked img, .list-pic--img img, .item-menu--big-item img {
-    box-shadow: 5px 5px 0px #ccc; }
+    border: 1px solid #ddd; }
 
-.naked {
-  font-weight: 200; }
-  .naked a {
-    display: block;
-    font-weight: 600; }
-  .naked a.item-menu--detail {
-    font-weight: 200;
-    display: inline; }
+.naked a {
+  display: block;
+  font-family: "Sharp15", "Arial Black", sans-serif;
+  text-transform: uppercase; }
+.naked a.item-menu--detail {
+  display: inline;
+  font-family: "Sharp20", "Arial", sans-serif;
+  text-transform: none; }
 
 .list-pic {
   clear: left;
@@ -1427,8 +1426,9 @@ and (orientation : landscape)
 
 .list-pic--interviewee,
 .list-pic--title {
-  font-size: 1.5em;
-  font-weight: 200; }
+  font-family: "Sharp15", "Arial Black", sans-serif;
+  font-size: 1.25em;
+  text-transform: uppercase; }
 
 .list-pic--subtitle {
   font-style: italic; }
@@ -1445,7 +1445,7 @@ and (orientation : landscape)
   float: left;
   margin: 0 0.75em 0.75em 0; }
   .item-menu--small-item img {
-    box-shadow: 5px 5px 0px #ccc; }
+    border: 1px solid #ddd; }
     .item-menu--small-item img:hover {
       opacity: 0.65; }
 
