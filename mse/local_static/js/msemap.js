@@ -936,14 +936,20 @@ function createVoyageMarker(yearLayerIndex, row) {
 	// also save for clearing. 
     segMarkLayers[yearLayerIndex].push(marker);	
 	// ===================================
+	// set degrees lat and lon - will derive from decimal values
+	var lat_deg = Math.floor(row.lat);
+	var lon_deg = Math.floor(row.lon);
 	// create infowindow
 	google.maps.event.addListener(marker, 'click', function(event) {
 		infoWindow.setPosition(coordinate);
 		var iwHtml = ['<div id="infowindow"><header>'];
 		iwHtml.push(' <date><strong>Date:</strong> ' + logDate + '</date> ');
 		iwHtml.push('</header> <section> <dl class="noicons">');
-		iwHtml.push('   <dt>Location:</dt> <dd>' + row.lat_deg + '&deg; ' + row.lat_min + '&apos; ' + row.lat_ns + ', ' + 
-			row.lon_deg + '&deg; ' + row.lon_min + '&apos; '  + row.lon_ew + '</dd> ');
+		iwHtml.push('   <dt>Location:</dt> <dd>' + 
+			Math.abs(lat_deg ) + '&deg; ' + Math.floor((row.lat - lat_deg) * 60) + 
+			'&apos; ' + ((lat_deg > 0) ? 'N' : 'S') + ', ' + 
+			Math.abs(lon_deg ) + '&deg; ' + Math.floor((row.lon - lon_deg) * 60) + 
+			'&apos; '  + ((lon_deg > 0) ? 'E' : 'W') + '</dd> ');
 		if (row.days_at_sea > 0){
 			iwHtml.push('  <dt>Days at Sea:</dt> <dd>' + row.days_at_sea + '</dd> ');
 		}
