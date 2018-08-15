@@ -3,17 +3,21 @@
 }
 
 .home-banner {
-	text-align: center;
+	//text-align: center;
+	background: center / cover no-repeat url("../images/banner.jpg");
+	height: 300px;
 }
 
 .home-banner--image {
-	margin-bottom: $base-spacing;
+	//margin-bottom: $base-spacing;
+	//width: 100%;
 }
 
 .home-banner--text {
-	margin: -$large-spacing * 3 auto 0 auto;
-	padding-bottom: $large-spacing * 2;
-	width: 75%;
+	//margin: -$large-spacing * 3 auto 0 auto;
+	//margin: -$large-spacing * 3 auto 0 auto;
+	padding-bottom: $large-spacing * 2.25;
+	//width: 75%;
 	
   @media print {
 		padding-bottom: $large-spacing;
@@ -21,7 +25,7 @@
 
 	a:link, a:visited {
 		color: white;
-		text-shadow: 1px 1px 2px $dark-gray;	
+		text-shadow: 1px 1px 2px $dark-gray;
 
 	  // when viewport is less than 690, make text small
 	  @include media($mobile-navigation-breakpoint) {
@@ -55,53 +59,93 @@
 	}
 }
 
-.banner-text-left {
-	text-align: left;
-}
-
-.banner-text-right {
-	text-align: right;
-}
-
-.featured {
-  margin-bottom: $base-spacing;
+h2.home-banner--subtitle {
+	margin-top: -3em;
+	padding-left: 20%;
 	position: relative;
 
-  img {
-  	box-shadow: $hard-shadow;
-	}	
-}
-
-.featured h2 a {
-	color: white;
-
-	&:hover {
-	  text-decoration: underline;
+  &::after {
+	  content: "";
+	  border-bottom: 5px solid white;
+	  position: absolute;
+	  left: 0;
+	  right: 0;
+	  bottom: 5px;
 	}
 }
 
+h1.home-banner--title {
+	color: white;
+	font-size: $large-font-size * 2;
+	padding: $base-spacing 0 0 20%;
+	position: relative;
+
+	&::after {
+	  content: "";
+	  border-bottom: 5px solid white;
+	  position: absolute;
+	  left: 0;
+	  right: 0;
+	  bottom: 14px;
+	}
+}
+// .banner-text-left {
+// 	text-align: left;
+// }
+
+// .banner-text-right {
+// 	text-align: right;
+// }
+
+.featured {
+  margin-bottom: $xlarge-spacing;
+	position: relative;
+
+  img {
+  	//box-shadow: $hard-shadow;
+	}	
+}
+
+//.featured h2 a {
+//	color: white;
+
+//	&:hover {
+//	  text-decoration: underline;
+//	}
+//}
+
 .featured-header {
-	background-color: adjust-color($primary-color, $alpha: -0.3);
+	background-color: white;
 	max-width: 400px;
 	padding: $small-spacing;
 	position: absolute;
-
+	top: 85%;
+	left: 20%;
 	@include fill-parent();
 }
 
-.featured-header--title, .featured-header--subtitle {
-	color: white;
-	font-weight: 200;
-	margin: 0;
-}
+//.featured-header--title, .featured-header--subtitle {
+//	color: $primary-color;
+//	font-weight: 200;
+//	margin: 0;
+//}
 
 .featured-header--subtitle {
+	color: $medium-gray;
+	font-family: $base-font-family;
 	font-size: $small-font-size;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
-.featured-header--title {
+.featured-header--title a {
+	color: $primary-color;
 	font-size: $medlarge-font-size;
-  
+ 
+	&:hover {
+		  text-decoration: underline;
+		}
+
   @include media(max-width 775px) {
     font-size: rem(20);
   }

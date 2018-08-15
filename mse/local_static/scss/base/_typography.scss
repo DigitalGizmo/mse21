@@ -14,6 +14,7 @@ h5,
 h6 {
   font-family: $heading-font-family;
   font-size: $base-font-size;
+  text-transform: uppercase;
   line-height: $heading-line-height;
   margin: 0 0 $small-spacing;
   color: $primary-color;  
@@ -46,4 +47,34 @@ hr {
 img, picture {
   margin: 0;
   max-width: 100%;
+}
+
+@font-face {
+    font-family: "Sharp15";
+    src: 
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold15.eot"),  /* IE9 Compat Modes */
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold15.woff2") format("woff2"), /* Super Modern Browsers */
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold15.woff") format("woff"), /* Pretty Modern Browsers */
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold15.ttf") format("truetype"); /* Safari, Android, iOS */
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Sharp20";
+    src:
+    url("../fonts/SharpGrotesk/SharpGroteskLight20.eot"),  /* IE9 Compat Modes */
+    url("../fonts/SharpGrotesk/SharpGroteskLight20.woff2") format("woff2"), /* Super Modern Browsers */
+    url("../fonts/SharpGrotesk/SharpGroteskLight20.woff") format("woff"), /* Pretty Modern Browsers */
+    url("../fonts/SharpGrotesk/SharpGroteskLight20.ttf") format("truetype"); /* Safari, Android, iOS */
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Sharp20";
+    src: 
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold20.eot"),  /* IE9 Compat Modes */
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold20.woff2") format("woff2"), /* Super Modern Browsers */
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold20.woff") format("woff"), /* Pretty Modern Browsers */
+    url("../fonts/SharpGrotesk/SharpGroteskSmBold20.ttf") format("truetype"); /* Safari, Android, iOS */
+    font-weight: bold;
 }

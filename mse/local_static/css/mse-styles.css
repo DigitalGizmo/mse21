@@ -837,7 +837,7 @@ ul.icon-list li.icon-list--map::before {
   margin-right: 0; }
 
 .home-banner {
-  background: center/cover no-repeat url("../images/home/bannerpics/banner.jpg");
+  background: center/cover no-repeat url("../images/banner.jpg");
   height: 300px; }
 
 .home-banner--text {
