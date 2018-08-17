@@ -122,7 +122,7 @@
   vertical-align: top;
 
   @include media(max-width 1004px) {
-    font-size: rem(14);
+    font-size: rem(15);
   }
   
   @include media(max-width 906px) {
@@ -148,7 +148,7 @@
   a {
     color: white;
     display: block;
-    font-size: $small-font-size;
+    //font-size: $small-font-size;
     padding: $small-spacing $base-spacing * .75;
 
     @include media(max-width 825px) {
