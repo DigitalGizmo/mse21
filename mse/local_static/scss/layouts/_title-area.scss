@@ -48,10 +48,12 @@
   }
 
   h3 {
+    font-family: $base-font-family;
     font-size: $medlarge-font-size;
-    font-weight: 100;
-    font-style: italic;
+    font-weight: normal;
+    //font-style: italic;
     margin: 0;
+    text-transform: none;
   }
 
   a {

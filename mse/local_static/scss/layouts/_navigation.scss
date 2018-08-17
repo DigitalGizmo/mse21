@@ -99,7 +99,7 @@
   //@include outer-container;
   //padding-left: $logo-width-with-padding;
   //border-bottom: 5px solid white;
-  padding: $tiny-spacing 0;
+  padding-right: $tiny-spacing;
   text-align: right;
 
   @include media(max-width $mobile-navigation-breakpoint) {
@@ -126,7 +126,7 @@
   }
   
   @include media(max-width 906px) {
-    font-size: rem(12);
+    font-size: rem(13);
 }
 
   // when viewport is less than or equal to breakpoint,
@@ -148,7 +148,8 @@
   a {
     color: white;
     display: block;
-    padding: $small-spacing $base-spacing;
+    font-size: $small-font-size;
+    padding: $small-spacing $base-spacing * .75;
 
     @include media(max-width 825px) {
       padding: $small-spacing $small-spacing;
