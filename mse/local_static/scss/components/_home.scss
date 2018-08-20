@@ -58,32 +58,32 @@
 h2.home-banner--subtitle {
 	margin-top: -3em;
 	padding-left: 20%;
-	position: relative;
+	// position: relative;
 
-  &::after {
-	  content: "";
-	  border-bottom: 5px solid white;
-	  position: absolute;
-	  left: 0;
-	  right: 0;
-	  bottom: 5px;
-	}
+ //  &::after {
+	//   content: "";
+	//   border-bottom: 5px solid white;
+	//   position: absolute;
+	//   left: 0;
+	//   right: 0;
+	//   bottom: 5px;
+	// }
 }
 
 h1.home-banner--title {
 	color: white;
 	font-size: $large-font-size * 2;
 	padding: $base-spacing 0 0 20%;
-	position: relative;
+	// position: relative;
 
-	&::after {
-	  content: "";
-	  border-bottom: 5px solid white;
-	  position: absolute;
-	  left: 0;
-	  right: 0;
-	  bottom: 14px;
-	}
+	// &::after {
+	//   content: "";
+	//   border-bottom: 5px solid white;
+	//   position: absolute;
+	//   left: 0;
+	//   right: 0;
+	//   bottom: 14px;
+	// }
 }
 // .banner-text-left {
 // 	text-align: left;
