@@ -1,18 +1,19 @@
 #{$all-buttons} {
   appearance: none;
   background-color: white;
-  border: thin solid $primary-color;
-  border-radius: $base-border-radius;
+  border: 3px solid $primary-color;
+  //border-radius: $base-border-radius;
   color: $primary-color;
   cursor: pointer;
   display: inline-block;
-  font-family: $base-font-family;
+  font-family: $heading-font-family;
   font-size: $base-font-size;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
   line-height: 1;
   padding: $small-spacing 1em;
   text-decoration: none;
+  text-transform: uppercase;
   transition: background-color $base-duration $base-timing;
   user-select: none;
   vertical-align: middle;

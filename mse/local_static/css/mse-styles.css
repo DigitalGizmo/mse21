@@ -247,18 +247,18 @@ html {
 button, input[type="button"], input[type="reset"], input[type="submit"] {
   appearance: none;
   background-color: white;
-  border: thin solid #040a50;
-  border-radius: 20px;
+  border: 3px solid #040a50;
   color: #040a50;
   cursor: pointer;
   display: inline-block;
-  font-family: "Sharp20", "Arial", sans-serif;
+  font-family: "Sharp15", "Arial Black", sans-serif;
   font-size: 1em;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
   line-height: 1;
   padding: 0.75em 1em;
   text-decoration: none;
+  text-transform: uppercase;
   transition: background-color 150ms ease;
   user-select: none;
   vertical-align: middle;
