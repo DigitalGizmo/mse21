@@ -6,7 +6,7 @@
 <!-- featured item - banner -->  
 <div class="home-banner">
 	<div class="home-banner--text">
-  	<h1 class="home-banner--title">Education Resources</h1>
+  	<h1 class="home-banner--title">Mystic Seaport for Educators</h1>
 
 		<h2 class="home-banner--subtitle">
 			<a href="{% url banner_item.resource_locator|add:'_detail' banner_item.short_name %}">{{ banner_item.banner_blurb|safe }}</a>
@@ -49,7 +49,7 @@
 	<!-- new item list --> 
 	<article class="content-aside">
 	  <section class="content-aside--box">
-	    <h2 class="content-wrapper--head">What's New</h2>
+	    <h2 class="content-wrapper--head">What&apos;s New</h2>
 	    <ul class="home-list">
 			{% for new_item in banner_item.new_list %}
 				<li>{{ new_item.resource_type_title }}<br/>
