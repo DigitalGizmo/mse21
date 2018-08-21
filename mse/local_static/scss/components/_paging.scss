@@ -25,12 +25,14 @@
 }
 
 .page-nav, .page-nav--selected {  
-  border: thin solid $toned-blue;
+  border: 3px solid white;
   margin-right: $tiny-spacing;
-  padding: 0 0 0 4px;
+  //padding: 0 0 0 4px;
+  padding: $tiny-spacing;
 
   &:hover {
-    background-color: $toned-blue;
+    //background-color: $toned-blue;
+    border: 3px solid $toned-blue;
   }
 }
 
@@ -38,19 +40,24 @@
   border: none;
 
   &:hover {
-    background-color: white;
+    //background-color: white;
+    border: none;
     text-decoration: underline;
   }
 }
 
 .page-nav--selected {
-  background-color: $toned-blue;
-  border: thin solid $light-gray;
+  //background-color: $toned-blue;
+  //border: thin solid $light-gray;
   color: $primary-color;
   font-weight: 800;
-  padding-right: 4px;
+  //padding-right: 4px;
 }
 
 .page-nav--disabled {
   color: $medium-gray;
+
+  &:hover {
+    text-decoration: none;
+  }
 }

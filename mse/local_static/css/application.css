@@ -1892,32 +1892,32 @@ and (orientation : landscape)
 }
 
 .page-nav, .page-nav--selected {
-  border: thin solid #bae2de;
+  border: 3px solid white;
   margin-right: 0.5em;
-  padding: 0 0 0 4px;
+  padding: 0.5em;
 }
 .page-nav:hover, .page-nav--selected:hover {
-  background-color: #bae2de;
+  border: 3px solid #bae2de;
 }
 
 .next-link, .prev-link {
   border: none;
 }
 .next-link:hover, .prev-link:hover {
-  background-color: white;
+  border: none;
   text-decoration: underline;
 }
 
 .page-nav--selected {
-  background-color: #bae2de;
-  border: thin solid #ddd;
   color: #040a50;
   font-weight: 800;
-  padding-right: 4px;
 }
 
 .page-nav--disabled {
   color: #999;
+}
+.page-nav--disabled:hover {
+  text-decoration: none;
 }
 
 #popwrap {
