@@ -13,7 +13,7 @@
 
   .dropdown-menu {
     //@include transition (all 0.2s ease-in-out);
-    background-color: white;
+    background-color: $toned-blue;
     overflow: show;
     text-align: left;
 
@@ -23,7 +23,7 @@
     @include media($mobile-navigation-breakpoint + em(1)) {
       @include position(absolute, 60px 0 null 0);
       //box-shadow: $soft-shadow;
-      border-bottom: 6px solid $teal;
+      border-bottom: 6px solid $primary-color;
       display: none;
     }
     
@@ -85,8 +85,12 @@
       }
 
       &:hover {
-        background-color: $teal;
+        //background-color: $teal;
         color: white;
+
+        i {
+          color: white;
+        }
       }
     }
   }
