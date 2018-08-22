@@ -41,12 +41,13 @@
         </a>
       </h2>
 
-      <h1 class="our-logo--image">
-        <a href="/">
-          <img id="our-logo--image-img" src="{% static 'images/mse-logo.png' %}">
-        </a>
-      </h1>
-
+      {% if main_nav_selected != 'home' %}
+        <h1 class="our-logo--image">
+          <a href="/">
+            <img id="our-logo--image-img" src="{% static 'images/mse-logo.png' %}">
+          </a>
+        </h1>
+      {% endif %}
     </div>
 
     <nav class="main-navigation">
