@@ -127,7 +127,8 @@ class Chapter(models.Model):
     narrative = models.TextField('Narrative', blank=True, default='')
 
     class Meta:
-         verbose_name = "Story map - Chapter"
+        ordering = ['chap_num']
+        verbose_name = "Story map - Chapter"
 
     def __str__(self):
         return self.title
