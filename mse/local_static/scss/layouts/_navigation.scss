@@ -42,8 +42,8 @@
   }
 
   img {
-    //height: 96px;
-    //width: auto;    
+    max-height: 80px;
+    width: auto;    
   }
 }
 
@@ -184,5 +184,5 @@
 }
 
 .main-navigation--selected {
-  //background-color: lighten($primary-color, 10%);
+  background-color: lighten($primary-color, 10%);
 }

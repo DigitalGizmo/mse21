@@ -101,7 +101,6 @@
   } 
 
   a {
-    color: $primary-color;
     font-family: $heading-font-family;
     text-transform: uppercase;
 
@@ -128,7 +127,6 @@
 
 // maps, lectures
 .naked {
-  //font-weight: 200;    
 
   a {
     display: block;
@@ -191,9 +189,13 @@
   img {
     //box-shadow: $hard-shadow;
     border: 1px solid $light-gray;
+  }
+}
 
-    &:hover {
-      opacity: 0.65;
-    }
+li.item-menu--item a, li.list-pic--interviewee a, li.item-menu--big-item a h3 {
+  color: $primary-color;
+
+  &:hover {
+    text-decoration: underline;
   }
 }

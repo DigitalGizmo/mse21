@@ -265,7 +265,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   white-space: nowrap;
 }
 button:hover, button:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus {
-  background-color: #030840;
+  background-color: #060f7a;
   color: #fff;
 }
 button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled {
@@ -273,7 +273,7 @@ button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, in
   opacity: 0.5;
 }
 button:disabled:hover, input[type="button"]:disabled:hover, input[type="reset"]:disabled:hover, input[type="submit"]:disabled:hover {
-  background-color: #040a50;
+  background-color: #081399;
 }
 
 ul,
@@ -373,12 +373,12 @@ p {
 }
 
 a {
-  color: #040a50;
+  color: #081399;
   text-decoration: none;
   transition: color 150ms ease;
 }
 a:active, a:focus, a:hover {
-  color: #030738;
+  color: #4452f6;
 }
 
 hr {
@@ -392,6 +392,10 @@ hr {
 img, picture {
   margin: 0;
   max-width: 100%;
+}
+
+.content-wrapper a:hover {
+  text-decoration: underline;
 }
 
 @font-face {
@@ -632,7 +636,7 @@ footer a:hover {
 .our-logo--image {
   position: absolute;
   top: 0;
-  left: 8.75em;
+  left: 6.25em;
   z-index: 1;
 }
 @media screen and (max-width: 43.125em) {
@@ -644,6 +648,10 @@ footer a:hover {
   .our-logo--image {
     display: none;
   }
+}
+.our-logo--image img {
+  max-height: 80px;
+  width: auto;
 }
 
 .logo--text {
@@ -1018,7 +1026,7 @@ ul.icon-list li.icon-list--map::before {
     max-width: 68em;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 10.25em;
+    padding-left: 7.75em;
   }
   .dropdown .dropdown-list::after {
     clear: both;
@@ -1059,10 +1067,10 @@ ul.icon-list li.icon-list--map::before {
   }
 }
 .dropdown .dropdown-list--item a:hover {
-  color: white;
+  color: #f05f19;
 }
 .dropdown .dropdown-list--item a:hover i {
-  color: white;
+  color: #f05f19;
 }
 
 .dropdown-list--icon {
@@ -1769,7 +1777,6 @@ and (orientation : landscape)
   }
 }
 .basic a {
-  color: #040a50;
   font-family: "Sharp15", "Arial Black", sans-serif;
   text-transform: uppercase;
 }
@@ -1842,8 +1849,12 @@ and (orientation : landscape)
 .item-menu--small-item img {
   border: 1px solid #ddd;
 }
-.item-menu--small-item img:hover {
-  opacity: 0.65;
+
+li.item-menu--item a, li.list-pic--interviewee a, li.item-menu--big-item a h3 {
+  color: #040a50;
+}
+li.item-menu--item a:hover, li.list-pic--interviewee a:hover, li.item-menu--big-item a h3:hover {
+  text-decoration: underline;
 }
 
 #paging {

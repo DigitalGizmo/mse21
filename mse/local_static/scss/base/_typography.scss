@@ -32,7 +32,7 @@ a {
   &:active,
   &:focus,
   &:hover {
-    color: shade($action-color, 30%);
+    color: lighten($action-color, 30%);
   }
 }
 
@@ -47,6 +47,10 @@ hr {
 img, picture {
   margin: 0;
   max-width: 100%;
+}
+
+.content-wrapper a:hover {
+  text-decoration: underline;
 }
 
 @font-face {
