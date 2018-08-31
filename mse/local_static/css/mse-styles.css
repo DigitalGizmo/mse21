@@ -759,6 +759,10 @@ footer a:hover {
   }
 }
 
+.main-navigation--selected a {
+  border-bottom: thick solid #f05f19;
+}
+
 .title-area {
   background-color: white;
   margin-bottom: 1.5em;
