@@ -147,13 +147,17 @@ h1.home-banner--title {
   }
 }
 
+h2.content-wrapper--head a {
+	color: $primary-color;
+}
+
 .home-list {
 	font-size: $small-font-size;
 	line-height: $base-line-height;
 
 		a {
 			font-size: $base-font-size * 1.25;
-			font-weight: 600;
+			//font-weight: 600;
 		}
 
 		li {

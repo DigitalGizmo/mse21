@@ -187,3 +187,7 @@
   //background-color: $teal;
   border-bottom: thick solid $teal;
 }
+
+.main-navigation--selected .dropdown-list--item a {
+  border-bottom: none;
+}

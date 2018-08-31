@@ -763,6 +763,10 @@ footer a:hover {
   border-bottom: thick solid #f05f19;
 }
 
+.main-navigation--selected .dropdown-list--item a {
+  border-bottom: none;
+}
+
 .title-area {
   background-color: white;
   margin-bottom: 1.5em;
@@ -1181,13 +1185,16 @@ h1.home-banner--title {
   }
 }
 
+h2.content-wrapper--head a, h2.content-wrapper--head2 a {
+  color: #040a50;
+}
+
 .home-list {
   font-size: 0.8em;
   line-height: 1.5;
 }
 .home-list a {
   font-size: 1.25em;
-  font-weight: 600;
 }
 .home-list li {
   margin-bottom: 1.5em;
