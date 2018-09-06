@@ -704,6 +704,7 @@ footer a:hover {
 @media screen and (max-width: 43.125em) {
   .main-navigation--wrapper {
     padding-left: 1.5em;
+    text-align: left;
   }
 }
 
@@ -717,7 +718,7 @@ footer a:hover {
   display: inline-block;
   vertical-align: top;
 }
-@media screen and (max-width: 1004px) {
+@media screen and (max-width: 1024px) {
   .main-navigation--item {
     font-size: 0.9375rem;
   }

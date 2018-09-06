@@ -104,6 +104,7 @@
 
   @include media(max-width $mobile-navigation-breakpoint) {
     padding-left: $base-spacing;
+    text-align: left;
   }
 }
 
@@ -121,7 +122,7 @@
   display: inline-block;
   vertical-align: top;
 
-  @include media(max-width 1004px) {
+  @include media(max-width 1024px) {
     font-size: rem(15);
   }
   
