@@ -116,10 +116,12 @@
   display: inline-block;
   vertical-align: top;
 
+// when viewport is less than or equal to 1140px, make link text smaller
   @include media(max-width 1140px) {
     font-size: rem(15);
   }
-  
+
+// when viewport is less than or equal to 906px, make link text even smaller  
   @include media(max-width 906px) {
     font-size: rem(13);
 }
