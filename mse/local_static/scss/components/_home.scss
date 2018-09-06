@@ -3,112 +3,91 @@
 }
 
 .home-banner {
-	//text-align: center;
 	background: center / cover no-repeat url("../images/banner.jpg");
 	height: 300px;
 	margin-bottom: $large-spacing;
+  
+  // when viewport is less than or equal to 690, less bottom margin
+  @include media(max-width $mobile-navigation-breakpoint) {
+		margin-bottom: $base-spacing;
+	}
 }
 
-.home-banner--text {
-	//margin: -$large-spacing * 3 auto 0 auto;
-	//margin: -$large-spacing * 3 auto 0 auto;
-	//width: 75%;
-	//margin-bottom: $large-spacing * 2.75;
+.home-banner--text h1, .home-banner--text h2 {
+	color: white;
 	
   @media print {
 		padding-bottom: $large-spacing;
-  }
+		font-size: $large-font-size;
+  }  
 
 	a:link, a:visited {
 		color: white;
-		text-shadow: 1px 1px 2px $dark-gray;
 
-	  // when viewport is less than 690, make text small
-	  @include media($mobile-navigation-breakpoint) {
-			font-size: $base-font-size * 1.25;
-			font-weight: 400;
+		&:hover {
+		  color: $teal;
+		  text-decoration: underline;
+		  transition: color $base-duration $base-timing;
 		}
+	}
+}
 
-		// when screen is greater than or equal to 691, 
-		// but less than 980, make text medium
-		@include media(min-width $mobile-navigation-breakpoint) {
-			font-size: $medlarge-font-size;
-			font-weight: 200;
-		}
+h1.home-banner--title {
 
-		// when screen is greater than or equal to 980, make text large
-	  @include media(min-width 980px) {
-			font-size: $large-font-size;
-			font-weight: 200;
-		}
-	
-	  @media print {
-			font-size: $large-font-size;
-			font-weight: 200;
-	  }   
+  // when viewport is less than 690, make text small
+  @include media(max-width $mobile-navigation-breakpoint) {
+		font-size: $large-font-size;
+		padding: $base-spacing null null 10%;
 	}
 
-	&:hover {
-	  color: shade(white, 50%);
-	  text-decoration: underline;
-	  transition: color $base-duration $base-timing;
+	// when screen is greater than or equal to 691, 
+	// but less than 980, make text medium
+	@include media(min-width $mobile-navigation-breakpoint) {
+		font-size: $large-font-size * 1.75;
+		padding: $small-spacing 0 0 10%;
+	}
+
+	// when screen is greater than or equal to 980, make text large
+  @include media(min-width 980px) {
+		font-size: $large-font-size * 2;
+		padding: $small-spacing $small-spacing $base-spacing 10%;
 	}
 }
 
 h2.home-banner--subtitle {
-	margin-top: -3em;
-	padding-left: 20%;
-	// position: relative;
 
- //  &::after {
-	//   content: "";
-	//   border-bottom: 5px solid white;
-	//   position: absolute;
-	//   left: 0;
-	//   right: 0;
-	//   bottom: 5px;
-	// }
+  // when viewport is less than 690, make text small
+  @include media(max-width $mobile-navigation-breakpoint) {
+		font-size: $base-font-size * 1.25;
+		margin-top: 1em;
+		padding-left: 10%;
+	}
+
+	// when screen is greater than or equal to 691, 
+	// but less than 980, make text medium
+	@include media(min-width $mobile-navigation-breakpoint) {
+		font-size: $large-font-size;
+		padding-left: 10%;
+	}
+
+	// when screen is greater than or equal to 980, make text large
+  @include media(min-width 980px) {
+		font-size: $large-font-size * 1.25;
+		margin-top: -3em;
+		padding-left: 10%;
+		padding-right: 5%;
+	}
 }
-
-h1.home-banner--title {
-	color: white;
-	font-size: $large-font-size * 2;
-	padding: $base-spacing 0 0 20%;
-	// position: relative;
-
-	// &::after {
-	//   content: "";
-	//   border-bottom: 5px solid white;
-	//   position: absolute;
-	//   left: 0;
-	//   right: 0;
-	//   bottom: 14px;
-	// }
-}
-// .banner-text-left {
-// 	text-align: left;
-// }
-
-// .banner-text-right {
-// 	text-align: right;
-// }
 
 .featured {
   margin-bottom: $xlarge-spacing;
 	position: relative;
 
-  img {
-  	//box-shadow: $hard-shadow;
-	}	
+  // when viewport is less than 690, tighten up headers
+  @include media(max-width 	$mobile-navigation-breakpoint) {
+  	margin-bottom: $large-spacing;
+	}
 }
-
-//.featured h2 a {
-//	color: white;
-
-//	&:hover {
-//	  text-decoration: underline;
-//	}
-//}
 
 .featured-header {
 	background-color: white;
@@ -119,12 +98,6 @@ h1.home-banner--title {
 	left: 20%;
 	@include fill-parent();
 }
-
-//.featured-header--title, .featured-header--subtitle {
-//	color: $primary-color;
-//	font-weight: 200;
-//	margin: 0;
-//}
 
 .featured-header--subtitle {
 	color: $medium-gray;
