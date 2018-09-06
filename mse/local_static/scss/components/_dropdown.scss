@@ -10,7 +10,7 @@
     overflow: show;
     text-align: left;
 
-// the following is about how high to position the dropdown menu
+    // the following is about how high to position the dropdown menu
 
     // when viewport is greater than the breakpoint,
     // position dropdown menu below main menu and hide it.
@@ -24,7 +24,7 @@
     // when viewport is less than or equal to 1004,
     // but larger than or equal to 690,
     // position dropdown menu a little higher up.
-    @include media(max-width 1004px min-width $mobile-navigation-breakpoint) {
+    @include media(max-width 1140px min-width $mobile-navigation-breakpoint) {
       @include position(absolute, 50px 0 null 0);
     }
   
@@ -37,7 +37,7 @@
   }
 
 
-// the following is about the dropdown menu itself and icon/text placement
+  // the following is about the dropdown menu itself and icon/text placement
 
   .dropdown-list {
     // when viewport is greater than the breakpoint,

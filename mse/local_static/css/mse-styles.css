@@ -983,7 +983,7 @@ ul.icon-list li.icon-list--map::before {
     display: none;
   }
 }
-@media screen and (max-width: 1004px) and (min-width: 43.125em) {
+@media screen and (max-width: 1140px) and (min-width: 43.125em) {
   .dropdown .dropdown-menu {
     position: absolute;
     top: 50px;
