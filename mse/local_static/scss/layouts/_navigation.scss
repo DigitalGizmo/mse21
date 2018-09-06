@@ -47,41 +47,35 @@
   }
 }
 
-.logo--text {
-  color: white;
-  //font-size: em(68);
-  //font-weight: 100;
-  //margin-bottom: 0;
-  //content: '';
-  position: absolute;
-  top: 1.8em;
-  width: 100%;
-  left: 10%;
-  //border-bottom: 6px solid white;
+//not using this anymore?
+// .logo--text {
+//   color: white;
+//   position: absolute;
+//   top: 1.8em;
+//   width: 100%;
+//   left: 10%;
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    border-bottom: 5px solid #FFF;
-  }
+//   &::after {
+//     content: '';
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     display: block;
+//     width: 100%;
+//     border-bottom: 5px solid #FFF;
+//   }
 
-  @include media(max-width $mobile-navigation-breakpoint) {
-    //font-weight: 200;
-    padding-left: $base-spacing;
-  }
+//   @include media(max-width $mobile-navigation-breakpoint) {
+//     padding-left: $base-spacing;
+//   }
 
-  @media print {
-    font-size: $medlarge-font-size!important;
-    //font-weight: 600;
-    margin: 0;
-    padding: 0;
-    text-align: right;
-  } 
-}
+//   @media print {
+//     font-size: $medlarge-font-size!important;
+//     margin: 0;
+//     padding: 0;
+//     text-align: right;
+//   } 
+// }
 
 .main-navigation {
   background-color: $primary-color;
@@ -122,7 +116,7 @@
   display: inline-block;
   vertical-align: top;
 
-  @include media(max-width 1024px) {
+  @include media(max-width 1140px) {
     font-size: rem(15);
   }
   
@@ -149,21 +143,10 @@
   a {
     color: white;
     display: block;
-    //font-size: $small-font-size;
     padding: $small-spacing $base-spacing * .75;
 
     @include media(max-width 825px) {
       padding: $small-spacing $small-spacing;
-    }
-
-    &:hover {
-      //content: '';
-      //position: absolute;
-      //top: 2.88em;
-      //width: 100%;
-      //left: 0;
-      //border-bottom: 4px solid;
-      //background-color: darken($primary-color, 15%);
     }
   }
 }
@@ -171,7 +154,6 @@
 .menu-toggle {
   a {
     color: white;
-    font-weight: 500;
   }
 
   // if viewport is larger than the breakpoint,
@@ -185,7 +167,6 @@
 }
 
 .main-navigation--selected a {
-  //background-color: $teal;
   border-bottom: thick solid $teal;
 }
 

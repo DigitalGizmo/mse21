@@ -3,26 +3,20 @@
 
   .dropdown-button {
     cursor: pointer;
-    
-    // little arrow indicating dropdown menu
-    //&:after {
-    //  content: " \25BE";
-    //  color: white;
-    //} 
   }
 
   .dropdown-menu {
-    //@include transition (all 0.2s ease-in-out);
     background-color: $toned-blue;
     overflow: show;
     text-align: left;
+
+// the following is about how high to position the dropdown menu
 
     // when viewport is greater than the breakpoint,
     // position dropdown menu below main menu and hide it.
     // ie: if greater than or equal to 691 (690 + 1)
     @include media($mobile-navigation-breakpoint + em(1)) {
-      @include position(absolute, 60px 0 null 0);
-      //box-shadow: $soft-shadow;
+      @include position(absolute, 65px 0 null 0);
       border-bottom: 6px solid $primary-color;
       display: none;
     }
@@ -31,16 +25,19 @@
     // but larger than or equal to 690,
     // position dropdown menu a little higher up.
     @include media(max-width 1004px min-width $mobile-navigation-breakpoint) {
-      @include position(absolute, 42px 0 null 0);
+      @include position(absolute, 50px 0 null 0);
     }
   
     // when viewport is less than or equal to 906,
     // but larger than or equal to 690,
     // position dropdown menu a little higher up.
     @include media(max-width 906px min-width $mobile-navigation-breakpoint) {
-      @include position(absolute, 36px 0 null 0);
+      @include position(absolute, 44px 0 null 0);
     }  
   }
+
+
+// the following is about the dropdown menu itself and icon/text placement
 
   .dropdown-list {
     // when viewport is greater than the breakpoint,
@@ -56,7 +53,6 @@
   // if greater than or equal to 691 (690 + 1)
   .dropdown-list--item { 
     @include media($mobile-navigation-breakpoint + em(1)) {
-      //@include span-columns(12/5);
       @include span-columns(12/6);
     }
 
@@ -85,7 +81,6 @@
       }
 
       &:hover {
-        //background-color: $teal;
         color: $teal;
 
         i {
