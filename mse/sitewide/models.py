@@ -42,6 +42,7 @@ class Featured(models.Model):
         ('maps:geomap', 'map'),
         ('community:profile', 'profile'),
         ('resources:resourceset', 'resource set'),
+        ('videos:video', 'video'),
         ('nolink', 'item not linked'),
     )
     DISPLAY_STATUS = (

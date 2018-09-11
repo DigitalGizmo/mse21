@@ -17,6 +17,14 @@
       <h3>{{ resource_object.subtitle|safe }}</h3>
     {% endif %}
 
+    <p>Original content by:
+    {% for profile in resource_object.profiles.all %}
+      <a href="/community/profiles/{{ profile.short_name }}/" class="title">
+      {{ profile.profile_name|safe }}</a>
+    {% endfor %}
+    </p>
+
+
   </section>
 {% endblock title_area %}
 

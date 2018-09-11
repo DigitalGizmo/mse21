@@ -15,7 +15,7 @@ admin.site.register(Menu, MenuAdmin)
 class FeaturedAdmin(admin.ModelAdmin):
     fieldsets = [
 	    (None, {'fields': ['short_name', 'resource_locator', 'display_status', 'ordinal']}),
-	    ('Banner', {'fields': ['banner_blurb', 'banner_name'], 
+	    ('Banner', {'fields': ['banner_blurb'], 
             'classes': ['collapse']}),
     ]
     list_display = ('short_name', 'resource_locator', 'display_status', 'ordinal')
