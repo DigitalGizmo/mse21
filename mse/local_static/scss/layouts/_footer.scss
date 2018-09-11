@@ -1,9 +1,9 @@
 footer {
-  background-color: $primary-color;
-  color: darken(white, 15%);
-  font-weight: 200;
+  background-color: $teal;
+  color: white;
+  font-size: $small-font-size;
   margin-top: $large-spacing;
-  padding: $base-spacing;
+  padding: $large-spacing $base-spacing;
 
   @include media(max-width $max-width) {
     padding: $base-spacing;
@@ -14,12 +14,19 @@ footer {
     font-size: rem(12);
   }
 
+  .footer-heading {
+    color: white;
+    font-size: $medlarge-font-size;
+    margin-bottom: 0;
+  }
+
   a:link, a:visited {
-    color: darken($toned-blue, 15%);
+    color: white;
+    text-decoration: none;
   }
 
   a:hover {
-    color: white;
+    color: $toned-blue;
   }
   
   @media print {
@@ -34,6 +41,7 @@ footer {
 }
 
 .footer-social--item  {
+  color: white;
   display: inline-block;
   font-family: icomoon;
   font-size: 2em;
@@ -42,9 +50,4 @@ footer {
 
 .footer-search  {
   @include span-columns(8);
-
-  a {
-  color: white;
-  text-decoration: underline;
-  }
 }

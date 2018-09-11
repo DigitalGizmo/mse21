@@ -16,9 +16,9 @@
 
 // scrolling text area used for lecture transcriptions
 .transcription {
-  background-color: $toned-blue;
-  border: thin solid $toned-blue-background-color;
-  border-radius: $base-border-radius;
+  //background-color: $toned-blue;
+  border: thin solid $toned-blue;
+  //border-radius: $base-border-radius;
   height: 200px;
   margin: $base-spacing 0;
   overflow: auto;
@@ -41,8 +41,8 @@
 // scrolling text area for interview questions
 .interview-questions  {
   background-color: #fff;  
-  border: thin solid $toned-blue-background-color;
-  border-radius: $base-border-radius;
+  //border: thin solid $toned-blue;
+  //border-radius: $base-border-radius;
   font-size: $small-font-size;
   height: 400px;
   overflow: auto;

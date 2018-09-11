@@ -1,6 +1,6 @@
 // Typography
-$base-font-family: $helvetica;
-$heading-font-family: $base-font-family;
+$base-font-family: $sharp20;
+$heading-font-family: $sharp15;
 
 // Font Sizes
 $base-font-size: 1em;
@@ -27,13 +27,13 @@ $tiny-icon-spacing: $small-spacing * 1.25;
 $small-bottom-spacing: em(4);
 $base-z-index: 0;
 $logo-z-index: $base-z-index + 1;
-$logo-width: em(140);
+$logo-width: em(100);
 $logo-width-with-padding: $logo-width + $base-spacing;
 
 // Colors
-$dark-blue: #022b61;
-$toned-blue: #dee3e7;
-$teal: #5b7687;
+$dark-blue: #040a50;  /* naval blue */
+$toned-blue: #bae2de; /* arctic ice */
+$teal: #f05f19; /* nautical orange */
 $dark-gray: #222;
 $medium-gray: #999;
 $light-gray: #ddd;
@@ -42,8 +42,8 @@ $selected: orange;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$primary-color: $teal;
-$action-color: $primary-color;
+$primary-color: $dark-blue;
+$action-color: lighten($primary-color, 15%);
 
 // Border
 $base-border-color: $light-gray;

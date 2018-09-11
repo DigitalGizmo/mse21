@@ -39,48 +39,61 @@
 // resource sets main menu
 .item-menu--big-item {
   font-size: $base-font-size;
-  margin-bottom: $base-spacing;
+  //margin-bottom: $base-spacing;
   position: relative;
 
   @include span-columns(4 12);  
   @include omega(3n);
 
-  @include media(max-width 589px) {
-    font-size: $small-font-size;
-    @include span-columns(6 12);
-    @include omega(2n);
-  }  
-  
   h3 {
-    background-color: adjust-color($primary-color, $alpha: -0.3);
-    color: white;
-    font-size: $base-font-size * 1.25;
-    font-weight: 200;
+    background-color: white;
+    color: $primary-color;
     padding: $small-spacing;
+    font-size: $base-font-size * 1.25;
     position: absolute;
-    width: 100%;
+    width: 90%;
+    top: 85%;
+    left: 20%;
+  }
+
+  @include media(max-width 589px) {
+  font-size: $small-font-size;
+  //@include span-columns(6 12);
+  //@include omega(2n);
+
+    h3 {
+      background-color: white;
+      color: $primary-color;
+      padding: $tiny-spacing;
+      font-size: $small-font-size * 1.25;
+      position: absolute;
+      width: 80%;
+      top: 85%;
+      left: 20%;
+    }
   }
 }
 
 // for items on a resource set page
 .resource-icon {
+  color: $primary-color;
   font-family: 'icomoon';
   font-size: $base-font-size * 1.125;
   padding-right: 0;
   vertical-align: text-top;
 
   &.raw {
-    color: darken($toned-blue, 50%);
+    color: $teal;
   }
 }
 
 // artifacts, documents
 .basic {
-  background-color: rgba($primary-color, 0.6);
+  //background-color: rgba($primary-color, 0.6);
   height: 216px;
   line-height: $heading-line-height;
   margin-bottom: $base-spacing;
-  padding: $small-spacing;
+  //padding: $small-spacing;
 
   @media print {
     background-color: transparent;
@@ -88,8 +101,8 @@
   } 
 
   a {
-    color: white;
-    font-weight: 200;
+    font-family: $heading-font-family;
+    text-transform: uppercase;
 
     @media print {
       color: $primary-color;
@@ -108,22 +121,23 @@
   margin-bottom: $large-spacing;
 
   img {
-    box-shadow: $hard-shadow;
+    border: 1px solid $light-gray;
   }
 }
 
 // maps, lectures
 .naked {
-  font-weight: 200;    
 
   a {
     display: block;
-    font-weight: 600;    
+    font-family: $heading-font-family;
+    text-transform: uppercase; 
   }
 
   a.item-menu--detail {
-    font-weight: 200;
     display: inline;        
+    font-family: $base-font-family;
+    text-transform: none; 
   }
 }
 
@@ -140,8 +154,13 @@
 
 .list-pic--interviewee, 
 .list-pic--title,  {
-  font-size: $medlarge-font-size;
-  font-weight: 200;    
+  font-family: $heading-font-family;
+  font-size: $base-font-size * 1.25;
+  text-transform: uppercase;  
+}
+
+.list-pic--interviewer {
+  //font-size: $small-font-size;
 }
 
 .list-pic--subtitle {
@@ -155,8 +174,11 @@
 }
 
 .list-pic--date,  {
-  font-weight: 600;
-  color: $primary-color;    
+  color: $medium-gray;
+  font-family: $base-font-family;
+  //font-size: $small-font-size;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 // community
@@ -165,10 +187,15 @@
   margin: 0 $small-spacing $small-spacing 0;
 
   img {
-    box-shadow: $hard-shadow;
+    //box-shadow: $hard-shadow;
+    border: 1px solid $light-gray;
+  }
+}
 
-    &:hover {
-      opacity: 0.65;
-    }
+li.item-menu--item a, li.list-pic--interviewee a, li.item-menu--big-item a h3 {
+  color: $primary-color;
+
+  &:hover {
+    text-decoration: underline;
   }
 }

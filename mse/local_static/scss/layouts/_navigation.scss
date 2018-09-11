@@ -1,6 +1,7 @@
 .logo {
-  @include outer-container;
-  padding-left: $logo-width-with-padding;
+  //@include outer-container;
+  background-color: $primary-color;
+  //padding-left: $logo-width-with-padding;
   position: relative;
 
   @include media(max-width $mobile-navigation-breakpoint) {
@@ -12,6 +13,7 @@
   @include position(absolute, 0 null null 0);
   z-index: $logo-z-index;
 
+
   @include media(max-width $mobile-navigation-breakpoint) {
     display: none;
   }
@@ -19,30 +21,67 @@
   @media print {
     display: none;
   }
+
+  img {
+    //height: 96px;
+    //width: auto;    
+  }
 }
 
-.logo--text {
-  color: $primary-color;
-  font-size: em(68);
-  font-weight: 100;
-  margin-bottom: 0;
+.our-logo--image {
+  @include position(absolute, 0 null null $logo-width);
+  z-index: $logo-z-index;
+
 
   @include media(max-width $mobile-navigation-breakpoint) {
-    font-weight: 200;
-    padding-left: $base-spacing;
+    display: none;
   }
 
   @media print {
-    font-size: $medlarge-font-size!important;
-    font-weight: 600;
-    margin: 0;
-    padding: 0;
-    text-align: right;
-  } 
+    display: none;
+  }
+
+  img {
+    max-height: 80px;
+    width: auto;    
+  }
 }
+
+//not using this anymore?
+// .logo--text {
+//   color: white;
+//   position: absolute;
+//   top: 1.8em;
+//   width: 100%;
+//   left: 10%;
+
+//   &::after {
+//     content: '';
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     display: block;
+//     width: 100%;
+//     border-bottom: 5px solid #FFF;
+//   }
+
+//   @include media(max-width $mobile-navigation-breakpoint) {
+//     padding-left: $base-spacing;
+//   }
+
+//   @media print {
+//     font-size: $medlarge-font-size!important;
+//     margin: 0;
+//     padding: 0;
+//     text-align: right;
+//   } 
+// }
 
 .main-navigation {
   background-color: $primary-color;
+  font-family: $heading-font-family;
+  font-size: $base-font-size * 1.25;
+  text-transform: uppercase;
   position: relative;
 
   @media print {
@@ -51,11 +90,15 @@
 }
 
 .main-navigation--wrapper {
-  @include outer-container;
-  padding-left: $logo-width-with-padding;
+  //@include outer-container;
+  //padding-left: $logo-width-with-padding;
+  //border-bottom: 5px solid white;
+  padding-right: $tiny-spacing;
+  text-align: right;
 
   @include media(max-width $mobile-navigation-breakpoint) {
     padding-left: $base-spacing;
+    text-align: left;
   }
 }
 
@@ -73,13 +116,15 @@
   display: inline-block;
   vertical-align: top;
 
-  @include media(max-width 1004px) {
-    font-size: rem(14);
+  // when viewport is less than or equal to 1140px, make link text smaller
+  @include media(max-width 1140px) {
+    font-size: rem(15);
   }
-  
+
+  // when viewport is less than or equal to 906px, make link text even smaller  
   @include media(max-width 906px) {
-    font-size: rem(12);
-}
+    font-size: rem(13);
+  }
 
   // when viewport is less than or equal to breakpoint,
   // display the menu vertically
@@ -100,14 +145,10 @@
   a {
     color: white;
     display: block;
-    padding: $small-spacing $base-spacing;
+    padding: $small-spacing $base-spacing * .75;
 
     @include media(max-width 825px) {
       padding: $small-spacing $small-spacing;
-    }
-
-    &:hover {
-      background-color: darken($primary-color, 15%);
     }
   }
 }
@@ -115,7 +156,6 @@
 .menu-toggle {
   a {
     color: white;
-    font-weight: 500;
   }
 
   // if viewport is larger than the breakpoint,
@@ -128,6 +168,10 @@
   }
 }
 
-.main-navigation--selected {
-  background-color: darken($primary-color, 10%);
+.main-navigation--selected a {
+  border-bottom: thick solid $teal;
+}
+
+.main-navigation--selected .dropdown-list--item a {
+  border-bottom: none;
 }

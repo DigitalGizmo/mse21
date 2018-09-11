@@ -5,9 +5,13 @@
 
 <!-- featured item - banner -->  
 <div class="home-banner">
+	<div class="home-banner--text">
+  	<h1 class="home-banner--title">Mystic Seaport Museum for Educators</h1>
 
-	<img class="home-banner--image" src="{% static 'sitewide/home/bannerpics/' %}{{ banner_item.short_name }}.jpg" />
-	<h2 class="home-banner--text banner-text-left"><a href="{% url banner_item.resource_locator|add:'_detail' banner_item.short_name %}">{{ banner_item.banner_blurb|safe }}</a></h2>
+		<h2 class="home-banner--subtitle">
+			<a href="{% url banner_item.resource_locator|add:'_detail' banner_item.short_name %}">{{ banner_item.banner_blurb|safe }}</a>
+		</h2>
+	</div>
 </div>
 
 <!-- Three featured items --> 
@@ -45,7 +49,7 @@
 	<!-- new item list --> 
 	<article class="content-aside">
 	  <section class="content-aside--box">
-	    <h2 class="content-wrapper--head">What's New</h2>
+	    <h2 class="content-wrapper--head">What&apos;s New</h2>
 	    <ul class="home-list">
 			{% for new_item in banner_item.new_list %}
 				<li>{{ new_item.resource_type_title }}<br/>

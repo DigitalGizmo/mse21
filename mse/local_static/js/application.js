@@ -33,6 +33,7 @@ $(document).ready(function(){
   // text has to be sized first so that the banner height will be correct for logo sizing
   $(".logo--text").fitText(1.4, { minFontSize: '20px', maxFontSize: '68px' });
   $('#logo--image-img').css('height', $('#banner').height()); 
+  $('#our-logo--image-img').css('height', $('#banner').height()); 
 
   // ------- ENABLE LINKS FOR FURTHER READING AND IDEA SLIM POPS ------
   $('.pop-url').click(function(event){
@@ -169,7 +170,7 @@ $(document).ready(function(){
     }
   });
 
-  // ------- Docment paging ------
+  // ------- Document paging ------
   // set first item selected
   $("#document-paging--list li").filter(":first").addClass('document-paging--selected');
 
@@ -271,8 +272,10 @@ $(window).on('resize', function(){
   //  for html:   <div id="dimensions"><p>Dimensions will go here.</p></div>
   if (win.width() >= 690) {  
     $('#logo--image-img').css('height', $('#banner').height());
+    $('#our-logo--image-img').css('height', $('#banner').height());
   } else {
     $('#logo--image-img').css('height', 81); 
+    $('#our-logo--image-img').css('height', 78); 
   }
 }); // end on resize
 

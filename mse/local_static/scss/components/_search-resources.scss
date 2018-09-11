@@ -22,13 +22,16 @@
 
 	td {
 		padding-right: $small-spacing;
+		padding-bottom: $base-spacing;
 	}
 }
 
 .search-resources--heads {
-	background-color: $toned-blue;
-	border-bottom: 12px solid white;
-	color: $primary-color;
+	//background-color: $toned-blue;
+	//border-bottom: 2px solid $toned-blue;
+	color: $medium-gray;
+	font-family: $heading-font-family;
+	text-transform: uppercase;
 }
 
 .search-resources--pic {
