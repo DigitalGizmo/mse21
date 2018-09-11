@@ -6,13 +6,13 @@
 *.gif
 *.png
 *.lnk
-*.css.map
 
 # Files
 .DS_Store
 .com.apple.timemachine.supported
 secrets.json
 robots.txt
+application.css.map
 
 # Directories
 **/.sass-cache
