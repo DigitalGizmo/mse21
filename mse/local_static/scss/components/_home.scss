@@ -15,6 +15,7 @@
 
 .home-banner--text h1, .home-banner--text h2 {
 	color: white;
+	text-shadow: 1px 1px 2px black;
 	
   @media print {
 		padding-bottom: $large-spacing;
@@ -130,7 +131,6 @@ h2.content-wrapper--head a {
 
 		a {
 			font-size: $base-font-size * 1.25;
-			//font-weight: 600;
 		}
 
 		li {

@@ -1080,6 +1080,7 @@ ul.icon-list li.icon-list--map::before {
 
 .home-banner--text h1, .home-banner--text h2 {
   color: white;
+  text-shadow: 1px 1px 2px black;
 }
 @media print {
   .home-banner--text h1, .home-banner--text h2 {
