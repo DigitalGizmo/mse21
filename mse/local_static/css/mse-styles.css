@@ -632,6 +632,10 @@ footer a:hover {
     display: none;
   }
 }
+.logo--image img {
+  max-height: 80px;
+  width: auto;
+}
 
 .our-logo--image {
   position: absolute;
