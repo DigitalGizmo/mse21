@@ -112,6 +112,11 @@ in /etc/httpd/conf/vhosts/mseadmin msedev.mysticseaport.org
 	</Directory>
 	~            	
 
+Add robots.txt alias
+::
+        Alias /robots.txt /var/www/mseadmin/data/www/msedev.mysticseaport.org/mse/robots.txt
+        Alias /robots.txt /var/www/mseadmin/data/www/educators.mysticseaport.org/mse/robots.txt
+
 Added redorect to https
 ::
         Redirect Permanent / https://educators.mysticseaport.org/

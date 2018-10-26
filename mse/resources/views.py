@@ -32,10 +32,12 @@ def detail(request, short_name):
     document_list = o.document_set.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')  
     map_list = o.geomap_set.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')  
     lecture_list = o.lecture_set.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')  
+    video_list = o.video_set.filter(status_num__gte=settings.STATUS_LEVEL).order_by('ordinal')  
 
     return render(request, 'resources/resourceset_detail.html', {'resource_object': 
         o, 'artifact_list': artifact_list, 'document_list': document_list, 
-        'map_list': map_list, 'lecture_list': lecture_list, 'main_nav_selected': 'resourcesets'})
+        'map_list': map_list, 'lecture_list': lecture_list, 'video_list': video_list, 
+        'main_nav_selected': 'resourcesets'})
 
 def ideas(request, short_name):
     o = get_object_or_404(Resourceset, short_name=short_name)

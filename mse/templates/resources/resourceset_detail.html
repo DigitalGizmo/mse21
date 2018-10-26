@@ -74,5 +74,14 @@
       </li>
     {% endfor %}
 
+    {% for video in video_list %}
+      <li class="item-menu--item basic resourceset-small">
+        <a href="{% url 'videos:video_detail' video.short_name %}" class="title">
+        <img src="{% static 'videos/menupics/' %}{{ video.short_name }}_m.jpg" alt="image of {{ video.title }}"/>
+        <i class="resource-icon icon-video"></i>
+        {{ video.title|safe }}</a>
+      </li>
+    {% endfor %}
+
   </ul>
 {% endblock menu %}
