@@ -11,4 +11,8 @@
 			<dt>Dimensions</dt>
 			<dd>{{ resource_object.measurements}}</dd>
 		{% endif %}
+		{% if resource_object.assoc_place %}
+			<dt>Place</dt>
+			<dd>{{ resource_object.assoc_place}}</dd>
+		{% endif %}
 	</dl>
