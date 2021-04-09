@@ -10,7 +10,7 @@
 
   <section class="title-area--text">
     <p class="breadcrumbs">
-      <a href="{% url 'scholars:'|add:resource_object.resource_type|add:'_list' %}">Audio Lectures</a>
+      <a href="{% url 'scholars:'|add:resource_object.resource_type|add:'_list' %}">Audio Programs</a>
     </p>
     <h1>{{ resource_object.title|safe }}</h1>
     {% if resource_object.subtitle %}
@@ -30,7 +30,7 @@
     <aside class="content-aside"><!-- boxes column -->
 
       <section class="content-aside--box lecture">
-        <h2 class="content-wrapper--head">Lecture Topics</h2>
+        <h2 class="content-wrapper--head">Program Topics</h2>
         <ol class="lecture-topics">
         {% for topic in resource_object.topic_set.all %}          
           <li><a href="#clip{{topic.topic_num}}">{{topic.title|safe}}</a></li>
@@ -48,7 +48,7 @@
 
     <section class="content-main"><!-- main content column -->
 
-      <h2 class="content-wrapper--head">About This Lecture</h2>
+      <h2 class="content-wrapper--head">About This Program</h2>
       {{ resource_object.narrative|safe }}
 
       <article class="content-main--lecture">
