@@ -15,6 +15,7 @@ Development elements:
 	branch: develop
 	settings: mse/settings/staging
 	database: mse2db
+		update July 2019: looks like it's really msedb. That's what my local update script, ref'd below, says it's copying from (for mse_ed)
 	static: mse_static
 
 Public, live
@@ -31,17 +32,12 @@ GIT
 	Use git logged in as mseadmin
 
 Maps
-	Currently handled through Google Fusion Tables
-	Keys managed in Don's digitalgizmo account via: https://console.developers.google.com/project
+	Used to be handled through Google Fusion Tables, but now in our own map database.
+	As of Dec 2019 the key is managed in Don's digitalgizmo account 
+	via: https://console.developers.google.com/project
 
-	Actual fusion table maps are under Don's don.b.button@gmail.com account. In Drive.
+	Fusion table maps used to be under Don's don.b.button@gmail.com account.
 
-	Process:
-	- groom in Excel (normalize column names)
-	- open in Numbers and export to CSV
-	- create new Fusion table in Drive
-	- Tools > Publish - Anyone with link
-	- File > About this table - get ID
 
 Transition to MSE 2.0
 ----------------
@@ -127,8 +123,20 @@ If you need to go back to the active virtenv:
 
 Update Educators Database
 --------------------------
+After making the backup as detailed above.
 
-Copy data to educators
+Newly functional script for copying to educators
+Added password for msedb_ed to .pgpass
+From local terminal, similar to copy msedev
+::
+	cd ~/Documents/Projects/MysticSeaport/MSE20/DataBaks/scripts
+	ssh root@68.169.52.41 'bash -s' < copy_to_ed.sh
+	(root password)
+Next - combine scripts?
+-w option is to not ask for password, but to look for it in .pgpass
+
+
+Convential Copy data to educators
 Note msedb_ed as the target.
 Log into shell as root
 ::

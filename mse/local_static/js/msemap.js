@@ -765,7 +765,7 @@ function replotYearsEventType(eventTypeIndex, fromYearLayerIndex, voyageId) {
 }
 
 /**
-* Performs fusion table query to set array of rows. Calls dropMarkers. 
+* Access url for our map database to set array of rows. Calls dropMarkers. 
 * Also initializes marker and sidebar arrays.
 * @function prepVoyageMarkers 
 * @param {int} yearLayerIndex - index of layer (year) to query
@@ -802,10 +802,8 @@ function prepVoyageMarkers(yearLayerIndex, voyageId, isFullReplot) {
 
 		// alert(" -- have yet to incorporate mode into params");
 		// radio button sends index number. Url translates this to mode column name, e.g. weather_code
-		var url = '/mapdata/voyage/' + voyageId + '/' + layerYears[yearLayerIndex] + '/'+ EVENT_TYPE_FIELDS[activeEventTypeIndex] + '/'; // ' + EVENT_TYPE_FIELDS[activeEventTypeIndex] + '
+		var url = '/mapdata/voyage/' + voyageId + '/' + layerYears[yearLayerIndex] + '/'+ EVENT_TYPE_FIELDS[activeEventTypeIndex] + '/'; 
 		console.log("-- prepVoyageMarkers url: " + url);
-
-		// whereClause += "AND '" + EVENT_TYPE_FIELDS[activeEventTypeIndex] + "' > 0";
 
 	} else {
 		// var url = '/mapdata/voyage/AV05169/' + String(year) + "/";
