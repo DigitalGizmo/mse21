@@ -14,9 +14,9 @@ Development elements:
 	env:  mse -- mse2 is a duplicate - wsgi uses mse
 	branch: develop
 	settings: mse/settings/staging
-	database: mse2db
-		update July 2019: looks like it's really msedb. That's what my local update script, ref'd below, says it's copying from (for mse_ed)
+	database: msedb (not mse2db)
 	static: mse_static
+
 
 Public, live
 	dir: educators.mysticseaport.org
@@ -26,7 +26,7 @@ Public, live
 
 Local, Don's machine
 	env: mse 
-	database: mse2_db
+	database: msedb
 
 GIT
 	Use git logged in as mseadmin
@@ -97,7 +97,7 @@ remote server.
 (configured .pgpass in root)
 ::
 		
-	cd ~/Documents/Projects/MysticSeaport/MSE20/DataBaks/scripts
+	cd ~/Documents/2-Areas-Work/MysticSeaport/DataBaks/scripts
 	ssh root@68.169.52.41 'bash -s' < copy_msedb.sh
 	(root password)
 

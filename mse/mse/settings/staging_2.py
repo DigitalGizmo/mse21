@@ -1,5 +1,8 @@
 """
 Staging Django settings for mse2 project.
+
+NOT IN USE -- IGNORE!
+
 """
 
 from .base import *

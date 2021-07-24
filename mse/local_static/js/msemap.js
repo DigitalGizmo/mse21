@@ -991,7 +991,7 @@ function createVoyageMarker(yearLayerIndex, row) {
 		if (log_link_type==1) { 
 
 			iwHtml.push('<a href="http://research.mysticseaport.org/item/l0' + 
-				row.bib_id + '/' + row.logbook_page + '/" target="reference">Link to Logbook</a>'); 
+				row.bib_id + '/#' + row.logbook_page + '/" target="reference">Link to Logbook</a>'); 
 
 		} else if (log_link_type==2) {
 			iwHtml.push('<a href="javascript:popBox(&apos;maps&apos; ,&apos;journal&apos; ,&apos;' + 
