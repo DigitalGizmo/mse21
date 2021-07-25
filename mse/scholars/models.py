@@ -7,7 +7,7 @@ import core.models
 class Lecture(core.models.ManyModel):
     _app_namespace = "scholars"
     _resource_type = "lecture"
-    _resource_type_title = "Lecture"
+    _resource_type_title = "Audio Program"
     _static_path = "scholars/lectures"
     title = models.CharField(max_length=128)
     subtitle = models.CharField(max_length=128, blank=True, default='')

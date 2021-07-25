@@ -6,7 +6,7 @@ class SearchForm(forms.Form):
     """
     RESOURCE_TYPES = (
         ('m','Maps'),
-        ('l','Lectures'),
+        ('l','Audio Programs'),
         ('i','Interviews'),
         ('d','Documents'),
         ('a','Artifacts'),
