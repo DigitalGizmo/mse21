@@ -154,3 +154,6 @@ SITE_ID = 1
 STATUS_LEVEL = 4
 # for devel vs. produciton diffes: google analytics in base.html
 IS_PRODUCTION = False
+
+# For Django 3.2
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

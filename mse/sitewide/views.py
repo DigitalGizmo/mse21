@@ -114,7 +114,7 @@ class SearchListView(MenuInfoMixin, FormMixin, generic.ListView):
 
         # outside of is_valid for initial display
 
-        print(' -------- rt_id in enumerate(rt_list) ----' + rt_list[0])
+        # print(' -------- rt_id in enumerate(rt_list) ----' + rt_list[0])
 
         for i, rt_id in enumerate(rt_list):
             print('rt app, type: ' + self.resource_types[rt_id][0])

@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 {# Shared between PQ and MSE #}
 
 <!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&v=3.8">  -->
