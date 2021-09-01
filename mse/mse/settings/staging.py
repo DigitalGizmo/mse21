@@ -4,7 +4,7 @@ Staging Django settings for mse project.
 
 from .base import *
 
-ALLOWED_HOSTS = ['msedev.mysticseaport.org']
+ALLOWED_HOSTS = ['msedev.mysticseaport.org', '143.198.12.96', 'msedev.digitalgizmo.com']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

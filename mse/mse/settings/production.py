@@ -4,7 +4,7 @@ Production Django settings for mse project.
 
 from .base import *
 
-ALLOWED_HOSTS = ['educators.mysticseaport.org']
+ALLOWED_HOSTS = ['educators.mysticseaport.org', '143.198.12.96', 'mseed.digitalgizmo.com']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False

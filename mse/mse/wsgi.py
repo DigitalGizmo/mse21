@@ -14,15 +14,20 @@ Some devel envs won't need or have mod_wsgi
 """
 
 import os
-try:
-	import mod_wsgi
-	try:
-		os.environ['DJANGO_SETTINGS_MODULE'] = 'mse.settings.%s' % mod_wsgi.process_group
-	except AttributeError:
-		# let the above setting stand
-		os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mse.settings.local")
-except ImportError:
-	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mse.settings.local")
+
+# try:
+# 	import mod_wsgi
+# 	try:
+# 		# os.environ['DJANGO_SETTINGS_MODULE'] = 'mse.settings.%s' % mod_wsgi.process_group
+# 		os.environ['DJANGO_SETTINGS_MODULE'] = 'mse.settings.%s' % mod_wsgi.process_group
+# 	except AttributeError:
+# 		# let the above setting stand
+# 		os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mse.settings.local")
+# except ImportError:
+# 	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mse.settings.local")
 	
 from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mse.settings.local')
+
 application = get_wsgi_application()
